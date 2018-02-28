@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build && echo '/* /index.html 200' > build/_redirects",
     "test": "react-scripts test --env=jsdom",
+    "lint": "eslint src config test",
     "esdoc": "./node_modules/.bin/esdoc",
     "publish:esdoc": "gh-pages -d esdoc"
   },
@@ -44,7 +45,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "gh-pages": "^1.1.0",
-    "husky": "^0.14.3"
+    "husky": "^0.15.0-rc.8"
   },
   "husky": {
     "hooks": {
