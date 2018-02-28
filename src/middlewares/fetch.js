@@ -1,9 +1,18 @@
 import axios from 'axios';
 
-import get from '../helpers/get';
-import last from '../helpers/last';
-import config from '../constants/config';
+/*
+  Helpers
+ */
+import { get, last } from '../helpers';
 
+/*
+  Constants
+ */
+import { config } from '../constants';
+
+/**
+ * fetch Middleware function
+ */
 const fetchMiddleware = () => dispatch => async action => {
   const { type, url, params, data } = action;
   const method = get(action, 'method', 'get');
