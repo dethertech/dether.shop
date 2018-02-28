@@ -1,1 +1,1 @@
-export fetchMiddleware from './fetch';
+export { default as fetchMiddleware } from './fetch';
