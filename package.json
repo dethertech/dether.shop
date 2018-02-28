@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
+    "deep-freeze": "^0.0.1",
     "esdoc": "^1.0.4",
     "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^4.18.1",
