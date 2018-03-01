@@ -7,7 +7,7 @@
     "ethereum"
   ],
   "author": "Dether Team <hello@dether.io>",
-  "license": "LicenseRef-LICENSE",
+  "license": "Apache 2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dethertech/dether.shop.git"
@@ -38,6 +38,8 @@
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "deep-freeze": "^0.0.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "esdoc": "^1.0.4",
     "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^4.18.1",
@@ -46,7 +48,8 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "gh-pages": "^1.1.0",
-    "husky": "^0.15.0-rc.8"
+    "husky": "^0.15.0-rc.8",
+    "react-test-renderer": "^16.2.0"
   },
   "husky": {
     "hooks": {

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
  * Home containers
  * @extends PureComponent
  */
-class Home extends PureComponent {
+export class Home extends PureComponent {
   state = {}
 
   render = () => {

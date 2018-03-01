@@ -1,7 +1,7 @@
 /* global beforeEach describe it expect */
 import deepFreeze from 'deep-freeze';
 
-import reducer from './map';
+import reducer from '../map';
 
 describe('reducer::maps', () => {
   let defaultAction;
