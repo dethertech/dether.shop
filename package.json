@@ -7,7 +7,7 @@
     "ethereum"
   ],
   "author": "Dether Team <hello@dether.io>",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dethertech/dether.shop.git"
