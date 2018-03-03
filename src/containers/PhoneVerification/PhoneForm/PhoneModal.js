@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import tr from '../../../../translate';
-import tokens from '../../../../styles/tokens';
-import Modal from '../../../../components/Modal';
-import Button from '../../../../components/Button';
-import { H2 } from '../../../../components/Headings';
-import { Padding } from '../../../../components/Spaces';
+import tr from '../../../translate';
+import tokens from '../../../styles/tokens';
+import Modal from '../../../components/Modal';
+import Button from '../../../components/Button';
+import { H2 } from '../../../components/Headings';
+import { Padding } from '../../../components/Spaces';
 
 const ButtonsWrapper = styled.div`
   display: flex;

@@ -2,16 +2,15 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import tr from '../../../../translate';
-import { LabeledInput } from '../../../../components/Inputs';
-import { Padding } from '../../../../components/Spaces';
-import Button from '../../../../components/Button';
-import Layout from '../../../../components/Layout';
-import HeaderOnboarding from '../../../../components/HeaderOnboarding';
-import tokens from '../../../../styles/tokens';
-import countries from '../../../../constants/prefixePhone';
+import tr from '../../../translate';
+import { LabeledInput } from '../../../components/Inputs';
+import { Padding } from '../../../components/Spaces';
+import Button from '../../../components/Button';
+import Layout from '../../../components/Layout';
+import tokens from '../../../styles/tokens';
+import countries from '../../../constants/prefixePhone';
 import PhoneModal from './PhoneModal';
-import Message from '../../../../components/Message';
+import Message from '../../../components/Message';
 
 const DialCode = styled.div`
   vertical-align: middle;
@@ -153,13 +152,6 @@ class PhoneForm extends PureComponent {
             submitPhone={this.handleSubmit}
           />
         )}
-        <Layout.Header>
-          <HeaderOnboarding
-            title={tr('onboarding.phone.title')}
-            step={tr('onboarding.phone.step')}
-            progress={3 / 4}
-          />
-        </Layout.Header>
         <Layout.Body>
           <Padding all="l">
             {submitError && <Message theme="error">{submitError}</Message>}
