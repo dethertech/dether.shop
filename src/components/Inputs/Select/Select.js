@@ -19,6 +19,10 @@ const InputSelect = styled.select`
   width: 100%;
   padding: ${tokens.spaces.s};
   z-index: 1;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 `;
 
 const InputSelectIcon = styled.div`
@@ -29,7 +33,7 @@ const InputSelectIcon = styled.div`
   margin-top: -0.6rem;
 `;
 
-const Select = ({ data, onChange, selected }) => (
+const Select = ({ data, onChange, selected, ...rest }) => (
   <SelectWrapper>
     <InputSelectIcon>
       <Icon
@@ -39,7 +43,7 @@ const Select = ({ data, onChange, selected }) => (
         color={tokens.colors.grey.darkest}
       />
     </InputSelectIcon>
-    <InputSelect defaultValue={selected} onChange={onChange}>
+    <InputSelect {...rest} defaultValue={selected} onChange={onChange}>
       {data.length &&
         data.map(opt => (
           <option key={opt} value={opt}>

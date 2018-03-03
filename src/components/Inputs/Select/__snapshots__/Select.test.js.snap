@@ -32,6 +32,10 @@ exports[`Component Select should be render without crash 1`] = `
   z-index: 1;
 }
 
+.c4:disabled {
+  opacity: 0.5;
+}
+
 .c1 {
   position: absolute;
   z-index: 0;
