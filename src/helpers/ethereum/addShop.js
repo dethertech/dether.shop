@@ -2,7 +2,7 @@ import DthContract from 'dethercontract/contracts/DetherToken.json';
 import DetherCore from 'dethercontract/contracts/DetherCore.json';
 import web3Abi from 'web3-eth-abi';
 
-import { web3js } from './utils';
+import { web3js, helperWeb3 } from './utils';
 
 const overloadedTransferAbi = {
   constant: false,
@@ -57,18 +57,17 @@ const shopToContract = (rawshop) => {
  */
 const addShop = (shop) =>
   new Promise(async (res, rej) => {
-    const hexShop = shopToContract(shop);
-    const address = (await web3js.eth.getAccounts())[0];
-    const networkId = await web3js.eth.net.getId();
-    const transferMethodTransactionData = web3Abi.encodeFunctionCall(
-      overloadedTransferAbi,
-      [
-        DetherCore.networks[networkId].address,
-        20,
-        hexShop
-      ]
-    );
     try {
+      const hexShop = shopToContract(shop);
+      const { address, networkId } = await helperWeb3();
+      const transferMethodTransactionData = web3Abi.encodeFunctionCall(
+        overloadedTransferAbi,
+        [
+          DetherCore.networks[networkId].address,
+          20,
+          hexShop
+        ]
+      );
       const tsx = await web3js.eth
         .sendTransaction({
           from: address,
