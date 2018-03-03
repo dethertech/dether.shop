@@ -7,8 +7,8 @@ const appReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_METAMASK_INSTALLED':
       return { ...state, isMetamaskInstalled: payload };
-    case 'SET_APP_INITIALAZED':
-      return { ...state, balance: payload };
+    case 'SET_APP_INITIALIZED':
+      return { ...state, isAppInitialized: payload };
     default:
       return state;
   }

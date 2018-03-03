@@ -1,6 +1,22 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+
+import {
+  getShop as getShopHelper,
+  getBalance as getBalanceHelper,
+  isWeb3 as isWeb3Helper
+} from '../../helpers/ethereum';
+import {
+  setAppInitialized as setAppInitializedAction,
+  setMetamaskInstalled as setMetamaskInstalledAction
+} from '../../actions/app';
+import {
+  setEthAddress as setEthAddressAction,
+  setBalance as setBalanceAction
+} from '../../actions/user';
+import { setShop as setShopAction } from '../../actions/shop';
 
 import tr from '../../translate';
 
@@ -17,8 +33,8 @@ export class LeftPanel extends PureComponent {
     isAppInitialized: PropTypes.bool.isRequired,
     hasShop: PropTypes.bool.isRequired,
     hasTransactionPending: PropTypes.bool.isRequired,
-
-    setHasWeb3: PropTypes.func.isRequired
+    setMetamaskInstalled: PropTypes.func.isRequired,
+    setAppInitialized: PropTypes.func.isRequired
     // TODO setShop: PropTypes.bool.isRequired
   };
 
@@ -27,11 +43,30 @@ export class LeftPanel extends PureComponent {
   }
 
   async initApp() {
-    const { isAppInitialized, setHasWeb3 } = this.props;
+    const {
+      isAppInitialized,
+      setMetamaskInstalled,
+      setAppInitialized,
+      setEthAddress,
+      isWeb3,
+      getShop,
+      setShop,
+      getBalance,
+      setBalance
+    } = this.props;
+
     if (!isAppInitialized) {
-      setTimeout(() => {
-        setHasWeb3(true);
-      }, 1000);
+      const ethAddress = await isWeb3();
+      if (ethAddress) {
+        const shop = await getShop();
+        const balance = await getBalance();
+        console.log(balance);
+        if (shop) setShop(shop);
+        if (balance) setBalance(balance);
+        setMetamaskInstalled(true);
+        setAppInitialized(true);
+        setEthAddress(ethAddress);
+      }
     }
   }
 
@@ -46,8 +81,10 @@ export class LeftPanel extends PureComponent {
         />
       );
     } else if (!hasShop || hasTransactionPending) {
+      console.log('RENDERED AddShop');
       return <AddShopRouter />;
     }
+    console.log('RENDERED NOTING');
     return <div>Add shop</div>;
   }
 }
@@ -58,9 +95,16 @@ const mapStateToProps = ({ app, shop }) => ({
   hasTransactionPending: !!shop.transactionHash
 });
 
-const mapDispatchToProps = (/* dispatch */) => ({
+const mapDispatchToProps = dispatch => ({
   // TODO setHasWeb3: bindActionCreators(actions.app.setHasWeb3, dispatch),
-  setHasWeb3: () => {} // TODO REMOVE
+  setAppInitialized: bindActionCreators(setAppInitializedAction, dispatch),
+  setMetamaskInstalled: bindActionCreators(setMetamaskInstalledAction, dispatch),
+  setEthAddress: bindActionCreators(setEthAddressAction, dispatch),
+  setShop: bindActionCreators(setShopAction, dispatch),
+  setBalance: bindActionCreators(setBalanceAction, dispatch),
+  isWeb3: isWeb3Helper,
+  getShop: getShopHelper,
+  getBalance: getBalanceHelper
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftPanel);

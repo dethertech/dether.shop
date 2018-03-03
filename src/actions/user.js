@@ -3,6 +3,12 @@ const setEthAddress = ethAddress => ({
   payload: { ethAddress }
 });
 
+const setBalance = balance => ({
+  type: 'SET_BALANCE',
+  payload: { balance }
+});
+
 export {
-  setEthAddress
+  setEthAddress,
+  setBalance
 };
