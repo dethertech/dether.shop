@@ -20,6 +20,7 @@ import { H1 } from '../../components/Headings';
 const FooterText = styled.footer`
   font-size: ${tokens.fontSizes.s};
 `;
+
 /**
  * Home containers
  * @extends PureComponent

@@ -2,7 +2,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import Button from './Button'
+import Button, { SwitchButton } from './index'
 
 storiesOf('03 - Components', module).addWithChapters('Button', {
   subtitle: 'Button',
@@ -75,6 +75,24 @@ storiesOf('03 - Components', module).addWithChapters('Button', {
               <Button onClick={() => {}} disabled fullWidth theme="danger">
                 Danger
               </Button>
+            </div>
+          ),
+          options: {
+            showSource: true,
+            showPropTables: false
+          }
+        },
+        {
+          title: 'SwitchButton buttons',
+          subtitle: 'Add the disabled prop',
+          sectionFn: () => (
+            <div>
+              <SwitchButton onClick={() => {}}>
+                i'm not selected
+              </SwitchButton>
+              <SwitchButton onClick={() => {}} checked>
+                i'm selected
+              </SwitchButton>
             </div>
           ),
           options: {
