@@ -3,15 +3,14 @@ import React, { PureComponent } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
-import tr from '../../../../translate';
-import Layout from '../../../../components/Layout';
-import { Padding, Margin } from '../../../../components/Spaces';
-import tokens from '../../../../styles/tokens';
-import Loader from '../../../../components/Loader';
-import ButtonLink from '../../../../components/ButtonLink';
-import HeaderOnboarding from '../../../../components/HeaderOnboarding';
-import Message from '../../../../components/Message';
-import Mention from '../../../../components/Mention';
+import tr from '../../../translate';
+import Layout from '../../../components/Layout';
+import { Padding, Margin } from '../../../components/Spaces';
+import tokens from '../../../styles/tokens';
+import Loader from '../../../components/Loader';
+import ButtonLink from '../../../components/ButtonLink';
+import Message from '../../../components/Message';
+import Mention from '../../../components/Mention';
 
 const CodeBlock = styled.div`
   position: relative;
@@ -67,13 +66,11 @@ class ValidationCode extends PureComponent {
     editPhoneNumber: PropTypes.func.isRequired,
     reSendSms: PropTypes.func.isRequired,
     error: PropTypes.string,
-    code: PropTypes.number
   };
 
   static defaultProps = {
     isPending: false,
     error: null,
-    code: null
   };
 
   state = {
@@ -107,18 +104,9 @@ class ValidationCode extends PureComponent {
 
   render() {
     const { code } = this.state;
-    const { phoneNumber, editPhoneNumber, reSendSms, error, isPending, code: vCode } = this.props;
-    const codeString = vCode ? ` (${vCode})` : '';
+    const { phoneNumber, editPhoneNumber, reSendSms, error, isPending } = this.props;
     return (
       <Layout>
-        <Layout.Header>
-          <HeaderOnboarding
-            title={`${tr('onboarding.validate_code.title')}${codeString}`}
-            subtitle={tr('onboarding.validate_code.subtitle')}
-            step={tr('onboarding.validate_code.step')}
-            progress={3 / 4}
-          />
-        </Layout.Header>
         <Layout.Body>
           <Padding all="m">
             {isPending && (

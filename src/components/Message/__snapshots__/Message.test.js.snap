@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Message should be render without crash 1`] = `
+<div
+  className="sc-bdVaJa NuUNn"
+>
+  <div
+    className="sc-bwzfXH dDzWMm"
+  />
+  <div>
+    Hello je suis un Message. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur quaerat, doloremque neque voluptas ut laudantium similique nulla consequatur nesciunt labore enim, at numquam dolor fugit maxime commodi facere odio cupiditate.
+  </div>
+</div>
+`;

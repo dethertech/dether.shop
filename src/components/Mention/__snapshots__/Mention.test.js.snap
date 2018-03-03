@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components Mention should render Mention 1`] = `
+.c0 {
+  font-size: 1.2rem;
+  color: #9B9B9B;
+}
+
+<div
+  className="c0"
+>
+  Mention
+</div>
+`;

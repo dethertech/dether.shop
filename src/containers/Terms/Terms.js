@@ -2,11 +2,11 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import tr from '../../../translate';
-import Layout from '../../../components/Layout';
-import { Padding } from '../../../components/Spaces';
-import Mention from '../../../components/Mention';
-import RoundIconBtn from '../../../components/RoundIconBtn';
+import tr from '../../translate';
+import Layout from '../../components/Layout';
+import { Padding } from '../../components/Spaces';
+import Mention from '../../components/Mention';
+import RoundIconBtn from '../../components/RoundIconBtn';
 
 const Terms = ({ history }) => (
   <Layout textAlignLeft isFullScreen>

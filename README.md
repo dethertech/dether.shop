@@ -62,11 +62,3 @@ When you find issues, please report them:
 
 ## TODO
 * Add more tests
-
-,
-"husky": {
-  "hooks": {
-    "pre-commit": "yarn lint",
-    "pre-push": "yarn lint && CI=true yarn test"
-  }
-}

@@ -13,13 +13,6 @@ describe('Components MapIcons', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render a PersonIcon', () => {
-    const component = renderer.create(<PersonIcon />);
-
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it('should render a ClusterShopIcon', () => {
     const component = renderer.create(<ClusterShopIcon num={3} />);
 
@@ -27,10 +20,4 @@ describe('Components MapIcons', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render a ClusterPersonIcon', () => {
-    const component = renderer.create(<ClusterPersonIcon num={3} />);
-
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
 });

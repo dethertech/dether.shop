@@ -9,7 +9,7 @@ import { routes } from '../constants';
 /*
   Containers
  */
-import { Home, Map } from '../containers';
+import { Map } from '../containers';
 
 /**
  * RouterComponent contains all routes

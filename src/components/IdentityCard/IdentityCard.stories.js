@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components'
 import { storiesOf } from '@storybook/react'
 
 import IdentityCard from './index';
-import TellerInfos from './TellerInfos';
 import ShopInfos from './ShopInfos';
 
 const props = {

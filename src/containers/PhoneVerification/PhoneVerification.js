@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import PhoneForm from './PhoneForm';
 import ValidateCodeContainer from './ValidateCode';
-import LoaderScreen from '../../../components/Screens/LoaderScreen';
-import actions from '../../../actions/';
-import { getErrorMessage } from '../../../helpers/apiResponse';
+import LoaderScreen from '../../components/Screens/LoaderScreen';
+import actions from '../../actions/';
+import { getErrorMessage } from '../../helpers/apiResponse';
 
 class PhoneVerification extends PureComponent {
   static propTypes = {
