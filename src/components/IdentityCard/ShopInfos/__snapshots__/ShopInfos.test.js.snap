@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component IdentityCard/ShopInfos should be render without crash 1`] = `
+<div
+  className="sc-gzVnrw kjdDyw"
+>
+  <h1
+    className="sc-htpNat iRBdXH"
+  >
+    Welcome
+  </h1>
+  <p
+    className="sc-htoDjs jQUsuP"
+  >
+    31 rue de Cotte 75012 Paris
+  </p>
+  <p
+    className="sc-dnqmqq eAQBFl"
+  >
+    Vente d'articles cuisine et déco pour toute la maison.
+  </p>
+</div>
+`;

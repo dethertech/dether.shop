@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Icon should render carretDown 1`] = `
+.c0 {
+  display: block;
+  overflow: visible;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c1 {
+  stroke: #000;
+  stroke-width: 0.1rem;
+  fill: none;
+}
+
+<svg
+  className="c0"
+  size="1.2rem"
+  viewBox="0 0 12 12"
+>
+  <polyline
+    className="c1"
+    points="0 3 6 9 12 3"
+    vectorEffect="non-scaling-stroke"
+  />
+</svg>
+`;
+
+exports[`Component Icon should render carretUp 1`] = `
+.c0 {
+  display: block;
+  overflow: visible;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c1 {
+  stroke: #000;
+  stroke-width: 0.1rem;
+  fill: none;
+}
+
+<svg
+  className="c0"
+  size="1.2rem"
+  viewBox="0 0 12 12"
+>
+  <polyline
+    className="c1"
+    points="0 9 6 3 12 9"
+    vectorEffect="non-scaling-stroke"
+  />
+</svg>
+`;
+
+exports[`Component Icon should render check 1`] = `
+.c0 {
+  display: block;
+  overflow: visible;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c1 {
+  stroke: #000;
+  stroke-width: 0.1rem;
+  fill: none;
+}
+
+<svg
+  className="c0"
+  size="1.2rem"
+  viewBox="0 0 12 12"
+>
+  <polyline
+    className="c1"
+    points="0 6 4 10 12 1"
+    vectorEffect="non-scaling-stroke"
+  />
+</svg>
+`;
+
+exports[`Component Icon should render close 1`] = `
+.c0 {
+  display: block;
+  overflow: visible;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c1 {
+  stroke: #000;
+  stroke-width: 0.1rem;
+  fill: none;
+}
+
+<svg
+  className="c0"
+  size="1.2rem"
+  viewBox="0 0 12 12"
+>
+  <line
+    className="c1"
+    vectorEffect="non-scaling-stroke"
+    x1="0"
+    x2="12"
+    y1="0"
+    y2="12"
+  />
+  <line
+    className="c1"
+    vectorEffect="non-scaling-stroke"
+    x1="0"
+    x2="12"
+    y1="12"
+    y2="0"
+  />
+</svg>
+`;
+
+exports[`Component Icon should render prev 1`] = `
+.c0 {
+  display: block;
+  overflow: visible;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c1 {
+  stroke: #000;
+  stroke-width: 0.1rem;
+  fill: none;
+}
+
+.c2 {
+  stroke: #000;
+  stroke-width: 0.1rem;
+  fill: none;
+}
+
+<svg
+  className="c0"
+  size="1.2rem"
+  viewBox="0 0 12 12"
+>
+  <line
+    className="c1"
+    vectorEffect="non-scaling-stroke"
+    x1="0"
+    x2="12"
+    y1="6"
+    y2="6"
+  />
+  <polyline
+    className="c2"
+    points="6 0 0 6 6 12"
+    vectorEffect="non-scaling-stroke"
+  />
+</svg>
+`;

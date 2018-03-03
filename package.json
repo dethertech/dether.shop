@@ -28,16 +28,20 @@
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
-    "prop-types": "^15.6.1",
+    "google-map-react": "^0.27.0",
+    "points-cluster": "^0.1.4",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-places-autocomplete": "^6.0.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
     "redux-persist": "^5.9.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^3.1.6"
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.3.14",

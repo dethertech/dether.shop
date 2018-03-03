@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="69px" height="69px" viewBox="0 0 69 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Application</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="4.58914849%" x2="50%" y2="98.7603635%" id="linearGradient-1">
+            <stop stop-color="#939393" offset="0%"></stop>
+            <stop stop-color="#D2D2D2" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.45487883%" x2="50%" y2="94.8251159%" id="linearGradient-2">
+            <stop stop-color="#FF77A7" offset="0%"></stop>
+            <stop stop-color="#FFBF76" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="2.76864035%" x2="95.4724371%" y2="86.9958593%" id="linearGradient-3">
+            <stop stop-color="#4DEAD8" offset="0%"></stop>
+            <stop stop-color="#5BB7E4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="2.76864035%" x2="97.8342273%" y2="89.0794662%" id="linearGradient-4">
+            <stop stop-color="#7DB7FF" offset="0%"></stop>
+            <stop stop-color="#C089FF" offset="100%"></stop>
+        </linearGradient>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="onboarding-1-with-modal-install" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-126.000000, -182.000000)">
+        <g id="modal" transform="translate(15.000000, 147.000000)">
+            <g id="Application" transform="translate(111.000000, 35.000000)">
+                <rect id="App-Icon" fill="#5E70E4" x="0.508789062" y="0.413750788" width="67.9824219" height="67.9824219" rx="13.5"></rect>
+                <circle id="Oval-15" fill="url(#linearGradient-1)" opacity="0.87669837" cx="21.1538695" cy="32.6732789" r="15.1449586"></circle>
+                <circle id="Oval-15" fill="url(#linearGradient-2)" cx="34" cy="19.9237301" r="15.4812316"></circle>
+                <circle id="Oval-15" fill="url(#linearGradient-3)" cx="46.2446289" cy="32.9926758" r="15.4643555"></circle>
+                <circle id="Oval-15" fill="url(#linearGradient-4)" filter="url(#filter-5)" cx="33.3272212" cy="48.2002707" r="14.8950005"></circle>
+                <g id="typo" transform="translate(18.250000, 14.154962)" fill="#FFFFFF">
+                    <path d="M14.9768366,8.30834154 L9.1449009,8.30834154 L9.1449009,32.0872182 L15.0287826,32.0872182 C21.1284398,32.0872182 23.5679032,30.1299201 23.5679032,19.9603502 C23.5679032,10.5329973 21.2862757,8.30834154 14.9768366,8.30834154 M15.1886164,40.0301371 L0.182220728,40.0301371 L0.182220728,0.313547218 L15.0827265,0.313547218 C27.7036027,0.313547218 32.9541429,6.29717292 32.9541429,20.0142208 C32.9541429,34.3657445 26.9623734,40.0301371 15.1886164,40.0301371" id="Fill-25"></path>
+                    <path d="M37.2206654,40.4392635 C35.0713389,40.4392635 34.1483625,39.6215242 34.1483625,37.4751189 C34.1483625,35.5995818 35.0713389,34.5443514 37.2206654,34.5443514 C39.369992,34.5443514 40.2569748,35.5995818 40.2569748,37.4751189 C40.2569748,39.3147115 39.369992,40.4392635 37.2206654,40.4392635" id="Fill-37"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

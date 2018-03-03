@@ -9,7 +9,7 @@ import { routes } from '../constants';
 /*
   Containers
  */
-import { Home } from '../containers';
+import { Home, Map } from '../containers';
 
 /**
  * RouterComponent contains all routes
@@ -17,7 +17,7 @@ import { Home } from '../containers';
 const RouterComponent = () => (
   <Router>
     <Switch>
-      <Route exact path={routes.Home} component={Home} />
+      <Route exact path={routes.Home} component={Map} />
     </Switch>
   </Router>
 );

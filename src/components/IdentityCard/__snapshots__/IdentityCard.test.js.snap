@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component IdentityCard should be render shopCard without crash 1`] = `
+<div
+  className="sc-kgoBCf fKvYZO"
+>
+  <div
+    className="sc-kGXeez dxYhcX"
+  >
+    <div
+      className="sc-dxgOiQ hatxBC"
+    >
+      <img
+        alt="profile"
+        src="icon_grand_mere.svg"
+        width="65"
+      />
+      <div
+        className="sc-kpOJdX iMeUQe"
+      >
+        <h1
+          className="sc-htpNat hBugQt"
+        >
+          Shop Name
+        </h1>
+      </div>
+    </div>
+    <div
+      className="sc-gzVnrw kjdDyw"
+    >
+      <h1
+        className="sc-htpNat iRBdXH"
+      >
+        Welcome
+      </h1>
+      <p
+        className="sc-htoDjs jQUsuP"
+      >
+        31 rue de Cotte 75012 Paris
+      </p>
+      <p
+        className="sc-dnqmqq eAQBFl"
+      >
+        Vente d'articles cuisine et déco pour toute la maison.
+      </p>
+    </div>
+  </div>
+  <div
+    className="sc-ckVGcZ fgeWkv"
+  >
+    <button
+      className="sc-fjdhpX gONdwq"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Itinerary
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Component IdentityCard should be render tellerCard without crash 1`] = `
+<div
+  className="sc-kgoBCf fKvYZO"
+>
+  <div
+    className="sc-kGXeez dxYhcX"
+  >
+    <div
+      className="sc-dxgOiQ hatxBC"
+    >
+      <img
+        alt="profile"
+        src="icon_grand_mere.svg"
+        width="65"
+      />
+      <div
+        className="sc-kpOJdX iMeUQe"
+      >
+        <h1
+          className="sc-htpNat hBugQt"
+        >
+          MessengerID
+        </h1>
+      </div>
+    </div>
+    <div
+      className="sc-iwsKbI eLgFjS"
+    >
+      <div
+        className="sc-gZMcBi hSZVCh"
+      >
+        <div
+          className="sc-gqjmRU cpfFrV"
+        >
+          Sell
+        </div>
+        <div
+          className="sc-VigVT hrKhdk"
+        >
+          700
+          <small>
+            $
+          </small>
+        </div>
+        <div
+          className="sc-jTzLTM bLgUXt"
+        >
+          Vol. trade 
+          <b>
+            10.56
+            ETH
+          </b>
+        </div>
+      </div>
+      <div
+        className="sc-gZMcBi hSZVCh"
+      >
+        <div
+          className="sc-gqjmRU cpfFrV"
+        >
+          Fee
+        </div>
+        <div
+          className="sc-VigVT hrKhdk"
+        >
+          2.36
+          <small>
+            %
+          </small>
+        </div>
+        <div
+          className="sc-jTzLTM bLgUXt"
+        >
+          Transaction 
+          <b>
+            n˚
+            4
+          </b>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="sc-ckVGcZ fgeWkv"
+  >
+    <button
+      className="sc-fjdhpX gONdwq"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Contact
+    </button>
+  </div>
+</div>
+`;
