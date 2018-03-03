@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Select should be render without crash 1`] = `
+.c2 {
+  display: block;
+  overflow: visible;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c3 {
+  stroke: #2A2B43;
+  stroke-width: 0.2rem;
+  fill: none;
+}
+
+.c0 {
+  background: #F5F5F5;
+  border-radius: 0.6rem;
+  border: solid 1px transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.c4 {
+  background: transparent;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 1.2rem;
+  z-index: 1;
+}
+
+.c4:disabled {
+  opacity: 0.5;
+}
+
+.c1 {
+  position: absolute;
+  z-index: 0;
+  right: 1.2rem;
+  top: 50%;
+  margin-top: -0.6rem;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <svg
+      className="c2"
+      size="1.2rem"
+      viewBox="0 0 12 12"
+    >
+      <polyline
+        className="c3"
+        points="0 3 6 9 12 3"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  </div>
+  <select
+    className="c4"
+    defaultValue={null}
+    onChange={[Function]}
+  >
+    <option
+      value="qwer"
+    >
+      qwer
+    </option>
+    <option
+      value="trav"
+    >
+      trav
+    </option>
+    <option
+      value="hello"
+    >
+      hello
+    </option>
+  </select>
+</div>
+`;

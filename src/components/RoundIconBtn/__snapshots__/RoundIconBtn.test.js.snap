@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component RoundIconBtn should render close RoundIconBtn 1`] = `
+.c1 {
+  display: block;
+  overflow: visible;
+  width: 1rem;
+  height: 1rem;
+}
+
+.c2 {
+  stroke: #9B9B9B;
+  stroke-width: 0.2rem;
+  fill: none;
+}
+
+.c0 {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  border: solid 0.1rem #9B9B9B;
+}
+
+<button
+  className="c0"
+  onClick={[Function]}
+>
+  <svg
+    className="c1"
+    size="1rem"
+    viewBox="0 0 12 12"
+  >
+    <line
+      className="c2"
+      vectorEffect="non-scaling-stroke"
+      x1="0"
+      x2="12"
+      y1="0"
+      y2="12"
+    />
+    <line
+      className="c2"
+      vectorEffect="non-scaling-stroke"
+      x1="0"
+      x2="12"
+      y1="12"
+      y2="0"
+    />
+  </svg>
+</button>
+`;
+
+exports[`Component RoundIconBtn should render prev RoundIconBtn 1`] = `
+.c1 {
+  display: block;
+  overflow: visible;
+  width: 1rem;
+  height: 1rem;
+}
+
+.c2 {
+  stroke: #9B9B9B;
+  stroke-width: 0.2rem;
+  fill: none;
+}
+
+.c3 {
+  stroke: #9B9B9B;
+  stroke-width: 0.2rem;
+  fill: none;
+}
+
+.c0 {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  border: solid 0.1rem #9B9B9B;
+}
+
+<button
+  className="c0"
+  onClick={[Function]}
+>
+  <svg
+    className="c1"
+    size="1rem"
+    viewBox="0 0 12 12"
+  >
+    <line
+      className="c2"
+      vectorEffect="non-scaling-stroke"
+      x1="0"
+      x2="12"
+      y1="6"
+      y2="6"
+    />
+    <polyline
+      className="c3"
+      points="6 0 0 6 6 12"
+      vectorEffect="non-scaling-stroke"
+    />
+  </svg>
+</button>
+`;

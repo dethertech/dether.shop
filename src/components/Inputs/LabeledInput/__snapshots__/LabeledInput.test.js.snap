@@ -1,0 +1,382 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component LabeledInput should render LabeledInput 1`] = `
+.c2 {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.c3 {
+  font-size: 1.2rem;
+  color: #9B9B9B;
+}
+
+.c4 {
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.c5 {
+  background: #F5F5F5;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: solid 1px transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+.c6 {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  padding: 1.2rem;
+}
+
+.c0 {
+  margin-bottom: 1.6rem;
+  text-align: left;
+}
+
+.c1 {
+  display: block;
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+<div
+  className="c0"
+>
+  <label
+    className="c1"
+    htmlFor="name"
+  >
+    Choose a password :
+  </label>
+  <div
+    className="c2"
+  >
+    <div
+      className="c3"
+    >
+      Fill it that way or that way
+    </div>
+  </div>
+  <div
+    className="c4"
+  >
+    <div
+      className="c5"
+      disabled={false}
+    >
+      <input
+        autoFocus={false}
+        className="c6"
+        disabled={false}
+        name="name"
+        onBlur={null}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder={null}
+        type="password"
+        value="hello"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component LabeledInput should render LabeledInput with an error 1`] = `
+.c2 {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.c3 {
+  font-size: 1.2rem;
+  color: #9B9B9B;
+}
+
+.c4 {
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.c7 {
+  padding: 0 0.8rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c7:before {
+  display: block;
+  line-height: 1.6rem;
+  font-weight: bold;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.6rem;
+  color: #FFFFFF;
+}
+
+.c7:before {
+  background: #E7827F;
+  content: '!';
+}
+
+.c5 {
+  background: #F5F5F5;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: solid 1px transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+.c6 {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  padding: 1.2rem;
+}
+
+.c0 {
+  margin-bottom: 1.6rem;
+  text-align: left;
+}
+
+.c1 {
+  display: block;
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.c8 {
+  color: #E7827F;
+  margin-top: 0.4rem;
+  font-size: 1.3rem;
+}
+
+<div
+  className="c0"
+>
+  <label
+    className="c1"
+    htmlFor="name"
+  >
+    Choose a password :
+  </label>
+  <div
+    className="c2"
+  >
+    <div
+      className="c3"
+    >
+      Fill it that way or that way
+    </div>
+  </div>
+  <div
+    className="c4"
+  >
+    <div
+      className="c5"
+      disabled={false}
+    >
+      <input
+        autoFocus={false}
+        className="c6"
+        disabled={false}
+        name="name"
+        onBlur={null}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder={null}
+        type="password"
+        value="hello"
+      />
+      <div
+        className="c7"
+      />
+    </div>
+  </div>
+  <div
+    className="c8"
+  >
+    it's a big mistake
+  </div>
+</div>
+`;
+
+exports[`Component LabeledInput should render a validated LabeledInput 1`] = `
+.c2 {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.c3 {
+  font-size: 1.2rem;
+  color: #9B9B9B;
+}
+
+.c4 {
+  -webkit-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.c7 {
+  padding: 0 0.8rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c7:before {
+  display: block;
+  line-height: 1.6rem;
+  font-weight: bold;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.6rem;
+  color: #FFFFFF;
+}
+
+.c7:before {
+  background: #4DD2AF;
+  content: '✓';
+}
+
+.c5 {
+  background: #F5F5F5;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: solid 1px transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+.c6 {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  padding: 1.2rem;
+}
+
+.c0 {
+  margin-bottom: 1.6rem;
+  text-align: left;
+}
+
+.c1 {
+  display: block;
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+<div
+  className="c0"
+>
+  <label
+    className="c1"
+    htmlFor="name"
+  >
+    Choose a password :
+  </label>
+  <div
+    className="c2"
+  >
+    <div
+      className="c3"
+    >
+      Fill it that way or that way
+    </div>
+  </div>
+  <div
+    className="c4"
+  >
+    <div
+      className="c5"
+      disabled={false}
+    >
+      <input
+        autoFocus={false}
+        className="c6"
+        disabled={false}
+        name="name"
+        onBlur={null}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder={null}
+        type="password"
+        value="hello"
+      />
+      <div
+        className="c7"
+      />
+    </div>
+  </div>
+</div>
+`;
