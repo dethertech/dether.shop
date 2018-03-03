@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Button should be render danger colored button 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  line-height: 1.15em;
+  padding: 1.2rem 2rem;
+  color: #FFFFFF;
+  background: linear-gradient(35deg,#E96F8C,#C5445E);
+  border: solid 1px transparent;
+}
+
+.c0:active {
+  box-shadow: inset 0 0.2rem 0.2rem 0 rgba(0,0,0,0.1);
+}
+
+<button
+  className="c0"
+  disabled={false}
+  onClick={[Function]}
+>
+  button
+</button>
+`;
+
+exports[`Component Button should be render fullWidth button 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  line-height: 1.15em;
+  padding: 1.2rem 2rem;
+  width: 100%;
+  color: #4B53B6;
+  background: #FFFFFF;
+  border: solid 1px #4B53B6;
+}
+
+.c0:active {
+  box-shadow: inset 0 0.2rem 0.2rem 0 rgba(0,0,0,0.1);
+}
+
+<button
+  className="c0"
+  disabled={false}
+  onClick={[Function]}
+>
+  button
+</button>
+`;
+
+exports[`Component Button should be render primary colored button 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  line-height: 1.15em;
+  padding: 1.2rem 2rem;
+  color: #FFFFFF;
+  background: linear-gradient(35deg,#4B53B6,#8C6FE9);
+  border: solid 1px transparent;
+}
+
+.c0:active {
+  box-shadow: inset 0 0.2rem 0.2rem 0 rgba(0,0,0,0.1);
+}
+
+<button
+  className="c0"
+  disabled={false}
+  onClick={[Function]}
+>
+  button
+</button>
+`;
+
+exports[`Component Button should be render without crash 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  line-height: 1.15em;
+  padding: 1.2rem 2rem;
+  color: #4B53B6;
+  background: #FFFFFF;
+  border: solid 1px #4B53B6;
+}
+
+.c0:active {
+  box-shadow: inset 0 0.2rem 0.2rem 0 rgba(0,0,0,0.1);
+}
+
+<button
+  className="c0"
+  disabled={false}
+  onClick={[Function]}
+>
+  button
+</button>
+`;

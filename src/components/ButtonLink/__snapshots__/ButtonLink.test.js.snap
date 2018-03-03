@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component ButtonLink should be render without crash 1`] = `
+.c0 {
+  display: inline-block;
+  font-size: 1.4rem;
+  padding-bottom: 0.1em;
+  color: #3C3C3B;
+  border-bottom: solid 1px #3C3C3B;
+}
+
+<button
+  className="c0"
+  disabled={false}
+  onClick={[Function]}
+>
+  button
+</button>
+`;

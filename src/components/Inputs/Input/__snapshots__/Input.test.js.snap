@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Input should be render without crash 1`] = `
+.c0 {
+  background: #F5F5F5;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: solid 1px transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+.c1 {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  padding: 1.2rem;
+}
+
+<div
+  className="c0"
+  disabled={false}
+>
+  <input
+    autoFocus={false}
+    className="c1"
+    disabled={false}
+    name="name"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={null}
+    type="text"
+    value="value"
+  />
+</div>
+`;
+
+exports[`Component Input should render with error style 1`] = `
+.c2 {
+  padding: 0 0.8rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c2:before {
+  display: block;
+  line-height: 1.6rem;
+  font-weight: bold;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.6rem;
+  color: #FFFFFF;
+}
+
+.c2:before {
+  background: #E7827F;
+  content: '!';
+}
+
+.c0 {
+  background: #F5F5F5;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: solid 1px transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+.c1 {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  padding: 1.2rem;
+}
+
+<div
+  className="c0"
+  disabled={false}
+>
+  <input
+    autoFocus={false}
+    className="c1"
+    disabled={false}
+    name="name"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={null}
+    type="text"
+    value="value"
+  />
+  <div
+    className="c2"
+  />
+</div>
+`;
+
+exports[`Component Input should render with valid style 1`] = `
+.c2 {
+  padding: 0 0.8rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+}
+
+.c2:before {
+  display: block;
+  line-height: 1.6rem;
+  font-weight: bold;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.6rem;
+  color: #FFFFFF;
+}
+
+.c2:before {
+  background: #4DD2AF;
+  content: '✓';
+}
+
+.c0 {
+  background: #F5F5F5;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: solid 1px transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+.c1 {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  padding: 1.2rem;
+}
+
+<div
+  className="c0"
+  disabled={false}
+>
+  <input
+    autoFocus={false}
+    className="c1"
+    disabled={false}
+    name="name"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={null}
+    type="text"
+    value="value"
+  />
+  <div
+    className="c2"
+  />
+</div>
+`;

@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component ComboBox should be render without crash 1`] = `
+.c3 {
+  display: block;
+  overflow: visible;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.c4 {
+  stroke: #2A2B43;
+  stroke-width: 0.2rem;
+  fill: none;
+}
+
+.c0 {
+  position: relative;
+  background: #F5F5F5;
+  border-radius: 0.6rem;
+  overflow: visible;
+  border: solid 1px transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+}
+
+.c1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  padding: 1.2rem;
+}
+
+.c5 {
+  display: block;
+  z-index: 1;
+  position: absolute;
+  max-height: 20rem;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  top: 100%;
+  border: solid 1px #F5F5F5;
+  left: -0.1rem;
+  right: -0.1rem;
+  display: none;
+}
+
+.c6 {
+  display: block;
+  background: #FFFFFF;
+  padding: 0.8rem;
+}
+
+.c2 {
+  vertical-align: middle;
+  padding: 0 1.6rem;
+}
+
+<div
+  className="c0"
+>
+  <input
+    className="c1"
+    name="combobox"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={null}
+    type="text"
+    value=""
+  />
+  <button
+    className="c2"
+    onClick={[Function]}
+  >
+    <svg
+      className="c3"
+      size="1.2rem"
+      viewBox="0 0 12 12"
+    >
+      <polyline
+        className="c4"
+        points="0 3 6 9 12 3"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  </button>
+  <ul
+    className="c5"
+  >
+    <li
+      className="c6"
+    >
+      no results
+    </li>
+  </ul>
+</div>
+`;
