@@ -17,6 +17,7 @@ const tokens = {
       blue: 'linear-gradient(35deg, #4B53B6, #8C6FE9)'
     }
   },
+  shadow: '0 3px 3px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.04)',
   fontSizes: {
     xxxs: '0.9rem',
     xxs: '1rem',
