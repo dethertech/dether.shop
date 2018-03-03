@@ -4,13 +4,16 @@ const initialState = {
   balance: {
     eth: 0,
     dth: 0
-  }
+  },
+  certified: false,
 };
 
 const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_BALANCE':
       return { ...state, balance: payload.balance };
+    case 'SET_USER_CERTIFIED':
+      return { ...state, certified: payload };
     default:
       return state;
   }

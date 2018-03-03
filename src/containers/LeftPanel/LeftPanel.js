@@ -14,7 +14,8 @@ import {
 } from '../../actions/app';
 import {
   setEthAddress as setEthAddressAction,
-  setBalance as setBalanceAction
+  setBalance as setBalanceAction,
+  setUserCertified as setUserCertifiedAction
 } from '../../actions/user';
 import { setShop as setShopAction } from '../../actions/shop';
 
@@ -24,6 +25,8 @@ import tr from '../../translate';
 import LoaderScreen from '../../components/Screens/LoaderScreen';
 import AddShopRouter from '../AddShopRouter';
 
+const isCertifiedHelper = () => true;
+
 /**
  * LeftPanel containers
  * @extends PureComponent
@@ -31,11 +34,18 @@ import AddShopRouter from '../AddShopRouter';
 export class LeftPanel extends PureComponent {
   static propTypes = {
     isAppInitialized: PropTypes.bool.isRequired,
-    hasShop: PropTypes.bool.isRequired,
-    hasTransactionPending: PropTypes.bool.isRequired,
     setMetamaskInstalled: PropTypes.func.isRequired,
-    setAppInitialized: PropTypes.func.isRequired
-    // TODO setShop: PropTypes.bool.isRequired
+    setEthAddress: PropTypes.func.isRequired,
+    isWeb3: PropTypes.func.isRequired,
+    getShop: PropTypes.func.isRequired,
+    setShop: PropTypes.func.isRequired,
+    hasShop: PropTypes.bool.isRequired,
+    getBalance: PropTypes.func.isRequired,
+    setBalance: PropTypes.func.isRequired,
+    isCertified: PropTypes.func.isRequired,
+    setUserCertified: PropTypes.func.isRequired,
+    hasTransactionPending: PropTypes.bool.isRequired,
+    setAppInitialized: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
@@ -52,17 +62,21 @@ export class LeftPanel extends PureComponent {
       getShop,
       setShop,
       getBalance,
-      setBalance
+      setBalance,
+      isCertified,
+      setUserCertified
     } = this.props;
 
     if (!isAppInitialized) {
       const ethAddress = await isWeb3();
       if (ethAddress) {
-        const shop = await getShop();
-        const balance = await getBalance();
-        console.log(balance);
+        const [shop, balance, certified] = await Promise.all([
+          getShop(), getBalance(), isCertified()
+        ]);
+
         if (shop) setShop(shop);
         if (balance) setBalance(balance);
+        if (certified) setUserCertified(certified);
         setMetamaskInstalled(true);
         setAppInitialized(true);
         setEthAddress(ethAddress);
@@ -81,17 +95,15 @@ export class LeftPanel extends PureComponent {
         />
       );
     } else if (!hasShop || hasTransactionPending) {
-      console.log('RENDERED AddShop');
       return <AddShopRouter />;
     }
-    console.log('RENDERED NOTING');
     return <div>Add shop</div>;
   }
 }
 
 const mapStateToProps = ({ app, shop }) => ({
   isAppInitialized: app.isAppInitialized,
-  hasShop: !!shop.point,
+  hasShop: !!shop.shop,
   hasTransactionPending: !!shop.transactionHash
 });
 
@@ -102,9 +114,11 @@ const mapDispatchToProps = dispatch => ({
   setEthAddress: bindActionCreators(setEthAddressAction, dispatch),
   setShop: bindActionCreators(setShopAction, dispatch),
   setBalance: bindActionCreators(setBalanceAction, dispatch),
+  setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
   isWeb3: isWeb3Helper,
   getShop: getShopHelper,
-  getBalance: getBalanceHelper
+  getBalance: getBalanceHelper,
+  isCertified: isCertifiedHelper
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftPanel);

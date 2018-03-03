@@ -8,7 +8,13 @@ const setBalance = balance => ({
   payload: { balance }
 });
 
+const setUserCertified = bool => ({
+  type: 'SET_USER_CERTIFIED',
+  payload: bool
+});
+
 export {
   setEthAddress,
-  setBalance
+  setBalance,
+  setUserCertified
 };
