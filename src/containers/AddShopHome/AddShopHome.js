@@ -1,14 +1,25 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import config from '../../constants/config';
 import tr from '../../translate';
 import { hasEnougthMoneyToAddShop } from '../../reducers/user';
 import TermsValidation from './TermsValidation';
+import illustration from '../../assets/illustration.svg';
 
 // component
 import Button from '../../components/Button';
+import { H1 } from '../../components/Headings';
+import { Padding } from '../../components/Spaces';
+import Message from '../../components/Message';
+
+const Wrapper = styled.div`
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+`;
 
 /**
  * AddShopHome containers
@@ -65,21 +76,38 @@ export class AddShopHome extends PureComponent {
     const { isMetamaskInstalled, hasEnougthMoney, minEth, minDth } = this.props;
 
     return (
-      <div>
-        <div>{tr('add.home.title')}</div>
-        <div>{tr('add.home.description')}</div>
+      <Wrapper>
+        <Padding top="l" bottom="s">
+          <img src={illustration} alt="" />
+        </Padding>
 
-        {!isMetamaskInstalled && <div>{tr('add.home.metamask_not_installed')}</div>}
+        <Padding bottom="m">
+          <H1>{tr('add.home.title')}</H1>
+        </Padding>
+
+        <Padding vertical="l">{tr('add.home.description')}</Padding>
+
+        {!isMetamaskInstalled && (
+          <Message theme="error" alignCenter>
+            {tr('add.home.metamask_not_installed')}
+          </Message>
+        )}
         {isMetamaskInstalled &&
-          !hasEnougthMoney && <div>{tr('add.home.not_enougth_money', { minEth, minDth })}</div>}
+          !hasEnougthMoney && (
+            <Message theme="error" alignCenter>
+              {tr('add.home.not_enougth_money', { minEth, minDth })}
+            </Message>
+          )}
         {isMetamaskInstalled &&
           hasEnougthMoney && (
-            <div>
+            <Padding vertical="l">
               <TermsValidation shake={shake} checked={checked} handleCheck={this.onCheck} />
-              <Button onClick={this.onClick}>{tr('add.home.bt_add')}</Button>
-            </div>
+              <Button fullWidth theme="primary" onClick={this.onClick}>
+                {tr('add.home.bt_add')}
+              </Button>
+            </Padding>
           )}
-      </div>
+      </Wrapper>
     );
   }
 }
