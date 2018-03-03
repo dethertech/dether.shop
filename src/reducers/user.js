@@ -1,6 +1,7 @@
 import config from '../constants/config';
 
 const initialState = {
+  ethAddress: null,
   balance: {
     eth: 0,
     dth: 0
@@ -11,6 +12,8 @@ const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_BALANCE':
       return { ...state, balance: payload };
+    case 'SET_ETH_ADDRESS':
+      return { ...state, ethAddress: payload.ethAddress };
     default:
       return state;
   }

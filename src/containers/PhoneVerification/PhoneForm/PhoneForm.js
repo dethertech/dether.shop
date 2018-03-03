@@ -159,8 +159,8 @@ class PhoneForm extends PureComponent {
               <LabeledInput
                 componentName="combobox"
                 toggleShake={toggleShakeCountry}
-                label={tr('onboarding.phone.country.label')}
-                placeholder={tr('onboarding.phone.country.placeholder')}
+                label={tr('phone.country.label')}
+                placeholder={tr('phone.country.placeholder')}
                 name="country"
                 handleChange={this.handleCountryChange}
                 onBlur={this.checkCountry}
@@ -176,7 +176,7 @@ class PhoneForm extends PureComponent {
               toggleShake={toggleShakePhone}
               insertBefore={country && <DialCode>{country.dial_code}</DialCode>}
               componentName="input"
-              label={tr('onboarding.phone.label')}
+              label={tr('phone.label')}
               type="tel"
               value={phone}
               onBlur={this.checkPhone}
@@ -185,14 +185,14 @@ class PhoneForm extends PureComponent {
               error={phoneError}
             />
             <Message alignLeft>
-              {tr('onboarding.phone.helper')}
+              {tr('phone.helper')}
             </Message>
           </Padding>
         </Layout.Body>
         <Layout.Footer>
           <Padding all="l">
             <Button fullWidth theme="primary" onClick={this.submitPhone}>
-              {tr('onboarding.phone.valid_button')}
+              {tr('phone.valid_button')}
             </Button>
           </Padding>
         </Layout.Footer>

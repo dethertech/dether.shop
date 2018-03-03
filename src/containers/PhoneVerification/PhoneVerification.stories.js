@@ -6,8 +6,15 @@ import PhoneVerification from './PhoneVerification'
 import { storyWithStore } from '../../helpers/stories'
 
 const initialStore = {
-  wallet: {
-    ethAddress: '0xc8CD2AEe06D6DB355259AA72df6C675A9c579109',
+  kyc: {
+    isSubmitPhonePending: false,
+    isSubmitCodePending: false,
+    phone: '',
+    phoneSent: false,
+    phoneCountry: null,
+  },
+  user: {
+    ethAddress: '0x0000000000000000000000000000000000000000'
   }
 }
 

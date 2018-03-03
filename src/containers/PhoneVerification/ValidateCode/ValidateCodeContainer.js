@@ -14,12 +14,8 @@ class ValidationCode extends PureComponent {
     editPhoneNumber: PropTypes.func.isRequired,
     phoneNumber: PropTypes.string.isRequired,
     reSendSms: PropTypes.func.isRequired,
-    pending: PropTypes.shape({}).isRequired,
+    isSubmitCodePending: PropTypes.bool.isRequired,
     lastSend: PropTypes.instanceOf(Date),
-    submitPending: PropTypes.func.isRequired,
-    submitSuccess: PropTypes.func.isRequired,
-    submitError: PropTypes.func.isRequired,
-    setPhoneVerified: PropTypes.func.isRequired,
     sendVerifCode: PropTypes.func.isRequired,
     code: PropTypes.number
   };
@@ -47,39 +43,26 @@ class ValidationCode extends PureComponent {
   sendCode = code => {
     const {
       phoneNumber,
-      submitPending,
-      submitSuccess,
-      submitError,
       sendVerifCode,
-      setPhoneVerified
     } = this.props;
-
-    submitPending();
 
     sendVerifCode({
       code,
       phoneNumber,
-      onSuccess: () => {
-        submitSuccess();
-        setPhoneVerified();
-      },
-
-      onError: (errors, res) => {
-        submitError();
-        return this.setState({ error: getErrorMessage(errors, res) });
-      }
+      onSuccess: () => console.log('SUCCESS'),
+      onError: (errors, res) => this.setState({ error: getErrorMessage(errors, res) })
     });
   };
 
   render() {
     const { error } = this.state;
-    const { editPhoneNumber, pending, phoneNumber, code } = this.props;
+    const { editPhoneNumber, isSubmitCodePending, phoneNumber, code } = this.props;
     return (
       <ValidateCode
         phoneNumber={phoneNumber}
         error={error}
         editPhoneNumber={editPhoneNumber}
-        isPending={pending.SUBMIT_VALIDATION_CODE}
+        isPending={isSubmitCodePending}
         sendCode={this.sendCode}
         reSendSms={this.checkReSend}
         code={code}
@@ -88,16 +71,12 @@ class ValidationCode extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  pending: state.pending
+const mapStateToProps = ({ kyc: { isSubmitCodePending } }) => ({
+  isSubmitCodePending,
 });
 
 const mapDispatchToProps = dispatch => ({
   sendVerifCode: params => dispatch(actions.onboard.sendVerifCode(params)),
-  submitPending: () => dispatch({ type: 'SUBMIT_VALIDATION_CODE_PENDING' }),
-  submitSuccess: () => dispatch({ type: 'SUBMIT_VALIDATION_CODE_SUCCESS' }),
-  submitError: () => dispatch({ type: 'SUBMIT_VALIDATION_CODE_ERROR' }),
-  setPhoneVerified: () => dispatch({ type: 'SET_PHONE_VERIFIED' })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ValidationCode);
