@@ -43,8 +43,8 @@
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.1.6",
-    "truffle-contract": "^3.0.4",
-    "web3": "^1.0.0-beta.30"
+    "web3": "^1.0.0-beta.30",
+    "web3-eth-abi": "^1.0.0-beta.30"
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.3.14",
