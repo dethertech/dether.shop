@@ -1,7 +1,6 @@
 export { default as Animations } from './Animations';
 export { default as Button } from './Button';
 export { default as ButtonLink } from './ButtonLink';
-export { default as Flex } from './Flex';
 export { default as Headings } from './Headings';
 export { default as Inputs } from './Inputs';
 export { default as Layout } from './Layout';
