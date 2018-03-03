@@ -22,6 +22,12 @@ const Wrapper = styled.button`
     border-bottom: solid 1px ${buttonThemes[theme].text};
   `};
 
+  ${({ isSmall }) =>
+    isSmall &&
+    css`
+      font-size: ${tokens.fontSizes.s};
+    `};
+
   ${({ disabled }) =>
     disabled &&
     css`
@@ -32,14 +38,15 @@ const Wrapper = styled.button`
     `};
 `;
 
-const ButtonLink = ({ onClick, children, theme, disabled }) => (
-  <Wrapper theme={theme} disabled={disabled} onClick={onClick}>
+const ButtonLink = ({ onClick, children, theme, disabled, isSmall }) => (
+  <Wrapper theme={theme} isSmall={isSmall} disabled={disabled} onClick={onClick}>
     {children}
   </Wrapper>
 );
 
 ButtonLink.propTypes = {
   disabled: PropTypes.bool,
+  isSmall: PropTypes.bool,
   theme: PropTypes.oneOf(['primary', 'light']),
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired
@@ -47,6 +54,7 @@ ButtonLink.propTypes = {
 
 ButtonLink.defaultProps = {
   disabled: false,
+  isSmall: false,
   theme: 'light',
   onClick: () => {}
 };

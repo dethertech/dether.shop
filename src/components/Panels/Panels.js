@@ -16,11 +16,11 @@ const Panels = styled.div`
 Panels.Left = styled.div`
   background: ${tokens.colors.white};
   flex: 0 0 58rem;
+  position: relative;
 `;
 
 Panels.Right = styled.div`
   flex: 1;
-  background: blue;
 `;
 
 Panels.displayName = 'Panels';
