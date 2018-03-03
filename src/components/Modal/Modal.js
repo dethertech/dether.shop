@@ -8,7 +8,17 @@ const ModalInner = styled.div`
   background: ${tokens.colors.white};
   border-radius: ${tokens.radius.m};
   padding: ${tokens.spaces.l};
-  width: 88vw;
+  width: 88%;
+  max-height: 88%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+`;
+
+const Scroller = styled.div`
+  flex: 1;
+  overflow: auto;
 `;
 
 const CloseBar = styled.div`
@@ -18,7 +28,7 @@ const CloseBar = styled.div`
 `;
 
 const Wrapper = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -39,7 +49,7 @@ const Modal = ({ children, closeFunc }) => (
           <RoundIconBtn type="close" onClick={closeFunc} />
         </CloseBar>
       )}
-      {children}
+      <Scroller>{children}</Scroller>
     </ModalInner>
   </Wrapper>
 );
