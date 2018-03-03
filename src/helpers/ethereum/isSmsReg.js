@@ -1,4 +1,4 @@
-import { web3js, helperWeb3 } from './utils';
+import { helperWeb3 } from './utils';
 
 /**
  * return true if is sms register
