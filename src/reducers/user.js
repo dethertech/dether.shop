@@ -14,6 +14,8 @@ const userReducer = (state = initialState, { type, payload }) => {
       return { ...state, balance: payload.balance };
     case 'SET_USER_CERTIFIED':
       return { ...state, isCertified: payload };
+    case 'SET_ETH_ADDRESS':
+      return { ...state, ethAddress: payload.ethAddress };
     default:
       return state;
   }

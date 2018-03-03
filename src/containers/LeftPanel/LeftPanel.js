@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 import {
   getShop as getShopHelper,
   getBalance as getBalanceHelper,
-  isWeb3 as isWeb3Helper
+  isWeb3 as isWeb3Helper,
+  isSmsReg as isSmsRegHelper
 } from '../../helpers/ethereum';
 import {
   setAppInitialized as setAppInitializedAction,
@@ -24,8 +25,6 @@ import tr from '../../translate';
 // component
 import LoaderScreen from '../../components/Screens/LoaderScreen';
 import AddShopRouter from '../AddShopRouter';
-
-const isCertifiedHelper = () => true;
 
 /**
  * LeftPanel containers
@@ -117,7 +116,7 @@ const mapDispatchToProps = dispatch => ({
   isWeb3: isWeb3Helper,
   getShop: getShopHelper,
   getBalance: getBalanceHelper,
-  isCertified: isCertifiedHelper
+  isCertified: isSmsRegHelper
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftPanel);
