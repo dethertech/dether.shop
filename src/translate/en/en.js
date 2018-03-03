@@ -12,7 +12,8 @@ const en = {
       label: 'Your country :',
       placeholder: 'Enter your country name'
     },
-    helper: 'Dether uses a phone number to verify each account. We will never share this information with a third party.',
+    helper:
+      'Dether uses a phone number to verify each account. We will never share this information with a third party.',
     valid_button: 'Confirm your phone number',
     modal_text: 'Is this your phone number?',
     modal_valid_button: 'Yes',
@@ -41,7 +42,6 @@ const en = {
       bt_add: 'Add you shop on the map'
     }
   },
-
   header: {
     buy_dth: 'Buy DTH',
     your_balance: 'your balance',
@@ -54,6 +54,15 @@ const en = {
   footer: {
     all_right_reserved: 'all rights reserved',
     terms_and_conditions: 'Terms and conditions'
+  },
+  days: {
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+    7: 'Sunday'
   }
 };
 
