@@ -2,8 +2,8 @@ import config from '../constants/config';
 
 const initialState = {
   balance: {
-    ETH: null,
-    DTH: null
+    ETH: 0,
+    DTH: 0
   }
 };
 

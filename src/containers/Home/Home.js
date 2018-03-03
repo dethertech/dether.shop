@@ -8,6 +8,7 @@ import Panels from '../../components/Panels';
 import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import { Padding } from '../../components/Spaces';
+import LeftPanel from '../LeftPanel';
 
 const FooterText = styled.footer`
   font-size: ${tokens.fontSizes.s};
@@ -32,9 +33,7 @@ export class Home extends PureComponent {
               </Padding>
             </Layout.Header>
             <Layout.Body>
-              <Padding all="m">
-                <div>body / insert rooter here</div>
-              </Padding>
+              <LeftPanel />
             </Layout.Body>
             <Layout.Footer>
               <Padding all="m">
