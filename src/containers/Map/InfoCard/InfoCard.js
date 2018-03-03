@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styled, { css } from 'styled-components';
 import tokens from '../../../styles/tokens';
 import RoundIconBtn from '../../../components/RoundIconBtn';
-import IdentityCard, { ShopInfos } from '../../../components/IdentityCard/';
+import ShopCard from './ShopCard';
 
 const CloseBtnWrapper = styled.div`
   box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.3);
@@ -16,39 +16,47 @@ const CloseBtnWrapper = styled.div`
   right: ${tokens.spaces.xs};
 `;
 
-const Toaster = styled.div`
-  width: 100%;
+const CardWrapper = styled.div`
+  width: 200px;
+  height: 300px;
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: 50%;
+  left: 50%;
   z-index: 2;
-  transform: translateY(0);
-  transition: transform 0.2s;
+  visibility: hidden;
+  opacity: 0;
 
   ${({ isOpen }) =>
     isOpen &&
     css`
-      transform: translateY(-100%);
+      visibility: visible;
+      opacity: 1;
     `};
+`;
+
+const Card = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -50%;
+  left: -50%;
 `;
 
 class InfoCard extends PureComponent {
   static propTypes = {
     cardOpened: PropTypes.bool.isRequired,
     closeCard: PropTypes.func.isRequired,
-    //    contentOnCard: PropTypes.shape({}).isRequired
+    contentOnCard: PropTypes.shape({}).isRequired
   };
 
-  setContent = () => (
-    // const { contentOnCard } = this.props;
-    <IdentityCard buttonLink="http://google.com" buttonText="Itinerary" cardName="Shop Name">
-      <ShopInfos
-        title="Welcome"
-        adress="31 rue de Cotte 75012 Paris"
-        description="Vente d'articles cuisine et déco pour toute la maison."
-      />
-    </IdentityCard>
-  );
+  setContent = () => {
+    const { contentOnCard } = this.props;
+    if (contentOnCard && contentOnCard.type === 'shop') {
+      return (
+        <ShopCard {...contentOnCard.content} />
+      );
+    }
+  };
 
   handleClick = () => {
     const { closeCard } = this.props;
@@ -59,12 +67,14 @@ class InfoCard extends PureComponent {
     const { cardOpened } = this.props;
 
     return (
-      <Toaster isOpen={cardOpened}>
-        <CloseBtnWrapper>
-          <RoundIconBtn type="close" onClick={this.handleClick} />
-        </CloseBtnWrapper>
-        {this.setContent()}
-      </Toaster>
+      <CardWrapper isOpen={cardOpened}>
+        <Card>
+          <CloseBtnWrapper>
+            <RoundIconBtn type="close" onClick={this.handleClick} />
+          </CloseBtnWrapper>
+          {this.setContent()}
+        </Card>
+      </CardWrapper>
     );
   }
 }
