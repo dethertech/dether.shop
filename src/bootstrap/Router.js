@@ -17,7 +17,7 @@ import { Home, Map } from '../containers';
 const RouterComponent = () => (
   <Router>
     <Switch>
-      <Route exact path={routes.Home} component={Map} />
+      <Route exact path={routes.Home} component={Home} />
     </Switch>
   </Router>
 );
