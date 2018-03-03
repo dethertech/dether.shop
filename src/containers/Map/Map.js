@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -120,8 +119,7 @@ export class Map extends Component {
   }
 }
 
-const mapStateToProps = ({ app, map }) => ({
-  ...app,
+const mapStateToProps = ({ map }) => ({
   ...map
 });
 
@@ -133,4 +131,4 @@ const mapDispatchToProps = dispatch => ({
   fetchUserInfo: bindActionCreators(fetchUserInfoAction, dispatch)
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Map));
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
