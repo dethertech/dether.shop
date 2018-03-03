@@ -1,6 +1,4 @@
-import DetherCore from 'dethercontract/contracts/DetherCore.json';
-
-import { web3js } from './utils';
+import { helperWeb3 } from './utils';
 
 /**
  * register a shop, SHOP need to have DTH and to be certified
@@ -9,11 +7,8 @@ import { web3js } from './utils';
  */
 export const deleteShop = () =>
   new Promise(async (res, rej) => {
-    const address = (await web3js.eth.getAccounts())[0];
-    const networkId = await web3js.eth.net.getId();
-    const detherContract = new web3js.eth
-      .Contract(DetherCore.abi, DetherCore.networks[networkId].address);
     try {
+      const { address, detherContract } = await helperWeb3();
       const tsx = await detherContract.methods.deleteShop().send({ from: address, gas: 1000000 });
       res(tsx);
     } catch (e) {

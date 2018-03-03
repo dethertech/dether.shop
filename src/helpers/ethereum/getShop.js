@@ -1,6 +1,4 @@
-import DetherCore from 'dethercontract/contracts/DetherCore.json';
-
-import { web3js } from './utils';
+import { web3js, helperWeb3 } from './utils';
 
 // TO DO
 const validateShop = (shop) => {
@@ -62,11 +60,8 @@ const shopFromContract = (rawShop) => {
  */
 const getShop = () =>
   new Promise(async (res, rej) => {
-    const address = (await web3js.eth.getAccounts())[0];
-    const networkId = await web3js.eth.net.getId();
-    const detherContract = new web3js.eth
-      .Contract(DetherCore.abi, DetherCore.networks[networkId].address);
     try {
+      const { address, detherContract } = await helperWeb3();
       const rawShop = await detherContract.methods.getShop(address).call();
       let id = web3js.utils.hexToUtf8(rawShop[2]).replace(/\0/g, '');
       id = id.replace(/\0/g, '');

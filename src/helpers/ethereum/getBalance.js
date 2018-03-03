@@ -1,6 +1,4 @@
-import DthContract from 'dethercontract/contracts/DetherToken.json';
-
-import { web3js } from './utils';
+import { web3js, helperWeb3 } from './utils';
 
 /**
  * return balance of ETH and DTH of the web3 primary account
@@ -8,12 +6,9 @@ import { web3js } from './utils';
  */
 export const getBalance = () =>
   new Promise(async (res, rej) => {
-    const balances = {};
-    const address = (await web3js.eth.getAccounts())[0];
-    const networkId = await web3js.eth.net.getId();
-    const dthContract = new web3js.eth
-      .Contract(DthContract.abi, DthContract.networks[networkId].address);
     try {
+      const balances = {};
+      const { address, dthContract } = await helperWeb3();
       web3js.eth.getBalance(address).then(async (result, error) => {
         if (!error) {
           balances.eth = web3js.utils.fromWei(result, 'ether');
