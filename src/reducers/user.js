@@ -2,8 +2,8 @@ import config from '../constants/config';
 
 const initialState = {
   balance: {
-    ETH: 0,
-    DTH: 0
+    eth: 0,
+    dth: 0
   }
 };
 
@@ -16,14 +16,14 @@ const userReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export const hasBalance = ({ balance }) => balance && balance.ETH != null && balance.DTH != null;
+export const hasBalance = ({ balance }) => balance && (balance.eth !== 0 || balance.dth !== 0);
 
 export const hasEnougthMoneyToAddShop = ({ balance }) =>
   hasBalance({ balance }) &&
-  balance.ETH >= config.gasPrice.simpleTransac &&
-  balance.DTH >= config.licensePrice;
+  balance.eth >= config.gasPrice.simpleTransac &&
+  balance.dth >= config.licensePrice;
 
 export const hasEnougthMoneyToRemoveShop = ({ balance }) =>
-  hasBalance({ balance }) && balance.ETH >= config.gasPrice.simpleTransac;
+  hasBalance({ balance }) && balance.eth >= config.gasPrice.simpleTransac;
 
 export default userReducer;
