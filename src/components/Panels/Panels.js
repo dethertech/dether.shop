@@ -13,17 +13,18 @@ const Panels = styled.div`
   justify-content: center;
 `;
 
-const Left = styled.div`
+Panels.Left = styled.div`
   background: ${tokens.colors.white};
   flex: 0 0 50rem;
 `;
 
-const Right = styled.div`
+Panels.Right = styled.div`
   flex: 1;
   background: blue;
 `;
 
-Panels.Left = Left;
-Panels.Right = Right;
+Panels.displayName = 'Panels';
+Panels.Left.displayName = 'Panels.Left';
+Panels.Right.displayName = 'Panels.Right';
 
 export default Panels;
