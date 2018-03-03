@@ -21,19 +21,19 @@ const ButtonWrapper = styled.div`
 
 const PhoneModal = ({ submitPhone, backToEdit, phone }) => (
   <Modal>
-    <div>{tr('onboarding.phone.modal_text')}</div>
+    <div>{tr('phone.modal_text')}</div>
     <Padding vertical="m">
       <H2>{phone}</H2>
     </Padding>
     <ButtonsWrapper>
       <ButtonWrapper>
         <Button fullWidth onClick={backToEdit}>
-          {tr('onboarding.phone.modal_edit_button')}
+          {tr('phone.modal_edit_button')}
         </Button>
       </ButtonWrapper>
       <ButtonWrapper>
         <Button fullWidth onClick={submitPhone}>
-          {tr('onboarding.phone.modal_valid_button')}
+          {tr('phone.modal_valid_button')}
         </Button>
       </ButtonWrapper>
     </ButtonsWrapper>

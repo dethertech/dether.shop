@@ -112,7 +112,7 @@ class ValidationCode extends PureComponent {
             {isPending && (
               <Margin vertical="l">
                 <Mention>
-                  {tr('onboarding.validate_code.loader_message')} <br /> <br />
+                  {tr('validate_code.loader_message')} <br /> <br />
                 </Mention>
                 <Loader />
               </Margin>
@@ -152,17 +152,17 @@ class ValidationCode extends PureComponent {
                     ))}
                 </CodeWrapper>
                 <Mention>
-                  {tr('onboarding.validate_code.code_sent', { phoneNumber }, { html: true })}
+                  {tr('validate_code.code_sent', { phoneNumber }, { html: true })}
                 </Mention>
               </div>
             )}
             <Margin top="l" bottom="xs">
               <ButtonLink theme="primary" onClick={editPhoneNumber}>
-                {tr('onboarding.validate_code.change_button')}
+                {tr('validate_code.change_button')}
               </ButtonLink>
             </Margin>
             <ButtonLink theme="primary" onClick={reSendSms}>
-              {tr('onboarding.validate_code.resend_button')}
+              {tr('validate_code.resend_button')}
             </ButtonLink>
           </Padding>
         </Layout.Body>
