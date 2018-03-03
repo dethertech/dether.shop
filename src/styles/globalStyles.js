@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { injectGlobal } from 'styled-components';
 import tokens from './tokens';
 
@@ -7,7 +8,7 @@ const globalStyles = injectGlobal`
   }
 
   html {
-    font-size: 62.5%;
+    font-size: 75%;
     height:100%;
     width:100%;
     overflow: hidden;
