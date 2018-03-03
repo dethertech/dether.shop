@@ -3,7 +3,8 @@ import DetherCore from 'dethercontract/contracts/DetherCore.json';
 import DthContract from 'dethercontract/contracts/DetherToken.json';
 import SmsCertifier from 'dethercontract/contracts/SmsCertifier.json';
 
-export const web3js = new Web3(window.web3.currentProvider);
+const provider = window.web3 && window.web3.currentProvider;
+export const web3js = new Web3(provider);
 
 export const helperWeb3 = async () => {
   const address = (await web3js.eth.getAccounts())[0];
