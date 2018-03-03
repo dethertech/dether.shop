@@ -108,7 +108,6 @@ const mapStateToProps = ({ app, shop }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // TODO setHasWeb3: bindActionCreators(actions.app.setHasWeb3, dispatch),
   setAppInitialized: bindActionCreators(setAppInitializedAction, dispatch),
   setMetamaskInstalled: bindActionCreators(setMetamaskInstalledAction, dispatch),
   setEthAddress: bindActionCreators(setEthAddressAction, dispatch),

@@ -5,7 +5,7 @@ const initialState = {
     eth: 0,
     dth: 0
   },
-  certified: false,
+  isCertified: false,
 };
 
 const userReducer = (state = initialState, { type, payload }) => {
@@ -13,7 +13,7 @@ const userReducer = (state = initialState, { type, payload }) => {
     case 'SET_BALANCE':
       return { ...state, balance: payload.balance };
     case 'SET_USER_CERTIFIED':
-      return { ...state, certified: payload };
+      return { ...state, isCertified: payload };
     default:
       return state;
   }

@@ -19,7 +19,7 @@ export class AddShopRouter extends Component {
         pathname: PropTypes.string.isRequired
       }).isRequired
     }).isRequired,
-    isPhoneVerified: PropTypes.bool.isRequired
+    isUserVerified: PropTypes.bool.isRequired
   };
 
   componentDidMount() {
@@ -35,8 +35,8 @@ export class AddShopRouter extends Component {
   }
 
   redirect = () => {
-    const { history, isPhoneVerified } = this.props;
-    if (isPhoneVerified && history.location.pathname.startsWith('/add-phone')) {
+    const { history, isUserVerified } = this.props;
+    if (isUserVerified && history.location.pathname.startsWith('/add-phone')) {
       history.replace('/');
     }
   };
@@ -56,7 +56,7 @@ export class AddShopRouter extends Component {
 }
 
 const mapStateToProps = ({ user }) => ({
-  isPhoneVerified: user.isCertified || true // TODO remove || false
+  isUserVerified: user.isCertified
 });
 
 export default withRouter(connect(mapStateToProps, null)(AddShopRouter));
