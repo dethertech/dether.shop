@@ -1,7 +1,13 @@
-// const GAS_PRICE_ETH = Number(process.env.REACT_APP_GAS_PRICE_ETH);
-// const GAS_AMOUNT = Number(process.env.REACT_APP_GAS_AMOUNT);
+const GAS_PRICE_ETH = Number(process.env.REACT_APP_GAS_PRICE_ETH);
+const GAS_AMOUNT = Number(process.env.REACT_APP_GAS_AMOUNT);
 
 export default {
+  gasPrice: {
+    eth: GAS_PRICE_ETH,
+    simpleTransac: GAS_PRICE_ETH * GAS_AMOUNT
+  },
+  licensePrice: Number(process.env.REACT_APP_LICENSE_PRICE)
+
   // TODO: Remove unused constants
   // apiUrl: process.env.REACT_APP_API_URL,
   // encryptToken: process.env.REACT_APP_ENCRYPT_TOKEN,
