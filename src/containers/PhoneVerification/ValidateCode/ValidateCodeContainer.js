@@ -3,11 +3,11 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import tr from '../../../../translate';
-import { phoneVerificationTime } from '../../../../helpers/timers';
-import { getErrorMessage } from '../../../../helpers/apiResponse';
+import tr from '../../../translate';
+import { phoneVerificationTime } from '../../../helpers/timers';
+import { getErrorMessage } from '../../../helpers/apiResponse';
 import ValidateCode from './ValidateCode';
-import actions from '../../../../actions/';
+import actions from '../../../actions/';
 
 class ValidationCode extends PureComponent {
   static propTypes = {

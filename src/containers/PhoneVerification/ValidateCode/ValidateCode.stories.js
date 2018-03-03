@@ -2,7 +2,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import { storyWithStore } from '../../../../helpers/stories'
+import { storyWithStore } from '../../../helpers/stories'
 
 const initialStore = {
   wallet: {
