@@ -34,7 +34,7 @@ export class LeftPanel extends PureComponent {
     }
   }
 
-  render = () => {
+  render() {
     const { isAppInitialized, hasShop, hasTransactionPending } = this.props;
 
     if (!isAppInitialized) {
@@ -48,7 +48,7 @@ export class LeftPanel extends PureComponent {
       return <div>View Shop</div>;
     }
     return <div>Add shop</div>;
-  };
+  }
 }
 
 const mapStateToProps = ({ app, shop }) => ({
