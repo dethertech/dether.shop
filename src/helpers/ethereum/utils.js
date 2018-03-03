@@ -1,6 +1,7 @@
 import Web3 from 'web3';
 import DetherCore from 'dethercontract/contracts/DetherCore.json';
 import DthContract from 'dethercontract/contracts/DetherToken.json';
+import SmsCertifier from 'dethercontract/contracts/SmsCertifier.json';
 
 export const web3js = new Web3(window.web3.currentProvider);
 
@@ -11,11 +12,14 @@ export const helperWeb3 = async () => {
     .Contract(DetherCore.abi, DetherCore.networks[networkId].address);
   const dthContract = new web3js.eth
     .Contract(DthContract.abi, DthContract.networks[networkId].address);
+  const smsContract = new web3js.eth
+    .Contract(SmsCertifier.abi, SmsCertifier.networks[networkId].address);
 
   return {
     address,
     networkId,
     detherContract,
     dthContract,
+    smsContract
   };
 };
