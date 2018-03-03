@@ -15,7 +15,7 @@ const Panels = styled.div`
 
 Panels.Left = styled.div`
   background: ${tokens.colors.white};
-  flex: 0 0 50rem;
+  flex: 0 0 58rem;
 `;
 
 Panels.Right = styled.div`

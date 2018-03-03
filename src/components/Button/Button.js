@@ -34,6 +34,13 @@ export const Wrapper = styled.button`
       width: 100%;
     `};
 
+  ${({ isSmall }) =>
+    isSmall &&
+    css`
+      font-size: ${tokens.fontSizes.m};
+      padding: ${tokens.spaces.xs} ${tokens.spaces.m};
+    `};
+
   ${({ theme }) => css`
     color: ${buttonThemes[theme].text}; /* for LinkButton */
     background: ${buttonThemes[theme].bg};
@@ -58,14 +65,21 @@ export const Wrapper = styled.button`
   }
 `;
 
-const Button = ({ onClick, children, theme, fullWidth, disabled }) => (
-  <Wrapper fullWidth={fullWidth} theme={theme} disabled={disabled} onClick={onClick}>
+const Button = ({ onClick, children, theme, fullWidth, disabled, isSmall }) => (
+  <Wrapper
+    isSmall={isSmall}
+    fullWidth={fullWidth}
+    theme={theme}
+    disabled={disabled}
+    onClick={onClick}
+  >
     {children}
   </Wrapper>
 );
 
 Button.propTypes = {
   disabled: PropTypes.bool,
+  isSmall: PropTypes.bool,
   fullWidth: PropTypes.bool,
   theme: PropTypes.oneOf(['primary', 'light', 'danger']),
   onClick: PropTypes.func,
@@ -76,6 +90,7 @@ Button.defaultProps = {
   disabled: false,
   fullWidth: false,
   theme: 'light',
+  isSmall: false,
   onClick: () => {}
 };
 

@@ -6,6 +6,7 @@ import tokens from '../../styles/tokens';
 import Map from '../Map';
 import Panels from '../../components/Panels';
 import Layout from '../../components/Layout';
+import Header from '../../components/Header';
 import { Padding } from '../../components/Spaces';
 
 const FooterText = styled.footer`
@@ -27,7 +28,12 @@ export class Home extends PureComponent {
           <Layout>
             <Layout.Header>
               <Padding all="m">
-                <div>header</div>
+                <Header
+                  onRefresh={() => {}}
+                  onBuyDTH={() => {}}
+                  EthBalance={2.456}
+                  DthBalance={25634}
+                />
               </Padding>
             </Layout.Header>
             <Layout.Body>

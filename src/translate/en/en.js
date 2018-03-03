@@ -4,6 +4,11 @@ import terms from './terms-en';
 
 const en = {
   terms,
+  header: {
+    buy_dth: 'Buy DTH',
+    your_balance: 'your balance',
+    refresh: 'Refresh'
+  }
 };
 
 export default en;

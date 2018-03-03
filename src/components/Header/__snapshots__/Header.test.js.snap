@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components Header should render Header 1`] = `
+.c4 {
+  display: inline-block;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  line-height: 1.15em;
+  padding: 1.2rem 2rem;
+  font-size: 1.4rem;
+  padding: 0.8rem 1.6rem;
+  color: #4B53B6;
+  background: #FFFFFF;
+  border: solid 1px #4B53B6;
+}
+
+.c4:active {
+  box-shadow: inset 0 0.2rem 0.2rem 0 rgba(0,0,0,0.1);
+}
+
+.c2 {
+  padding-right: 1.6rem;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+.c1 {
+  -webkit-flex: 0 0 30%;
+  -ms-flex: 0 0 30%;
+  flex: 0 0 30%;
+  text-align: left;
+}
+
+.c5 {
+  -webkit-flex: 0 0 70%;
+  -ms-flex: 0 0 70%;
+  flex: 0 0 70%;
+}
+
+.c6 {
+  border-radius: 1rem;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.05),0 0 0 1px rgba(0,0,0,0.04);
+  padding: 1.2rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  text-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
+  border-right: solid 1px #F5F5F5;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.c3 {
+  padding-top: 0.8rem;
+}
+
+.c8 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  border-right: solid 1px #F5F5F5;
+  padding-right: 1.2rem;
+}
+
+.c9 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  padding-left: 1.2rem;
+}
+
+.c10 {
+  -webkit-flex: 0 0 100%;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+  padding: 0.8rem;
+  padding-bottom: 0;
+}
+
+.c11 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 0.8rem;
+}
+
+.c12 {
+  margin-top: 0.4rem;
+}
+
+<header
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <img
+        alt=""
+        src="logo.svg"
+      />
+      <div
+        className="c3"
+      >
+        <button
+          className="c4"
+          disabled={false}
+          onClick={[Function]}
+        >
+          Buy DTH
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c5"
+  >
+    <div
+      className="c6"
+    >
+      <div
+        className="c7"
+      >
+        <div
+          className="c8"
+        >
+          2.456
+           ETH
+        </div>
+        <div
+          className="c9"
+        >
+          25634
+           DTH
+        </div>
+        <div
+          className="c10"
+        >
+          your balance
+        </div>
+      </div>
+      <button
+        className="c11"
+        onClick={[Function]}
+      >
+        <img
+          alt=""
+          src="icon_refresh.svg"
+        />
+        <div
+          className="c12"
+        >
+          Refresh
+        </div>
+      </button>
+    </div>
+  </div>
+</header>
+`;
