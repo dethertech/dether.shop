@@ -2,11 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 /*
-  Routes
- */
-import { routes } from '../constants';
-
-/*
   Containers
  */
 import { Home } from '../containers';
@@ -17,7 +12,7 @@ import { Home } from '../containers';
 const RouterComponent = () => (
   <Router>
     <Switch>
-      <Route exact path={routes.Home} component={Home} />
+      <Route path="*" component={Home} />
     </Switch>
   </Router>
 );

@@ -6,6 +6,7 @@ import tr from '../../translate';
 
 // component
 import LoaderScreen from '../../components/Screens/LoaderScreen';
+import AddShopRouter from '../AddShopRouter';
 
 /**
  * LeftPanel containers
@@ -45,7 +46,7 @@ export class LeftPanel extends PureComponent {
         />
       );
     } else if (!hasShop || hasTransactionPending) {
-      return <div>View Shop</div>;
+      return <AddShopRouter />;
     }
     return <div>Add shop</div>;
   }
