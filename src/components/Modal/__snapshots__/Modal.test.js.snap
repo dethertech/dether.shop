@@ -2,17 +2,21 @@
 
 exports[`Component Modal should be render without crash 1`] = `
 <div
-  className="sc-bZQynM gXvanP"
+  className="sc-gzVnrw gVHaxn"
 >
   <div
-    className="sc-ifAKCX gNAKPE"
+    className="sc-ifAKCX bGyEbU"
   >
-    <p>
-      Modal
-    </p>
-    <p>
-      Home
-    </p>
+    <div
+      className="sc-EHOje lfAdil"
+    >
+      <p>
+        Modal
+      </p>
+      <p>
+        Home
+      </p>
+    </div>
   </div>
 </div>
 `;

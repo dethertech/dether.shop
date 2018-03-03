@@ -17,7 +17,7 @@ export class LeftPanel extends PureComponent {
     hasShop: PropTypes.bool.isRequired,
     hasTransactionPending: PropTypes.bool.isRequired,
 
-    setHasWeb3: PropTypes.bool.isRequired
+    setHasWeb3: PropTypes.func.isRequired
     // TODO setShop: PropTypes.bool.isRequired
   };
 
