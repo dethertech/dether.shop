@@ -36,19 +36,23 @@ class InfoCard extends PureComponent {
   static propTypes = {
     cardOpened: PropTypes.bool.isRequired,
     closeCard: PropTypes.func.isRequired,
-    //    contentOnCard: PropTypes.shape({}).isRequired
+    contentOnCard: PropTypes.shape({}).isRequired
   };
 
-  setContent = () => (
-    // const { contentOnCard } = this.props;
-    <IdentityCard buttonLink="http://google.com" buttonText="Itinerary" cardName="Shop Name">
-      <ShopInfos
-        title="Welcome"
-        adress="31 rue de Cotte 75012 Paris"
-        description="Vente d'articles cuisine et déco pour toute la maison."
-      />
-    </IdentityCard>
-  );
+  setContent = () => {
+    const { contentOnCard } = this.props;
+    if (contentOnCard && contentOnCard.type === 'shop') {
+      return (
+        <IdentityCard buttonLink="http://google.com" buttonText="Itinerary" cardName="Shop Name">
+          <ShopInfos
+            title="Welcome"
+            adress="31 rue de Cotte 75012 Paris"
+            description="Vente d'articles cuisine et déco pour toute la maison."
+          />
+        </IdentityCard>
+      );
+    }
+  };
 
   handleClick = () => {
     const { closeCard } = this.props;

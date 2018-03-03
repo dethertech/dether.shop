@@ -20,8 +20,8 @@ import { distance, getClusterData } from '../../helpers/map';
 
 const MapWrapper = styled.div`
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 50vw;
+  height: 100vh;
   overflow: hidden;
 
   /* hide google legal mentions */
