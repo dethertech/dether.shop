@@ -5,15 +5,17 @@ import PropTypes from 'prop-types';
 import PhoneForm from './PhoneForm';
 import ValidateCodeContainer from './ValidateCode';
 import LoaderScreen from '../../components/Screens/LoaderScreen';
-import actions from '../../actions/';
 import { getErrorMessage } from '../../helpers/apiResponse';
+import {
+  sendSms as sendSmsAction,
+  setPhone as setPhoneAction,
+  setPhoneSent as setPhoneSentAction,
+  setPhoneCountry as setPhoneCountryAction,
+} from '../../actions/kyc';
 
 class PhoneVerification extends PureComponent {
   static propTypes = {
-    pending: PropTypes.shape({}).isRequired,
-    submitPhonePending: PropTypes.func.isRequired,
-    submitPhoneSuccess: PropTypes.func.isRequired,
-    submitPhoneError: PropTypes.func.isRequired,
+    isSubmitPhonePending: PropTypes.bool.isRequired,
     sendSms: PropTypes.func.isRequired,
     ethAddress: PropTypes.string.isRequired,
     setPhone: PropTypes.func.isRequired,
@@ -40,9 +42,8 @@ class PhoneVerification extends PureComponent {
 
   submitPhoneSuccess = ({ data }) => {
     const { phoneNumber, phoneCountry } = this.state;
-    const { submitPhoneSuccess, setPhone, setPhoneSent, setPhoneCountry } = this.props;
+    const { setPhone, setPhoneSent, setPhoneCountry } = this.props;
     this.setState({ code: data.code });
-    submitPhoneSuccess();
     this.setState({ lastSend: new Date() });
     setPhone(phoneNumber);
     setPhoneCountry(phoneCountry);
@@ -50,10 +51,8 @@ class PhoneVerification extends PureComponent {
   };
 
   submitPhoneError = (errors, res) => {
-    const { submitPhoneError } = this.props;
     const message = getErrorMessage(errors, res);
     this.setState({ error: message });
-    submitPhoneError();
   };
 
   editPhoneNumber = () => {
@@ -62,13 +61,12 @@ class PhoneVerification extends PureComponent {
   };
 
   submitPhone = (phoneNumber, phoneCountry) => {
-    const { submitPhonePending, sendSms, ethAddress } = this.props;
+    const { sendSms, ethAddress } = this.props;
 
     const stateToChange = phoneCountry ? { phoneNumber, phoneCountry } : { phoneNumber };
     this.setState(
       () => stateToChange,
       () => {
-        submitPhonePending();
         sendSms({
           phoneNumber,
           ethAddress,
@@ -81,13 +79,13 @@ class PhoneVerification extends PureComponent {
 
   render = () => {
     const { lastSend, phoneNumber, phoneCountry, error, code } = this.state;
-    const { phoneSent, pending } = this.props;
+    const { phoneSent, isSubmitPhonePending } = this.props;
 
-    if (!phoneSent && !pending.SUBMIT_PHONE) {
+    if (!phoneSent && !isSubmitPhonePending) {
       return <PhoneForm submitError={error} onSubmit={this.submitPhone} country={phoneCountry} />;
     }
 
-    if (pending.SUBMIT_PHONE) {
+    if (isSubmitPhonePending) {
       return <LoaderScreen />;
     }
 
@@ -104,22 +102,19 @@ class PhoneVerification extends PureComponent {
   };
 }
 
-const mapStateToProps = state => ({
-  pending: state.pending,
-  ethAddress: state.wallet.ethAddress,
-  phone: state.onboard.phone,
-  phoneSent: state.onboard.phoneSent,
-  phoneCountry: state.onboard.phoneCountry
+const mapStateToProps = ({ user, kyc }) => ({
+  isSubmitPhonePending: kyc.isSubmitPhonePending,
+  ethAddress: user.ethAddress,
+  phone: kyc.phone,
+  phoneSent: kyc.phoneSent,
+  phoneCountry: kyc.phoneCountry
 });
 
 const mapDispatchToProps = dispatch => ({
-  submitPhonePending: () => dispatch({ type: 'SUBMIT_PHONE_PENDING' }),
-  submitPhoneSuccess: () => dispatch({ type: 'SUBMIT_PHONE_SUCCESS' }),
-  submitPhoneError: () => dispatch({ type: 'SUBMIT_PHONE_ERROR' }),
-  sendSms: params => dispatch(actions.onboard.sendSms(params)),
-  setPhone: phone => dispatch(actions.onboard.setPhone(phone)),
-  setPhoneCountry: country => dispatch(actions.onboard.setPhoneCountry(country)),
-  setPhoneSent: bool => dispatch(actions.onboard.setPhoneSent(bool))
+  sendSms: params => dispatch(sendSmsAction(params)),
+  setPhone: phone => dispatch(setPhoneAction(phone)),
+  setPhoneCountry: country => dispatch(setPhoneCountryAction(country)),
+  setPhoneSent: bool => dispatch(setPhoneSentAction(bool))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneVerification);

@@ -9,6 +9,10 @@ export default {
   licensePrice: Number(process.env.REACT_APP_LICENSE_PRICE),
   apiUrl: process.env.REACT_APP_API_URL,
   googleMapKey: process.env.REACT_APP_GOOGLE_MAP_KEY,
+  kyc: {
+    urlSend: process.env.REACT_APP_KYC_URL_SEND || 'https://detherkyc.herokuapp.com/sms/test',
+    urlVerif: process.env.REACT_APP_KYC_URL_VERIF || 'https://detherkyc.herokuapp.com/sms/verif'
+  }
 
   // TODO: Remove unused constants
   // encryptToken: process.env.REACT_APP_ENCRYPT_TOKEN,
@@ -28,8 +32,4 @@ export default {
   // sellMinEth: Number(process.env.REACT_APP_SELL_MIN_ETH),
   // dealMinEth: Number(process.env.REACT_APP_DEAL_MIN_ETH),
   // licensePrice: Number(process.env.REACT_APP_LICENSE_PRICE),
-  // kyc: {
-  //   urlSend: process.env.REACT_APP_KYC_URL_SEND || 'https://detherkyc.herokuapp.com/sms/test',
-  //   urlVerif: process.env.REACT_APP_KYC_URL_VERIF || 'https://detherkyc.herokuapp.com/sms/verif'
-  // }
 };

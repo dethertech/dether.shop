@@ -6,6 +6,16 @@ import PhoneVerification from './PhoneVerification'
 import { storyWithStore } from '../../helpers/stories'
 
 const initialStore = {
+  kyc: {
+    isSubmitPhonePending: false,
+    isSubmitCodePending: false,
+    phone: '',
+    phoneSent: false,
+    phoneCountry: null,
+  },
+  user: {
+    ethAddress: '0x0000000000000000000000000000000000000000'
+  }
 }
 
 storiesOf('04 - Screens/OnBoarding', module)
