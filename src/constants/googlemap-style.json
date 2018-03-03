@@ -1,0 +1,92 @@
+[
+  {
+    "elementType": "geometry"
+  },
+  {
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill"
+  },
+  {
+    "elementType": "labels.text.stroke"
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels.text.fill"
+  },
+  {
+    "featureType": "poi",
+    "elementType": "geometry"
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill"
+  },
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry"
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill"
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry"
+  },
+  {
+    "featureType": "road.arterial",
+    "elementType": "labels.text.fill"
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry"
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill"
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels.text.fill"
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry"
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry"
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry"
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill"
+  }
+]
