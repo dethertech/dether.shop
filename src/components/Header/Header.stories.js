@@ -7,7 +7,6 @@ import Header from './Header'
 storiesOf('03 - Components', module).add('Header', () => (
     <Header
       onRefresh={() => {}}
-      onBuyDTH={() => {}}
       EthBalance={2.456}
       DthBalance={25634}
     />

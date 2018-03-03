@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import tokens from '../../styles/tokens';
 import tr from '../../translate';
 
-import Button from '../Button';
+import { ExternalLinkButton } from '../Button';
 
 import { Padding } from '../Spaces';
 import DetherLogo from '../../assets/logo.svg';
@@ -76,15 +76,15 @@ const RefreshText = styled.div`
   margin-top: ${tokens.spaces.xxs};
 `;
 
-const Header = ({ onRefresh, onBuyDTH, EthBalance, DthBalance }) => (
+const Header = ({ onRefresh, EthBalance, DthBalance }) => (
   <Wrapper>
     <Left>
       <Padding right="m">
         <img src={DetherLogo} alt="" />
         <BtnWrapper>
-          <Button isSmall onClick={onBuyDTH}>
+          <ExternalLinkButton isSmall href="https://idex.market/eth/dth" target="_blank">
             {tr('header.buy_dth')}
-          </Button>
+          </ExternalLinkButton>
         </BtnWrapper>
       </Padding>
     </Left>
@@ -106,7 +106,6 @@ const Header = ({ onRefresh, onBuyDTH, EthBalance, DthBalance }) => (
 
 Header.propTypes = {
   onRefresh: PropTypes.func.isRequired,
-  onBuyDTH: PropTypes.func.isRequired,
   EthBalance: PropTypes.number.isRequired,
   DthBalance: PropTypes.number.isRequired
 };

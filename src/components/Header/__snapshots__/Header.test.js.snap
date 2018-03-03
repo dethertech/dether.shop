@@ -18,6 +18,10 @@ exports[`Components Header should render Header 1`] = `
   box-shadow: inset 0 0.2rem 0.2rem 0 rgba(0,0,0,0.1);
 }
 
+.c4.active .c4:active {
+  color: inherit;
+}
+
 .c2 {
   padding-right: 1.6rem;
 }
@@ -133,13 +137,13 @@ exports[`Components Header should render Header 1`] = `
       <div
         className="c3"
       >
-        <button
+        <a
           className="c4"
-          disabled={false}
-          onClick={[Function]}
+          href="https://idex.market/eth/dth"
+          target="_blank"
         >
           Buy DTH
-        </button>
+        </a>
       </div>
     </div>
   </div>

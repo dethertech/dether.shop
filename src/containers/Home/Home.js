@@ -28,12 +28,7 @@ export class Home extends PureComponent {
           <Layout>
             <Layout.Header>
               <Padding all="m">
-                <Header
-                  onRefresh={() => {}}
-                  onBuyDTH={() => {}}
-                  EthBalance={2.456}
-                  DthBalance={25634}
-                />
+                <Header onRefresh={() => {}} EthBalance={2.456} DthBalance={25634} />
               </Padding>
             </Layout.Header>
             <Layout.Body>

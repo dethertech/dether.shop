@@ -9,7 +9,6 @@ describe('Components Header', () => {
   it('should render Header', () => {
     const component = renderer.create(<Header
       onRefresh={() => {}}
-      onBuyDTH={() => {}}
       EthBalance={2.456}
       DthBalance={25634}
     />);
