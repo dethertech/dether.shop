@@ -2,13 +2,13 @@
 
 exports[`Component IdentityCard should be render shopCard without crash 1`] = `
 <div
-  className="sc-kgoBCf fKvYZO"
+  className="sc-fjdhpX bCqjUD"
 >
   <div
-    className="sc-kGXeez dxYhcX"
+    className="sc-jzJRlG iwTJuW"
   >
     <div
-      className="sc-dxgOiQ hatxBC"
+      className="sc-kAzzGY chxoco"
     >
       <img
         alt="profile"
@@ -16,7 +16,7 @@ exports[`Component IdentityCard should be render shopCard without crash 1`] = `
         width="65"
       />
       <div
-        className="sc-kpOJdX iMeUQe"
+        className="sc-cSHVUG huGCJq"
       >
         <h1
           className="sc-htpNat hBugQt"
@@ -46,110 +46,14 @@ exports[`Component IdentityCard should be render shopCard without crash 1`] = `
     </div>
   </div>
   <div
-    className="sc-ckVGcZ fgeWkv"
+    className="sc-chPdSV cEFAOw"
   >
     <button
-      className="sc-fjdhpX gONdwq"
+      className="sc-iwsKbI amyUb"
       disabled={false}
       onClick={[Function]}
     >
       Itinerary
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Component IdentityCard should be render tellerCard without crash 1`] = `
-<div
-  className="sc-kgoBCf fKvYZO"
->
-  <div
-    className="sc-kGXeez dxYhcX"
-  >
-    <div
-      className="sc-dxgOiQ hatxBC"
-    >
-      <img
-        alt="profile"
-        src="icon_grand_mere.svg"
-        width="65"
-      />
-      <div
-        className="sc-kpOJdX iMeUQe"
-      >
-        <h1
-          className="sc-htpNat hBugQt"
-        >
-          MessengerID
-        </h1>
-      </div>
-    </div>
-    <div
-      className="sc-iwsKbI eLgFjS"
-    >
-      <div
-        className="sc-gZMcBi hSZVCh"
-      >
-        <div
-          className="sc-gqjmRU cpfFrV"
-        >
-          Sell
-        </div>
-        <div
-          className="sc-VigVT hrKhdk"
-        >
-          700
-          <small>
-            $
-          </small>
-        </div>
-        <div
-          className="sc-jTzLTM bLgUXt"
-        >
-          Vol. trade 
-          <b>
-            10.56
-            ETH
-          </b>
-        </div>
-      </div>
-      <div
-        className="sc-gZMcBi hSZVCh"
-      >
-        <div
-          className="sc-gqjmRU cpfFrV"
-        >
-          Fee
-        </div>
-        <div
-          className="sc-VigVT hrKhdk"
-        >
-          2.36
-          <small>
-            %
-          </small>
-        </div>
-        <div
-          className="sc-jTzLTM bLgUXt"
-        >
-          Transaction 
-          <b>
-            n˚
-            4
-          </b>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="sc-ckVGcZ fgeWkv"
-  >
-    <button
-      className="sc-fjdhpX gONdwq"
-      disabled={false}
-      onClick={[Function]}
-    >
-      Contact
     </button>
   </div>
 </div>
