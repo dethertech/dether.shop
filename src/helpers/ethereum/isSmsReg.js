@@ -9,7 +9,7 @@ export const isSmsReg = () =>
     try {
       const { address, smsContract } = await helperWeb3();
       const isReg = await smsContract.methods.isCertified(address).call();
-      console.log(isReg);
+      res(isReg);
     } catch (e) {
       rej(e);
     }
