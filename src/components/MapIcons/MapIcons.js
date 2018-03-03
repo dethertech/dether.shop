@@ -58,25 +58,6 @@ const isXLarge = n => n.toString().length === 3;
 
 const isXXLarge = n => n.toString().length > 3;
 
-export const PersonIcon = () => (
-  <Wrapper bg={tokens.colors.green}>
-    <svg viewBox="0 0 22 22">
-      <circle cx="11" cy="6" r="5" />
-      <rect width="20" height="10" x="1" y="12" rx="5" />
-    </svg>
-  </Wrapper>
-);
-
-export const ClusterPersonIcon = ({ num }) => (
-  <Wrapper bg={tokens.colors.green} l={isLarge(num)} xl={isXLarge(num)} xxl={isXXLarge(num)}>
-    <div>{num}</div>
-  </Wrapper>
-);
-
-ClusterPersonIcon.propTypes = {
-  num: PropTypes.number.isRequired
-};
-
 export const ClusterShopIcon = ({ num }) => (
   <Wrapper bg="#EDD36B" l={isLarge(num)} xl={isXLarge(num)} xxl={isXXLarge(num)}>
     <div>{num}</div>
