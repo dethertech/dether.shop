@@ -2,17 +2,16 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { H1, H3 } from '../../components/Headings';
+import { H1 } from '../../components/Headings';
 import { LabeledInput } from '../../components/Inputs';
 import { Padding } from '../../components/Spaces';
 import Mention from '../../components/Mention';
 import ProgressBar from '../../components/ProgressBar';
 import Button from '../../components/Button';
 
-import DayLineOnpeningHour from './DayLineOnpeningHour';
+import DaysOnpeningHour from './DaysOnpeningHour';
 import validator from '../../helpers/validator';
-
-const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+import fromState from './fromState';
 
 export class AddShopForm extends PureComponent {
   static propTypes = {
@@ -24,43 +23,9 @@ export class AddShopForm extends PureComponent {
 
   constructor(props) {
     super(props);
-    const { shop } = props;
     this.state = {
-      form: {
-        name: {
-          name: 'name',
-          componentName: 'input',
-          type: 'text',
-          label: 'Name :',
-          value: shop.name || '',
-          fillInfos: validator.name.fillInfos(),
-          error: null,
-          isValid: false,
-          toggleShake: 0
-        },
-        cat: {
-          name: 'cat',
-          componentName: 'input',
-          type: 'text',
-          label: 'Category :',
-          value: shop.cat || '',
-          fillInfos: validator.cat.fillInfos(),
-          error: null,
-          isValid: false,
-          toggleShake: 0
-        },
-        description: {
-          name: 'description',
-          componentName: 'input',
-          type: 'text',
-          label: 'Category :',
-          value: shop.description || '',
-          fillInfos: validator.description.fillInfos(),
-          error: null,
-          isValid: false,
-          toggleShake: 0
-        }
-      }
+      days: '00000000',
+      form: fromState(this, props)
     };
   }
 
@@ -72,16 +37,31 @@ export class AddShopForm extends PureComponent {
     const validatorName = validator[name];
     const value = validatorName.tranform(val);
 
-    this.setState(prevState => ({
-      form: {
-        ...prevState.form,
-        [name]: { ...prevState.form[name], value }
-      }
+    this.setState(pState => ({
+      form: { ...pState.form, [name]: { ...pState.form[name], value } }
     }));
   };
 
+  onChangeDays = days => {
+    this.setState({ days });
+  };
+
   onSave = () => {
-    this.isFormValide();
+    if (this.isFormValide()) {
+      const { days, form } = this.state;
+      const data = {
+        lat: '123.45656',
+        lng: '98.76545',
+        countryId: 'FR',
+        postalCode: '75009',
+        cat: form.cat.value,
+        name: form.name.value,
+        description: form.description.value,
+        opening: days
+      };
+      // TODO set store shop : pending data
+      console.log('data', data);
+    }
   };
 
   checkValide(name, val) {
@@ -90,13 +70,12 @@ export class AddShopForm extends PureComponent {
     const validatorName = validator[name];
     const value = validatorName.tranform(val);
     const isValid = validatorName.test(value);
-    console.log('VALUE', val, value);
 
-    this.setState(prevState => ({
+    this.setState(pState => ({
       form: {
-        ...prevState.form,
+        ...pState.form,
         [name]: {
-          ...prevState.form[name],
+          ...pState.form[name],
           isValid,
           error: isValid ? null : validatorName.errorMsg(value),
           toggleShake: isValid ? objState.toggleShake : objState.toggleShake + 1
@@ -124,18 +103,8 @@ export class AddShopForm extends PureComponent {
         <Mention>Step 3 of 3</Mention>
         <ProgressBar progress={1} />
         <Padding vertical="xl">
-          <LabeledInput
-            {...form.name}
-            onBlur={this.onBlur}
-            onChange={this.onChange}
-            handleChange={() => {}}
-          />
-          <LabeledInput
-            {...form.cat}
-            onBlur={this.onBlur}
-            onChange={this.onChange}
-            handleChange={() => {}}
-          />
+          <LabeledInput {...form.name} handleChange={() => {}} />
+          <LabeledInput {...form.cat} handleChange={() => {}} />
           <LabeledInput
             toggleShake={0}
             value="31 rue de Cotte 75012 Paris"
@@ -146,17 +115,11 @@ export class AddShopForm extends PureComponent {
             handleChange={() => {}}
             name="Address"
           />
-          <LabeledInput
-            {...form.description}
-            onBlur={this.onBlur}
-            onChange={this.onChange}
-            handleChange={() => {}}
-          />
+          <LabeledInput {...form.description} handleChange={() => {}} />
         </Padding>
         <Padding bottom="m">
-          <H3>Select Oppenning days of your shop :</H3>
+          <DaysOnpeningHour onChange={this.onChangeDays} />
         </Padding>
-        {days.map(day => <DayLineOnpeningHour day={day} />)}
 
         <Padding vertical="m">
           <Button fullWidth theme="primary" onClick={this.onSave}>
