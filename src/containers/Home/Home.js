@@ -21,6 +21,12 @@ const FooterText = styled.footer`
   font-size: ${tokens.fontSizes.s};
 `;
 
+const LeftWrapper = styled.div`
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: ${tokens.spaces.m};
+`;
+
 /**
  * Home containers
  * @extends PureComponent
@@ -48,7 +54,9 @@ export class Home extends PureComponent {
               </Padding>
             </Layout.Header>
             <Layout.Body>
-              <LeftPanel />
+              <LeftWrapper>
+                <LeftPanel />
+              </LeftWrapper>
             </Layout.Body>
             <Layout.Footer>
               <Padding all="m">
