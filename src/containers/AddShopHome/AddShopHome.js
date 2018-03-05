@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -8,6 +9,8 @@ import tr from '../../translate';
 import { hasEnougthMoneyToAddShop } from '../../reducers/user';
 import TermsValidation from './TermsValidation';
 import illustration from '../../assets/illustration.svg';
+
+import { toggleTermsModal as toggleTermsModalAction } from '../../actions/app';
 
 // component
 import Button from '../../components/Button';
@@ -34,7 +37,8 @@ export class AddShopHome extends PureComponent {
     hasEnougthMoney: PropTypes.bool.isRequired,
     isUserVerified: PropTypes.bool.isRequired,
     minEth: PropTypes.number.isRequired,
-    minDth: PropTypes.number.isRequired
+    minDth: PropTypes.number.isRequired,
+    toggleTermsModal: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -73,7 +77,7 @@ export class AddShopHome extends PureComponent {
 
   render() {
     const { checked, shake } = this.state;
-    const { isMetamaskInstalled, hasEnougthMoney, minEth, minDth } = this.props;
+    const { isMetamaskInstalled, hasEnougthMoney, minEth, minDth, toggleTermsModal } = this.props;
 
     return (
       <Wrapper>
@@ -101,7 +105,12 @@ export class AddShopHome extends PureComponent {
         {isMetamaskInstalled &&
           hasEnougthMoney && (
             <Padding vertical="l">
-              <TermsValidation shake={shake} checked={checked} handleCheck={this.onCheck} />
+              <TermsValidation
+                shake={shake}
+                checked={checked}
+                handleCheck={this.onCheck}
+                toggleTermsModal={toggleTermsModal}
+              />
               <Button fullWidth theme="primary" onClick={this.onClick}>
                 {tr('add.home.bt_add')}
               </Button>
@@ -120,6 +129,8 @@ const mapStateToProps = ({ user, app }) => ({
   minDth: config.licensePrice
 });
 
-const mapDispatchToProps = (/* dispatch */) => ({});
+const mapDispatchToProps = dispatch => ({
+  toggleTermsModal: bindActionCreators(toggleTermsModalAction, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddShopHome);

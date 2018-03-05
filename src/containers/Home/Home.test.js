@@ -5,6 +5,7 @@ import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 import TestUtils from 'react-dom/test-utils';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import fakeStore from '../../constants/test/fakeStore';
 import Home from './index';
@@ -37,7 +38,7 @@ global.window.google = google
 describe('Container Home', () => {
   it('should be render without crash', () => {
     const component = TestUtils.renderIntoDocument(
-        <Provider store={store}><Home /></Provider>
+        <Provider store={store}><Router><Home /></Router></Provider>
     );
     expect(component).not.toBe(null);
   });

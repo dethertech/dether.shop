@@ -1,7 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+
+import LeftPanelPage from './LeftPanelPage';
+import TermsModal from './TermsModal';
 
 import {
   getShop as getShopHelper,
@@ -11,7 +15,8 @@ import {
 } from '../../helpers/ethereum';
 import {
   setAppInitialized as setAppInitializedAction,
-  setMetamaskInstalled as setMetamaskInstalledAction
+  setMetamaskInstalled as setMetamaskInstalledAction,
+  toggleTermsModal as toggleTermsModalAction
 } from '../../actions/app';
 import {
   setEthAddress as setEthAddressAction,
@@ -19,12 +24,6 @@ import {
   setUserCertified as setUserCertifiedAction
 } from '../../actions/user';
 import { addShop as addShopAction } from '../../actions/shop';
-
-import tr from '../../translate';
-
-// component
-import LoaderScreen from '../../components/Screens/LoaderScreen';
-import AddShopRouter from '../AddShopRouter';
 
 /**
  * LeftPanel containers
@@ -44,11 +43,21 @@ export class LeftPanel extends PureComponent {
     isCertified: PropTypes.func.isRequired,
     setUserCertified: PropTypes.func.isRequired,
     hasTransactionPending: PropTypes.bool.isRequired,
-    setAppInitialized: PropTypes.func.isRequired
+    setAppInitialized: PropTypes.func.isRequired,
+    toggleTermsModal: PropTypes.func.isRequired,
+    isTermsModalOpenened: PropTypes.bool.isRequired,
+    balance: PropTypes.shape({
+      eth: PropTypes.number.isRequired,
+      dth: PropTypes.number.isRequired,
+    }).isRequired
   };
 
   componentWillMount() {
     this.initApp();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   async initApp() {
@@ -79,33 +88,51 @@ export class LeftPanel extends PureComponent {
         if (balance) setBalance(balance);
         if (certified) setUserCertified(certified);
         setMetamaskInstalled(true);
-        setAppInitialized(true);
         setEthAddress(ethAddress);
+        setAppInitialized(true);
+        this.interval = setInterval(this.refreshBalance, 10000);
       }
     }
   }
 
-  render() {
-    const { isAppInitialized, hasShop, hasTransactionPending } = this.props;
+  refreshBalance = async () => {
+    const { getBalance, setBalance } = this.props;
 
-    if (!isAppInitialized) {
-      return (
-        <LoaderScreen
-          title={tr('loaderInitializer.title')}
-          message={tr('loaderInitializer.message')}
+    setBalance(await getBalance());
+  }
+
+  render() {
+    const {
+      hasShop,
+      hasTransactionPending,
+      isAppInitialized,
+      balance,
+      toggleTermsModal,
+      isTermsModalOpenened
+    } = this.props;
+
+    return (
+      <Fragment>
+        <LeftPanelPage
+          hasShop={hasShop}
+          hasTransactionPending={hasTransactionPending}
+          isAppInitialized={isAppInitialized}
+          toggleModal={toggleTermsModal}
+          balance={balance}
+          refreshBalance={this.refreshBalance}
         />
-      );
-    } else if (!hasShop || hasTransactionPending) {
-      return <AddShopRouter />;
-    }
-    return <div>Add shop</div>;
+        {isTermsModalOpenened && <TermsModal closeFunc={toggleTermsModal} />}
+      </Fragment>
+    );
   }
 }
 
-const mapStateToProps = ({ app, shop }) => ({
+const mapStateToProps = ({ app, shop, user }) => ({
   isAppInitialized: app.isAppInitialized,
   hasShop: !!shop.shop,
-  hasTransactionPending: !!shop.transactionHash
+  hasTransactionPending: !!shop.transactionHash,
+  balance: user.balance,
+  isTermsModalOpenened: app.isTermsModalOpenened
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -115,10 +142,11 @@ const mapDispatchToProps = dispatch => ({
   addShop: bindActionCreators(addShopAction, dispatch),
   setBalance: bindActionCreators(setBalanceAction, dispatch),
   setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
+  toggleTermsModal: bindActionCreators(toggleTermsModalAction, dispatch),
   isWeb3: isWeb3Helper,
   getShop: getShopHelper,
   getBalance: getBalanceHelper,
   isCertified: isSmsRegHelper
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LeftPanel);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LeftPanel));

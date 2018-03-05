@@ -6,7 +6,7 @@ const en = {
   terms,
   phone: {
     title: 'Enter your phone number',
-    step: 'Step 3 of 4',
+    step: 'Step 1 of 2',
     label: 'Your phone number :',
     country: {
       label: 'Your country :',
@@ -22,7 +22,7 @@ const en = {
   validate_code: {
     title: 'Enter your verification code',
     subtitle: '4-digit number',
-    step: 'Step 3 of 4',
+    step: 'Step 1 of 2',
     loader_message: 'Checking your code, please wait a second.',
     code_sent: ({ phoneNumber }) =>
       `Verification code has been sent to ${phoneNumber} || Please wait a few moments to receive it.`,
@@ -42,7 +42,7 @@ const en = {
       bt_add: 'Add you shop on the map'
     },
     form: {
-      inputes: {
+      inputs: {
         address: {
           label: 'Address :',
           error: () => 'Invalide address'
@@ -78,6 +78,17 @@ const en = {
     all_right_reserved: 'all rights reserved',
     terms_and_conditions: 'Terms and conditions'
   },
+  shop_recap: {
+    informations: 'Informations :',
+    name: 'Name :',
+    category: 'Category :',
+    address: 'Address :',
+    description: 'Description :',
+    opening_hours: 'Opening hours :',
+    day: 'Day :',
+    opened_at: 'Opening time :',
+    closed_at: 'Closing time :'
+  },
   days: {
     1: 'Monday',
     2: 'Tuesday',
@@ -86,6 +97,13 @@ const en = {
     5: 'Friday',
     6: 'Saturday',
     7: 'Sunday'
+  },
+  errors: {
+    phone: {
+      invalid: 'Please enter a valid phone number (it should be at list 5 digits long)',
+      country_blank: 'You need to select a country in the list',
+      wait_resend: 'Please wait 15 seconds before requesting a new code'
+    }
   }
 };
 

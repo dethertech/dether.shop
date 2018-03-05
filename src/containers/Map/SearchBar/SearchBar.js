@@ -21,12 +21,13 @@ export class SearchBar extends PureComponent {
 
   onChange = address => this.setState({ address });
 
-  getAddress = async () => {
+  getAddress = async address => {
     const { setCenterPosition, fetchAll } = this.props;
-    const place = (await geocodeByAddress(this.state.address))[0];
+    const place = (await geocodeByAddress(address))[0];
     const position = await getLatLng(place);
     setCenterPosition(position);
     fetchAll(position);
+    this.setState({ address });
   };
 
   render() {

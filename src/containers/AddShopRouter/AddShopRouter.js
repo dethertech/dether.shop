@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import AddShopHome from '../AddShopHome';
 import PhoneVerification from '../PhoneVerification';
+import AddShopForm from '../AddShopForm';
 
 /**
  * AddShopRouter containers
@@ -48,7 +49,7 @@ export class AddShopRouter extends Component {
         <Switch>
           <Route exact path="/" component={AddShopHome} />
           <Route exact path="/add-phone" component={PhoneVerification} />
-          <Route exact path="/add-form" component={AddShopHome} />
+          <Route exact path="/add-form" component={AddShopForm} />
           <Route exact path="/add-form/verification" component={AddShopHome} />
         </Switch>
       </div>

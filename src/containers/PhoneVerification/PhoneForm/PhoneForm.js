@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
@@ -6,11 +6,13 @@ import tr from '../../../translate';
 import { LabeledInput } from '../../../components/Inputs';
 import { Padding } from '../../../components/Spaces';
 import Button from '../../../components/Button';
-import Layout from '../../../components/Layout';
 import tokens from '../../../styles/tokens';
 import countries from '../../../constants/prefixePhone';
 import PhoneModal from './PhoneModal';
 import Message from '../../../components/Message';
+import { H1 } from '../../../components/Headings';
+import ProgressBar from '../../../components/ProgressBar';
+import Mention from '../../../components/Mention';
 
 const DialCode = styled.div`
   vertical-align: middle;
@@ -144,7 +146,7 @@ class PhoneForm extends PureComponent {
     } = this.state;
 
     return (
-      <Layout>
+      <Fragment>
         {showModal && (
           <PhoneModal
             phone={fullPhone}
@@ -152,51 +154,50 @@ class PhoneForm extends PureComponent {
             submitPhone={this.handleSubmit}
           />
         )}
-        <Layout.Body>
-          <Padding all="l">
-            {submitError && <Message theme="error">{submitError}</Message>}
-            <CountryWrapper>
-              <LabeledInput
-                componentName="combobox"
-                toggleShake={toggleShakeCountry}
-                label={tr('phone.country.label')}
-                placeholder={tr('phone.country.placeholder')}
-                name="country"
-                handleChange={this.handleCountryChange}
-                onBlur={this.checkCountry}
-                onSelectedOption={this.chooseCountry}
-                data={countries}
-                error={countryError}
-                isValid={isCountryValid}
-                defaultOption={country && country.name}
-              />
-            </CountryWrapper>
+        <Padding all="l">
+          <H1>{tr('phone.title')}</H1>
+          <Mention>{tr('phone.step')}</Mention>
+          <ProgressBar progressRatio={1 / 2} />
+          <br />
+
+          {submitError && <Message theme="error">{submitError}</Message>}
+          <CountryWrapper>
             <LabeledInput
-              disabled={!country}
-              toggleShake={toggleShakePhone}
-              insertBefore={country && <DialCode>{country.dial_code}</DialCode>}
-              componentName="input"
-              label={tr('phone.label')}
-              type="tel"
-              value={phone}
-              onBlur={this.checkPhone}
-              handleChange={this.handlePhoneChange}
-              name="phone"
-              error={phoneError}
+              componentName="combobox"
+              toggleShake={toggleShakeCountry}
+              label={tr('phone.country.label')}
+              placeholder={tr('phone.country.placeholder')}
+              name="country"
+              handleChange={this.handleCountryChange}
+              onBlur={this.checkCountry}
+              onSelectedOption={this.chooseCountry}
+              data={countries}
+              error={countryError}
+              isValid={isCountryValid}
+              defaultOption={country && country.name}
             />
-            <Message alignLeft>
-              {tr('phone.helper')}
-            </Message>
-          </Padding>
-        </Layout.Body>
-        <Layout.Footer>
-          <Padding all="l">
-            <Button fullWidth theme="primary" onClick={this.submitPhone}>
-              {tr('phone.valid_button')}
-            </Button>
-          </Padding>
-        </Layout.Footer>
-      </Layout>
+          </CountryWrapper>
+          <LabeledInput
+            disabled={!country}
+            toggleShake={toggleShakePhone}
+            insertBefore={country && <DialCode>{country.dial_code}</DialCode>}
+            componentName="input"
+            label={tr('phone.label')}
+            type="tel"
+            value={phone}
+            onBlur={this.checkPhone}
+            handleChange={this.handlePhoneChange}
+            name="phone"
+            error={phoneError}
+          />
+          <Message alignLeft>{tr('phone.helper')}</Message>
+        </Padding>
+        <Padding all="l">
+          <Button fullWidth theme="primary" onClick={this.submitPhone}>
+            {tr('phone.valid_button')}
+          </Button>
+        </Padding>
+      </Fragment>
     );
   }
 }

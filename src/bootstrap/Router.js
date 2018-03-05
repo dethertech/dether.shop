@@ -1,19 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 /*
   Containers
  */
-import { Home } from '../containers';
+import Home from '../containers/Home';
 
 /**
  * RouterComponent contains all routes
  */
 const RouterComponent = () => (
   <Router>
-    <Switch>
-      <Route path="*" component={Home} />
-    </Switch>
+    <Home />
   </Router>
 );
 

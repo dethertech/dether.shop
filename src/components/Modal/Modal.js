@@ -10,6 +10,7 @@ const ModalInner = styled.div`
   padding: ${tokens.spaces.l};
   width: 88%;
   max-height: 88%;
+  max-width: 42rem;
   overflow: hidden;
   position: relative;
   display: flex;
