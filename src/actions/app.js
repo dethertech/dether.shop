@@ -8,7 +8,12 @@ const setAppInitialized = bool => ({
   payload: bool
 });
 
+const toggleTermsModal = () => ({
+  type: 'TOGGLE_TERMS_MODAL'
+});
+
 export {
   setMetamaskInstalled,
-  setAppInitialized
+  setAppInitialized,
+  toggleTermsModal
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 import tr from '../../translate';
 import Shake from '../../components/Animations/Shake';
@@ -13,7 +12,7 @@ const CheckBoxWrapper = styled.div`
   line-height: 1.6em;
 `;
 
-const TermsValidation = ({ shake, checked, handleCheck }) => (
+const TermsValidation = ({ shake, checked, handleCheck, toggleTermsModal }) => (
   <Shake toggle={shake}>
     <CheckBoxWrapper>
       <Margin bottom="xxs">
@@ -27,9 +26,9 @@ const TermsValidation = ({ shake, checked, handleCheck }) => (
           />
           {tr('add.home.terms_check', null, { html: true })}
         </label>&nbsp;
-        <Link to="/terms" style={{ textDecoration: 'underline' }}>
+        <button onClick={toggleTermsModal} style={{ textDecoration: 'underline' }}>
           {tr('add.home.terms_link')}
-        </Link>
+        </button>
       </Margin>
     </CheckBoxWrapper>
   </Shake>
@@ -38,7 +37,8 @@ const TermsValidation = ({ shake, checked, handleCheck }) => (
 TermsValidation.propTypes = {
   shake: PropTypes.number.isRequired,
   checked: PropTypes.bool,
-  handleCheck: PropTypes.func.isRequired
+  handleCheck: PropTypes.func.isRequired,
+  toggleTermsModal: PropTypes.func.isRequired
 };
 
 TermsValidation.defaultProps = {

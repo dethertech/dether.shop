@@ -6,7 +6,8 @@ export default state => ({
     ...state,
     app: {
       isMetamaskInstalled: false,
-      isAppInitialized: false
+      isAppInitialized: false,
+      isTermsModalOpenened: false
     },
     map: {
       userPosition: { lat: 48.8628, lng: 2.3292 },
@@ -31,8 +32,8 @@ export default state => ({
     },
     user: {
       balance: {
-        ETH: 0,
-        DTH: 0
+        eth: 0,
+        dth: 0
       }
     }
   }),
