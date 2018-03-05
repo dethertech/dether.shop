@@ -10,7 +10,7 @@ import ProgressBar from '../../components/ProgressBar';
 import Button from '../../components/Button';
 
 import DaysOnpeningHour from './DaysOnpeningHour';
-import validator from '../../helpers/validator';
+import validator from './validator';
 import fromState from './fromState';
 import SearchBar from './SearchBar';
 
@@ -103,8 +103,8 @@ export class AddShopForm extends PureComponent {
         <Mention>Step 3 of 3</Mention>
         <ProgressBar progress={1} />
         <Padding vertical="xl">
-          <LabeledInput {...form.name} handleChange={() => {}} />
-          <LabeledInput {...form.cat} handleChange={() => {}} />
+          <LabeledInput {...form.name} />
+          <LabeledInput {...form.cat} />
           <LabeledInput
             toggleShake={0}
             value="31 rue de Cotte 75012 Paris"
@@ -116,7 +116,7 @@ export class AddShopForm extends PureComponent {
             name="Address"
           />
           <SearchBar onChange={console.log} />
-          <LabeledInput {...form.description} handleChange={() => {}} />
+          <LabeledInput {...form.description} />
         </Padding>
         <Padding bottom="m">
           <DaysOnpeningHour onChange={this.onChangeDays} />
