@@ -9,8 +9,8 @@ describe('Components Header', () => {
   it('should render Header', () => {
     const component = renderer.create(<Header
       onRefresh={() => {}}
-      EthBalance={2.456}
-      DthBalance={25634}
+      EthBalance={'2.456'}
+      DthBalance={'25634'}
     />);
 
     const tree = component.toJSON();

@@ -106,8 +106,8 @@ const Header = ({ onRefresh, EthBalance, DthBalance }) => (
 
 Header.propTypes = {
   onRefresh: PropTypes.func.isRequired,
-  EthBalance: PropTypes.number.isRequired,
-  DthBalance: PropTypes.number.isRequired
+  EthBalance: PropTypes.string.isRequired,
+  DthBalance: PropTypes.string.isRequired
 };
 
 export default Header;
