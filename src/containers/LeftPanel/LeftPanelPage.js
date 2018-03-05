@@ -34,7 +34,8 @@ class LeftPanelPage extends PureComponent {
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
       dth: PropTypes.number.isRequired,
-    }).isRequired
+    }).isRequired,
+    refreshBalance: PropTypes.func.isRequired
   }
   getView = () => {
     const { isAppInitialized, hasShop, hasTransactionPending } = this.props;
@@ -53,13 +54,13 @@ class LeftPanelPage extends PureComponent {
   }
 
   render() {
-    const { toggleModal, balance } = this.props;
+    const { toggleModal, balance, refreshBalance } = this.props;
 
     return (
       <Layout>
         <Layout.Header>
           <Padding all="m">
-            <Header onRefresh={() => {}} EthBalance={balance.eth} DthBalance={balance.dth} />
+            <Header onRefresh={refreshBalance} EthBalance={balance.eth} DthBalance={balance.dth} />
           </Padding>
         </Layout.Header>
         <Layout.Body>

@@ -56,6 +56,10 @@ export class LeftPanel extends PureComponent {
     this.initApp();
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   async initApp() {
     const {
       isAppInitialized,
@@ -86,8 +90,15 @@ export class LeftPanel extends PureComponent {
         setMetamaskInstalled(true);
         setEthAddress(ethAddress);
         setAppInitialized(true);
+        this.interval = setInterval(this.refreshBalance, 10000);
       }
     }
+  }
+
+  refreshBalance = async () => {
+    const { getBalance, setBalance } = this.props;
+
+    setBalance(await getBalance());
   }
 
   render() {
@@ -108,6 +119,7 @@ export class LeftPanel extends PureComponent {
           isAppInitialized={isAppInitialized}
           toggleModal={toggleTermsModal}
           balance={balance}
+          refreshBalance={this.refreshBalance}
         />
         {isTermsModalOpenened && <TermsModal closeFunc={toggleTermsModal} />}
       </Fragment>
