@@ -12,11 +12,7 @@ const initialState = {
 
 const shopReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case 'SET_SHOP_POSITION':
-      return { ...state, shopPending: { ...state.shopPending, address: payload.address } };
-    case 'SET_PHONE':
-      return { ...state, shopPending: { ...state.shopPending, phone: payload.address } };
-    case 'UPDATE_SHOP_INFO_PENDING':
+    case 'SET_DATA_SHOP_PENDING':
       return { ...state, shopPending: { ...state.shopPending, ...payload } };
     case 'ADD_TRANSACTION':
       return {
@@ -24,13 +20,21 @@ const shopReducer = (state = initialState, { type, payload }) => {
         transactionType: payload.type,
         transactionHash: payload.hash
       };
-    case 'SET_SHOP':
+    case 'ADD_SHOP':
       return {
         ...state,
         shopPending: null,
         transactionHash: null,
         shop: { ...state.shop, ...payload }
       };
+    case 'REMOVE_SHOP':
+      return {
+        ...state,
+        shop: null,
+        shopPending: { ...state.shop }
+      };
+    case 'SET_PHONE':
+      return { ...state, shopPending: { ...state.shopPending, phone: payload } };
     default:
       return state;
   }

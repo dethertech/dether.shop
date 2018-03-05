@@ -18,7 +18,7 @@ import {
   setBalance as setBalanceAction,
   setUserCertified as setUserCertifiedAction
 } from '../../actions/user';
-import { setShop as setShopAction } from '../../actions/shop';
+import { addShop as addShopAction } from '../../actions/shop';
 
 import tr from '../../translate';
 
@@ -37,14 +37,14 @@ export class LeftPanel extends PureComponent {
     setEthAddress: PropTypes.func.isRequired,
     isWeb3: PropTypes.func.isRequired,
     getShop: PropTypes.func.isRequired,
-    setShop: PropTypes.func.isRequired,
+    addShop: PropTypes.func.isRequired,
     hasShop: PropTypes.bool.isRequired,
     getBalance: PropTypes.func.isRequired,
     setBalance: PropTypes.func.isRequired,
     isCertified: PropTypes.func.isRequired,
     setUserCertified: PropTypes.func.isRequired,
     hasTransactionPending: PropTypes.bool.isRequired,
-    setAppInitialized: PropTypes.func.isRequired,
+    setAppInitialized: PropTypes.func.isRequired
   };
 
   componentWillMount() {
@@ -59,7 +59,7 @@ export class LeftPanel extends PureComponent {
       setEthAddress,
       isWeb3,
       getShop,
-      setShop,
+      addShop,
       getBalance,
       setBalance,
       isCertified,
@@ -70,10 +70,12 @@ export class LeftPanel extends PureComponent {
       const ethAddress = await isWeb3();
       if (ethAddress) {
         const [shop, balance, certified] = await Promise.all([
-          getShop(), getBalance(), isCertified()
+          getShop(),
+          getBalance(),
+          isCertified()
         ]);
 
-        if (shop) setShop(shop);
+        if (shop) addShop(shop);
         if (balance) setBalance(balance);
         if (certified) setUserCertified(certified);
         setMetamaskInstalled(true);
@@ -110,7 +112,7 @@ const mapDispatchToProps = dispatch => ({
   setAppInitialized: bindActionCreators(setAppInitializedAction, dispatch),
   setMetamaskInstalled: bindActionCreators(setMetamaskInstalledAction, dispatch),
   setEthAddress: bindActionCreators(setEthAddressAction, dispatch),
-  setShop: bindActionCreators(setShopAction, dispatch),
+  addShop: bindActionCreators(addShopAction, dispatch),
   setBalance: bindActionCreators(setBalanceAction, dispatch),
   setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
   isWeb3: isWeb3Helper,
