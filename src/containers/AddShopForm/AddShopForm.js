@@ -24,7 +24,7 @@ export class AddShopForm extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      days: '00000000',
+      days: '0000000',
       form: fromState(this, props)
     };
   }
