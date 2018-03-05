@@ -17,11 +17,11 @@ const CloseBtnWrapper = styled.div`
 `;
 
 const CardWrapper = styled.div`
-  width: 200px;
-  height: 300px;
+  width: 35rem;
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translateY(-50%) translateX(-50%);
   z-index: 2;
   visibility: hidden;
   opacity: 0;
@@ -34,14 +34,6 @@ const CardWrapper = styled.div`
     `};
 `;
 
-const Card = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: -50%;
-  left: -50%;
-`;
-
 class InfoCard extends PureComponent {
   static propTypes = {
     cardOpened: PropTypes.bool.isRequired,
@@ -52,9 +44,7 @@ class InfoCard extends PureComponent {
   setContent = () => {
     const { contentOnCard } = this.props;
     if (contentOnCard && contentOnCard.type === 'shop') {
-      return (
-        <ShopCard {...contentOnCard.content} />
-      );
+      return <ShopCard {...contentOnCard.content} />;
     }
   };
 
@@ -68,12 +58,10 @@ class InfoCard extends PureComponent {
 
     return (
       <CardWrapper isOpen={cardOpened}>
-        <Card>
-          <CloseBtnWrapper>
-            <RoundIconBtn type="close" onClick={this.handleClick} />
-          </CloseBtnWrapper>
-          {this.setContent()}
-        </Card>
+        <CloseBtnWrapper>
+          <RoundIconBtn type="close" onClick={this.handleClick} />
+        </CloseBtnWrapper>
+        {this.setContent()}
       </CardWrapper>
     );
   }
