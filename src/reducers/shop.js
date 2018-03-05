@@ -3,10 +3,15 @@ const initialState = {
   transactionHash: null, // if transactionHash !== null so you have a Transaction in pending
   shop: null,
   shopPending: {
+    lat: null,
+    lng: null,
+    address: null,
+    countryId: null,
+    postalCode: null,
     name: '',
-    address: '',
     description: '',
-    calendar: '0000000'
+    cat: '',
+    opening: '0000000'
   }
 };
 
