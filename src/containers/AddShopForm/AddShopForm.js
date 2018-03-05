@@ -61,10 +61,7 @@ export class AddShopForm extends PureComponent {
     if (this.isFormValide()) {
       const { days, form } = this.state;
       const data = {
-        lat: '123.45656',
-        lng: '98.76545',
-        countryId: 'FR',
-        postalCode: '75009',
+        ...form.address.value,
         cat: form.cat.value,
         name: form.name.value,
         description: form.description.value,
