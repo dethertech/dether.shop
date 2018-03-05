@@ -40,6 +40,29 @@ const en = {
       terms_check: 'I have read and agree to the',
       terms_link: 'Terms and Conditions',
       bt_add: 'Add you shop on the map'
+    },
+    form: {
+      inputes: {
+        address: {
+          label: 'Address :',
+          error: () => 'Invalide address'
+        },
+        cat: {
+          label: 'Category :',
+          error: () => 'length min 1 – max 16'
+        },
+        name: {
+          label: 'Name :',
+          error: () => 'length min 1 – max 16'
+        },
+        description: {
+          label: 'Description :',
+          error: () => 'length min 1 – max 16'
+        },
+        opening: {
+          error: () => 'Invalide opening'
+        }
+      }
     }
   },
   header: {
