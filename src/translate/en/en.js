@@ -6,7 +6,7 @@ const en = {
   terms,
   phone: {
     title: 'Enter your phone number',
-    step: 'Step 3 of 4',
+    step: 'Step 1 of 2',
     label: 'Your phone number :',
     country: {
       label: 'Your country :',
@@ -22,7 +22,7 @@ const en = {
   validate_code: {
     title: 'Enter your verification code',
     subtitle: '4-digit number',
-    step: 'Step 3 of 4',
+    step: 'Step 1 of 2',
     loader_message: 'Checking your code, please wait a second.',
     code_sent: ({ phoneNumber }) =>
       `Verification code has been sent to ${phoneNumber} || Please wait a few moments to receive it.`,
