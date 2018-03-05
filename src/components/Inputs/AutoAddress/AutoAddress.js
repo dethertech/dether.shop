@@ -18,14 +18,18 @@ class AutoAddress extends PureComponent {
     onChange: PropTypes.func,
     isValid: PropTypes.bool,
     hasError: PropTypes.bool,
-    inputProps: PropTypes.shape({})
+    inputProps: PropTypes.shape({}),
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func
   };
 
   static defaultProps = {
     isValid: false,
     hasError: false,
     inputProps: {},
-    onChange: () => {}
+    onChange: () => {},
+    onFocus: () => {},
+    onBlur: () => {}
   };
 
   constructor(props) {
@@ -33,8 +37,14 @@ class AutoAddress extends PureComponent {
     this.state = { inputFocus: false };
   }
 
-  onFocus = () => this.setState({ inputFocus: true });
-  onBlur = () => this.setState({ inputFocus: false });
+  onFocus = e => {
+    this.props.onFocus(e);
+    this.setState({ inputFocus: true });
+  };
+  onBlur = e => {
+    this.props.onBlur(e);
+    this.setState({ inputFocus: false });
+  };
 
   render() {
     const { onChange, hasError, isValid, inputProps } = this.props;
