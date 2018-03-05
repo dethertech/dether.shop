@@ -21,7 +21,7 @@ const FooterText = styled.footer`
 
 const LeftWrapper = styled.div`
   max-width: 42rem;
-  margin: 0 auto;
+  margin: auto;
   padding: ${tokens.spaces.m};
 `;
 
@@ -33,10 +33,10 @@ class LeftPanelPage extends PureComponent {
     toggleModal: PropTypes.func.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
-      dth: PropTypes.number.isRequired,
+      dth: PropTypes.number.isRequired
     }).isRequired,
     refreshBalance: PropTypes.func.isRequired
-  }
+  };
   getView = () => {
     const { isAppInitialized, hasShop, hasTransactionPending } = this.props;
 
@@ -51,7 +51,7 @@ class LeftPanelPage extends PureComponent {
       return <AddShopRouter />;
     }
     return <div>Add shop</div>;
-  }
+  };
 
   render() {
     const { toggleModal, balance, refreshBalance } = this.props;
@@ -59,17 +59,15 @@ class LeftPanelPage extends PureComponent {
     const dth = balance.dth.toFixed(4);
 
     return (
-      <Layout>
+      <Layout isFullScreen>
         <Layout.Header>
           <Padding all="m">
             <Header onRefresh={refreshBalance} EthBalance={eth} DthBalance={dth} />
           </Padding>
         </Layout.Header>
-        <Layout.Body>
-          <LeftWrapper>
-            {this.getView()}
-          </LeftWrapper>
-        </Layout.Body>
+        <Layout.ScrollableBody>
+          <LeftWrapper>{this.getView()}</LeftWrapper>
+        </Layout.ScrollableBody>
         <Layout.Footer>
           <Padding all="m">
             <FooterText>

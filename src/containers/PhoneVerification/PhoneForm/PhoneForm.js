@@ -159,6 +159,7 @@ class PhoneForm extends PureComponent {
           <Mention>{tr('phone.step')}</Mention>
           <ProgressBar progressRatio={1 / 2} />
           <br />
+          <br />
 
           {submitError && <Message theme="error">{submitError}</Message>}
           <CountryWrapper>

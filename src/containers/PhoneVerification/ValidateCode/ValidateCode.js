@@ -112,6 +112,7 @@ class ValidationCode extends PureComponent {
         <Mention>{tr('validate_code.step')}</Mention>
         <ProgressBar progressRatio={1 / 2} />
         <br />
+        <br />
         {isPending && (
           <Margin vertical="l">
             <Mention>
