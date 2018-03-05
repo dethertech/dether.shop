@@ -12,6 +12,7 @@ import Button from '../../components/Button';
 import DaysOnpeningHour from './DaysOnpeningHour';
 import validator from '../../helpers/validator';
 import fromState from './fromState';
+import SearchBar from './SearchBar';
 
 export class AddShopForm extends PureComponent {
   static propTypes = {
@@ -115,6 +116,7 @@ export class AddShopForm extends PureComponent {
             handleChange={() => {}}
             name="Address"
           />
+          <SearchBar onChange={console.log} />
           <LabeledInput {...form.description} handleChange={() => {}} />
         </Padding>
         <Padding bottom="m">
