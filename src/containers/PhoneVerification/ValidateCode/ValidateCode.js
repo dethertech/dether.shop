@@ -4,12 +4,13 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
 import tr from '../../../translate';
-import Layout from '../../../components/Layout';
 import { Padding, Margin } from '../../../components/Spaces';
 import tokens from '../../../styles/tokens';
 import Loader from '../../../components/Loader';
 import ButtonLink from '../../../components/ButtonLink';
 import Message from '../../../components/Message';
+import { H1 } from '../../../components/Headings';
+import ProgressBar from '../../../components/ProgressBar';
 import Mention from '../../../components/Mention';
 
 const CodeBlock = styled.div`
@@ -65,12 +66,12 @@ class ValidationCode extends PureComponent {
     phoneNumber: PropTypes.string.isRequired,
     editPhoneNumber: PropTypes.func.isRequired,
     reSendSms: PropTypes.func.isRequired,
-    error: PropTypes.string,
+    error: PropTypes.string
   };
 
   static defaultProps = {
     isPending: false,
-    error: null,
+    error: null
   };
 
   state = {
@@ -106,67 +107,65 @@ class ValidationCode extends PureComponent {
     const { code } = this.state;
     const { phoneNumber, editPhoneNumber, reSendSms, error, isPending } = this.props;
     return (
-      <Layout>
-        <Layout.Body>
-          <Padding all="m">
-            {isPending && (
-              <Margin vertical="l">
-                <Mention>
-                  {tr('validate_code.loader_message')} <br /> <br />
-                </Mention>
-                <Loader />
-              </Margin>
-            )}
-            {!isPending &&
-              error && (
-                <ErrorWrapper>
-                  <Message alignLeft theme="error">
-                    <b>{tr('errors.Error')}&nbsp;:&nbsp;</b>
-                    {error}
-                  </Message>
-                </ErrorWrapper>
-              )}
-            {!isPending && (
-              <div>
-                <CodeWrapper onClick={this.focusInput}>
-                  <HidddenInput
-                    noValidate
-                    value={code}
-                    name="code"
-                    type="number"
-                    pattern="[0-9]*"
-                    onBlur={this.focusInput}
-                    onChange={this.handleChange}
-                    innerRef={c => (this.codeInput = c)}
-                  />
-                  {Array(4)
-                    .fill(null)
-                    .map((arrItem, i) => (
-                      <CodeBlock
-                        key={`CodeBlock-${i}`}
-                        onClick={this.focusInput}
-                        isFocus={code.length === i}
-                      >
-                        {code.charAt(i)}
-                      </CodeBlock>
-                    ))}
-                </CodeWrapper>
-                <Mention>
-                  {tr('validate_code.code_sent', { phoneNumber }, { html: true })}
-                </Mention>
-              </div>
-            )}
-            <Margin top="l" bottom="xs">
-              <ButtonLink theme="primary" onClick={editPhoneNumber}>
-                {tr('validate_code.change_button')}
-              </ButtonLink>
-            </Margin>
-            <ButtonLink theme="primary" onClick={reSendSms}>
-              {tr('validate_code.resend_button')}
-            </ButtonLink>
-          </Padding>
-        </Layout.Body>
-      </Layout>
+      <Padding all="m">
+        <H1>{tr('validate_code.title')}</H1>
+        <Mention>{tr('validate_code.step')}</Mention>
+        <ProgressBar progressRatio={1 / 2} />
+        <br />
+        {isPending && (
+          <Margin vertical="l">
+            <Mention>
+              {tr('validate_code.loader_message')} <br /> <br />
+            </Mention>
+            <Loader />
+          </Margin>
+        )}
+        {!isPending &&
+          error && (
+            <ErrorWrapper>
+              <Message alignLeft theme="error">
+                <b>{tr('errors.Error')}&nbsp;:&nbsp;</b>
+                {error}
+              </Message>
+            </ErrorWrapper>
+          )}
+        {!isPending && (
+          <div>
+            <CodeWrapper onClick={this.focusInput}>
+              <HidddenInput
+                noValidate
+                value={code}
+                name="code"
+                type="number"
+                pattern="[0-9]*"
+                onBlur={this.focusInput}
+                onChange={this.handleChange}
+                innerRef={c => (this.codeInput = c)}
+              />
+              {Array(4)
+                .fill(null)
+                .map((arrItem, i) => (
+                  <CodeBlock
+                    key={`CodeBlock-${i}`}
+                    onClick={this.focusInput}
+                    isFocus={code.length === i}
+                  >
+                    {code.charAt(i)}
+                  </CodeBlock>
+                ))}
+            </CodeWrapper>
+            <Mention>{tr('validate_code.code_sent', { phoneNumber }, { html: true })}</Mention>
+          </div>
+        )}
+        <Margin top="l" bottom="xs">
+          <ButtonLink theme="primary" onClick={editPhoneNumber}>
+            {tr('validate_code.change_button')}
+          </ButtonLink>
+        </Margin>
+        <ButtonLink theme="primary" onClick={reSendSms}>
+          {tr('validate_code.resend_button')}
+        </ButtonLink>
+      </Padding>
     );
   }
 }
