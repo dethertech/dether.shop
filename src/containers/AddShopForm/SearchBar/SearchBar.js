@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+
+import { LabeledInput } from '../../../components/Inputs';
 
 import GeocodeAPI from '../../../helpers/geocodeAPI';
-import SearchBarWrapper from './SearchBarWrapper';
+// import SearchBarWrapper from './SearchBarWrapper';
 
 export class SearchBar extends PureComponent {
   static propTypes = {
@@ -51,10 +53,16 @@ export class SearchBar extends PureComponent {
     const { error, address } = this.state;
     const inputProps = { value: address, onChange: this.onChange };
     return (
-      <SearchBarWrapper>
-        {error && <p>error</p>}
-        <PlacesAutocomplete onSelect={this.onSelect} inputProps={inputProps} />
-      </SearchBarWrapper>
+      <div style={{ position: 'relative', zIndex: '2' }}>
+        <LabeledInput
+          label="address"
+          name="address"
+          componentName="placesAutocomplete"
+          handleChange={this.onSelect}
+          error={error}
+          inputProps={inputProps}
+        />
+      </div>
     );
   }
 }

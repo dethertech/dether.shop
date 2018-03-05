@@ -101,21 +101,11 @@ export class AddShopForm extends PureComponent {
       <div>
         <H1>Register your shop</H1>
         <Mention>Step 3 of 3</Mention>
-        <ProgressBar progress={1} />
+        <ProgressBar progressRatio={1} />
         <Padding vertical="xl">
           <LabeledInput {...form.name} />
           <LabeledInput {...form.cat} />
-          <LabeledInput
-            toggleShake={0}
-            value="31 rue de Cotte 75012 Paris"
-            type="text"
-            componentName="input"
-            label="Address :"
-            error=""
-            handleChange={() => {}}
-            name="Address"
-          />
-          <SearchBar onChange={console.log} />
+          <SearchBar onChange={() => {}} />
           <LabeledInput {...form.description} />
         </Padding>
         <Padding bottom="m">

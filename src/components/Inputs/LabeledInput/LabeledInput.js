@@ -7,7 +7,7 @@ import { Margin } from '../../../components/Spaces';
 import Mention from '../../../components/Mention';
 
 import Shake from '../../../components/Animations/Shake';
-import { Input, TextArea, ComboBox } from '../';
+import { Input, TextArea, ComboBox, AutoAddress } from '../';
 
 const Wrapper = styled.div`
   margin-bottom: ${tokens.spaces.m};
@@ -62,6 +62,15 @@ const LabeledInput = ({
             onChange={handleChange}
             onBlur={onBlur}
             hasError={!!error}
+            {...rest}
+          />
+        ),
+        placesAutocomplete: () => (
+          <AutoAddress
+            name={name}
+            hasError={!!error}
+            onChange={handleChange}
+            onBlur={onBlur}
             {...rest}
           />
         ),
