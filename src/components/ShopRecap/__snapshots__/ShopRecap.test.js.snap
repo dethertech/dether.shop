@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components ShopRecap should render ShopRecap 1`] = `
+.c2 {
+  font-size: 1.2rem;
+  color: #9B9B9B;
+}
+
+.c1 {
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.c0 {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1.6rem;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  margin-bottom: 0.8rem;
+}
+
+.c4 {
+  -webkit-flex: 0 0 33%;
+  -ms-flex: 0 0 33%;
+  flex: 0 0 33%;
+}
+
+<div
+  className="c0"
+>
+  <h3
+    className="c1"
+  >
+    Informations :
+  </h3>
+  <br />
+  <div
+    className="c2"
+  >
+    Name :
+  </div>
+  H&M
+   
+  <br />
+  <br />
+  <div
+    className="c2"
+  >
+    Category :
+  </div>
+  Clothing
+   
+  <br />
+  <br />
+  <div
+    className="c2"
+  >
+    Address :
+  </div>
+  33 rue de Cotte, 75012 Paris
+   
+  <br />
+  <br />
+  <div
+    className="c2"
+  >
+    Description :
+  </div>
+  Clothes and other stufs
+   
+  <br />
+  <br />
+  <br />
+  <h3
+    className="c1"
+  >
+    Opening hours :
+  </h3>
+  <br />
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      <div
+        className="c2"
+      >
+        Day :
+      </div>
+    </div>
+    <div
+      className="c4"
+    >
+      <div
+        className="c2"
+      >
+        Opening time :
+      </div>
+    </div>
+    <div
+      className="c4"
+    >
+      <div
+        className="c2"
+      >
+        Closing time :
+      </div>
+    </div>
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      Monday
+    </div>
+    <div
+      className="c4"
+    >
+      8:00
+    </div>
+    <div
+      className="c4"
+    >
+      18:00
+    </div>
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      Tuesday
+    </div>
+    <div
+      className="c4"
+    >
+      8:00
+    </div>
+    <div
+      className="c4"
+    >
+      18:00
+    </div>
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      Wednesday
+    </div>
+    <div
+      className="c4"
+    >
+      8:00
+    </div>
+    <div
+      className="c4"
+    >
+      19:30
+    </div>
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      Thursday
+    </div>
+    <div
+      className="c4"
+    >
+      8:00
+    </div>
+    <div
+      className="c4"
+    >
+      18:00
+    </div>
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      Saturday
+    </div>
+    <div
+      className="c4"
+    >
+      10:00
+    </div>
+    <div
+      className="c4"
+    >
+      19:00
+    </div>
+  </div>
+</div>
+`;
