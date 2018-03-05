@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 import { LabeledInput } from '../../../components/Inputs';
+import tr from '../../../translate';
 
 import GeocodeAPI from '../../../helpers/geocodeAPI';
 // import SearchBarWrapper from './SearchBarWrapper';
 
 export class SearchBar extends PureComponent {
   static propTypes = {
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    inputOpt: PropTypes.shape({}).isRequired
   };
 
   static async postalCode(addressComponents, position) {
@@ -23,12 +25,17 @@ export class SearchBar extends PureComponent {
     super(props);
 
     this.state = {
+      isDirty: true,
       address: ''
     };
   }
 
   onChange = address => {
-    this.setState({ address });
+    const { isDirty } = this.state;
+    if (!isDirty) {
+      this.props.onChange(null);
+    }
+    this.setState({ address, isDirty: true });
   };
 
   onSelect = async address => {
@@ -43,23 +50,24 @@ export class SearchBar extends PureComponent {
     let error;
     if (data.lat && data.lng && countryId && postalCode) {
       this.props.onChange(data);
+      this.setState({ isDirty: false });
     } else {
-      error = 'invalide address pleace select a full address';
+      error = tr('add.form.inputes.address.label');
     }
     this.setState({ address, error });
   };
 
   render() {
+    const { inputOpt } = this.props;
     const { error, address } = this.state;
     const inputProps = { value: address, onChange: this.onChange };
     return (
       <div style={{ position: 'relative', zIndex: '2' }}>
         <LabeledInput
-          label="address"
-          name="address"
+          {...inputOpt}
           componentName="placesAutocomplete"
           handleChange={this.onSelect}
-          error={error}
+          error={error || inputOpt.error}
           inputProps={inputProps}
         />
       </div>
