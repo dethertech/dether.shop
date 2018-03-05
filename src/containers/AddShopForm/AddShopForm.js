@@ -89,9 +89,8 @@ export class AddShopForm extends PureComponent {
   isFormValide() {
     const { form } = this.state;
     let isValide = true;
-
     Object.keys(form).forEach(k => {
-      isValide = isValide && this.checkValide(k, form[k].value);
+      isValide = this.checkValide(k, form[k].value) && isValide;
     });
     return isValide;
   }
