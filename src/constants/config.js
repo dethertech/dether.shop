@@ -10,8 +10,8 @@ export default {
   apiUrl: process.env.REACT_APP_API_URL,
   googleMapKey: process.env.REACT_APP_GOOGLE_MAP_KEY,
   kyc: {
-    urlSend: process.env.REACT_APP_KYC_URL_SEND || 'https://detherkyc.herokuapp.com/sms/test',
-    urlVerif: process.env.REACT_APP_KYC_URL_VERIF || 'https://detherkyc.herokuapp.com/sms/verif'
+    urlSend: process.env.REACT_APP_KYC_URL_SEND,
+    urlVerif: process.env.REACT_APP_KYC_URL_VERIF
   }
 
   // TODO: Remove unused constants

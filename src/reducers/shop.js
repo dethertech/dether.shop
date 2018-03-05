@@ -1,8 +1,8 @@
 const initialState = {
   transactionType: 'add',
   transactionHash: null, // if transactionHash !== null so you have a Transaction in pending
-  point: null,
-  pointPending: {
+  shop: null,
+  shopPending: {
     name: '',
     address: '',
     description: '',
@@ -13,23 +13,23 @@ const initialState = {
 const shopReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_SHOP_POSITION':
-      return { ...state, pointPending: { ...state.pointPending, address: payload.address } };
+      return { ...state, shopPending: { ...state.shopPending, address: payload.address } };
     case 'SET_PHONE':
-      return { ...state, pointPending: { ...state.pointPending, phone: payload.address } };
+      return { ...state, shopPending: { ...state.shopPending, phone: payload.address } };
     case 'UPDATE_SHOP_INFO_PENDING':
-      return { ...state, pointPending: { ...state.pointPending, ...payload } };
+      return { ...state, shopPending: { ...state.shopPending, ...payload } };
     case 'ADD_TRANSACTION':
       return {
         ...state,
         transactionType: payload.type,
         transactionHash: payload.hash
       };
-    case 'ADD_SHOP_INFO':
+    case 'SET_SHOP':
       return {
         ...state,
-        pointPending: null,
+        shopPending: null,
         transactionHash: null,
-        point: { ...state.point, ...payload }
+        shop: { ...state.shop, ...payload }
       };
     default:
       return state;

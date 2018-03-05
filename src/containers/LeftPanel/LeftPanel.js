@@ -1,6 +1,24 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+
+import {
+  getShop as getShopHelper,
+  getBalance as getBalanceHelper,
+  isWeb3 as isWeb3Helper,
+  isSmsReg as isSmsRegHelper
+} from '../../helpers/ethereum';
+import {
+  setAppInitialized as setAppInitializedAction,
+  setMetamaskInstalled as setMetamaskInstalledAction
+} from '../../actions/app';
+import {
+  setEthAddress as setEthAddressAction,
+  setBalance as setBalanceAction,
+  setUserCertified as setUserCertifiedAction
+} from '../../actions/user';
+import { setShop as setShopAction } from '../../actions/shop';
 
 import tr from '../../translate';
 
@@ -15,11 +33,18 @@ import AddShopRouter from '../AddShopRouter';
 export class LeftPanel extends PureComponent {
   static propTypes = {
     isAppInitialized: PropTypes.bool.isRequired,
+    setMetamaskInstalled: PropTypes.func.isRequired,
+    setEthAddress: PropTypes.func.isRequired,
+    isWeb3: PropTypes.func.isRequired,
+    getShop: PropTypes.func.isRequired,
+    setShop: PropTypes.func.isRequired,
     hasShop: PropTypes.bool.isRequired,
+    getBalance: PropTypes.func.isRequired,
+    setBalance: PropTypes.func.isRequired,
+    isCertified: PropTypes.func.isRequired,
+    setUserCertified: PropTypes.func.isRequired,
     hasTransactionPending: PropTypes.bool.isRequired,
-
-    setHasWeb3: PropTypes.func.isRequired
-    // TODO setShop: PropTypes.bool.isRequired
+    setAppInitialized: PropTypes.func.isRequired,
   };
 
   componentWillMount() {
@@ -27,11 +52,34 @@ export class LeftPanel extends PureComponent {
   }
 
   async initApp() {
-    const { isAppInitialized, setHasWeb3 } = this.props;
+    const {
+      isAppInitialized,
+      setMetamaskInstalled,
+      setAppInitialized,
+      setEthAddress,
+      isWeb3,
+      getShop,
+      setShop,
+      getBalance,
+      setBalance,
+      isCertified,
+      setUserCertified
+    } = this.props;
+
     if (!isAppInitialized) {
-      setTimeout(() => {
-        setHasWeb3(true);
-      }, 1000);
+      const ethAddress = await isWeb3();
+      if (ethAddress) {
+        const [shop, balance, certified] = await Promise.all([
+          getShop(), getBalance(), isCertified()
+        ]);
+
+        if (shop) setShop(shop);
+        if (balance) setBalance(balance);
+        if (certified) setUserCertified(certified);
+        setMetamaskInstalled(true);
+        setAppInitialized(true);
+        setEthAddress(ethAddress);
+      }
     }
   }
 
@@ -54,13 +102,21 @@ export class LeftPanel extends PureComponent {
 
 const mapStateToProps = ({ app, shop }) => ({
   isAppInitialized: app.isAppInitialized,
-  hasShop: !!shop.point,
+  hasShop: !!shop.shop,
   hasTransactionPending: !!shop.transactionHash
 });
 
-const mapDispatchToProps = (/* dispatch */) => ({
-  // TODO setHasWeb3: bindActionCreators(actions.app.setHasWeb3, dispatch),
-  setHasWeb3: () => {} // TODO REMOVE
+const mapDispatchToProps = dispatch => ({
+  setAppInitialized: bindActionCreators(setAppInitializedAction, dispatch),
+  setMetamaskInstalled: bindActionCreators(setMetamaskInstalledAction, dispatch),
+  setEthAddress: bindActionCreators(setEthAddressAction, dispatch),
+  setShop: bindActionCreators(setShopAction, dispatch),
+  setBalance: bindActionCreators(setBalanceAction, dispatch),
+  setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
+  isWeb3: isWeb3Helper,
+  getShop: getShopHelper,
+  getBalance: getBalanceHelper,
+  isCertified: isSmsRegHelper
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LeftPanel);

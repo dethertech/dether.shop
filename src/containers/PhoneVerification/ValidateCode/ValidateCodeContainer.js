@@ -1,13 +1,14 @@
 /* eslint max-lines: 0 */
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import tr from '../../../translate';
 import { phoneVerificationTime } from '../../../helpers/timers';
 import { getErrorMessage } from '../../../helpers/apiResponse';
 import ValidateCode from './ValidateCode';
-import actions from '../../../actions/';
+import { sendVerifCode as sendVerifCodeAction } from '../../../actions/kyc';
 
 class ValidationCode extends PureComponent {
   static propTypes = {
@@ -46,6 +47,7 @@ class ValidationCode extends PureComponent {
       sendVerifCode,
     } = this.props;
 
+    console.log('SENDED');
     sendVerifCode({
       code,
       phoneNumber,
@@ -76,7 +78,7 @@ const mapStateToProps = ({ kyc: { isSubmitCodePending } }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  sendVerifCode: params => dispatch(actions.onboard.sendVerifCode(params)),
+  sendVerifCode: bindActionCreators(sendVerifCodeAction, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ValidationCode);

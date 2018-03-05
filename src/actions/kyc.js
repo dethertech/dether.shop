@@ -9,6 +9,15 @@ const sendSms = ({ phoneNumber, ethAddress, onSuccess, onError }) => ({
   onError
 });
 
+const sendVerifCode = ({ code, phoneNumber, onSuccess, onError }) => ({
+  type: 'API:SEND_VERIF_CODE',
+  url: config.kyc.urlVerif,
+  method: 'post',
+  data: { phoneNumber, code },
+  onSuccess,
+  onError
+});
+
 const setPhone = phone => ({
   type: 'SET_PHONE',
   payload: { phone }
@@ -34,5 +43,6 @@ export {
   setPhone,
   setPhoneCountry,
   setPhoneSent,
-  setPhoneVerified
+  setPhoneVerified,
+  sendVerifCode
 };

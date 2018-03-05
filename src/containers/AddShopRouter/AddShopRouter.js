@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import AddShopHome from '../AddShopHome';
+import PhoneVerification from '../PhoneVerification';
 
 /**
  * AddShopRouter containers
@@ -19,7 +20,7 @@ export class AddShopRouter extends Component {
         pathname: PropTypes.string.isRequired
       }).isRequired
     }).isRequired,
-    isPhoneVerified: PropTypes.bool.isRequired
+    isUserVerified: PropTypes.bool.isRequired
   };
 
   componentDidMount() {
@@ -35,8 +36,8 @@ export class AddShopRouter extends Component {
   }
 
   redirect = () => {
-    const { history, isPhoneVerified } = this.props;
-    if (isPhoneVerified && history.location.pathname.startsWith('/add-phone')) {
+    const { history, isUserVerified } = this.props;
+    if (isUserVerified && history.location.pathname.startsWith('/add-phone')) {
       history.replace('/');
     }
   };
@@ -46,7 +47,7 @@ export class AddShopRouter extends Component {
       <div>
         <Switch>
           <Route exact path="/" component={AddShopHome} />
-          <Route exact path="/add-phone" component={AddShopHome} />
+          <Route exact path="/add-phone" component={PhoneVerification} />
           <Route exact path="/add-form" component={AddShopHome} />
           <Route exact path="/add-form/verification" component={AddShopHome} />
         </Switch>
@@ -56,7 +57,7 @@ export class AddShopRouter extends Component {
 }
 
 const mapStateToProps = ({ user }) => ({
-  isPhoneVerified: user.isCertified || true // TODO remove || false
+  isUserVerified: user.isCertified
 });
 
 export default withRouter(connect(mapStateToProps, null)(AddShopRouter));

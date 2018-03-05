@@ -3,6 +3,18 @@ const setEthAddress = ethAddress => ({
   payload: { ethAddress }
 });
 
+const setBalance = balance => ({
+  type: 'SET_BALANCE',
+  payload: { balance }
+});
+
+const setUserCertified = bool => ({
+  type: 'SET_USER_CERTIFIED',
+  payload: bool
+});
+
 export {
-  setEthAddress
+  setEthAddress,
+  setBalance,
+  setUserCertified
 };

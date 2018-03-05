@@ -32,7 +32,7 @@ export class AddShopHome extends PureComponent {
     }).isRequired,
     isMetamaskInstalled: PropTypes.bool.isRequired,
     hasEnougthMoney: PropTypes.bool.isRequired,
-    isPhoneVerified: PropTypes.bool.isRequired,
+    isUserVerified: PropTypes.bool.isRequired,
     minEth: PropTypes.number.isRequired,
     minDth: PropTypes.number.isRequired
   };
@@ -46,13 +46,13 @@ export class AddShopHome extends PureComponent {
   }
 
   onClick = e => {
-    const { history, isPhoneVerified } = this.props;
+    const { history, isUserVerified } = this.props;
 
     if (this.checkTerms(e)) {
-      if (isPhoneVerified) {
-        history.push('/add/phone');
+      if (isUserVerified) {
+        history.push('/add-form');
       } else {
-        history.push('/add/form');
+        history.push('/add-phone');
       }
     }
   };
@@ -115,7 +115,7 @@ export class AddShopHome extends PureComponent {
 const mapStateToProps = ({ user, app }) => ({
   hasEnougthMoney: hasEnougthMoneyToAddShop(user),
   isMetamaskInstalled: app.isMetamaskInstalled,
-  isPhoneVerified: false, // TODDO get it from store
+  isUserVerified: user.isCertified,
   minEth: config.gasPrice.simpleTransac,
   minDth: config.licensePrice
 });
