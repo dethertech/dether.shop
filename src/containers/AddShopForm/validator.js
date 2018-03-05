@@ -6,25 +6,25 @@ export default {
     test: val =>
       !!(val && val.lat && val.lng && val.countryId && val.countryId.length && val.postalCode),
     fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputes.address.error')
+    errorMsg: () => tr('add.form.inputs.address.error')
   },
   cat: {
     tranform: val => (val ? val.trim().substring(0, 16) : ''),
     test: val => val && val.length && val.length <= 16,
     fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputes.cat.error')
+    errorMsg: () => tr('add.form.inputs.cat.error')
   },
   name: {
     tranform: val => (val ? val.trim().substring(0, 16) : ''),
     test: val => val && val.length && val.length <= 16,
     fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputes.name.error')
+    errorMsg: () => tr('add.form.inputs.name.error')
   },
   description: {
     tranform: val => (val ? val.trim() : ''),
     test: val => val && val.length && val.length <= 16,
     fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputes.description.error')
+    errorMsg: () => tr('add.form.inputs.description.error')
   },
   opening: {
     tranform: val => (val ? val.trim() : ''),
@@ -43,6 +43,6 @@ export default {
       return idx === 7;
     },
     fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputes.opening.error')
+    errorMsg: () => tr('add.form.inputs.opening.error')
   }
 };

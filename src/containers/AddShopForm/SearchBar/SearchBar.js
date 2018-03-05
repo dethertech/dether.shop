@@ -52,7 +52,7 @@ export class SearchBar extends PureComponent {
       this.props.onChange(data);
       this.setState({ isDirty: false });
     } else {
-      error = tr('add.form.inputes.address.label');
+      error = tr('add.form.inputs.address.label');
     }
     this.setState({ address, error });
   };
