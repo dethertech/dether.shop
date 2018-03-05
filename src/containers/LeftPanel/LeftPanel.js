@@ -15,7 +15,8 @@ import {
 } from '../../helpers/ethereum';
 import {
   setAppInitialized as setAppInitializedAction,
-  setMetamaskInstalled as setMetamaskInstalledAction
+  setMetamaskInstalled as setMetamaskInstalledAction,
+  toggleTermsModal as toggleTermsModalAction
 } from '../../actions/app';
 import {
   setEthAddress as setEthAddressAction,
@@ -43,22 +44,17 @@ export class LeftPanel extends PureComponent {
     setUserCertified: PropTypes.func.isRequired,
     hasTransactionPending: PropTypes.bool.isRequired,
     setAppInitialized: PropTypes.func.isRequired,
+    toggleTermsModal: PropTypes.func.isRequired,
+    isTermsModalOpenened: PropTypes.bool.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
       dth: PropTypes.number.isRequired,
     }).isRequired
   };
-  state = {
-    isModalVisible: false
-  };
 
   componentWillMount() {
     this.initApp();
   }
-
-  toggleModal = () => {
-    this.setState(prevState => ({ isModalVisible: !prevState.isModalVisible }));
-  };
 
   async initApp() {
     const {
@@ -95,8 +91,14 @@ export class LeftPanel extends PureComponent {
   }
 
   render() {
-    const { isModalVisible } = this.state;
-    const { hasShop, hasTransactionPending, isAppInitialized, balance } = this.props;
+    const {
+      hasShop,
+      hasTransactionPending,
+      isAppInitialized,
+      balance,
+      toggleTermsModal,
+      isTermsModalOpenened
+    } = this.props;
 
     return (
       <Fragment>
@@ -104,10 +106,10 @@ export class LeftPanel extends PureComponent {
           hasShop={hasShop}
           hasTransactionPending={hasTransactionPending}
           isAppInitialized={isAppInitialized}
-          toggleModal={this.toggleModal}
+          toggleModal={toggleTermsModal}
           balance={balance}
         />
-        {isModalVisible && <TermsModal closeFunc={this.toggleModal} />}
+        {isTermsModalOpenened && <TermsModal closeFunc={toggleTermsModal} />}
       </Fragment>
     );
   }
@@ -117,7 +119,8 @@ const mapStateToProps = ({ app, shop, user }) => ({
   isAppInitialized: app.isAppInitialized,
   hasShop: !!shop.shop,
   hasTransactionPending: !!shop.transactionHash,
-  balance: user.balance
+  balance: user.balance,
+  isTermsModalOpenened: app.isTermsModalOpenened
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -127,6 +130,7 @@ const mapDispatchToProps = dispatch => ({
   addShop: bindActionCreators(addShopAction, dispatch),
   setBalance: bindActionCreators(setBalanceAction, dispatch),
   setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
+  toggleTermsModal: bindActionCreators(toggleTermsModalAction, dispatch),
   isWeb3: isWeb3Helper,
   getShop: getShopHelper,
   getBalance: getBalanceHelper,
