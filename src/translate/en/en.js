@@ -32,7 +32,7 @@ const en = {
   add: {
     home: {
       title: 'DETHER FOR SHOP',
-      description:
+      desc:
         'A decentralized application for shops exchanging cryptocurrency for cash or accepting it as a means of payement.',
       metamask_not_installed: 'You need to install Metamask to add your shop',
       not_enougth_money: ({ minEth, minDth }) =>

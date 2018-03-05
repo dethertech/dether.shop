@@ -89,7 +89,7 @@ export class AddShopHome extends PureComponent {
           <H1>{tr('add.home.title')}</H1>
         </Padding>
 
-        <Padding vertical="l">{tr('add.home.description')}</Padding>
+        <Padding vertical="l">{tr('add.home.desc')}</Padding>
 
         {!isMetamaskInstalled && (
           <Message theme="error" alignCenter>
