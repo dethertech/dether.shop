@@ -39,7 +39,7 @@ const en = {
         `You should have at least ${minEth.toFixed(4)} ETH and ${minDth.toFixed(4)} DTH to add a shop`,
       terms_check: 'I have read and agree to the',
       terms_link: 'Terms and Conditions',
-      bt_add: 'Add you shop on the map'
+      bt_add: 'Add your shop on the map'
     }
   },
   header: {

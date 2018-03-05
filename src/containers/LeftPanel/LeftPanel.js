@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
@@ -121,4 +122,4 @@ const mapDispatchToProps = dispatch => ({
   isCertified: isSmsRegHelper
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LeftPanel);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LeftPanel));
