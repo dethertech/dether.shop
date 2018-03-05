@@ -107,7 +107,7 @@ export class LeftPanel extends PureComponent {
           toggleModal={this.toggleModal}
           balance={balance}
         />
-        {isModalVisible && <TermsModal />}
+        {isModalVisible && <TermsModal closeFunc={this.toggleModal} />}
       </Fragment>
     );
   }
