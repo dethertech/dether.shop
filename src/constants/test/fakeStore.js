@@ -6,7 +6,8 @@ export default state => ({
     ...state,
     app: {
       isMetamaskInstalled: false,
-      isAppInitialized: false
+      isAppInitialized: false,
+      isTermsModalOpenened: false
     },
     map: {
       userPosition: { lat: 48.8628, lng: 2.3292 },
