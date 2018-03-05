@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 import tokens from '../../styles/tokens';
 import tr from '../../translate';
@@ -80,4 +81,4 @@ export class Home extends PureComponent {
   };
 }
 
-export default connect(null, null)(Home);
+export default withRouter(connect(null, null)(Home));
