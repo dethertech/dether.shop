@@ -1,8 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+
+import LeftPanelPage from './LeftPanelPage';
+import TermsModal from './TermsModal';
 
 import {
   getShop as getShopHelper,
@@ -20,12 +23,6 @@ import {
   setUserCertified as setUserCertifiedAction
 } from '../../actions/user';
 import { addShop as addShopAction } from '../../actions/shop';
-
-import tr from '../../translate';
-
-// component
-import LoaderScreen from '../../components/Screens/LoaderScreen';
-import AddShopRouter from '../AddShopRouter';
 
 /**
  * LeftPanel containers
@@ -45,12 +42,23 @@ export class LeftPanel extends PureComponent {
     isCertified: PropTypes.func.isRequired,
     setUserCertified: PropTypes.func.isRequired,
     hasTransactionPending: PropTypes.bool.isRequired,
-    setAppInitialized: PropTypes.func.isRequired
+    setAppInitialized: PropTypes.func.isRequired,
+    balance: PropTypes.shape({
+      eth: PropTypes.number.isRequired,
+      dth: PropTypes.number.isRequired,
+    }).isRequired
+  };
+  state = {
+    isModalVisible: false
   };
 
   componentWillMount() {
     this.initApp();
   }
+
+  toggleModal = () => {
+    this.setState(prevState => ({ isModalVisible: !prevState.isModalVisible }));
+  };
 
   async initApp() {
     const {
@@ -87,26 +95,29 @@ export class LeftPanel extends PureComponent {
   }
 
   render() {
-    const { isAppInitialized, hasShop, hasTransactionPending } = this.props;
+    const { isModalVisible } = this.state;
+    const { hasShop, hasTransactionPending, isAppInitialized, balance } = this.props;
 
-    if (!isAppInitialized) {
-      return (
-        <LoaderScreen
-          title={tr('loaderInitializer.title')}
-          message={tr('loaderInitializer.message')}
+    return (
+      <Fragment>
+        <LeftPanelPage
+          hasShop={hasShop}
+          hasTransactionPending={hasTransactionPending}
+          isAppInitialized={isAppInitialized}
+          toggleModal={this.toggleModal}
+          balance={balance}
         />
-      );
-    } else if (isAppInitialized && (!hasShop || hasTransactionPending)) {
-      return <AddShopRouter />;
-    }
-    return <div>Add shop</div>;
+        {isModalVisible && <TermsModal />}
+      </Fragment>
+    );
   }
 }
 
-const mapStateToProps = ({ app, shop }) => ({
+const mapStateToProps = ({ app, shop, user }) => ({
   isAppInitialized: app.isAppInitialized,
   hasShop: !!shop.shop,
-  hasTransactionPending: !!shop.transactionHash
+  hasTransactionPending: !!shop.transactionHash,
+  balance: user.balance
 });
 
 const mapDispatchToProps = dispatch => ({

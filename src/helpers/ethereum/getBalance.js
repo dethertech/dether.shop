@@ -11,11 +11,11 @@ export const getBalance = () =>
       const { address, dthContract } = await helperWeb3();
       web3js.eth.getBalance(address).then(async (result, error) => {
         if (!error) {
-          balances.eth = web3js.utils.fromWei(result, 'ether');
-          balances.dth = web3js.utils.fromWei(
+          balances.eth = parseFloat(web3js.utils.fromWei(result, 'ether'));
+          balances.dth = parseFloat(web3js.utils.fromWei(
             await dthContract.methods.balanceOf(address).call()
             , 'ether'
-          );
+          ));
           res(balances);
         } else {
           rej(new TypeError(`Invalid shop profile: ${error.message}`));
