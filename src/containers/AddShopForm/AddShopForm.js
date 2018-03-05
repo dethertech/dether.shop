@@ -12,6 +12,7 @@ import Button from '../../components/Button';
 import DaysOnpeningHour from './DaysOnpeningHour';
 import validator from '../../helpers/validator';
 import fromState from './fromState';
+import SearchBar from './SearchBar';
 
 export class AddShopForm extends PureComponent {
   static propTypes = {
@@ -101,20 +102,11 @@ export class AddShopForm extends PureComponent {
       <div>
         <H1>Register your shop</H1>
         <Mention>Step 3 of 3</Mention>
-        <ProgressBar progress={1} />
+        <ProgressBar progressRatio={1} />
         <Padding vertical="xl">
           <LabeledInput {...form.name} handleChange={() => {}} />
           <LabeledInput {...form.cat} handleChange={() => {}} />
-          <LabeledInput
-            toggleShake={0}
-            value="31 rue de Cotte 75012 Paris"
-            type="text"
-            componentName="input"
-            label="Address :"
-            error=""
-            handleChange={() => {}}
-            name="Address"
-          />
+          <SearchBar onChange={() => {}} />
           <LabeledInput {...form.description} handleChange={() => {}} />
         </Padding>
         <Padding bottom="m">
