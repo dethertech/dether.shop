@@ -55,12 +55,14 @@ class LeftPanelPage extends PureComponent {
 
   render() {
     const { toggleModal, balance, refreshBalance } = this.props;
+    const eth = balance.eth.toFixed(4);
+    const dth = balance.dth.toFixed(4);
 
     return (
       <Layout>
         <Layout.Header>
           <Padding all="m">
-            <Header onRefresh={refreshBalance} EthBalance={balance.eth} DthBalance={balance.dth} />
+            <Header onRefresh={refreshBalance} EthBalance={eth} DthBalance={dth} />
           </Padding>
         </Layout.Header>
         <Layout.Body>
