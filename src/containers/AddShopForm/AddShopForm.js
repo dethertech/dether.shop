@@ -34,12 +34,22 @@ export class AddShopForm extends PureComponent {
     this.checkValide(name, val);
   };
 
+  onBlurAddress = () => {
+    this.checkValide('address', this.state.form.address.value);
+  };
+
   onChange = ({ target: { name, value: val } }) => {
     const validatorName = validator[name];
     const value = validatorName.tranform(val);
 
     this.setState(pState => ({
       form: { ...pState.form, [name]: { ...pState.form[name], value } }
+    }));
+  };
+
+  onChangeAddress = addressObj => {
+    this.setState(pState => ({
+      form: { ...pState.form, address: { ...pState.form.address, value: addressObj } }
     }));
   };
 
@@ -105,7 +115,10 @@ export class AddShopForm extends PureComponent {
         <Padding vertical="xl">
           <LabeledInput {...form.name} />
           <LabeledInput {...form.cat} />
-          <SearchBar onChange={() => {}} />
+          <SearchBar
+            inputOpt={{ ...form.address, onBlur: this.onBlurAddress }}
+            onChange={this.onChangeAddress}
+          />
           <LabeledInput {...form.description} />
         </Padding>
         <Padding bottom="m">
