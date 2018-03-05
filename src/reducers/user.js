@@ -6,6 +6,7 @@ const initialState = {
     dth: 0
   },
   isCertified: false,
+  ethAddress: null
 };
 
 const userReducer = (state = initialState, { type, payload }) => {

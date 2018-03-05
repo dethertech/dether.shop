@@ -3,12 +3,14 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 import tr from '../../../translate';
 import { phoneVerificationTime } from '../../../helpers/timers';
 import { getErrorMessage } from '../../../helpers/apiResponse';
 import ValidateCode from './ValidateCode';
 import { sendVerifCode as sendVerifCodeAction } from '../../../actions/kyc';
+import { setUserCertified as setUserCertifiedAction } from '../../../actions/user';
 
 class ValidationCode extends PureComponent {
   static propTypes = {
@@ -18,7 +20,11 @@ class ValidationCode extends PureComponent {
     isSubmitCodePending: PropTypes.bool.isRequired,
     lastSend: PropTypes.instanceOf(Date),
     sendVerifCode: PropTypes.func.isRequired,
-    code: PropTypes.number
+    code: PropTypes.number,
+    setUserCertified: PropTypes.func.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired
   };
 
   static defaultProps = {
@@ -45,13 +51,17 @@ class ValidationCode extends PureComponent {
     const {
       phoneNumber,
       sendVerifCode,
+      history,
+      setUserCertified
     } = this.props;
 
-    console.log('SENDED');
     sendVerifCode({
       code,
       phoneNumber,
-      onSuccess: () => console.log('SUCCESS'),
+      onSuccess: () => {
+        history.push('/add-form');
+        setUserCertified(true);
+      },
       onError: (errors, res) => this.setState({ error: getErrorMessage(errors, res) })
     });
   };
@@ -79,6 +89,7 @@ const mapStateToProps = ({ kyc: { isSubmitCodePending } }) => ({
 
 const mapDispatchToProps = dispatch => ({
   sendVerifCode: bindActionCreators(sendVerifCodeAction, dispatch),
+  setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ValidationCode);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ValidationCode));
