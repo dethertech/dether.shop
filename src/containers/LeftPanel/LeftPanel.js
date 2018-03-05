@@ -79,8 +79,8 @@ export class LeftPanel extends PureComponent {
         if (balance) setBalance(balance);
         if (certified) setUserCertified(certified);
         setMetamaskInstalled(true);
-        setAppInitialized(true);
         setEthAddress(ethAddress);
+        setAppInitialized(true);
       }
     }
   }
@@ -95,7 +95,7 @@ export class LeftPanel extends PureComponent {
           message={tr('loaderInitializer.message')}
         />
       );
-    } else if (!hasShop || hasTransactionPending) {
+    } else if (isAppInitialized && (!hasShop || hasTransactionPending)) {
       return <AddShopRouter />;
     }
     return <div>Add shop</div>;

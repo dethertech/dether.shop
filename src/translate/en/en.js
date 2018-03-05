@@ -63,6 +63,13 @@ const en = {
     5: 'Friday',
     6: 'Saturday',
     7: 'Sunday'
+  },
+  errors: {
+    phone: {
+      invalid: 'Please enter a valid phone number (it should be at list 5 digits long)',
+      country_blank: 'You need to select a country in the list',
+      wait_resend: 'Please wait 15 seconds before requesting a new code'
+    }
   }
 };
 

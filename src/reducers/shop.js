@@ -33,8 +33,6 @@ const shopReducer = (state = initialState, { type, payload }) => {
         shop: null,
         shopPending: { ...state.shop }
       };
-    case 'SET_PHONE':
-      return { ...state, shopPending: { ...state.shopPending, phone: payload } };
     default:
       return state;
   }
