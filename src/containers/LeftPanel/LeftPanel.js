@@ -89,9 +89,9 @@ export class LeftPanel extends PureComponent {
         if (certified) setUserCertified(certified);
         setMetamaskInstalled(true);
         setEthAddress(ethAddress);
-        setAppInitialized(true);
         this.interval = setInterval(this.refreshBalance, 10000);
       }
+      setAppInitialized(true);
     }
   }
 
