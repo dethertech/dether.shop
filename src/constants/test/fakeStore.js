@@ -31,8 +31,8 @@ export default state => ({
     },
     user: {
       balance: {
-        ETH: 0,
-        DTH: 0
+        eth: 0,
+        dth: 0
       }
     }
   }),
