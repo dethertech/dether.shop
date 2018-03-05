@@ -55,6 +55,17 @@ const en = {
     all_right_reserved: 'all rights reserved',
     terms_and_conditions: 'Terms and conditions'
   },
+  shop_recap: {
+    informations: 'Informations :',
+    name: 'Name :',
+    category: 'Category :',
+    address: 'Address :',
+    description: 'Description :',
+    opening_hours: 'Opening hours :',
+    day: 'Day :',
+    opened_at: 'Opening time :',
+    closed_at: 'Closing time :'
+  },
   days: {
     1: 'Monday',
     2: 'Tuesday',
