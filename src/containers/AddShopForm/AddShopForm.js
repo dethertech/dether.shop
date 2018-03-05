@@ -10,8 +10,9 @@ import ProgressBar from '../../components/ProgressBar';
 import Button from '../../components/Button';
 
 import DaysOnpeningHour from './DaysOnpeningHour';
-import validator from '../../helpers/validator';
+import validator from './validator';
 import fromState from './fromState';
+import SearchBar from './SearchBar';
 
 export class AddShopForm extends PureComponent {
   static propTypes = {
@@ -33,12 +34,22 @@ export class AddShopForm extends PureComponent {
     this.checkValide(name, val);
   };
 
+  onBlurAddress = () => {
+    this.checkValide('address', this.state.form.address.value);
+  };
+
   onChange = ({ target: { name, value: val } }) => {
     const validatorName = validator[name];
     const value = validatorName.tranform(val);
 
     this.setState(pState => ({
       form: { ...pState.form, [name]: { ...pState.form[name], value } }
+    }));
+  };
+
+  onChangeAddress = addressObj => {
+    this.setState(pState => ({
+      form: { ...pState.form, address: { ...pState.form.address, value: addressObj } }
     }));
   };
 
@@ -50,10 +61,7 @@ export class AddShopForm extends PureComponent {
     if (this.isFormValide()) {
       const { days, form } = this.state;
       const data = {
-        lat: '123.45656',
-        lng: '98.76545',
-        countryId: 'FR',
-        postalCode: '75009',
+        ...form.address.value,
         cat: form.cat.value,
         name: form.name.value,
         description: form.description.value,
@@ -88,9 +96,8 @@ export class AddShopForm extends PureComponent {
   isFormValide() {
     const { form } = this.state;
     let isValide = true;
-
     Object.keys(form).forEach(k => {
-      isValide = isValide && this.checkValide(k, form[k].value);
+      isValide = this.checkValide(k, form[k].value) && isValide;
     });
     return isValide;
   }
@@ -101,21 +108,15 @@ export class AddShopForm extends PureComponent {
       <div>
         <H1>Register your shop</H1>
         <Mention>Step 3 of 3</Mention>
-        <ProgressBar progress={1} />
+        <ProgressBar progressRatio={1} />
         <Padding vertical="xl">
-          <LabeledInput {...form.name} handleChange={() => {}} />
-          <LabeledInput {...form.cat} handleChange={() => {}} />
-          <LabeledInput
-            toggleShake={0}
-            value="31 rue de Cotte 75012 Paris"
-            type="text"
-            componentName="input"
-            label="Address :"
-            error=""
-            handleChange={() => {}}
-            name="Address"
+          <LabeledInput {...form.name} />
+          <LabeledInput {...form.cat} />
+          <SearchBar
+            inputOpt={{ ...form.address, onBlur: this.onBlurAddress }}
+            onChange={this.onChangeAddress}
           />
-          <LabeledInput {...form.description} handleChange={() => {}} />
+          <LabeledInput {...form.description} />
         </Padding>
         <Padding bottom="m">
           <DaysOnpeningHour onChange={this.onChangeDays} />
