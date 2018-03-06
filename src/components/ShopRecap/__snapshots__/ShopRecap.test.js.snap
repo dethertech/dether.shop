@@ -67,7 +67,7 @@ exports[`Components ShopRecap should render ShopRecap 1`] = `
   >
     Address :
   </div>
-  33 rue de Cotte, 75012 Paris
+  
    
   <br />
   <br />
@@ -129,12 +129,7 @@ exports[`Components ShopRecap should render ShopRecap 1`] = `
     <div
       className="c4"
     >
-      8:00
-    </div>
-    <div
-      className="c4"
-    >
-      18:00
+      closed
     </div>
   </div>
   <div
@@ -148,12 +143,7 @@ exports[`Components ShopRecap should render ShopRecap 1`] = `
     <div
       className="c4"
     >
-      8:00
-    </div>
-    <div
-      className="c4"
-    >
-      18:00
+      closed
     </div>
   </div>
   <div
@@ -167,12 +157,7 @@ exports[`Components ShopRecap should render ShopRecap 1`] = `
     <div
       className="c4"
     >
-      8:00
-    </div>
-    <div
-      className="c4"
-    >
-      19:30
+      closed
     </div>
   </div>
   <div
@@ -186,12 +171,21 @@ exports[`Components ShopRecap should render ShopRecap 1`] = `
     <div
       className="c4"
     >
-      8:00
+      closed
+    </div>
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      Friday
     </div>
     <div
       className="c4"
     >
-      18:00
+      closed
     </div>
   </div>
   <div
@@ -205,12 +199,21 @@ exports[`Components ShopRecap should render ShopRecap 1`] = `
     <div
       className="c4"
     >
-      10:00
+      closed
+    </div>
+  </div>
+  <div
+    className="c3"
+  >
+    <div
+      className="c4"
+    >
+      Sunday
     </div>
     <div
       className="c4"
     >
-      19:00
+      closed
     </div>
   </div>
 </div>
