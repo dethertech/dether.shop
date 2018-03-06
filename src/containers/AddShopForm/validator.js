@@ -9,25 +9,25 @@ export default {
     errorMsg: () => tr('add.form.inputs.address.error')
   },
   cat: {
-    tranform: val => (val ? val.trim().substring(0, 16) : ''),
+    tranform: val => (val ? val.substring(0, 16) : ''),
     test: val => val && val.length && val.length <= 16,
     fillInfos: () => null,
     errorMsg: () => tr('add.form.inputs.cat.error')
   },
   name: {
-    tranform: val => (val ? val.trim().substring(0, 16) : ''),
+    tranform: val => (val ? val.substring(0, 16) : ''),
     test: val => val && val.length && val.length <= 16,
     fillInfos: () => null,
     errorMsg: () => tr('add.form.inputs.name.error')
   },
   description: {
-    tranform: val => (val ? val.trim() : ''),
+    tranform: val => (val || ''),
     test: val => val && val.length && val.length <= 16,
     fillInfos: () => null,
     errorMsg: () => tr('add.form.inputs.description.error')
   },
   opening: {
-    tranform: val => (val ? val.trim() : ''),
+    tranform: val => (val || ''),
     test: str => {
       const hours = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUV';
       let idx = 0;

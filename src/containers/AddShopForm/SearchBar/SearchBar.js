@@ -46,7 +46,12 @@ export class SearchBar extends PureComponent {
       GeocodeAPI.getPostalCodeFromAddressComponents(place.address_components) ||
       (await GeocodeAPI.postalCode(position));
 
-    const data = { ...position, countryId, postalCode };
+    const data = { ...position,
+      countryId,
+      postalCode,
+      lat: position.lat.toFixed(5),
+      lng: position.lng.toFixed(5)
+    };
     let error;
     if (data.lat && data.lng && countryId && postalCode) {
       this.props.onChange(data);
