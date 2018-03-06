@@ -30,6 +30,17 @@ export default state => ({
         calendar: '0000000'
       }
     },
+    pendingShop: {
+      transactionType: 'add',
+      transactionHash: null, // if transactionHash !== null so you have a Transaction in pending
+      point: null,
+      pointPending: {
+        name: '',
+        address: '',
+        description: '',
+        calendar: '0000000'
+      }
+    },
     user: {
       balance: {
         eth: 0,
