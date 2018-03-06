@@ -13,7 +13,7 @@ import LoaderScreen from '../../components/Screens/LoaderScreen';
 import Header from '../../components/Header';
 import ButtonLink from '../../components/ButtonLink';
 import { Padding } from '../../components/Spaces';
-import AddShopRouter from '../AddShopRouter';
+import ShopRouter from '../ShopRouter';
 
 const FooterText = styled.footer`
   font-size: ${tokens.fontSizes.s};
@@ -28,8 +28,6 @@ const LeftWrapper = styled.div`
 class LeftPanelPage extends PureComponent {
   static propTypes = {
     isAppInitialized: PropTypes.bool.isRequired,
-    hasShop: PropTypes.bool.isRequired,
-    hasTransactionPending: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
@@ -38,7 +36,7 @@ class LeftPanelPage extends PureComponent {
     refreshBalance: PropTypes.func.isRequired
   };
   getView = () => {
-    const { isAppInitialized, hasShop, hasTransactionPending } = this.props;
+    const { isAppInitialized } = this.props;
 
     if (!isAppInitialized) {
       return (
@@ -47,10 +45,8 @@ class LeftPanelPage extends PureComponent {
           message={tr('loaderInitializer.message')}
         />
       );
-    } else if (isAppInitialized && (!hasShop || hasTransactionPending)) {
-      return <AddShopRouter />;
     }
-    return <div>Add shop</div>;
+    return <ShopRouter />;
   };
 
   render() {

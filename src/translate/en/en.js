@@ -87,7 +87,8 @@ const en = {
     opening_hours: 'Opening hours :',
     day: 'Day :',
     opened_at: 'Opening time :',
-    closed_at: 'Closing time :'
+    closed_at: 'Closing time :',
+    closed: 'closed'
   },
   days: {
     1: 'Monday',
@@ -104,6 +105,11 @@ const en = {
       country_blank: 'You need to select a country in the list',
       wait_resend: 'Please wait 15 seconds before requesting a new code'
     }
+  },
+  show_shop: {
+    transaction_pending: 'We are adding your shop on the Dether map, it can take some some minutes...',
+    delete_button: 'Delete Shop',
+    submit_button: 'Submit'
   }
 };
 

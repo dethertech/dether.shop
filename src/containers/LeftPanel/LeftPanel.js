@@ -37,12 +37,10 @@ export class LeftPanel extends PureComponent {
     isWeb3: PropTypes.func.isRequired,
     getShop: PropTypes.func.isRequired,
     addShop: PropTypes.func.isRequired,
-    hasShop: PropTypes.bool.isRequired,
     getBalance: PropTypes.func.isRequired,
     setBalance: PropTypes.func.isRequired,
     isCertified: PropTypes.func.isRequired,
     setUserCertified: PropTypes.func.isRequired,
-    hasTransactionPending: PropTypes.bool.isRequired,
     setAppInitialized: PropTypes.func.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
     isTermsModalOpenened: PropTypes.bool.isRequired,
@@ -84,6 +82,7 @@ export class LeftPanel extends PureComponent {
           isCertified()
         ]);
 
+        console.log('HOME', shop);
         if (shop) addShop(shop);
         if (balance) setBalance(balance);
         if (certified) setUserCertified(certified);
@@ -103,8 +102,6 @@ export class LeftPanel extends PureComponent {
 
   render() {
     const {
-      hasShop,
-      hasTransactionPending,
       isAppInitialized,
       balance,
       toggleTermsModal,
@@ -114,8 +111,6 @@ export class LeftPanel extends PureComponent {
     return (
       <Fragment>
         <LeftPanelPage
-          hasShop={hasShop}
-          hasTransactionPending={hasTransactionPending}
           isAppInitialized={isAppInitialized}
           toggleModal={toggleTermsModal}
           balance={balance}
@@ -127,10 +122,8 @@ export class LeftPanel extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ app, shop, user }) => ({
+const mapStateToProps = ({ app, user }) => ({
   isAppInitialized: app.isAppInitialized,
-  hasShop: !!shop.shop,
-  hasTransactionPending: !!shop.transactionHash,
   balance: user.balance,
   isTermsModalOpenened: app.isTermsModalOpenened
 });
