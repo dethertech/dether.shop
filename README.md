@@ -7,7 +7,6 @@
 * [Test](#test)
 * [Build doc](#build-doc)
 * [Dependencies](#dependencies)
-* [Dev-Dependencies](#dev-dependencies)
 * [Bugs](#bugs)
 * [Donation](#donation)
 * [TODO](#todo)
@@ -40,11 +39,25 @@ yarn run publish:esdoc
 ## Dependencies
 
 * [dethercontract](https://github.com/dethertech/dethercontracts.git)
-
-## Dev-Dependencies
-
-* [dethercontract](https://github.com/dethertech/dethercontracts.git)
-
+* [axios](https://github.com/axios/axios)
+* [classnames](https://github.com/JedWatson/classnames)
+* [dethercontract](https://github.com/dethertech/detherContracts)
+* [google-map-react](https://github.com/istarkov/google-map-react)
+* [points-cluster](https://github.com/mapbox/supercluster)
+* [prop-types](https://github.com/facebook/prop-types)
+* [react](https://github.com/facebook/react)
+* [react-dom](https://github.com/facebook/react)
+* [react-places-autocomplete](https://github.com/kenny-hibino/react-places-autocomplete)
+* [react-redux](https://github.com/reactjs/react-redux)
+* [react-router](https://github.com/ReactTraining/react-router)
+* [react-router-dom](https://github.com/ReactTraining/react-router)
+* [react-scripts](https://github.com/facebook/create-react-app)
+* [redux](https://github.com/reactjs/redux)
+* [redux-persist](https://github.com/rt2zz/redux-persist)
+* [redux-thunk](https://github.com/gaearon/redux-thunk)
+* [styled-components](https://github.com/styled-components/styled-components)
+* [web3](https://github.com/ethereum/web3.js)
+* [web3-eth-abi](https://github.com/ethereum/web3.js)
 
 ## Bugs
 

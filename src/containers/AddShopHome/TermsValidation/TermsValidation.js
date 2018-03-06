@@ -2,16 +2,34 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import tr from '../../translate';
-import Shake from '../../components/Animations/Shake';
-import { Margin } from '../../components/Spaces';
-import tokens from '../../styles/tokens';
+/*
+  Translate module
+ */
+import tr from '../../../translate';
+
+/*
+  Components
+ */
+import Shake from '../../../components/Animations/Shake';
+import { Margin } from '../../../components/Spaces';
+
+/*
+  Styles
+ */
+import tokens from '../../../styles/tokens';
 
 const CheckBoxWrapper = styled.div`
   margin-bottom: ${tokens.spaces.l};
   line-height: 1.6em;
 `;
 
+/**
+ * TermsValidation components
+ * @param {Number} shake
+ * @param {Boolean} checked
+ * @param {Function} handleCheck
+ * @param {Function} toggleTermsModal
+ */
 const TermsValidation = ({ shake, checked, handleCheck, toggleTermsModal }) => (
   <Shake toggle={shake}>
     <CheckBoxWrapper>

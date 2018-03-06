@@ -3,15 +3,33 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+/*
+  Components
+ */
 import ShopRecap from '../../components/ShopRecap';
 import Button from '../../components/Button';
 import LoaderScreen from '../../components/Screens/LoaderScreen';
+
+/*
+  Translate module
+ */
 import tr from '../../translate';
 
-import { addShop as addShopAction } from '../../actions/shop';
+/*
+  Redux
+ */
+import { addShop as addShopAction } from '../../actions';
+
+/*
+  Helpers
+ */
 import { addShop as addShopHelper, deleteShop as deleteShopHelper } from '../../helpers/ethereum';
 
-class AddFormVerification extends PureComponent {
+/**
+ * ShowShop container
+ * @extends PureComponent
+ */
+class ShowShop extends PureComponent {
   static propTypes = {
     shop: PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -54,31 +72,27 @@ class AddFormVerification extends PureComponent {
     this.HideLoader();
   }
 
-  render() {
+  render = () => {
     const { shop } = this.props;
     const { isLoading } = this.state;
 
-    if (isLoading) {
-      return (
-        <LoaderScreen
-          title={tr('shop_recap.loader_title')}
-          message={tr('shop_recap.loader_message')}
-        />
-      );
-    }
-    return (
+    return isLoading ?
+      <LoaderScreen
+        title={tr('shop_recap.loader_title')}
+        message={tr('shop_recap.loader_message')}
+      />
+      :
       <Fragment>
         <ShopRecap {...shop} />
         <Button onClick={this.deleteShop}>{tr('show_shop.delete_button')}</Button>;
-      </Fragment>
-    );
+      </Fragment>;
   }
 }
 
 const mapStateToProps = ({ shop }) => ({
   shop: shop.shop,
   isTransactionPending: !!shop.transactionHash,
-  transactionhash: shop.transactionhash
+  transactionhash: shop.transactionHash
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -87,4 +101,4 @@ const mapDispatchToProps = dispatch => ({
   addShopToStore: bindActionCreators(addShopAction, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddFormVerification);
+export default connect(mapStateToProps, mapDispatchToProps)(ShowShop);
