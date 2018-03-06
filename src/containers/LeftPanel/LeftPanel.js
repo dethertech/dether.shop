@@ -12,7 +12,8 @@ import {
   getBalance as getBalanceHelper,
   isWeb3 as isWeb3Helper,
   isSmsReg as isSmsRegHelper
-} from '../../helpers/ethereum';
+} from '../../helpers';
+
 import {
   setAppInitialized as setAppInitializedAction,
   setMetamaskInstalled as setMetamaskInstalledAction,

@@ -9,7 +9,7 @@ import LoaderScreen from '../../components/Screens/LoaderScreen';
 import tr from '../../translate';
 
 import { addShop as addShopAction } from '../../actions/shop';
-import { addShop as addShopHelper } from '../../helpers/ethereum';
+import { addShop as addShopHelper } from '../../helpers';
 
 class AddFormVerification extends PureComponent {
   static propTypes = {

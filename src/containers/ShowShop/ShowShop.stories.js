@@ -3,7 +3,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { storiesOf, addDecorator} from '@storybook/react'
 import ShowShop from './ShowShop'
-import { storyWithStore } from '../../helpers/stories'
+import { storyWithStore } from '../../helpers'
 
 const initialStore = {
   shop: {

@@ -15,6 +15,9 @@ const initialState = {
   }
 };
 
+/**
+ * shopReducer
+ */
 const shopReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_DATA_SHOP_PENDING':

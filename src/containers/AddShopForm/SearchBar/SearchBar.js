@@ -5,7 +5,7 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { LabeledInput } from '../../../components/Inputs';
 import tr from '../../../translate';
 
-import GeocodeAPI from '../../../helpers/geocodeAPI';
+import { GeocodeAPI } from '../../../helpers';
 // import SearchBarWrapper from './SearchBarWrapper';
 
 export class SearchBar extends PureComponent {

@@ -23,7 +23,7 @@ import { addShop as addShopAction } from '../../actions';
 /*
   Helpers
  */
-import { addShop as addShopHelper, deleteShop as deleteShopHelper } from '../../helpers/ethereum';
+import { addShop as addShopHelper, deleteShop as deleteShopHelper } from '../../helpers';
 
 /**
  * ShowShop container

@@ -36,6 +36,11 @@ const handleBuildRegex = (r, p) => (r ? (`${r}|${escapeRegex(p.symbol)}`) : esca
 const regexPatternStr = `(${patterns.reduce(handleBuildRegex, '')})`;
 const regexPatterns = new RegExp(regexPatternStr);
 
+/**
+ * parsePatterns
+ * @param  {String} str
+ * @return {[type]}     [description]
+ */
 const parsePatterns = str => {
   const split = str.split(regexPatterns);
   const buffer = [];

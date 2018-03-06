@@ -15,7 +15,7 @@ import {
   fetchPosition as fetchPositionAction,
   fetchUserInfo as fetchUserInfoAction
 } from '../../actions/map';
-import { distance, getClusterData } from '../../helpers/map';
+import { distance, getClusterData } from '../../helpers';
 
 const MapWrapper = styled.div`
   position: relative;
