@@ -11,6 +11,7 @@ import ProgressBar from '../../components/ProgressBar';
 import Button from '../../components/Button';
 
 import { setDataShopPending as setDataShopPendingAction } from '../../actions/shop';
+import tr from '../../translate';
 import DaysOnpeningHour from './DaysOnpeningHour';
 import validator from './validator';
 import fromState from './fromState';
@@ -109,9 +110,9 @@ export class AddShopForm extends PureComponent {
   render() {
     const { form } = this.state;
     return (
-      <div>
-        <H1>Register your shop</H1>
-        <Mention>Step 3 of 3</Mention>
+      <Fragment>
+        <H1>{tr('add.form.title')}</H1>
+        <Mention>{tr('add.form.step')}</Mention>
         <ProgressBar progressRatio={1} />
         <Padding vertical="xl">
           <LabeledInput {...form.name} />
@@ -128,10 +129,10 @@ export class AddShopForm extends PureComponent {
 
         <Padding vertical="m">
           <Button fullWidth theme="primary" onClick={this.onSave}>
-            Add your shop
+            {tr('add.form.register_btn')}
           </Button>
         </Padding>
-      </div>
+      </Fragment>
     );
   }
 }
