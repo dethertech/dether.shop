@@ -18,6 +18,9 @@ const addTransaction = ({ type, hash }) => ({
 });
 
 const addAddShopTransaction = hash => addTransaction({ type: 'add', hash });
+const addDeleteShopTransaction = hash => addTransaction({ type: 'delete', hash });
+
+const endTransaction = () => ({ type: 'END_TRANSACTION' });
 
 const addShop = shop => ({
   type: 'ADD_SHOP',
@@ -31,4 +34,13 @@ const addShop = shop => ({
 const removeShop = () => ({
   type: 'REMOVE_SHOP'
 });
-export { addShop, removeShop, setDataShopPending, addTransaction, addAddShopTransaction };
+
+export {
+  addShop,
+  removeShop,
+  setDataShopPending,
+  endTransaction,
+  addTransaction,
+  addDeleteShopTransaction,
+  addAddShopTransaction
+};

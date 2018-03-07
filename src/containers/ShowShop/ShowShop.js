@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 /*
   Components
@@ -18,12 +19,19 @@ import tr from '../../translate';
 /*
   Redux
  */
-import { addShop as addShopAction } from '../../actions';
+import {
+  addDeleteShopTransaction as addDeleteShopTransactionAction,
+  removeShop as removeShopAction,
+  endTransaction as endTransactionAction
+} from '../../actions/shop';
 
 /*
   Helpers
  */
-import { addShop as addShopHelper, deleteShop as deleteShopHelper } from '../../helpers';
+import {
+  deleteShop as deleteShopHelper,
+  getTransactionStatus
+} from '../../helpers';
 
 /**
  * ShowShop container
@@ -39,35 +47,74 @@ export class ShowShop extends PureComponent {
       lat: PropTypes.string.isRequired,
       lng: PropTypes.string.isRequired
     }).isRequired,
-    addShopToStore: PropTypes.func.isRequired,
-    addShopToContract: PropTypes.func.isRequired,
+    addDeleteShopTransaction: PropTypes.func.isRequired,
     isTransactionPending: PropTypes.bool.isRequired,
-    deleteContractShop: PropTypes.func.isRequired
+    deleteContractShop: PropTypes.func.isRequired,
+    removeShopFromStore: PropTypes.func.isRequired,
+    transactionHash: PropTypes.string.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired,
+    endTransaction: PropTypes.func.isRequired
   }
 
   state = {
     isLoading: false
   }
+  componentWillMount() {
+    const { isTransactionPending } = this.props;
+
+    if (isTransactionPending) {
+      this.interval = this.checkTransaction();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
 
   getView = () => {
-    const { isTransactionPending, shop } = this.props;
+    const { isTransactionPending } = this.props;
 
     if (isTransactionPending)
       return <div>{tr('show_shop.transaction_pending')}</div>;
-    else if (shop)
-      return <Button onClick={this.deleteShop}>{tr('show_shop.delete_button')}</Button>;
-    return <Button>{tr('show_shop.submit_button')}</Button>;
+    return <Button onClick={this.deleteShop}>{tr('show_shop.delete_button')}</Button>;
   }
 
   showLoader = () => this.setState({ isLoading: true });
   HideLoader = () => this.setState({ isLoading: false });
 
+  endCheckTransaction = () => {
+    const { endTransaction } = this.props;
+    endTransaction();
+    clearInterval(this.interval);
+  }
+
+  checkTransaction = () => {
+    const { transactionHash, removeShopFromStore, history } = this.props;
+    this.interval = setInterval(async () => {
+      const status = await getTransactionStatus(transactionHash);
+      if (status === 'success') {
+        console.log('DELETE SUCCESS');
+        removeShopFromStore();
+        history.push('/');
+        this.endCheckTransaction();
+      } else if (status === 'error') {
+        console.log('DELETE Transaction Error', transactionHash);
+        this.endCheckTransaction();
+      }
+    }, 3000);
+  }
+
   deleteShop = async () => {
-    const { deleteContractShop } = this.props;
+    const { deleteContractShop, addDeleteShopTransaction } = this.props;
 
     this.showLoader(tr('show_recap.loader_delete_message'));
-    await deleteContractShop().catch(e => console.log('Error', e));
-    // TODO remove from Store
+    const transaction = await deleteContractShop().catch(e => console.log('Error', e));
+    addDeleteShopTransaction(transaction.transactionHash);
+    this.checkTransaction();
     // TODO trads
     this.HideLoader();
   }
@@ -84,7 +131,7 @@ export class ShowShop extends PureComponent {
       :
       <Fragment>
         <ShopRecap {...shop} />
-        <Button onClick={this.deleteShop}>{tr('show_shop.delete_button')}</Button>;
+        {this.getView()}
       </Fragment>;
   }
 }
@@ -92,13 +139,14 @@ export class ShowShop extends PureComponent {
 const mapStateToProps = ({ shop }) => ({
   shop: shop.shop,
   isTransactionPending: !!shop.transactionHash,
-  transactionHash: shop.transactionHash
+  transactionHash: shop.transactionHash || ''
 });
 
 const mapDispatchToProps = dispatch => ({
-  addShopToContract: addShopHelper,
   deleteContractShop: deleteShopHelper,
-  addShopToStore: bindActionCreators(addShopAction, dispatch),
+  removeShopFromStore: bindActionCreators(removeShopAction, dispatch),
+  addDeleteShopTransaction: bindActionCreators(addDeleteShopTransactionAction, dispatch),
+  endTransaction: bindActionCreators(endTransactionAction, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowShop);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ShowShop));

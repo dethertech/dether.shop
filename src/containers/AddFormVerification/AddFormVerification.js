@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 import ShopRecap from '../../components/ShopRecap';
 import Button from '../../components/Button';
@@ -10,7 +11,8 @@ import tr from '../../translate';
 
 import {
   addAddShopTransaction as addAddShopTransactionAction,
-  addShop as addShopAction
+  addShop as addShopAction,
+  endTransaction as endTransactionAction
 } from '../../actions/shop';
 import { addShop as addShopHelper, getTransactionStatus } from '../../helpers/ethereum';
 
@@ -28,7 +30,11 @@ class AddFormVerification extends PureComponent {
     addShopToContract: PropTypes.func.isRequired,
     addAddShopTransaction: PropTypes.func.isRequired,
     isTransactionPending: PropTypes.bool.isRequired,
-    transactionHash: PropTypes.string.isRequired
+    transactionHash: PropTypes.string.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func.isRequired
+    }).isRequired,
+    endTransaction: PropTypes.func.isRequired
   }
 
   state = {
@@ -58,14 +64,24 @@ class AddFormVerification extends PureComponent {
     return <Button onClick={this.addShop}>{tr('add_form_verification.submit_button')}</Button>;
   }
 
+  endCheckTransaction = () => {
+    const { endTransaction } = this.props;
+    endTransaction();
+    clearInterval(this.interval);
+  }
+
   checkTransaction = () => {
-    const { transactionHash, addShopToStore, pendingShop } = this.props;
+    const { transactionHash, addShopToStore, pendingShop, history } = this.props;
     this.interval = setInterval(async () => {
       const status = await getTransactionStatus(transactionHash);
       if (status === 'success') {
         addShopToStore(pendingShop);
+        history.push('/shop');
+        this.endCheckTransaction();
       } else if (status === 'error') {
-        console.log('Transaction Error');
+        console.log('ADD Transaction Error', transactionHash);
+        history.push('/add-form');
+        this.endCheckTransaction();
       }
     }, 3000);
   }
@@ -107,13 +123,14 @@ class AddFormVerification extends PureComponent {
 const mapStateToProps = ({ shop }) => ({
   pendingShop: shop.pendingShop,
   isTransactionPending: !!shop.transactionHash,
-  transactionHash: shop.transactionHash
+  transactionHash: shop.transactionHash || ''
 });
 
 const mapDispatchToProps = dispatch => ({
   addShopToContract: addShopHelper,
   addShopToStore: bindActionCreators(addShopAction, dispatch),
-  addAddShopTransaction: bindActionCreators(addAddShopTransactionAction, dispatch)
+  addAddShopTransaction: bindActionCreators(addAddShopTransactionAction, dispatch),
+  endTransaction: bindActionCreators(endTransactionAction, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddFormVerification);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddFormVerification));
