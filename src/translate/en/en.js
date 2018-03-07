@@ -110,10 +110,17 @@ const en = {
     }
   },
   show_shop: {
-    transaction_pending:
-      'We are adding your shop on the Dether map, it can take some some minutes...',
+    transaction_pending: 'We are deleting your shop from the Dether map, it can take some some minutes...',
     delete_button: 'Delete Shop',
-    submit_button: 'Submit'
+    submit_button: 'Submit',
+    loader_title: 'Please wait',
+    loader_delete_message: 'We are sendind your delete transaction...'
+  },
+  add_form_verification: {
+    transaction_pending: 'We are adding your shop on the Dether map, it can take some some minutes...',
+    submit_button: 'Submit',
+    loader_title: 'Please wait',
+    loader_add_message: 'We are checking your request'
   }
 };
 

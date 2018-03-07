@@ -31,7 +31,7 @@ const shopReducer = (state = initialState, { type, payload }) => {
     case 'ADD_SHOP':
       return {
         ...state,
-        pendingShop: null,
+        pendingShop: initialState.pendingShop,
         transactionHash: null,
         shop: { ...state.shop, ...payload }
       };
@@ -39,8 +39,10 @@ const shopReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         shop: null,
-        pendingShop: { ...state.shop }
+        pendingShop: { ...initialState.pendingShop }
       };
+    case 'END_TRANSACTION':
+      return { ...state, transactionHash: null };
     default:
       return state;
   }

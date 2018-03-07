@@ -85,6 +85,7 @@ export class LeftPanel extends PureComponent {
 
         console.log('HOME', shop);
         if (shop) addShop(shop);
+        console.log('SHOP', shop);
         if (balance) setBalance(balance);
         if (certified) setUserCertified(certified);
         setMetamaskInstalled(true);
