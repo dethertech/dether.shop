@@ -7,6 +7,9 @@ const initialState = {
   phoneCountry: null,
 };
 
+/**
+ * userReducer
+ */
 const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_PHONE':
@@ -17,17 +20,17 @@ const userReducer = (state = initialState, { type, payload }) => {
       return { ...state, phoneSent: payload.phoneSent };
     case 'SET_PHONE_VERIFIED':
       return { ...state, phoneVerif: true };
-    case 'FETCH_SEND_SMS_PENDING':
+    case 'SEND_SMS_PENDING':
       return { ...state, isSubmitPhonePending: true };
-    case 'FETCH_SEND_SMS_SUCCESS':
+    case 'SEND_SMS_SUCCESS':
       return { ...state, isSubmitPhonePending: false };
-    case 'FETCH_SEND_SMS_ERROR':
+    case 'SEND_SMS_ERROR':
       return { ...state, isSubmitPhonePending: false };
-    case 'FETCH_SEND_VERIF_CODE_PENDING':
+    case 'SEND_VERIF_CODE_PENDING':
       return { ...state, isSubmitCodePending: true };
-    case 'FETCH_SEND_VERIF_CODE_SUCCESS':
+    case 'SEND_VERIF_CODE_SUCCESS':
       return { ...state, isSubmitCodePending: false };
-    case 'FETCH_SEND_VERIF_CODE_ERROR':
+    case 'SEND_VERIF_CODE_ERROR':
       return { ...state, isSubmitCodePending: false };
     default:
       return state;

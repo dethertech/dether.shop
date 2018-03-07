@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { storiesOf, addDecorator } from '@storybook/react'
-import { storyWithStore } from '../../helpers/stories'
+import { storyWithStore } from '../../helpers'
 import { AddShopHome } from './AddShopHome'
 
 storiesOf('04 - Screens/AddShopHome', module)

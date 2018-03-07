@@ -12,6 +12,9 @@ import store, { persistor } from './configureStore';
  */
 import Router from './Router';
 
+/**
+ * App
+ */
 const App = () => (
   <Provider store={store}>
     <PersistGate persistor={persistor}>

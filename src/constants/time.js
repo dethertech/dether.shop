@@ -1,3 +1,6 @@
+/*
+  Translate module
+ */
 import tr from '../translate';
 
 export const weekDays = [

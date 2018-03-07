@@ -44,9 +44,11 @@ Layout.Body = styled.div`
 
 Layout.ScrollableBody = styled.div`
   flex: 1;
-  position: relative;
-  overflow-x: hidden;
   overflow-y: auto;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
 `;
 
 Layout.Footer = styled.footer`

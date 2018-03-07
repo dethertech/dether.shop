@@ -5,7 +5,7 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { LabeledInput } from '../../../components/Inputs';
 import tr from '../../../translate';
 
-import GeocodeAPI from '../../../helpers/geocodeAPI';
+import { GeocodeAPI } from '../../../helpers';
 // import SearchBarWrapper from './SearchBarWrapper';
 
 export class SearchBar extends PureComponent {
@@ -44,9 +44,14 @@ export class SearchBar extends PureComponent {
     const countryId = GeocodeAPI.getCountryIdFromAddressComponents(place.address_components);
     const postalCode =
       GeocodeAPI.getPostalCodeFromAddressComponents(place.address_components) ||
-      (await GeocodeAPI.postalCode(position));
+      (await GeocodeAPI.postalCode(position).catch(() => null));
 
-    const data = { ...position, countryId, postalCode };
+    const data = { ...position,
+      countryId,
+      postalCode,
+      lat: position.lat.toFixed(5),
+      lng: position.lng.toFixed(5)
+    };
     let error;
     if (data.lat && data.lng && countryId && postalCode) {
       this.props.onChange(data);

@@ -32,7 +32,7 @@ const en = {
   add: {
     home: {
       title: 'DETHER FOR SHOP',
-      description:
+      desc:
         'A decentralized application for shops exchanging cryptocurrency for cash or accepting it as a means of payement.',
       metamask_not_installed: 'You need to install Metamask to add your shop',
       not_enougth_money: ({ minEth, minDth }) =>
@@ -42,6 +42,8 @@ const en = {
       bt_add: 'Add you shop on the map'
     },
     form: {
+      title: 'Register your shop',
+      step: 'Step 2 of 2',
       inputs: {
         address: {
           label: 'Address :',
@@ -62,7 +64,8 @@ const en = {
         opening: {
           error: () => 'Invalide opening'
         }
-      }
+      },
+      register_btn: 'Add your shop'
     }
   },
   header: {
@@ -87,7 +90,8 @@ const en = {
     opening_hours: 'Opening hours :',
     day: 'Day :',
     opened_at: 'Opening time :',
-    closed_at: 'Closing time :'
+    closed_at: 'Closing time :',
+    closed: 'closed'
   },
   days: {
     1: 'Monday',
@@ -104,6 +108,19 @@ const en = {
       country_blank: 'You need to select a country in the list',
       wait_resend: 'Please wait 15 seconds before requesting a new code'
     }
+  },
+  show_shop: {
+    transaction_pending: 'We are deleting your shop from the Dether map, it can take some some minutes...',
+    delete_button: 'Delete Shop',
+    submit_button: 'Submit',
+    loader_title: 'Please wait',
+    loader_delete_message: 'We are sendind your delete transaction...'
+  },
+  add_form_verification: {
+    transaction_pending: 'We are adding your shop on the Dether map, it can take some some minutes...',
+    submit_button: 'Submit',
+    loader_title: 'Please wait',
+    loader_add_message: 'We are checking your request'
   }
 };
 

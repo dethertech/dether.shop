@@ -56,6 +56,10 @@ const GeocodeAPI = {
     return results;
   },
 
+  async positionToAddress(position) {
+    return (await this.reverseGeocode(position))[0].formatted_address;
+  },
+
   async handleUrl(url) {
     const response = await fetch(url).catch(() => Promise.reject(new Error('Error fetching data')));
 

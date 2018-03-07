@@ -1,11 +1,28 @@
 import supercluster from 'points-cluster';
 
+/**
+ * isEqu
+ * @param  {[type]}  pos1 [description]
+ * @param  {[type]}  pos2 [description]
+ * @return {Boolean}      [description]
+ */
 const isEqu = (pos1, pos2) => (
   pos1.lat === pos2.lat && pos1.lng === pos2.lng
 );
 
+/**
+ * toRadians
+ * @param  {[type]} deg [description]
+ * @return {[type]}     [description]
+ */
 const toRadians = deg => deg * (Math.PI / 180);
 
+/**
+ * distance
+ * @param  {[type]} pos1 [description]
+ * @param  {[type]} pos2 [description]
+ * @return {[type]}      [description]
+ */
 const distance = (pos1, pos2) => {
   const R = 6371e3; // metres
   const d1 = toRadians(pos1.lat);
@@ -21,7 +38,12 @@ const distance = (pos1, pos2) => {
   return (R * c);
 };
 
-
+/**
+ * getClusterData
+ * @param  {[type]} data     [description]
+ * @param  {[type]} propsMap [description]
+ * @return {[type]}          [description]
+ */
 const getClusterData = (data, propsMap) => {
   const cl = supercluster(data, {
     minZoom: 0,
@@ -39,6 +61,12 @@ const getClusterData = (data, propsMap) => {
   }));
 };
 
+/**
+ * addressByPosition
+ * @param  {[type]} lat [description]
+ * @param  {[type]} lng [description]
+ * @return {[type]}     [description]
+ */
 export async function addressByPosition({ lat, lng }) {
   const { google } = window;
   const geocoder = new google.maps.Geocoder();
@@ -55,6 +83,11 @@ export async function addressByPosition({ lat, lng }) {
   });
 }
 
+/**
+ * addressNameByPosition
+ * @param  {[type]} position [description]
+ * @return {[type]}          [description]
+ */
 export async function addressNameByPosition(position) {
   const address = await addressByPosition(position).catch(() => null);
   if (address && address.length > 0) {

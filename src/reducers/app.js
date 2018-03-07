@@ -4,6 +4,9 @@ const initialState = {
   isTermsModalOpenened: false,
 };
 
+/**
+ * appReducer
+ */
 const appReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_METAMASK_INSTALLED':

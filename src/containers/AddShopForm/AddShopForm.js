@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { H1 } from '../../components/Headings';
 import { LabeledInput } from '../../components/Inputs';
@@ -9,6 +10,8 @@ import Mention from '../../components/Mention';
 import ProgressBar from '../../components/ProgressBar';
 import Button from '../../components/Button';
 
+import { setDataShopPending as setDataShopPendingAction } from '../../actions/shop';
+import tr from '../../translate';
 import DaysOnpeningHour from './DaysOnpeningHour';
 import validator from './validator';
 import fromState from './fromState';
@@ -19,7 +22,8 @@ export class AddShopForm extends PureComponent {
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
     }).isRequired,
-    shop: PropTypes.shape({}).isRequired
+    shop: PropTypes.shape({}).isRequired,
+    setDataShopPending: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -57,9 +61,11 @@ export class AddShopForm extends PureComponent {
     this.setState({ days });
   };
 
-  onSave = () => {
+  onSave = async () => {
+    console.log('wat');
     if (this.isFormValide()) {
       const { days, form } = this.state;
+      const { setDataShopPending, history } = this.props;
       const data = {
         ...form.address.value,
         cat: form.cat.value,
@@ -67,8 +73,8 @@ export class AddShopForm extends PureComponent {
         description: form.description.value,
         opening: days
       };
-      // TODO set store shop : pending data
-      console.log('data', data);
+      setDataShopPending(data);
+      history.push('/add-form/verification');
     }
   };
 
@@ -105,9 +111,9 @@ export class AddShopForm extends PureComponent {
   render() {
     const { form } = this.state;
     return (
-      <div>
-        <H1>Register your shop</H1>
-        <Mention>Step 3 of 3</Mention>
+      <Fragment>
+        <H1>{tr('add.form.title')}</H1>
+        <Mention>{tr('add.form.step')}</Mention>
         <ProgressBar progressRatio={1} />
         <Padding vertical="xl">
           <LabeledInput {...form.name} />
@@ -124,18 +130,20 @@ export class AddShopForm extends PureComponent {
 
         <Padding vertical="m">
           <Button fullWidth theme="primary" onClick={this.onSave}>
-            Add your shop
+            {tr('add.form.register_btn')}
           </Button>
         </Padding>
-      </div>
+      </Fragment>
     );
   }
 }
 
 const mapStateToProps = ({ shop }) => ({
-  shop: shop.pointPending
+  shop: shop.pendingShop
 });
 
-const mapDispatchToProps = (/* dispatch */) => ({});
+const mapDispatchToProps = dispatch => ({
+  setDataShopPending: bindActionCreators(setDataShopPendingAction, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddShopForm);

@@ -13,32 +13,31 @@ import LoaderScreen from '../../components/Screens/LoaderScreen';
 import Header from '../../components/Header';
 import ButtonLink from '../../components/ButtonLink';
 import { Padding } from '../../components/Spaces';
-import AddShopRouter from '../AddShopRouter';
+import ShopRouter from '../ShopRouter';
 
 const FooterText = styled.footer`
   font-size: ${tokens.fontSizes.s};
 `;
 
 const LeftWrapper = styled.div`
+  width: 100%;
   max-width: 42rem;
-  margin: 0 auto;
+  margin: auto;
   padding: ${tokens.spaces.m};
 `;
 
 class LeftPanelPage extends PureComponent {
   static propTypes = {
     isAppInitialized: PropTypes.bool.isRequired,
-    hasShop: PropTypes.bool.isRequired,
-    hasTransactionPending: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
-      dth: PropTypes.number.isRequired,
+      dth: PropTypes.number.isRequired
     }).isRequired,
     refreshBalance: PropTypes.func.isRequired
-  }
+  };
   getView = () => {
-    const { isAppInitialized, hasShop, hasTransactionPending } = this.props;
+    const { isAppInitialized } = this.props;
 
     if (!isAppInitialized) {
       return (
@@ -47,11 +46,9 @@ class LeftPanelPage extends PureComponent {
           message={tr('loaderInitializer.message')}
         />
       );
-    } else if (isAppInitialized && (!hasShop || hasTransactionPending)) {
-      return <AddShopRouter />;
     }
-    return <div>Add shop</div>;
-  }
+    return <ShopRouter />;
+  };
 
   render() {
     const { toggleModal, balance, refreshBalance } = this.props;
@@ -59,17 +56,15 @@ class LeftPanelPage extends PureComponent {
     const dth = balance.dth.toFixed(4);
 
     return (
-      <Layout>
+      <Layout isFullScreen>
         <Layout.Header>
           <Padding all="m">
             <Header onRefresh={refreshBalance} EthBalance={eth} DthBalance={dth} />
           </Padding>
         </Layout.Header>
-        <Layout.Body>
-          <LeftWrapper>
-            {this.getView()}
-          </LeftWrapper>
-        </Layout.Body>
+        <Layout.ScrollableBody>
+          <LeftWrapper>{this.getView()}</LeftWrapper>
+        </Layout.ScrollableBody>
         <Layout.Footer>
           <Padding all="m">
             <FooterText>

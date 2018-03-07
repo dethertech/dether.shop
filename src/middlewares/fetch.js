@@ -35,7 +35,8 @@ const fetchMiddleware = () => dispatch => async action => {
     .catch(err => {
       dispatch({ type: `${baseType}_ERROR` });
       console.log(err);
-      if (action.onError) return action.onError(err.response.data, err);
+      if (action.onError && err.response) return action.onError(err.response.data, err);
+      return err;
     });
 };
 

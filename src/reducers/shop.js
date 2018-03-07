@@ -2,18 +2,26 @@ const initialState = {
   transactionType: 'add',
   transactionHash: null, // if transactionHash !== null so you have a Transaction in pending
   shop: null,
-  shopPending: {
+  pendingShop: {
+    lat: null,
+    lng: null,
+    address: null,
+    countryId: null,
+    postalCode: null,
     name: '',
-    address: '',
     description: '',
-    calendar: '0000000'
+    cat: '',
+    opening: '0000000'
   }
 };
 
+/**
+ * shopReducer
+ */
 const shopReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_DATA_SHOP_PENDING':
-      return { ...state, shopPending: { ...state.shopPending, ...payload } };
+      return { ...state, pendingShop: { ...state.pendingShop, ...payload } };
     case 'ADD_TRANSACTION':
       return {
         ...state,
@@ -23,7 +31,7 @@ const shopReducer = (state = initialState, { type, payload }) => {
     case 'ADD_SHOP':
       return {
         ...state,
-        shopPending: null,
+        pendingShop: initialState.pendingShop,
         transactionHash: null,
         shop: { ...state.shop, ...payload }
       };
@@ -31,8 +39,10 @@ const shopReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         shop: null,
-        shopPending: { ...state.shop }
+        pendingShop: { ...initialState.pendingShop }
       };
+    case 'END_TRANSACTION':
+      return { ...state, transactionHash: null };
     default:
       return state;
   }

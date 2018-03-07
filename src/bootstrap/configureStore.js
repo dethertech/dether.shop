@@ -1,32 +1,39 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { persistStore, persistReducer } from 'redux-persist';
+import { persistStore, persistReducer, createTransform } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 /*
-  Middlewares
- */
+Middlewares
+*/
 import { fetchMiddleware } from '../middlewares';
 
 /*
-  Reducers
- */
+Reducers
+*/
 import rootReducer from '../reducers';
 
 /*
-  Persist store config
- */
+Persist store config
+*/
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [],
+  whitelist: ['shop'],
+  transforms: [
+    createTransform(
+      state => ({ ...state, shop: null }),
+      state => state,
+      { whitelist: ['shop'] }
+    )
+  ]
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 /*
-  Store
- */
+Store
+*/
 const store = createStore(
   persistedReducer,
   undefined,

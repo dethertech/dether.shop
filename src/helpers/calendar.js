@@ -49,6 +49,10 @@ export const times = [
   { key: 'V', val: '23:30' }
 ];
 
+export const timesObj = {};
+times.forEach(e => {
+  timesObj[e.key] = e.val;
+});
 export const hours = times.map(e => e.val);
 
 export const convertDay = ({ open, openAt, closeAt }) => {
@@ -58,4 +62,25 @@ export const convertDay = ({ open, openAt, closeAt }) => {
   const charOpen = times.filter(e => e.val === openAt)[0].key;
   const charClose = times.filter(e => e.val === closeAt)[0].key;
   return charOpen + charClose;
+};
+
+export const convertCalendar = str => {
+  const close = { open: false };
+  const days = [close, close, close, close, close, close, close];
+  let idx = 0;
+
+  for (let i = 0; i < str.length;) {
+    const testClose = str[i] === '0';
+    if (!testClose) {
+      days[idx] = {
+        open: true,
+        openAt: timesObj[str[i]],
+        closeAt: timesObj[str[i + 1]]
+      };
+    }
+    idx += 1;
+    i += testClose ? 1 : 2;
+  }
+
+  return days;
 };

@@ -1,2 +1,11 @@
 export { default as get } from './get';
 export { default as last } from './last';
+export { default as GeocodeAPI } from './geocodeAPI';
+export * from './timers';
+export * from './stories';
+export * from './shake';
+export * from './map';
+export * from './calendar';
+export * from './array';
+export * from './apiResponse';
+export * from './ethereum';
