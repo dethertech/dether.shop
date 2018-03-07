@@ -41,10 +41,10 @@ const toNBytes = (str, n) => {
 };
 
 const shopToContract = (rawshop) => {
-  const hexshopGeo = `0x${toNBytes(rawshop.lat, 16)}${toNBytes(rawshop.lng, 16)}`;
+  const hexshopGeo = `0x31${toNBytes(rawshop.lat, 16)}${toNBytes(rawshop.lng, 16)}`;
   const hexShopAddr = `${toNBytes(rawshop.countryId, 2)}${toNBytes(rawshop.postalCode, 16)}`;
   const hexShopId = `${toNBytes(rawshop.cat, 16)}${toNBytes(rawshop.name, 16)}`;
-  const hexShopDesc = `${toNBytes(rawshop.description, 32)}${toNBytes(rawshop.opening, 16)}31`;
+  const hexShopDesc = `${toNBytes(rawshop.description, 32)}${toNBytes(rawshop.opening, 16)}`;
 
   const hexShop = `${hexshopGeo}${hexShopAddr}${hexShopId}${hexShopDesc}`;
   return hexShop;
