@@ -1,0 +1,108 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import tokens from '../../../styles/tokens';
+
+import { Margin } from '../../../components/Spaces';
+import Mention from '../../../components/Mention';
+
+import Shake from '../../../components/Animations/Shake';
+import { Input, TextArea, ComboBox, AutoAddress } from '../';
+
+const Wrapper = styled.div`
+  margin-bottom: ${tokens.spaces.m};
+  text-align: left;
+`;
+
+const Label = styled.label`
+  display: block;
+  font-weight: 300;
+  font-size: ${tokens.fontSizes.m};
+  margin-bottom: ${tokens.spaces.xxs};
+`;
+
+const ErrorText = styled.div`
+  color: ${tokens.colors.pink};
+  margin-top: ${tokens.spaces.xxs};
+  font-size: ${tokens.fontSizes.s};
+`;
+
+const LabeledInput = ({
+  toggleShake,
+  label,
+  fillInfos,
+  onBlur,
+  error,
+  name,
+  handleChange,
+  componentName,
+  ...rest
+}) => (
+  <Wrapper>
+    <Label htmlFor={name}>{label}</Label>
+    {!!fillInfos && (
+      <Margin vertical="xxs">
+        <Mention>{fillInfos}</Mention>
+      </Margin>
+    )}
+    <Shake toggle={toggleShake}>
+      {{
+        textarea: () => (
+          <TextArea
+            name={name}
+            hasError={!!error}
+            onChange={handleChange}
+            onBlur={onBlur}
+            {...rest}
+          />
+        ),
+        combobox: () => (
+          <ComboBox
+            name={name}
+            onChange={handleChange}
+            onBlur={onBlur}
+            hasError={!!error}
+            {...rest}
+          />
+        ),
+        placesAutocomplete: () => (
+          <AutoAddress
+            name={name}
+            hasError={!!error}
+            onChange={handleChange}
+            onBlur={onBlur}
+            {...rest}
+          />
+        ),
+        input: () => (
+          <Input name={name} hasError={!!error} onChange={handleChange} onBlur={onBlur} {...rest} />
+        )
+      }[componentName]()}
+    </Shake>
+    {error && <ErrorText>{error}</ErrorText>}
+  </Wrapper>
+);
+
+LabeledInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  toggleShake: PropTypes.number,
+  handleChange: PropTypes.func,
+  label: PropTypes.string.isRequired,
+  fillInfos: PropTypes.node,
+  onBlur: PropTypes.func,
+  componentName: PropTypes.string,
+  error: PropTypes.string,
+  defaultOption: PropTypes.any
+};
+
+LabeledInput.defaultProps = {
+  handleChange: null,
+  onBlur: null,
+  toggleShake: null,
+  fillInfos: null,
+  error: null,
+  componentName: 'input',
+  defaultOption: null
+};
+
+export default LabeledInput;

@@ -1,0 +1,42 @@
+.title-stl {
+  color: #000000;
+}
+
+.content-stl {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.modal-stl {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  text-align: center;
+  height: 50vh;
+  border-radius: 1em;
+  box-shadow: 0px 0px 10px;
+  background: white;
+  width: 90%;
+  margin: auto;
+  font-family: helvetica;
+  font-weight: 300;
+  color: dimgrey;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.overlay-stl {
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}

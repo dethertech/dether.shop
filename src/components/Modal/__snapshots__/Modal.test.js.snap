@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Modal should be render without crash 1`] = `
+<div
+  className="sc-gzVnrw gVHaxn"
+>
+  <div
+    className="sc-ifAKCX KRuoF"
+  >
+    <div
+      className="sc-EHOje lfAdil"
+    >
+      <p>
+        Modal
+      </p>
+      <p>
+        Home
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components MapIcons should render ShopIcon 1`] = `
+.c0 {
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0.4rem;
+  border-radius: 50%;
+  border: solid 0.3rem #FFFFFF;
+  box-shadow: 0 0 0.5rem rgba(0,0,0,0.3);
+  background: #EDD36B;
+}
+
+.c0 svg {
+  display: block;
+  width: 1.2rem;
+  fill: #FFFFFF;
+  overflow: visible;
+}
+
+.c0 div {
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: bold;
+}
+
+<div
+  className="c0"
+>
+  <svg
+    viewBox="0 0 22 22"
+  >
+    <circle
+      cx="11"
+      cy="7"
+      fill="none"
+      r="5"
+      stroke="#fff"
+      strokeWidth="0.3rem"
+    />
+    <rect
+      height="15"
+      rx="2"
+      width="20"
+      x="1"
+      y="7"
+    />
+  </svg>
+</div>
+`;
+
+exports[`Components MapIcons should render a ClusterShopIcon 1`] = `
+.c0 {
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0.4rem;
+  border-radius: 50%;
+  border: solid 0.3rem #FFFFFF;
+  box-shadow: 0 0 0.5rem rgba(0,0,0,0.3);
+  background: #EDD36B;
+}
+
+.c0 svg {
+  display: block;
+  width: 1.2rem;
+  fill: #FFFFFF;
+  overflow: visible;
+}
+
+.c0 div {
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: bold;
+}
+
+<div
+  className="c0"
+>
+  <div>
+    3
+  </div>
+</div>
+`;

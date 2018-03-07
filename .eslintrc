@@ -17,7 +17,7 @@
       "jsx-a11y/no-static-element-interactions": 0,
       "jsx-a11y/click-events-have-key-events": 0,
       "max-lines": ["error", {
-          "max": 120,
+          "max": 200,
           "skipBlankLines": true,
           "skipComments": true
       }],
@@ -32,6 +32,7 @@
         "components": [ "Link" ],
         "specialLink": [ "to", "hrefLeft", "hrefRight" ],
         "aspects": [ "noHref", "invalidHref", "preferButton" ]
-      }]
+      }],
+      "no-consecutive-blank-lines": true
     }
 }

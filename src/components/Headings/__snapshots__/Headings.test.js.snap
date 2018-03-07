@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components Headings should render H1 1`] = `
+.c0 {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+<h1
+  className="c0"
+>
+  H1
+</h1>
+`;
+
+exports[`Components Headings should render a light H1 1`] = `
+.c0 {
+  font-weight: 600;
+  font-weight: 200;
+  font-size: 2rem;
+}
+
+<h1
+  className="c0"
+>
+  H1
+</h1>
+`;
+
+exports[`Components Headings should render a light H2 1`] = `
+.c0 {
+  font-weight: 600;
+  font-weight: 200;
+  font-size: 1.8rem;
+}
+
+<h2
+  className="c0"
+>
+  H2
+</h2>
+`;
+
+exports[`Components Headings should render a light H2 2`] = `
+.c0 {
+  font-weight: 600;
+  font-weight: 200;
+  font-size: 1.8rem;
+}
+
+<h2
+  className="c0"
+>
+  H2
+</h2>
+`;
+
+exports[`Components Headings should render a light H3 1`] = `
+.c0 {
+  font-weight: 600;
+  font-weight: 200;
+  font-size: 1.6rem;
+}
+
+<h3
+  className="c0"
+>
+  H3
+</h3>
+`;
+
+exports[`Components Headings should render a light H3 2`] = `
+.c0 {
+  font-weight: 600;
+  font-weight: 200;
+  font-size: 1.6rem;
+}
+
+<h3
+  className="c0"
+>
+  H3
+</h3>
+`;

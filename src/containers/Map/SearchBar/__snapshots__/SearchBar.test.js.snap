@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component SearchBar should be render without crash 1`] = `
+.c0 {
+  position: absolute;
+  top: 1.6rem;
+  left: 1.6rem;
+  right: 1.6rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.8rem rgba(0,0,0,0.2);
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+.c0 svg {
+  position: absolute;
+  margin-top: 0.4rem;
+}
+
+.c2 input {
+  padding-left: 3rem !important;
+}
+
+.c2 input,
+.c2 #PlacesAutocomplete__root,
+.c2 #PlacesAutocomplete__autocomplete-container {
+  position: static !important;
+}
+
+.c2 #PlacesAutocomplete__autocomplete-container {
+  max-width: 100% !important;
+  overflow: auto;
+  border: none !important;
+  border-top: solid 1px #F5F5F5 !important;
+}
+
+.c1 {
+  -webkit-flex: initial;
+  -ms-flex: initial;
+  flex: initial;
+  stroke: none;
+  width: 3rem;
+  height: 3rem;
+  fill: #D8D8D8;
+}
+
+<div
+  className="c0"
+>
+  <svg
+    className="c1"
+    viewBox="0 0 34 34"
+  >
+    <path
+      d="M24.2 22.7l-3-2.9a.7.7 0 0 0-.4-.2h-.5a6 6 0 1 0-1 1v.5c0 .2 0 .4.2.5l2.9 2.9c.2.3.7.3 1 0l.8-.8a1 1 0 0 0 0-1zM15.6 20a4.2 4.2 0 1 1 0-8.4 4.2 4.2 0 0 1 0 8.4z"
+      id="b"
+    />
+  </svg>
+  <div
+    className="c2"
+  >
+    <p>
+      hello
+    </p>
+  </div>
+</div>
+`;
