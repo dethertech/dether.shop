@@ -42,9 +42,12 @@ class ShopRecap extends PureComponent {
 
   componentWillMount = async () => {
     const { lat, lng } = this.props;
-    // TODO: try catch
-    const address = await GeocodeAPI.positionToAddress({ lat, lng });
-    this.setState({ address });
+    try {
+      const address = await GeocodeAPI.positionToAddress({ lat, lng });
+      this.setState({ address });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   render = () => {
