@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 import TestUtils from 'react-dom/test-utils';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { GeocodeAPI } from '../../helpers';
 
 import fakeStore from '../../constants/test/fakeStore';
 import ShopRouter from './index';
@@ -19,6 +20,9 @@ const { document } = (new JSDOM('<!doctype html><html><body></body></html>')).wi
 global.document = document;
 global.window = global.document.defaultView
 
+GeocodeAPI.positionToAddress = async () => 'Paris 2';
+GeocodeAPI.postalCode = async () => '75002';
+
 configure({ adapter: new Adapter() });
 
 const store = fakeStore({});
@@ -26,7 +30,7 @@ const store = fakeStore({});
 describe('Container ShopRouter', () => {
   it('should be render without crash', () => {
     const component = TestUtils.renderIntoDocument(
-        <Provider store={store}><Router><ShopRouter hasShop isUserVerified /></Router></Provider>
+        <Provider store={store}><Router><ShopRouter hasShop={false} isUserVerified /></Router></Provider>
     );
     expect(component).not.toBe(null);
   });

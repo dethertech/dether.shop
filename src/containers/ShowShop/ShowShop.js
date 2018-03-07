@@ -29,7 +29,7 @@ import { addShop as addShopHelper, deleteShop as deleteShopHelper } from '../../
  * ShowShop container
  * @extends PureComponent
  */
-class ShowShop extends PureComponent {
+export class ShowShop extends PureComponent {
   static propTypes = {
     shop: PropTypes.shape({
       name: PropTypes.string.isRequired,
