@@ -13,7 +13,7 @@ Here are some important resources:
   * [Twitter](https://twitter.com/dether_io) to follow us
   * [Facebook](https://www.facebook.com/dether.io/) to follow us
   * Mailing list: Join our [mailing list](https://dether.us16.list-manage.com/subscribe/post?u=dd727296ebfd8ba845b23f156&id=f11fdb74cb)
-  * Non critical Bug? [Github issue](https://github.com/dethertech/detherGateway/issues) is where to report them
+  * Non critical Bug? [Github issue](https://github.com/dethertech/dether.shop/issues) is where to report them
   * Critical Bug? [Private email](hello@dether.io) is where to report them
 
 ## Testing
@@ -22,7 +22,7 @@ We are testing the smart contracts with Javascript in async/await style, and the
 
 ## Submitting changes
 
-Please send a [GitHub Pull Request to Dether](https://github.com/dethertech/detherGateway/pulls) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, we will love you forever if you include tests. We can always use more test coverage. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+Please send a [GitHub Pull Request to Dether](https://github.com/dethertech/dether.shop/pulls) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, we will love you forever if you include tests. We can always use more test coverage. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
 
 ### Commit guidelines
 

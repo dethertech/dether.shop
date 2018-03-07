@@ -7,6 +7,9 @@ const initialState = {
   phoneCountry: null,
 };
 
+/**
+ * userReducer
+ */
 const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_PHONE':

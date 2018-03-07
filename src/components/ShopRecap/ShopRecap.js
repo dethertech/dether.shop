@@ -2,8 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { convertCalendar } from '../../helpers/calendar';
-import GeocodeAPI from '../../helpers/geocodeAPI';
+import { convertCalendar, GeocodeAPI } from '../../helpers';
 import tokens from '../../styles/tokens';
 import tr from '../../translate';
 import { weekDays } from '../../constants/time';
@@ -41,16 +40,18 @@ class ShopRecap extends PureComponent {
     address: ''
   }
 
-  async componentWillMount() {
+  componentWillMount = async () => {
     const { lat, lng } = this.props;
-    const address = await GeocodeAPI.positionToAddress({ lat, lng });
+
+    const address = await GeocodeAPI
+      .positionToAddress({ lat, lng })
+      .catch(() => '');
     this.setState({ address });
   }
 
-  render() {
+  render = () => {
     const { opening, name, cat, description } = this.props;
     const { address } = this.state;
-    console.log(opening);
 
     return (
       <Wrapper>

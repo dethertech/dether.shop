@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
 import tr from '../../../translate';
-import { phoneVerificationTime } from '../../../helpers/timers';
-import { getErrorMessage } from '../../../helpers/apiResponse';
+import { phoneVerificationTime, getErrorMessage } from '../../../helpers';
+
 import ValidateCode from './ValidateCode';
 import { sendVerifCode as sendVerifCodeAction } from '../../../actions/kyc';
 import { setUserCertified as setUserCertifiedAction } from '../../../actions/user';

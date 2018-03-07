@@ -2,9 +2,15 @@ import React, { PureComponent } from 'react';
 import GoogleMap from 'google-map-react';
 import PropTypes from 'prop-types';
 
-import mapStyle from '../../../constants/googlemap-style.json';
-import config from '../../../constants/config';
+/*
+  Constants
+ */
+import { config, googlemapStyle } from '../../../constants';
 
+/**
+ * GoogleMapWrapper
+ * @extends PureComponent
+ */
 class GoogleMapWrapper extends PureComponent {
   static propTypes = {
     center: PropTypes.shape({}).isRequired,
@@ -13,12 +19,12 @@ class GoogleMapWrapper extends PureComponent {
   };
 
   options = {
-    styles: mapStyle,
+    styles: googlemapStyle,
     disableDefaultUI: true,
     gestureHandling: 'greedy'
   };
 
-  render() {
+  render = () => {
     const { children, center, changeHandler } = this.props;
 
     return (

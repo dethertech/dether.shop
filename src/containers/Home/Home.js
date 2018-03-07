@@ -1,10 +1,20 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import Map from '../Map';
-import LeftPanel from '../LeftPanel';
+/*
+  Components
+ */
 import Panels from '../../components/Panels';
 
+/*
+  Containers
+ */
+import LeftPanel from '../LeftPanel';
+import Map from '../Map';
+
+/**
+ * Home container
+ */
 const Home = () => (
   <Panels>
     <Panels.Left>

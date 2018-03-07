@@ -3,6 +3,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 
+import { GeocodeAPI } from '../../helpers';
 import ShopRecap from './index';
 
 const shop = {
@@ -13,6 +14,9 @@ const shop = {
   lat: '48.856614',
   lng: '2.352222'
 }
+
+GeocodeAPI.positionToAddress = async () => 'Paris 2';
+GeocodeAPI.postalCode = async () => '75002';
 
 describe('Components ShopRecap', () => {
   it('should render ShopRecap', () => {

@@ -9,9 +9,9 @@ import LoaderScreen from '../../components/Screens/LoaderScreen';
 import tr from '../../translate';
 
 import { addShop as addShopAction } from '../../actions/shop';
-import { addShop as addShopHelper } from '../../helpers/ethereum';
+import { addShop as addShopHelper } from '../../helpers';
 
-class ShowShop extends PureComponent {
+class AddFormVerification extends PureComponent {
   static propTypes = {
     pendingShop: PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -73,4 +73,4 @@ const mapDispatchToProps = dispatch => ({
   addShopToStore: bindActionCreators(addShopAction, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowShop);
+export default connect(mapStateToProps, mapDispatchToProps)(AddFormVerification);

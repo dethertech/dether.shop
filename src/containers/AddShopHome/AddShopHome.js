@@ -4,20 +4,39 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+/*
+  Config
+ */
 import config from '../../constants/config';
+
+/*
+  Translate module
+ */
 import tr from '../../translate';
-import { hasEnougthMoneyToAddShop } from '../../reducers/user';
-import TermsValidation from './TermsValidation';
+
+/*
+  Assets
+ */
 import illustration from '../../assets/illustration.svg';
 
-import { toggleTermsModal as toggleTermsModalAction } from '../../actions/app';
+/*
+  Redux
+ */
+import { toggleTermsModal as toggleTermsModalAction } from '../../actions';
+import { hasEnougthMoneyToAddShop } from '../../reducers/user';
 
-// component
+/*
+  Components
+ */
 import Button from '../../components/Button';
 import { H1 } from '../../components/Headings';
 import { Padding } from '../../components/Spaces';
 import Message from '../../components/Message';
+import TermsValidation from './TermsValidation';
 
+/*
+  Styles
+ */
 const Wrapper = styled.div`
   max-width: 40rem;
   margin: 0 auto;
@@ -75,7 +94,7 @@ export class AddShopHome extends PureComponent {
     return true;
   };
 
-  render() {
+  render = () => {
     const { checked, shake } = this.state;
     const { isMetamaskInstalled, hasEnougthMoney, minEth, minDth, toggleTermsModal } = this.props;
 
@@ -89,7 +108,7 @@ export class AddShopHome extends PureComponent {
           <H1>{tr('add.home.title')}</H1>
         </Padding>
 
-        <Padding vertical="l">{tr('add.home.desc')}</Padding>
+        <Padding vertical="l"><span>{tr('add.home.desc')}</span></Padding>
 
         {!isMetamaskInstalled && (
           <Message theme="error" alignCenter>
