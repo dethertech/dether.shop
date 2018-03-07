@@ -8,8 +8,11 @@ import Button from '../../components/Button';
 import LoaderScreen from '../../components/Screens/LoaderScreen';
 import tr from '../../translate';
 
-import { addShop as addShopAction } from '../../actions/shop';
-import { addShop as addShopHelper } from '../../helpers';
+import {
+  addAddShopTransaction as addAddShopTransactionAction,
+  addShop as addShopAction
+} from '../../actions/shop';
+import { addShop as addShopHelper, getTransactionStatus } from '../../helpers/ethereum';
 
 class AddFormVerification extends PureComponent {
   static propTypes = {
@@ -23,11 +26,27 @@ class AddFormVerification extends PureComponent {
     }).isRequired,
     addShopToStore: PropTypes.func.isRequired,
     addShopToContract: PropTypes.func.isRequired,
-    isTransactionPending: PropTypes.bool.isRequired
+    addAddShopTransaction: PropTypes.func.isRequired,
+    isTransactionPending: PropTypes.bool.isRequired,
+    transactionHash: PropTypes.string.isRequired
   }
 
   state = {
     isLoading: false
+  }
+
+  componentWillMount() {
+    const { isTransactionPending } = this.props;
+
+    if (isTransactionPending) {
+      this.interval = this.checkTransaction();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
   }
 
   getView = () => {
@@ -36,8 +55,30 @@ class AddFormVerification extends PureComponent {
     // TODO trads
     if (isTransactionPending)
       return <div>{tr('add_form_verification.transaction_pending')}</div>;
-    return <Button>{tr('add_form_verification.submit_button')}</Button>;
+    return <Button onClick={this.addShop}>{tr('add_form_verification.submit_button')}</Button>;
   }
+
+  checkTransaction = () => {
+    const { transactionHash, addShopToStore, pendingShop } = this.props;
+    this.interval = setInterval(async () => {
+      const status = await getTransactionStatus(transactionHash);
+      if (status === 'success') {
+        addShopToStore(pendingShop);
+      } else if (status === 'error') {
+        console.log('Transaction Error');
+      }
+    }, 3000);
+  }
+
+  addShop = async () => {
+    const { pendingShop, addAddShopTransaction, addShopToContract } = this.props;
+
+    this.showLoader();
+    const transaction = await addShopToContract(pendingShop).catch(e => console.log('Error', e));
+    addAddShopTransaction(transaction.transactionHash);
+    this.checkTransaction();
+    this.HideLoader();
+  };
 
   showLoader = () => this.setState({ isLoading: true });
   HideLoader = () => this.setState({ isLoading: false });
@@ -65,12 +106,14 @@ class AddFormVerification extends PureComponent {
 
 const mapStateToProps = ({ shop }) => ({
   pendingShop: shop.pendingShop,
-  isTransactionPending: shop.transactionHash
+  isTransactionPending: !!shop.transactionHash,
+  transactionHash: shop.transactionHash
 });
 
 const mapDispatchToProps = dispatch => ({
   addShopToContract: addShopHelper,
   addShopToStore: bindActionCreators(addShopAction, dispatch),
+  addAddShopTransaction: bindActionCreators(addAddShopTransactionAction, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddFormVerification);

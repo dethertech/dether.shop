@@ -92,7 +92,7 @@ export class ShowShop extends PureComponent {
 const mapStateToProps = ({ shop }) => ({
   shop: shop.shop,
   isTransactionPending: !!shop.transactionHash,
-  transactionhash: shop.transactionHash
+  transactionHash: shop.transactionHash
 });
 
 const mapDispatchToProps = dispatch => ({

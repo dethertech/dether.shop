@@ -62,6 +62,7 @@ export class AddShopForm extends PureComponent {
   };
 
   onSave = async () => {
+    console.log('wat');
     if (this.isFormValide()) {
       const { days, form } = this.state;
       const { setDataShopPending, history } = this.props;

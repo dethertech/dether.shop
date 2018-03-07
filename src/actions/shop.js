@@ -17,10 +17,8 @@ const addTransaction = ({ type, hash }) => ({
   payload: { type, hash }
 });
 
-/**
- * addShop
- * @param {[type]} shop [description]
- */
+const addAddShopTransaction = hash => addTransaction({ type: 'add', hash });
+
 const addShop = shop => ({
   type: 'ADD_SHOP',
   payload: shop
@@ -33,5 +31,4 @@ const addShop = shop => ({
 const removeShop = () => ({
   type: 'REMOVE_SHOP'
 });
-
-export { addShop, removeShop, setDataShopPending, addTransaction };
+export { addShop, removeShop, setDataShopPending, addTransaction, addAddShopTransaction };
