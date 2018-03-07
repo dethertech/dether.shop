@@ -1,0 +1,346 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 3177,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 37,
+      "column": 0
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 3177,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 37,
+        "column": 0
+      }
+    },
+    "sourceType": "module",
+    "body": [
+      {
+        "type": "ExportDefaultDeclaration",
+        "start": 21,
+        "end": 3176,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 36,
+            "column": 2
+          }
+        },
+        "declaration": {
+          "type": "TemplateLiteral",
+          "start": 36,
+          "end": 3175,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 15
+            },
+            "end": {
+              "line": 36,
+              "column": 1
+            }
+          },
+          "expressions": [],
+          "quasis": [
+            {
+              "type": "TemplateElement",
+              "start": 37,
+              "end": 3174,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 16
+                },
+                "end": {
+                  "line": 36,
+                  "column": 0
+                }
+              },
+              "value": {
+                "raw": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at accumsan velit.||\nPhasellus malesuada rhoncus dui, ut elementum metus tempus eget. Morbi et tortor libero. Mauris||\nrutrum vulputate lectus eu ultrices. Nam eu tortor sapien. Phasellus vestibulum lacus||\nnisi, id gravida est molestie in. Duis finibus mollis ipsum, ultricies aliquet eros||\ninterdum eget. Sed feugiat sollicitudin mauris eget bibendum. Etiam nisi lorem, suscipit||\nut leo in, pellentesque tristique lectus. Nulla vel accumsan mi. Nulla facilisi. Fusce||\ndictum efficitur nibh,||nec condimentum urna ullamcorper at.Nullam quis iaculis dui. Vivamus gravida ullamcorper libero. Aliquam erat volutpat.||\nPellentesque feugiat mi vel congue varius. Vivamus pretium hendrerit est, sed elementum||\nnunc ultricies id. Mauris condimentum neque viverra augue luctus vestibulum. Nulla sit||\namet facilisis urna. Duis mi nulla, aliquet nec rhoncus eget, sollicitudin at orci.\nAliquam fermentum neque at orci sodales accumsan vel at est.||\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;||\nSed quis magna vehicula, interdum mi quis, consectetur eros. Etiam at eleifend erat .||\nAenean nisi neque, interdum semper massa ut, accumsan tristique lacus. Proin posuere||\nvenenatis risus vel malesuada. Suspendisse volutpat magna ac urna mattis, a ornare nibh||\ndictum. Donec tincidunt diam ut augue euismod, id vulputate magna porta. Quisque varius||\naliquam mauris, ac posuere velit faucibus venenatis. In tincidunt fringilla sem.||\nVestibulum interdum convallis massa, dapibus pellentesque leo interdum sit amet. Donec vel||\npharetra est, eget tincidunt libero.Maecenas vestibulum molestie ligula quis viverra. Pellentesque congue, massa ut iaculis||\nsuscipit, dolor enim laoreet mauris, eu tempor arcu libero ultricies arcu. Ut sed arcu ut||\nsapien luctus imperdiet eget ut sapien. Fusce commodo ante a augue tempor, at fringilla ex||\ndignissim. Aenean orci odio, laoreet in orci in, euismod mattis odio. Donec rutrum dui ex,||\nnec maximus nisl placerat at.Aliquam rutrum erat ligula, sodales tincidunt risus efficitur non. Duis elementum||\ntristique accumsan. Sed eu dolor nunc. Nulla vehicula ut lorem sit amet ultricies. Etiam||\nfacilisis finibus faucibus.Etiam quis lorem nec sem viverra congue et ut erat. Pellentesque condimentum consequat||\nefficitur. Fusce ac mauris aliquam, gravida orci ac, dictum ante. Cras pellentesque, nisi||\net tempus iaculis, urna arcu suscipit magna, nec placerat nunc ipsum ac sapien. Etiam eget||\nnulla vel eros auctor vulputate. Etiam accumsan lectus lectus, sed aliquet eros tincidunt||\nsit amet. Morbi justo nunc, vestibulum vitae aliquet at, facilisis non eros. Aliquam||\nefficitur nulla dolor, in finibus neque scelerisque et. Etiam justo erat, euismod sit amet||\nsapien porttitor, volutpat elementum nisl. Sed posuere ullamcorper tellus a tristique.||\nFusce bibendum elementum odio, in faucibus velit aliquam eget. Integer ullamcorper, enim||\nut volutpat lacinia, dolor dolor elementum diam, id luctus nisl ipsum rhoncus sem. Vivamus||\nat ipsum vitae velit facilisis mollis id sit amet justo.\n",
+                "cooked": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at accumsan velit.||\nPhasellus malesuada rhoncus dui, ut elementum metus tempus eget. Morbi et tortor libero. Mauris||\nrutrum vulputate lectus eu ultrices. Nam eu tortor sapien. Phasellus vestibulum lacus||\nnisi, id gravida est molestie in. Duis finibus mollis ipsum, ultricies aliquet eros||\ninterdum eget. Sed feugiat sollicitudin mauris eget bibendum. Etiam nisi lorem, suscipit||\nut leo in, pellentesque tristique lectus. Nulla vel accumsan mi. Nulla facilisi. Fusce||\ndictum efficitur nibh,||nec condimentum urna ullamcorper at.Nullam quis iaculis dui. Vivamus gravida ullamcorper libero. Aliquam erat volutpat.||\nPellentesque feugiat mi vel congue varius. Vivamus pretium hendrerit est, sed elementum||\nnunc ultricies id. Mauris condimentum neque viverra augue luctus vestibulum. Nulla sit||\namet facilisis urna. Duis mi nulla, aliquet nec rhoncus eget, sollicitudin at orci.\nAliquam fermentum neque at orci sodales accumsan vel at est.||\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;||\nSed quis magna vehicula, interdum mi quis, consectetur eros. Etiam at eleifend erat .||\nAenean nisi neque, interdum semper massa ut, accumsan tristique lacus. Proin posuere||\nvenenatis risus vel malesuada. Suspendisse volutpat magna ac urna mattis, a ornare nibh||\ndictum. Donec tincidunt diam ut augue euismod, id vulputate magna porta. Quisque varius||\naliquam mauris, ac posuere velit faucibus venenatis. In tincidunt fringilla sem.||\nVestibulum interdum convallis massa, dapibus pellentesque leo interdum sit amet. Donec vel||\npharetra est, eget tincidunt libero.Maecenas vestibulum molestie ligula quis viverra. Pellentesque congue, massa ut iaculis||\nsuscipit, dolor enim laoreet mauris, eu tempor arcu libero ultricies arcu. Ut sed arcu ut||\nsapien luctus imperdiet eget ut sapien. Fusce commodo ante a augue tempor, at fringilla ex||\ndignissim. Aenean orci odio, laoreet in orci in, euismod mattis odio. Donec rutrum dui ex,||\nnec maximus nisl placerat at.Aliquam rutrum erat ligula, sodales tincidunt risus efficitur non. Duis elementum||\ntristique accumsan. Sed eu dolor nunc. Nulla vehicula ut lorem sit amet ultricies. Etiam||\nfacilisis finibus faucibus.Etiam quis lorem nec sem viverra congue et ut erat. Pellentesque condimentum consequat||\nefficitur. Fusce ac mauris aliquam, gravida orci ac, dictum ante. Cras pellentesque, nisi||\net tempus iaculis, urna arcu suscipit magna, nec placerat nunc ipsum ac sapien. Etiam eget||\nnulla vel eros auctor vulputate. Etiam accumsan lectus lectus, sed aliquet eros tincidunt||\nsit amet. Morbi justo nunc, vestibulum vitae aliquet at, facilisis non eros. Aliquam||\nefficitur nulla dolor, in finibus neque scelerisque et. Etiam justo erat, euismod sit amet||\nsapien porttitor, volutpat elementum nisl. Sed posuere ullamcorper tellus a tristique.||\nFusce bibendum elementum odio, in faucibus velit aliquam eget. Integer ullamcorper, enim||\nut volutpat lacinia, dolor dolor elementum diam, id luctus nisl ipsum rhoncus sem. Vivamus||\nat ipsum vitae velit facilisis mollis id sit amet justo.\n"
+              },
+              "tail": true,
+              "leadingComments": null
+            }
+          ],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": " eslint-disable ",
+              "start": 0,
+              "end": 20,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 20
+                }
+              }
+            }
+          ],
+          "trailingComments": []
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": " eslint-disable ",
+            "start": 0,
+            "end": 20,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 20
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "directives": []
+  },
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": " eslint-disable ",
+      "start": 0,
+      "end": 20,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 20
+        }
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": "CommentBlock",
+      "value": " eslint-disable ",
+      "start": 0,
+      "end": 20,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "export",
+        "keyword": "export",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "export",
+      "start": 21,
+      "end": 27,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "default",
+        "keyword": "default",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "default",
+      "start": 28,
+      "end": 35,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 7
+        },
+        "end": {
+          "line": 2,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "`",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 36,
+      "end": 37,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 15
+        },
+        "end": {
+          "line": 2,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "template",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at accumsan velit.||\nPhasellus malesuada rhoncus dui, ut elementum metus tempus eget. Morbi et tortor libero. Mauris||\nrutrum vulputate lectus eu ultrices. Nam eu tortor sapien. Phasellus vestibulum lacus||\nnisi, id gravida est molestie in. Duis finibus mollis ipsum, ultricies aliquet eros||\ninterdum eget. Sed feugiat sollicitudin mauris eget bibendum. Etiam nisi lorem, suscipit||\nut leo in, pellentesque tristique lectus. Nulla vel accumsan mi. Nulla facilisi. Fusce||\ndictum efficitur nibh,||nec condimentum urna ullamcorper at.Nullam quis iaculis dui. Vivamus gravida ullamcorper libero. Aliquam erat volutpat.||\nPellentesque feugiat mi vel congue varius. Vivamus pretium hendrerit est, sed elementum||\nnunc ultricies id. Mauris condimentum neque viverra augue luctus vestibulum. Nulla sit||\namet facilisis urna. Duis mi nulla, aliquet nec rhoncus eget, sollicitudin at orci.\nAliquam fermentum neque at orci sodales accumsan vel at est.||\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;||\nSed quis magna vehicula, interdum mi quis, consectetur eros. Etiam at eleifend erat .||\nAenean nisi neque, interdum semper massa ut, accumsan tristique lacus. Proin posuere||\nvenenatis risus vel malesuada. Suspendisse volutpat magna ac urna mattis, a ornare nibh||\ndictum. Donec tincidunt diam ut augue euismod, id vulputate magna porta. Quisque varius||\naliquam mauris, ac posuere velit faucibus venenatis. In tincidunt fringilla sem.||\nVestibulum interdum convallis massa, dapibus pellentesque leo interdum sit amet. Donec vel||\npharetra est, eget tincidunt libero.Maecenas vestibulum molestie ligula quis viverra. Pellentesque congue, massa ut iaculis||\nsuscipit, dolor enim laoreet mauris, eu tempor arcu libero ultricies arcu. Ut sed arcu ut||\nsapien luctus imperdiet eget ut sapien. Fusce commodo ante a augue tempor, at fringilla ex||\ndignissim. Aenean orci odio, laoreet in orci in, euismod mattis odio. Donec rutrum dui ex,||\nnec maximus nisl placerat at.Aliquam rutrum erat ligula, sodales tincidunt risus efficitur non. Duis elementum||\ntristique accumsan. Sed eu dolor nunc. Nulla vehicula ut lorem sit amet ultricies. Etiam||\nfacilisis finibus faucibus.Etiam quis lorem nec sem viverra congue et ut erat. Pellentesque condimentum consequat||\nefficitur. Fusce ac mauris aliquam, gravida orci ac, dictum ante. Cras pellentesque, nisi||\net tempus iaculis, urna arcu suscipit magna, nec placerat nunc ipsum ac sapien. Etiam eget||\nnulla vel eros auctor vulputate. Etiam accumsan lectus lectus, sed aliquet eros tincidunt||\nsit amet. Morbi justo nunc, vestibulum vitae aliquet at, facilisis non eros. Aliquam||\nefficitur nulla dolor, in finibus neque scelerisque et. Etiam justo erat, euismod sit amet||\nsapien porttitor, volutpat elementum nisl. Sed posuere ullamcorper tellus a tristique.||\nFusce bibendum elementum odio, in faucibus velit aliquam eget. Integer ullamcorper, enim||\nut volutpat lacinia, dolor dolor elementum diam, id luctus nisl ipsum rhoncus sem. Vivamus||\nat ipsum vitae velit facilisis mollis id sit amet justo.\n",
+      "start": 37,
+      "end": 3174,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 16
+        },
+        "end": {
+          "line": 36,
+          "column": 0
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "`",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 3174,
+      "end": 3175,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 0
+        },
+        "end": {
+          "line": 36,
+          "column": 1
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 3175,
+      "end": 3176,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 1
+        },
+        "end": {
+          "line": 36,
+          "column": 2
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "eof",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 3177,
+      "end": 3177,
+      "loc": {
+        "start": {
+          "line": 37,
+          "column": 0
+        },
+        "end": {
+          "line": 37,
+          "column": 0
+        }
+      }
+    }
+  ]
+}

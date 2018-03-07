@@ -564,17 +564,3178 @@
     "builtinExternal": true
   },
   {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/actions/app.js",
+    "content": "const setMetamaskInstalled = bool => ({\n  type: 'SET_METAMASK_INSTALLED',\n  payload: bool\n});\n\nconst setAppInitialized = bool => ({\n  type: 'SET_APP_INITIALIZED',\n  payload: bool\n});\n\nconst toggleTermsModal = () => ({\n  type: 'TOGGLE_TERMS_MODAL'\n});\n\nexport {\n  setMetamaskInstalled,\n  setAppInitialized,\n  toggleTermsModal\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/actions/app.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "setMetamaskInstalled",
+    "memberof": "src/actions/app.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/app.js~setMetamaskInstalled",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/app.js",
+    "importStyle": "{setMetamaskInstalled}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "bool",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 50,
+    "kind": "function",
+    "name": "setAppInitialized",
+    "memberof": "src/actions/app.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/app.js~setAppInitialized",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/app.js",
+    "importStyle": "{setAppInitialized}",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "bool",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 51,
+    "kind": "function",
+    "name": "toggleTermsModal",
+    "memberof": "src/actions/app.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/app.js~toggleTermsModal",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/app.js",
+    "importStyle": "{toggleTermsModal}",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 52,
+    "kind": "file",
+    "name": "src/actions/index.js",
+    "content": "",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/actions/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
+    "name": "src/actions/kyc.js",
+    "content": "import config from '../constants/config';\n\nconst sendSms = ({ phoneNumber, ethAddress, onSuccess, onError }) => ({\n  type: 'API:SEND_SMS',\n  url: config.kyc.urlSend,\n  method: 'post',\n  data: { phoneNumber, ethAddress },\n  onSuccess,\n  onError\n});\n\nconst sendVerifCode = ({ code, phoneNumber, onSuccess, onError }) => ({\n  type: 'API:SEND_VERIF_CODE',\n  url: config.kyc.urlVerif,\n  method: 'post',\n  data: { phoneNumber, code },\n  onSuccess,\n  onError\n});\n\nconst setPhone = phone => ({\n  type: 'SET_PHONE',\n  payload: { phone }\n});\n\nconst setPhoneCountry = phoneCountry => ({\n  type: 'SET_PHONE_COUNTRY',\n  payload: { phoneCountry }\n});\n\nconst setPhoneSent = phoneSent => ({\n  type: 'SET_PHONE_SENT',\n  payload: { phoneSent }\n});\n\nconst setPhoneVerified = () => ({\n  type: 'SET_PHONE_VERIFIED'\n});\n\n\nexport {\n  sendSms,\n  setPhone,\n  setPhoneCountry,\n  setPhoneSent,\n  setPhoneVerified,\n  sendVerifCode\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/actions/kyc.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 54,
+    "kind": "function",
+    "name": "sendSms",
+    "memberof": "src/actions/kyc.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/kyc.js~sendSms",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/kyc.js",
+    "importStyle": "{sendSms}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"phoneNumber\": *, \"ethAddress\": *, \"onSuccess\": *, \"onError\": *}"
+        ],
+        "defaultRaw": {
+          "phoneNumber": null,
+          "ethAddress": null,
+          "onSuccess": null,
+          "onError": null
+        },
+        "defaultValue": "{\"phoneNumber\":null,\"ethAddress\":null,\"onSuccess\":null,\"onError\":null}"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 55,
+    "kind": "function",
+    "name": "setPhone",
+    "memberof": "src/actions/kyc.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/kyc.js~setPhone",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/kyc.js",
+    "importStyle": "{setPhone}",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [
+      {
+        "name": "phone",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 56,
+    "kind": "function",
+    "name": "setPhoneCountry",
+    "memberof": "src/actions/kyc.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/kyc.js~setPhoneCountry",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/kyc.js",
+    "importStyle": "{setPhoneCountry}",
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [
+      {
+        "name": "phoneCountry",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 57,
+    "kind": "function",
+    "name": "setPhoneSent",
+    "memberof": "src/actions/kyc.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/kyc.js~setPhoneSent",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/kyc.js",
+    "importStyle": "{setPhoneSent}",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "params": [
+      {
+        "name": "phoneSent",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 58,
+    "kind": "function",
+    "name": "setPhoneVerified",
+    "memberof": "src/actions/kyc.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/kyc.js~setPhoneVerified",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/kyc.js",
+    "importStyle": "{setPhoneVerified}",
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 59,
+    "kind": "function",
+    "name": "sendVerifCode",
+    "memberof": "src/actions/kyc.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/kyc.js~sendVerifCode",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/kyc.js",
+    "importStyle": "{sendVerifCode}",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"code\": *, \"phoneNumber\": *, \"onSuccess\": *, \"onError\": *}"
+        ],
+        "defaultRaw": {
+          "code": null,
+          "phoneNumber": null,
+          "onSuccess": null,
+          "onError": null
+        },
+        "defaultValue": "{\"code\":null,\"phoneNumber\":null,\"onSuccess\":null,\"onError\":null}"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 60,
+    "kind": "file",
+    "name": "src/actions/shop.js",
+    "content": "const setDataShopPending = data => ({\n  type: 'SET_DATA_SHOP_PENDING',\n  payload: data\n});\n\nconst addTransaction = ({ type, hash }) => ({\n  type: 'ADD_TRANSACTION',\n  payload: { type, hash }\n});\n\nconst addShop = shop => ({\n  type: 'ADD_SHOP',\n  payload: shop\n});\n\nconst removeShop = () => ({\n  type: 'REMOVE_SHOP'\n});\nexport { addShop, removeShop, setDataShopPending, addTransaction };\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/actions/shop.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 61,
+    "kind": "function",
+    "name": "addShop",
+    "memberof": "src/actions/shop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/shop.js~addShop",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/shop.js",
+    "importStyle": "{addShop}",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "shop",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 62,
+    "kind": "function",
+    "name": "removeShop",
+    "memberof": "src/actions/shop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/shop.js~removeShop",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/shop.js",
+    "importStyle": "{removeShop}",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 63,
+    "kind": "function",
+    "name": "setDataShopPending",
+    "memberof": "src/actions/shop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/shop.js~setDataShopPending",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/shop.js",
+    "importStyle": "{setDataShopPending}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 64,
+    "kind": "function",
+    "name": "addTransaction",
+    "memberof": "src/actions/shop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/shop.js~addTransaction",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/shop.js",
+    "importStyle": "{addTransaction}",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"hash\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "hash": null
+        },
+        "defaultValue": "{\"type\":null,\"hash\":null}"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 65,
+    "kind": "file",
+    "name": "src/actions/user.js",
+    "content": "const setEthAddress = ethAddress => ({\n  type: 'SET_ETH_ADDRESS',\n  payload: { ethAddress }\n});\n\nconst setBalance = balance => ({\n  type: 'SET_BALANCE',\n  payload: { balance }\n});\n\nconst setUserCertified = bool => ({\n  type: 'SET_USER_CERTIFIED',\n  payload: bool\n});\n\nexport {\n  setEthAddress,\n  setBalance,\n  setUserCertified\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/actions/user.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 66,
+    "kind": "function",
+    "name": "setEthAddress",
+    "memberof": "src/actions/user.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/user.js~setEthAddress",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/user.js",
+    "importStyle": "{setEthAddress}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "ethAddress",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 67,
+    "kind": "function",
+    "name": "setBalance",
+    "memberof": "src/actions/user.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/user.js~setBalance",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/user.js",
+    "importStyle": "{setBalance}",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "balance",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 68,
+    "kind": "function",
+    "name": "setUserCertified",
+    "memberof": "src/actions/user.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/actions/user.js~setUserCertified",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/actions/user.js",
+    "importStyle": "{setUserCertified}",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "bool",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 69,
+    "kind": "file",
+    "name": "src/bootstrap/configureStore.js",
+    "content": "import { createStore, applyMiddleware, compose } from 'redux';\nimport thunkMiddleware from 'redux-thunk';\nimport { persistStore, persistReducer } from 'redux-persist';\nimport storage from 'redux-persist/lib/storage';\n\n/*\n  Middlewares\n */\nimport { fetchMiddleware } from '../middlewares';\n\n/*\n  Reducers\n */\nimport rootReducer from '../reducers';\n\n/*\n  Persist store config\n */\nconst persistConfig = {\n  key: 'root',\n  storage,\n  whitelist: ['shop'],\n};\n\nconst persistedReducer = persistReducer(persistConfig, rootReducer);\n\n/*\n  Store\n */\nconst store = createStore(\n  persistedReducer,\n  undefined,\n  compose(\n    applyMiddleware(thunkMiddleware, fetchMiddleware),\n    window.devToolsExtension && process.env.NODE_ENV === 'development'\n      ? window.devToolsExtension()\n      : f => f\n  )\n);\n\nif (module.hot) {\n  // Enable Webpack hot module replacement for reducers\n  module.hot.accept('../reducers', () => store.replaceReducer(rootReducer));\n}\n\nexport const persistor = persistStore(store);\n\nexport default store;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/bootstrap/configureStore.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 70,
+    "kind": "variable",
+    "name": "persistConfig",
+    "memberof": "src/bootstrap/configureStore.js",
+    "static": true,
+    "longname": "src/bootstrap/configureStore.js~persistConfig",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/bootstrap/configureStore.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"key\": string, \"storage\": *, \"whitelist\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "variable",
+    "name": "persistedReducer",
+    "memberof": "src/bootstrap/configureStore.js",
+    "static": true,
+    "longname": "src/bootstrap/configureStore.js~persistedReducer",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/bootstrap/configureStore.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "variable",
+    "name": "persistor",
+    "memberof": "src/bootstrap/configureStore.js",
+    "static": true,
+    "longname": "src/bootstrap/configureStore.js~persistor",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/bootstrap/configureStore.js",
+    "importStyle": "{persistor}",
+    "description": null,
+    "lineNumber": 46,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "variable",
+    "name": "store",
+    "memberof": "src/bootstrap/configureStore.js",
+    "static": true,
+    "longname": "src/bootstrap/configureStore.js~store",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/bootstrap/configureStore.js",
+    "importStyle": "store",
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "file",
+    "name": "src/components/Animations/Shake/index.js",
+    "content": "export { default } from './Shake';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Animations/Shake/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 75,
+    "kind": "file",
+    "name": "src/components/Animations/index.js",
+    "content": "export { default as Shake } from './Shake';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Animations/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 76,
+    "kind": "file",
+    "name": "src/components/Button/index.js",
+    "content": "export { default as ExternalLinkButton } from './ExternalLinkButton';\nexport { default as LinkButton } from './LinkButton';\nexport { default as SwitchButton } from './SwitchButton';\nexport { default } from './Button';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Button/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 77,
+    "kind": "file",
+    "name": "src/components/ButtonLink/index.js",
+    "content": "export { default } from './ButtonLink';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/ButtonLink/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 78,
+    "kind": "file",
+    "name": "src/components/Header/index.js",
+    "content": "export { default } from './Header';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Header/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 79,
+    "kind": "file",
+    "name": "src/components/Headings/Headings.js",
+    "content": "import styled, { css } from 'styled-components';\nimport tokens from '../../styles/tokens';\n\nconst Base = styled.span`\n  font-weight: 600;\n\n  ${({ light }) =>\n    light &&\n    css`\n      font-weight: 200;\n    `};\n`;\n\nexport const H1 = Base.withComponent('h1').extend`\n  font-size: ${tokens.fontSizes.xxl};\n`;\n\nexport const H2 = Base.withComponent('h2').extend`\n  font-size: ${tokens.fontSizes.xl};\n`;\n\nexport const H3 = Base.withComponent('h3').extend`\n  font-size: ${tokens.fontSizes.l};\n`;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Headings/Headings.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 80,
+    "kind": "variable",
+    "name": "Base",
+    "memberof": "src/components/Headings/Headings.js",
+    "static": true,
+    "longname": "src/components/Headings/Headings.js~Base",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/components/Headings/Headings.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "variable",
+    "name": "H1",
+    "memberof": "src/components/Headings/Headings.js",
+    "static": true,
+    "longname": "src/components/Headings/Headings.js~H1",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Headings/Headings.js",
+    "importStyle": "{H1}",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "variable",
+    "name": "H2",
+    "memberof": "src/components/Headings/Headings.js",
+    "static": true,
+    "longname": "src/components/Headings/Headings.js~H2",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Headings/Headings.js",
+    "importStyle": "{H2}",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "variable",
+    "name": "H3",
+    "memberof": "src/components/Headings/Headings.js",
+    "static": true,
+    "longname": "src/components/Headings/Headings.js~H3",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Headings/Headings.js",
+    "importStyle": "{H3}",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "file",
+    "name": "src/components/Headings/index.js",
+    "content": "export { H1, H2, H3 } from './Headings';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Headings/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 85,
+    "kind": "file",
+    "name": "src/components/Icon/index.js",
+    "content": "export { default } from './Icon';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Icon/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 86,
+    "kind": "file",
+    "name": "src/components/Inputs/AutoAddress/InputStatusIcon.js",
+    "content": "import styled, { css } from 'styled-components';\nimport tokens from '../../../styles/tokens';\n\nconst InputStatusIcon = styled.div`\n  padding: 0 ${tokens.spaces.xs};\n  display: flex;\n  flex-flow: column;\n  justify-content: space-around;\n\n  &:before {\n    display: block;\n    line-height: 1.6rem;\n    font-weight: bold;\n    width: 1.6rem;\n    height: 1.6rem;\n    border-radius: 50%;\n    text-align: center;\n    line-height: 1.6rem;\n    color: ${tokens.colors.white};\n  }\n\n  ${({ hasError }) =>\n    hasError &&\n    css`\n      &:before {\n        background: ${tokens.colors.pink};\n        content: '!';\n      }\n    `};\n\n  ${({ isValid }) =>\n    isValid &&\n    css`\n      &:before {\n        background: ${tokens.colors.green};\n        content: '✓';\n      }\n    `};\n`;\n\nexport default InputStatusIcon;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/AutoAddress/InputStatusIcon.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 87,
+    "kind": "variable",
+    "name": "InputStatusIcon",
+    "memberof": "src/components/Inputs/AutoAddress/InputStatusIcon.js",
+    "static": true,
+    "longname": "src/components/Inputs/AutoAddress/InputStatusIcon.js~InputStatusIcon",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/AutoAddress/InputStatusIcon.js",
+    "importStyle": "InputStatusIcon",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 88,
+    "kind": "file",
+    "name": "src/components/Inputs/AutoAddress/index.js",
+    "content": "export { default } from './AutoAddress';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/AutoAddress/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 89,
+    "kind": "file",
+    "name": "src/components/Inputs/ComboBox/index.js",
+    "content": "export { default } from './ComboBox';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/ComboBox/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 90,
+    "kind": "file",
+    "name": "src/components/Inputs/ComboBox/styles.js",
+    "content": "import styled, { css } from 'styled-components';\nimport tokens from '../../../styles/tokens';\n\nexport const Wrapper = styled.div`\n  position: relative;\n  background: ${tokens.colors.grey.lightest};\n  border-radius: ${tokens.radius.s};\n  overflow: visible;\n  border: solid 1px transparent;\n  transition: all 0.3s ease;\n  display: flex;\n  align-content: stretch;\n\n  ${({ showOptions }) =>\n    showOptions &&\n    css`\n      border-bottom-left-radius: 0;\n      border-bottom-right-radius: 0;\n    `};\n\n  ${({ isFocus }) =>\n    isFocus &&\n    css`\n      border-color: ${tokens.colors.grey.lightest};\n      background: ${tokens.colors.white};\n    `};\n`;\n\nexport const SearchField = styled.input.attrs({ type: 'text' })`\n  flex: 1;\n  height: 100%;\n  width: 100%;\n  padding: ${tokens.spaces.s};\n`;\n\nexport const Results = styled.ul`\n  display: block;\n  z-index: 1;\n  position: absolute;\n  max-height: 20rem;\n  /* smooth scroll in IOS */\n  -webkit-overflow-scrolling: touch;\n  overflow: auto;\n  top: 100%;\n  border: solid 1px ${tokens.colors.grey.lightest};\n  /* compoensate border width of wrapper*/\n  left: -0.1rem;\n  right: -0.1rem;\n  display: none;\n\n  ${({ showOptions }) =>\n    showOptions &&\n    css`\n      display: block;\n    `};\n`;\n\nexport const ResultItem = styled.li`\n  display: block;\n  background: ${tokens.colors.white};\n  padding: ${tokens.spaces.xs};\n  cursor: pointer;\n\n  &:hover {\n    background-color: ${tokens.colors.grey.lightest};\n  }\n`;\n\nexport const NoResultItem = styled.li`\n  display: block;\n  background: ${tokens.colors.white};\n  padding: ${tokens.spaces.xs};\n`;\n\nexport const DropDownBtn = styled.button`\n  vertical-align: middle;\n  padding: 0 ${tokens.spaces.m};\n`;\n\nexport const InputStatusIcon = styled.div`\n  padding: 0 ${tokens.spaces.xs};\n  display: flex;\n  flex-flow: column;\n  justify-content: space-around;\n\n  &:before {\n    display: block;\n    line-height: 1.6rem;\n    font-weight: bold;\n    width: 1.6rem;\n    height: 1.6rem;\n    border-radius: 50%;\n    text-align: center;\n    line-height: 1.6rem;\n    color: ${tokens.colors.white};\n  }\n\n  ${({ hasError }) =>\n    hasError &&\n    css`\n      &:before {\n        background: ${tokens.colors.pink};\n        content: '!';\n      }\n    `};\n\n  ${({ isValid }) =>\n    isValid &&\n    css`\n      &:before {\n        background: ${tokens.colors.green};\n        content: '✓';\n      }\n    `};\n`;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/ComboBox/styles.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 91,
+    "kind": "variable",
+    "name": "Wrapper",
+    "memberof": "src/components/Inputs/ComboBox/styles.js",
+    "static": true,
+    "longname": "src/components/Inputs/ComboBox/styles.js~Wrapper",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/ComboBox/styles.js",
+    "importStyle": "{Wrapper}",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 92,
+    "kind": "variable",
+    "name": "SearchField",
+    "memberof": "src/components/Inputs/ComboBox/styles.js",
+    "static": true,
+    "longname": "src/components/Inputs/ComboBox/styles.js~SearchField",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/ComboBox/styles.js",
+    "importStyle": "{SearchField}",
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "variable",
+    "name": "Results",
+    "memberof": "src/components/Inputs/ComboBox/styles.js",
+    "static": true,
+    "longname": "src/components/Inputs/ComboBox/styles.js~Results",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/ComboBox/styles.js",
+    "importStyle": "{Results}",
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "variable",
+    "name": "ResultItem",
+    "memberof": "src/components/Inputs/ComboBox/styles.js",
+    "static": true,
+    "longname": "src/components/Inputs/ComboBox/styles.js~ResultItem",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/ComboBox/styles.js",
+    "importStyle": "{ResultItem}",
+    "description": null,
+    "lineNumber": 58,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "variable",
+    "name": "NoResultItem",
+    "memberof": "src/components/Inputs/ComboBox/styles.js",
+    "static": true,
+    "longname": "src/components/Inputs/ComboBox/styles.js~NoResultItem",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/ComboBox/styles.js",
+    "importStyle": "{NoResultItem}",
+    "description": null,
+    "lineNumber": 69,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "variable",
+    "name": "DropDownBtn",
+    "memberof": "src/components/Inputs/ComboBox/styles.js",
+    "static": true,
+    "longname": "src/components/Inputs/ComboBox/styles.js~DropDownBtn",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/ComboBox/styles.js",
+    "importStyle": "{DropDownBtn}",
+    "description": null,
+    "lineNumber": 75,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "variable",
+    "name": "InputStatusIcon",
+    "memberof": "src/components/Inputs/ComboBox/styles.js",
+    "static": true,
+    "longname": "src/components/Inputs/ComboBox/styles.js~InputStatusIcon",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/ComboBox/styles.js",
+    "importStyle": "{InputStatusIcon}",
+    "description": null,
+    "lineNumber": 80,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "file",
+    "name": "src/components/Inputs/Input/InputStatusIcon.js",
+    "content": "import styled, { css } from 'styled-components';\nimport tokens from '../../../styles/tokens';\n\nconst InputStatusIcon = styled.div`\n  padding: 0 ${tokens.spaces.xs};\n  display: flex;\n  flex-flow: column;\n  justify-content: space-around;\n\n  &:before {\n    display: block;\n    line-height: 1.6rem;\n    font-weight: bold;\n    width: 1.6rem;\n    height: 1.6rem;\n    border-radius: 50%;\n    text-align: center;\n    line-height: 1.6rem;\n    color: ${tokens.colors.white};\n  }\n\n  ${({ hasError }) =>\n    hasError &&\n    css`\n      &:before {\n        background: ${tokens.colors.pink};\n        content: '!';\n      }\n    `};\n\n  ${({ isValid }) =>\n    isValid &&\n    css`\n      &:before {\n        background: ${tokens.colors.green};\n        content: '✓';\n      }\n    `};\n`;\n\nexport default InputStatusIcon;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/Input/InputStatusIcon.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 99,
+    "kind": "variable",
+    "name": "InputStatusIcon",
+    "memberof": "src/components/Inputs/Input/InputStatusIcon.js",
+    "static": true,
+    "longname": "src/components/Inputs/Input/InputStatusIcon.js~InputStatusIcon",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/Input/InputStatusIcon.js",
+    "importStyle": "InputStatusIcon",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "file",
+    "name": "src/components/Inputs/Input/InputWrapper.js",
+    "content": "import styled, { css } from 'styled-components';\nimport tokens from '../../../styles/tokens';\n\nconst InputWrapper = styled.div`\n  background: ${tokens.colors.grey.lightest};\n  border-radius: ${tokens.radius.s};\n  overflow: hidden;\n  border: solid 1px transparent;\n  transition: all 0.3s ease;\n  display: flex;\n  align-content: stretch;\n\n  ${({ isFocus }) =>\n    isFocus &&\n    css`\n      border-color: ${tokens.colors.grey.lightest};\n      background: ${tokens.colors.white};\n    `};\n\n  ${({ disabled }) =>\n    disabled &&\n    css`\n      opacity: 0.5;\n    `};\n`;\n\nexport default InputWrapper;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/Input/InputWrapper.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 101,
+    "kind": "variable",
+    "name": "InputWrapper",
+    "memberof": "src/components/Inputs/Input/InputWrapper.js",
+    "static": true,
+    "longname": "src/components/Inputs/Input/InputWrapper.js~InputWrapper",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Inputs/Input/InputWrapper.js",
+    "importStyle": "InputWrapper",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 102,
+    "kind": "file",
+    "name": "src/components/Inputs/Input/index.js",
+    "content": "export { default } from './Input';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/Input/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 103,
+    "kind": "file",
+    "name": "src/components/Inputs/LabeledInput/index.js",
+    "content": "export { default } from './LabeledInput';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/LabeledInput/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 104,
+    "kind": "file",
+    "name": "src/components/Inputs/Select/index.js",
+    "content": "export { default } from './Select';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/Select/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 105,
+    "kind": "file",
+    "name": "src/components/Inputs/SwitchInput/index.js",
+    "content": "export { default } from './SwitchInput';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/SwitchInput/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 106,
+    "kind": "file",
+    "name": "src/components/Inputs/TextArea/index.js",
+    "content": "export { default } from './TextArea';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/TextArea/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 107,
+    "kind": "file",
+    "name": "src/components/Inputs/index.js",
+    "content": "export { default as Select } from './Select';\nexport { default as Input } from './Input';\nexport { default as SwitchInput } from './SwitchInput';\nexport { default as TextArea } from './TextArea';\nexport { default as ComboBox } from './ComboBox';\nexport { default as AutoAddress } from './AutoAddress';\nexport { default as LabeledInput } from './LabeledInput';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Inputs/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 108,
+    "kind": "file",
+    "name": "src/components/Layout/Layout.js",
+    "content": "import styled, { css } from 'styled-components';\n\nconst Layout = styled.div`\n  display: flex;\n  flex-flow: column nowrap;\n  align-self: stretch;\n  min-height: 100%;\n  width: 100%;\n  text-align: center;\n  position: relative;\n\n  ${({ textAlignLeft }) =>\n    textAlignLeft &&\n    css`\n      text-align: left;\n    `};\n\n  ${({ isFullScreen }) =>\n    isFullScreen &&\n    css`\n      overflow: hidden;\n      height: 100%;\n      max-height: 100%;\n    `};\n`;\n\nLayout.HeaderLarge = styled.header`\n  flex: 0 0 13vh;\n  display: flex;\n  flex-flow: column;\n  justify-content: flex-end;\n`;\n\nLayout.Header = styled.header`\n  display: block;\n`;\n\nLayout.Body = styled.div`\n  flex: 1;\n  display: flex;\n  flex-flow: column nowrap;\n  justify-content: space-around;\n`;\n\nLayout.ScrollableBody = styled.div`\n  flex: 1;\n  overflow-y: auto;\n  display: flex;\n  flex-flow: row;\n  align-items: center;\n  justify-content: space-around;\n`;\n\nLayout.Footer = styled.footer`\n  flex: 0;\n`;\n\n/* allow storybook to display correctly the name */\n\nLayout.displayName = 'Layout';\nLayout.Header.displayName = 'Layout.Header';\nLayout.HeaderLarge.displayName = 'Layout.HeaderLarge';\nLayout.Body.displayName = 'Layout.Body';\nLayout.ScrollableBody.displayName = 'Layout.ScrollableBody';\nLayout.Footer.displayName = 'Layout.Footer';\n\nexport default Layout;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Layout/Layout.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 109,
+    "kind": "variable",
+    "name": "Layout",
+    "memberof": "src/components/Layout/Layout.js",
+    "static": true,
+    "longname": "src/components/Layout/Layout.js~Layout",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Layout/Layout.js",
+    "importStyle": "Layout",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 110,
+    "kind": "file",
+    "name": "src/components/Layout/index.js",
+    "content": "export { default } from './Layout';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Layout/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 111,
+    "kind": "file",
+    "name": "src/components/Loader/Loader.js",
+    "content": "import styled, { keyframes } from 'styled-components';\nimport PropTypes from 'prop-types';\n\nconst spin = keyframes`\n  0% { transform: rotate(0deg) }\n  100% { transform: rotate(360deg) }\n`;\n\nconst loaderSize = {\n  l: '6rem',\n  s: '2rem',\n  xs: '1.6rem',\n  m: '4rem'\n};\n\nconst Loader = styled.div`\n  font-size: ${({ size }) => loaderSize[size]};\n  padding: 0.2em;\n  width: 1.6em;\n  height: 1.6em;\n  overflow: hidden;\n  display: inline-block;\n\n  &::after {\n    display: block;\n    content: '';\n    width: 1em;\n    height: 1em;\n    border-radius: 50%;\n    border: 0.1em solid rgba(0, 0, 0, 0.1);\n    border-top-color: rgba(0, 0, 0, 0.35);\n    animation: ${spin} 0.5s infinite linear;\n    transform: translateZ(0);\n  }\n`;\n\nLoader.propTypes = {\n  size: PropTypes.oneOf(['l', 's', 'm'])\n};\n\nLoader.defaultProps = {\n  size: 'm'\n};\n\nexport default Loader;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Loader/Loader.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 112,
+    "kind": "variable",
+    "name": "spin",
+    "memberof": "src/components/Loader/Loader.js",
+    "static": true,
+    "longname": "src/components/Loader/Loader.js~spin",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/components/Loader/Loader.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 113,
+    "kind": "variable",
+    "name": "loaderSize",
+    "memberof": "src/components/Loader/Loader.js",
+    "static": true,
+    "longname": "src/components/Loader/Loader.js~loaderSize",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/components/Loader/Loader.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"l\": string, \"s\": string, \"xs\": string, \"m\": string}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 114,
+    "kind": "variable",
+    "name": "Loader",
+    "memberof": "src/components/Loader/Loader.js",
+    "static": true,
+    "longname": "src/components/Loader/Loader.js~Loader",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Loader/Loader.js",
+    "importStyle": "Loader",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 115,
+    "kind": "file",
+    "name": "src/components/Loader/index.js",
+    "content": "export { default } from './Loader';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Loader/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 116,
+    "kind": "file",
+    "name": "src/components/MapIcons/index.js",
+    "content": "export { ShopIcon, PersonIcon, ClusterShopIcon, ClusterPersonIcon } from './MapIcons';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/MapIcons/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 117,
+    "kind": "file",
+    "name": "src/components/Marker/index.js",
+    "content": "export { default } from './Marker';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Marker/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 118,
+    "kind": "file",
+    "name": "src/components/Mention/Mention.js",
+    "content": "import styled, { css } from 'styled-components';\nimport tokens from '../../styles/tokens';\n\nconst Mention = styled.div`\n  font-size: ${tokens.fontSizes.xs};\n  color: ${tokens.colors.grey.light};\n\n  ${({ alignLeft }) =>\n    alignLeft &&\n    css`\n      text-align: left;\n    `};\n`;\n\nexport default Mention;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Mention/Mention.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 119,
+    "kind": "variable",
+    "name": "Mention",
+    "memberof": "src/components/Mention/Mention.js",
+    "static": true,
+    "longname": "src/components/Mention/Mention.js~Mention",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Mention/Mention.js",
+    "importStyle": "Mention",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 120,
+    "kind": "file",
+    "name": "src/components/Mention/index.js",
+    "content": "export { default } from './Mention';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Mention/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 121,
+    "kind": "file",
+    "name": "src/components/Message/index.js",
+    "content": "export { default } from './Message';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Message/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 122,
+    "kind": "file",
+    "name": "src/components/Modal/index.js",
+    "content": "export { default } from './Modal';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Modal/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 123,
+    "kind": "file",
+    "name": "src/components/Page404/index.js",
+    "content": "export { default } from './Page404';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Page404/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 124,
+    "kind": "file",
+    "name": "src/components/Panels/Panels.js",
+    "content": "import styled from 'styled-components';\nimport tokens from '../../styles/tokens';\n\nconst Panels = styled.div`\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: hidden;\n  display: flex;\n  align-items: stretch;\n  justify-content: center;\n`;\n\nPanels.Left = styled.div`\n  background: ${tokens.colors.white};\n  flex: 0 0 58rem;\n  position: relative;\n`;\n\nPanels.Right = styled.div`\n  flex: 1;\n`;\n\nPanels.displayName = 'Panels';\nPanels.Left.displayName = 'Panels.Left';\nPanels.Right.displayName = 'Panels.Right';\n\nexport default Panels;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Panels/Panels.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 125,
+    "kind": "variable",
+    "name": "Panels",
+    "memberof": "src/components/Panels/Panels.js",
+    "static": true,
+    "longname": "src/components/Panels/Panels.js~Panels",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Panels/Panels.js",
+    "importStyle": "Panels",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 126,
+    "kind": "file",
+    "name": "src/components/Panels/index.js",
+    "content": "export { default } from './Panels';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Panels/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 127,
+    "kind": "file",
+    "name": "src/components/ProgressBar/index.js",
+    "content": "export { default } from './ProgressBar';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/ProgressBar/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 128,
+    "kind": "file",
+    "name": "src/components/RoundIconBtn/index.js",
+    "content": "export { default } from './RoundIconBtn';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/RoundIconBtn/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 129,
+    "kind": "file",
+    "name": "src/components/Screens/LoaderScreen/index.js",
+    "content": "export { default } from './LoaderScreen';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Screens/LoaderScreen/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 130,
+    "kind": "file",
+    "name": "src/components/SearchBarWrapper/index.js",
+    "content": "export { default } from './SearchBarWrapper';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/SearchBarWrapper/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 131,
+    "kind": "file",
+    "name": "src/components/ShopRecap/index.js",
+    "content": "export { default } from './ShopRecap';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/ShopRecap/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 132,
+    "kind": "file",
+    "name": "src/components/Spaces/Spaces.js",
+    "content": "import PropTypes from 'prop-types';\nimport styled, { css } from 'styled-components';\nimport tokens from '../../styles/tokens';\n\nconst AllowedSpacesValues = Object.keys(tokens.spaces);\n\nconst DivWithSpace = space => ({ all, horizontal, vertical, top, right, bottom, left }) => css`\n  ${all &&\n    css`\n      ${space}: ${tokens.spaces[all]};\n    `};\n  ${horizontal &&\n    css`\n      ${space}-left: ${tokens.spaces[horizontal]};\n      ${space}-right: ${tokens.spaces[horizontal]};\n    `};\n  ${vertical &&\n    css`\n      ${space}-top: ${tokens.spaces[vertical]};\n      ${space}-bottom: ${tokens.spaces[vertical]};\n    `};\n  ${top &&\n    css`\n      ${space}-top: ${tokens.spaces[top]};\n    `};\n  ${right &&\n    css`\n      ${space}-right: ${tokens.spaces[right]};\n    `};\n  ${bottom &&\n    css`\n      ${space}-bottom: ${tokens.spaces[bottom]};\n    `};\n  ${left &&\n    css`\n      ${space}-left: ${tokens.spaces[left]};\n    `};\n`;\n\nexport const Margin = styled.div`\n  ${DivWithSpace('margin')};\n`;\n\nexport const Padding = styled.div`\n  ${DivWithSpace('padding')};\n`;\n\nconst globalPropTypes = {\n  all: PropTypes.oneOf(AllowedSpacesValues),\n  horizontal: PropTypes.oneOf(AllowedSpacesValues),\n  vertical: PropTypes.oneOf(AllowedSpacesValues),\n  top: PropTypes.oneOf(AllowedSpacesValues),\n  right: PropTypes.oneOf(AllowedSpacesValues),\n  bottom: PropTypes.oneOf(AllowedSpacesValues),\n  left: PropTypes.oneOf(AllowedSpacesValues),\n  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired\n};\n\nconst defaultProps = {\n  all: null,\n  horizontal: null,\n  vertical: null,\n  top: null,\n  right: null,\n  bottom: null,\n  left: null\n};\n\nMargin.propTypes = globalPropTypes;\nPadding.propTypes = globalPropTypes;\nMargin.defaultProps = defaultProps;\nPadding.defaultProps = defaultProps;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Spaces/Spaces.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 133,
+    "kind": "variable",
+    "name": "AllowedSpacesValues",
+    "memberof": "src/components/Spaces/Spaces.js",
+    "static": true,
+    "longname": "src/components/Spaces/Spaces.js~AllowedSpacesValues",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/components/Spaces/Spaces.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 134,
+    "kind": "function",
+    "name": "DivWithSpace",
+    "memberof": "src/components/Spaces/Spaces.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/components/Spaces/Spaces.js~DivWithSpace",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/components/Spaces/Spaces.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [
+      {
+        "name": "space",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 135,
+    "kind": "variable",
+    "name": "Margin",
+    "memberof": "src/components/Spaces/Spaces.js",
+    "static": true,
+    "longname": "src/components/Spaces/Spaces.js~Margin",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Spaces/Spaces.js",
+    "importStyle": "{Margin}",
+    "description": null,
+    "lineNumber": 40,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 136,
+    "kind": "variable",
+    "name": "Padding",
+    "memberof": "src/components/Spaces/Spaces.js",
+    "static": true,
+    "longname": "src/components/Spaces/Spaces.js~Padding",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/components/Spaces/Spaces.js",
+    "importStyle": "{Padding}",
+    "description": null,
+    "lineNumber": 44,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 137,
+    "kind": "variable",
+    "name": "globalPropTypes",
+    "memberof": "src/components/Spaces/Spaces.js",
+    "static": true,
+    "longname": "src/components/Spaces/Spaces.js~globalPropTypes",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/components/Spaces/Spaces.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 48,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"all\": *, \"horizontal\": *, \"vertical\": *, \"top\": *, \"right\": *, \"bottom\": *, \"left\": *, \"children\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 138,
+    "kind": "variable",
+    "name": "defaultProps",
+    "memberof": "src/components/Spaces/Spaces.js",
+    "static": true,
+    "longname": "src/components/Spaces/Spaces.js~defaultProps",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/components/Spaces/Spaces.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 59,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"all\": *, \"horizontal\": *, \"vertical\": *, \"top\": *, \"right\": *, \"bottom\": *, \"left\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 139,
+    "kind": "file",
+    "name": "src/components/Spaces/index.js",
+    "content": "export { Padding, Margin } from './Spaces';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/Spaces/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 140,
+    "kind": "file",
+    "name": "src/components/index.js",
+    "content": "export { default as Animations } from './Animations';\nexport { default as Button } from './Button';\nexport { default as ButtonLink } from './ButtonLink';\nexport { default as Headings } from './Headings';\nexport { default as Inputs } from './Inputs';\nexport { default as Layout } from './Layout';\nexport { default as Loader } from './Loader';\nexport { default as MapIcons } from './MapIcons';\nexport { default as Marker } from './Marker';\nexport { default as Modal } from './Modal';\nexport { default as Page404 } from './Page404';\nexport { default as ProgressBar } from './ProgressBar';\nexport { default as SearchBarWrapper } from './SearchBarWrapper';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/components/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 141,
+    "kind": "file",
+    "name": "src/constants/api.js",
+    "content": "import axios from 'axios';\n\nimport config from './config';\n\nexport default axios.create({\n  baseURL: config.apiUrl,\n  timeout: 1000\n});\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/constants/api.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 142,
+    "kind": "file",
+    "name": "src/constants/config.js",
+    "content": "const GAS_PRICE_ETH = Number(process.env.REACT_APP_GAS_PRICE_ETH);\nconst GAS_AMOUNT = Number(process.env.REACT_APP_GAS_AMOUNT);\n\nexport default {\n  gasPrice: {\n    eth: GAS_PRICE_ETH,\n    simpleTransac: GAS_PRICE_ETH * GAS_AMOUNT\n  },\n  licensePrice: Number(process.env.REACT_APP_LICENSE_PRICE),\n  apiUrl: process.env.REACT_APP_API_URL,\n  googleMapKey: process.env.REACT_APP_GOOGLE_MAP_KEY,\n  kyc: {\n    urlSend: process.env.REACT_APP_KYC_URL_SEND,\n    urlVerif: process.env.REACT_APP_KYC_URL_VERIF\n  }\n\n  // TODO: Remove unused constants\n  // encryptToken: process.env.REACT_APP_ENCRYPT_TOKEN,\n  // cryptocompareApi: process.env.REACT_APP_CRYPTOCOMPARE_API,\n  // etherscan: {\n  //   apiKey: process.env.REACT_APP_ETHERSCAN_API_KEY,\n  //   link: process.env.REACT_APP_ETHERSCAN_LINK,\n  //   api: process.env.REACT_APP_ETHERSCAN_API,\n  //   apiInternal: process.env.REACT_APP_ETHERSCAN_API_INTERNAL\n  // },\n  // gasPrice: {\n  //   eth: GAS_PRICE_ETH,\n  //   simpleTransac: GAS_PRICE_ETH * GAS_AMOUNT\n  // },\n  // gasAmount: GAS_AMOUNT,\n  // sellMaxEth: Number(process.env.REACT_APP_SELL_MAX_ETH),\n  // sellMinEth: Number(process.env.REACT_APP_SELL_MIN_ETH),\n  // dealMinEth: Number(process.env.REACT_APP_DEAL_MIN_ETH),\n  // licensePrice: Number(process.env.REACT_APP_LICENSE_PRICE),\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/constants/config.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 143,
+    "kind": "variable",
+    "name": "GAS_PRICE_ETH",
+    "memberof": "src/constants/config.js",
+    "static": true,
+    "longname": "src/constants/config.js~GAS_PRICE_ETH",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/constants/config.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 144,
+    "kind": "variable",
+    "name": "GAS_AMOUNT",
+    "memberof": "src/constants/config.js",
+    "static": true,
+    "longname": "src/constants/config.js~GAS_AMOUNT",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/constants/config.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 145,
+    "kind": "file",
+    "name": "src/constants/index.js",
+    "content": "export { default as config } from './config';\nexport { default as googlemapStyle } from './googlemap-style.json';\nexport { default as prefixePhone } from './prefixePhone';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/constants/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 146,
+    "kind": "file",
+    "name": "src/constants/prefixePhone.js",
+    "content": "/* eslint-disable max-lines */\n\nconst prefixePhone = [\n  { name: 'Afghanistan', dial_code: '+93', code: 'AF' },\n  { name: 'Aland Islands', dial_code: '+358', code: 'AX' },\n  { name: 'Albania', dial_code: '+355', code: 'AL' },\n  { name: 'Algeria', dial_code: '+213', code: 'DZ' },\n  { name: 'AmericanSamoa', dial_code: '+1684', code: 'AS' },\n  { name: 'Andorra', dial_code: '+376', code: 'AD' },\n  { name: 'Angola', dial_code: '+244', code: 'AO' },\n  { name: 'Anguilla', dial_code: '+1264', code: 'AI' },\n  { name: 'Antarctica', dial_code: '+672', code: 'AQ' },\n  { name: 'Antigua and Barbuda', dial_code: '+1268', code: 'AG' },\n  { name: 'Argentina', dial_code: '+54', code: 'AR' },\n  { name: 'Armenia', dial_code: '+374', code: 'AM' },\n  { name: 'Aruba', dial_code: '+297', code: 'AW' },\n  { name: 'Australia', dial_code: '+61', code: 'AU' },\n  { name: 'Austria', dial_code: '+43', code: 'AT' },\n  { name: 'Azerbaijan', dial_code: '+994', code: 'AZ' },\n  { name: 'Bahamas', dial_code: '+1242', code: 'BS' },\n  { name: 'Bahrain', dial_code: '+973', code: 'BH' },\n  { name: 'Bangladesh', dial_code: '+880', code: 'BD' },\n  { name: 'Barbados', dial_code: '+1246', code: 'BB' },\n  { name: 'Belarus', dial_code: '+375', code: 'BY' },\n  { name: 'Belgium', dial_code: '+32', code: 'BE' },\n  { name: 'Belize', dial_code: '+501', code: 'BZ' },\n  { name: 'Benin', dial_code: '+229', code: 'BJ' },\n  { name: 'Bermuda', dial_code: '+1441', code: 'BM' },\n  { name: 'Bhutan', dial_code: '+975', code: 'BT' },\n  { name: 'Bolivia, Plurinational State of bolivia', dial_code: '+591', code: 'BO' },\n  { name: 'Bosnia and Herzegovina', dial_code: '+387', code: 'BA' },\n  { name: 'Botswana', dial_code: '+267', code: 'BW' },\n  { name: 'Brazil', dial_code: '+55', code: 'BR' },\n  { name: 'British Indian Ocean Territory', dial_code: '+246', code: 'IO' },\n  { name: 'Brunei Darussalam', dial_code: '+673', code: 'BN' },\n  { name: 'Bulgaria', dial_code: '+359', code: 'BG' },\n  { name: 'Burkina Faso', dial_code: '+226', code: 'BF' },\n  { name: 'Burundi', dial_code: '+257', code: 'BI' },\n  { name: 'Cambodia', dial_code: '+855', code: 'KH' },\n  { name: 'Cameroon', dial_code: '+237', code: 'CM' },\n  { name: 'Canada', dial_code: '+1', code: 'CA' },\n  { name: 'Cape Verde', dial_code: '+238', code: 'CV' },\n  { name: 'Cayman Islands', dial_code: '+ 345', code: 'KY' },\n  { name: 'Central African Republic', dial_code: '+236', code: 'CF' },\n  { name: 'Chad', dial_code: '+235', code: 'TD' },\n  { name: 'Chile', dial_code: '+56', code: 'CL' },\n  { name: 'China', dial_code: '+86', code: 'CN' },\n  { name: 'Christmas Island', dial_code: '+61', code: 'CX' },\n  { name: 'Cocos (Keeling) Islands', dial_code: '+61', code: 'CC' },\n  { name: 'Colombia', dial_code: '+57', code: 'CO' },\n  { name: 'Comoros', dial_code: '+269', code: 'KM' },\n  { name: 'Congo', dial_code: '+242', code: 'CG' },\n  { name: 'Congo, The Democratic Republic of the Congo', dial_code: '+243', code: 'CD' },\n  { name: 'Cook Islands', dial_code: '+682', code: 'CK' },\n  { name: 'Costa Rica', dial_code: '+506', code: 'CR' },\n  { name: \"Cote d'Ivoire\", dial_code: '+225', code: 'CI' },\n  { name: 'Croatia', dial_code: '+385', code: 'HR' },\n  { name: 'Cuba', dial_code: '+53', code: 'CU' },\n  { name: 'Cyprus', dial_code: '+357', code: 'CY' },\n  { name: 'Czech Republic', dial_code: '+420', code: 'CZ' },\n  { name: 'Denmark', dial_code: '+45', code: 'DK' },\n  { name: 'Djibouti', dial_code: '+253', code: 'DJ' },\n  { name: 'Dominica', dial_code: '+1767', code: 'DM' },\n  { name: 'Dominican Republic', dial_code: '+1849', code: 'DO' },\n  { name: 'Ecuador', dial_code: '+593', code: 'EC' },\n  { name: 'Egypt', dial_code: '+20', code: 'EG' },\n  { name: 'El Salvador', dial_code: '+503', code: 'SV' },\n  { name: 'Equatorial Guinea', dial_code: '+240', code: 'GQ' },\n  { name: 'Eritrea', dial_code: '+291', code: 'ER' },\n  { name: 'Estonia', dial_code: '+372', code: 'EE' },\n  { name: 'Ethiopia', dial_code: '+251', code: 'ET' },\n  { name: 'Falkland Islands (Malvinas)', dial_code: '+500', code: 'FK' },\n  { name: 'Faroe Islands', dial_code: '+298', code: 'FO' },\n  { name: 'Fiji', dial_code: '+679', code: 'FJ' },\n  { name: 'Finland', dial_code: '+358', code: 'FI' },\n  { name: 'France', dial_code: '+33', code: 'FR' },\n  { name: 'French Guiana', dial_code: '+594', code: 'GF' },\n  { name: 'French Polynesia', dial_code: '+689', code: 'PF' },\n  { name: 'Gabon', dial_code: '+241', code: 'GA' },\n  { name: 'Gambia', dial_code: '+220', code: 'GM' },\n  { name: 'Georgia', dial_code: '+995', code: 'GE' },\n  { name: 'Germany', dial_code: '+49', code: 'DE' },\n  { name: 'Ghana', dial_code: '+233', code: 'GH' },\n  { name: 'Gibraltar', dial_code: '+350', code: 'GI' },\n  { name: 'Greece', dial_code: '+30', code: 'GR' },\n  { name: 'Greenland', dial_code: '+299', code: 'GL' },\n  { name: 'Grenada', dial_code: '+1473', code: 'GD' },\n  { name: 'Guadeloupe', dial_code: '+590', code: 'GP' },\n  { name: 'Guam', dial_code: '+1671', code: 'GU' },\n  { name: 'Guatemala', dial_code: '+502', code: 'GT' },\n  { name: 'Guernsey', dial_code: '+44', code: 'GG' },\n  { name: 'Guinea', dial_code: '+224', code: 'GN' },\n  { name: 'Guinea-Bissau', dial_code: '+245', code: 'GW' },\n  { name: 'Guyana', dial_code: '+592', code: 'GY' },\n  { name: 'Haiti', dial_code: '+509', code: 'HT' },\n  { name: 'Holy See (Vatican City State)', dial_code: '+379', code: 'VA' },\n  { name: 'Honduras', dial_code: '+504', code: 'HN' },\n  { name: 'Hong Kong', dial_code: '+852', code: 'HK' },\n  { name: 'Hungary', dial_code: '+36', code: 'HU' },\n  { name: 'Iceland', dial_code: '+354', code: 'IS' },\n  { name: 'India', dial_code: '+91', code: 'IN' },\n  { name: 'Indonesia', dial_code: '+62', code: 'ID' },\n  { name: 'Iran, Islamic Republic of Persian Gulf', dial_code: '+98', code: 'IR' },\n  { name: 'Iraq', dial_code: '+964', code: 'IQ' },\n  { name: 'Ireland', dial_code: '+353', code: 'IE' },\n  { name: 'Isle of Man', dial_code: '+44', code: 'IM' },\n  { name: 'Israel', dial_code: '+972', code: 'IL' },\n  { name: 'Italy', dial_code: '+39', code: 'IT' },\n  { name: 'Jamaica', dial_code: '+1876', code: 'JM' },\n  { name: 'Japan', dial_code: '+81', code: 'JP' },\n  { name: 'Jersey', dial_code: '+44', code: 'JE' },\n  { name: 'Jordan', dial_code: '+962', code: 'JO' },\n  { name: 'Kazakhstan', dial_code: '+7', code: 'KZ' },\n  { name: 'Kenya', dial_code: '+254', code: 'KE' },\n  { name: 'Kiribati', dial_code: '+686', code: 'KI' },\n  { name: \"Korea, Democratic People's Republic of Korea\", dial_code: '+850', code: 'KP' },\n  { name: 'Korea, Republic of South Korea', dial_code: '+82', code: 'KR' },\n  { name: 'Kuwait', dial_code: '+965', code: 'KW' },\n  { name: 'Kyrgyzstan', dial_code: '+996', code: 'KG' },\n  { name: 'Laos', dial_code: '+856', code: 'LA' },\n  { name: 'Latvia', dial_code: '+371', code: 'LV' },\n  { name: 'Lebanon', dial_code: '+961', code: 'LB' },\n  { name: 'Lesotho', dial_code: '+266', code: 'LS' },\n  { name: 'Liberia', dial_code: '+231', code: 'LR' },\n  { name: 'Libyan Arab Jamahiriya', dial_code: '+218', code: 'LY' },\n  { name: 'Liechtenstein', dial_code: '+423', code: 'LI' },\n  { name: 'Lithuania', dial_code: '+370', code: 'LT' },\n  { name: 'Luxembourg', dial_code: '+352', code: 'LU' },\n  { name: 'Macao', dial_code: '+853', code: 'MO' },\n  { name: 'Macedonia', dial_code: '+389', code: 'MK' },\n  { name: 'Madagascar', dial_code: '+261', code: 'MG' },\n  { name: 'Malawi', dial_code: '+265', code: 'MW' },\n  { name: 'Malaysia', dial_code: '+60', code: 'MY' },\n  { name: 'Maldives', dial_code: '+960', code: 'MV' },\n  { name: 'Mali', dial_code: '+223', code: 'ML' },\n  { name: 'Malta', dial_code: '+356', code: 'MT' },\n  { name: 'Marshall Islands', dial_code: '+692', code: 'MH' },\n  { name: 'Martinique', dial_code: '+596', code: 'MQ' },\n  { name: 'Mauritania', dial_code: '+222', code: 'MR' },\n  { name: 'Mauritius', dial_code: '+230', code: 'MU' },\n  { name: 'Mayotte', dial_code: '+262', code: 'YT' },\n  { name: 'Mexico', dial_code: '+52', code: 'MX' },\n  { name: 'Micronesia, Federated States of Micronesia', dial_code: '+691', code: 'FM' },\n  { name: 'Moldova', dial_code: '+373', code: 'MD' },\n  { name: 'Monaco', dial_code: '+377', code: 'MC' },\n  { name: 'Mongolia', dial_code: '+976', code: 'MN' },\n  { name: 'Montenegro', dial_code: '+382', code: 'ME' },\n  { name: 'Montserrat', dial_code: '+1664', code: 'MS' },\n  { name: 'Morocco', dial_code: '+212', code: 'MA' },\n  { name: 'Mozambique', dial_code: '+258', code: 'MZ' },\n  { name: 'Myanmar', dial_code: '+95', code: 'MM' },\n  { name: 'Namibia', dial_code: '+264', code: 'NA' },\n  { name: 'Nauru', dial_code: '+674', code: 'NR' },\n  { name: 'Nepal', dial_code: '+977', code: 'NP' },\n  { name: 'Netherlands', dial_code: '+31', code: 'NL' },\n  { name: 'Netherlands Antilles', dial_code: '+599', code: 'AN' },\n  { name: 'New Caledonia', dial_code: '+687', code: 'NC' },\n  { name: 'New Zealand', dial_code: '+64', code: 'NZ' },\n  { name: 'Nicaragua', dial_code: '+505', code: 'NI' },\n  { name: 'Niger', dial_code: '+227', code: 'NE' },\n  { name: 'Nigeria', dial_code: '+234', code: 'NG' },\n  { name: 'Niue', dial_code: '+683', code: 'NU' },\n  { name: 'Norfolk Island', dial_code: '+672', code: 'NF' },\n  { name: 'Northern Mariana Islands', dial_code: '+1670', code: 'MP' },\n  { name: 'Norway', dial_code: '+47', code: 'NO' },\n  { name: 'Oman', dial_code: '+968', code: 'OM' },\n  { name: 'Pakistan', dial_code: '+92', code: 'PK' },\n  { name: 'Palau', dial_code: '+680', code: 'PW' },\n  { name: 'Palestinian Territory, Occupied', dial_code: '+970', code: 'PS' },\n  { name: 'Panama', dial_code: '+507', code: 'PA' },\n  { name: 'Papua New Guinea', dial_code: '+675', code: 'PG' },\n  { name: 'Paraguay', dial_code: '+595', code: 'PY' },\n  { name: 'Peru', dial_code: '+51', code: 'PE' },\n  { name: 'Philippines', dial_code: '+63', code: 'PH' },\n  { name: 'Pitcairn', dial_code: '+64', code: 'PN' },\n  { name: 'Poland', dial_code: '+48', code: 'PL' },\n  { name: 'Portugal', dial_code: '+351', code: 'PT' },\n  { name: 'Puerto Rico', dial_code: '+1939', code: 'PR' },\n  { name: 'Qatar', dial_code: '+974', code: 'QA' },\n  { name: 'Romania', dial_code: '+40', code: 'RO' },\n  { name: 'Russia', dial_code: '+7', code: 'RU' },\n  { name: 'Rwanda', dial_code: '+250', code: 'RW' },\n  { name: 'Reunion', dial_code: '+262', code: 'RE' },\n  { name: 'Saint Barthelemy', dial_code: '+590', code: 'BL' },\n  { name: 'Saint Helena, Ascension and Tristan Da Cunha', dial_code: '+290', code: 'SH' },\n  { name: 'Saint Kitts and Nevis', dial_code: '+1869', code: 'KN' },\n  { name: 'Saint Lucia', dial_code: '+1758', code: 'LC' },\n  { name: 'Saint Martin', dial_code: '+590', code: 'MF' },\n  { name: 'Saint Pierre and Miquelon', dial_code: '+508', code: 'PM' },\n  { name: 'Saint Vincent and the Grenadines', dial_code: '+1784', code: 'VC' },\n  { name: 'Samoa', dial_code: '+685', code: 'WS' },\n  { name: 'San Marino', dial_code: '+378', code: 'SM' },\n  { name: 'Sao Tome and Principe', dial_code: '+239', code: 'ST' },\n  { name: 'Saudi Arabia', dial_code: '+966', code: 'SA' },\n  { name: 'Senegal', dial_code: '+221', code: 'SN' },\n  { name: 'Serbia', dial_code: '+381', code: 'RS' },\n  { name: 'Seychelles', dial_code: '+248', code: 'SC' },\n  { name: 'Sierra Leone', dial_code: '+232', code: 'SL' },\n  { name: 'Singapore', dial_code: '+65', code: 'SG' },\n  { name: 'Slovakia', dial_code: '+421', code: 'SK' },\n  { name: 'Slovenia', dial_code: '+386', code: 'SI' },\n  { name: 'Solomon Islands', dial_code: '+677', code: 'SB' },\n  { name: 'Somalia', dial_code: '+252', code: 'SO' },\n  { name: 'South Africa', dial_code: '+27', code: 'ZA' },\n  { name: 'South Sudan', dial_code: '+211', code: 'SS' },\n  { name: 'South Georgia and the South Sandwich Islands', dial_code: '+500', code: 'GS' },\n  { name: 'Spain', dial_code: '+34', code: 'ES' },\n  { name: 'Sri Lanka', dial_code: '+94', code: 'LK' },\n  { name: 'Sudan', dial_code: '+249', code: 'SD' },\n  { name: 'Suriname', dial_code: '+597', code: 'SR' },\n  { name: 'Svalbard and Jan Mayen', dial_code: '+47', code: 'SJ' },\n  { name: 'Swaziland', dial_code: '+268', code: 'SZ' },\n  { name: 'Sweden', dial_code: '+46', code: 'SE' },\n  { name: 'Switzerland', dial_code: '+41', code: 'CH' },\n  { name: 'Syrian Arab Republic', dial_code: '+963', code: 'SY' },\n  { name: 'Taiwan', dial_code: '+886', code: 'TW' },\n  { name: 'Tajikistan', dial_code: '+992', code: 'TJ' },\n  { name: 'Tanzania, United Republic of Tanzania', dial_code: '+255', code: 'TZ' },\n  { name: 'Thailand', dial_code: '+66', code: 'TH' },\n  { name: 'Timor-Leste', dial_code: '+670', code: 'TL' },\n  { name: 'Togo', dial_code: '+228', code: 'TG' },\n  { name: 'Tokelau', dial_code: '+690', code: 'TK' },\n  { name: 'Tonga', dial_code: '+676', code: 'TO' },\n  { name: 'Trinidad and Tobago', dial_code: '+1868', code: 'TT' },\n  { name: 'Tunisia', dial_code: '+216', code: 'TN' },\n  { name: 'Turkey', dial_code: '+90', code: 'TR' },\n  { name: 'Turkmenistan', dial_code: '+993', code: 'TM' },\n  { name: 'Turks and Caicos Islands', dial_code: '+1649', code: 'TC' },\n  { name: 'Tuvalu', dial_code: '+688', code: 'TV' },\n  { name: 'Uganda', dial_code: '+256', code: 'UG' },\n  { name: 'Ukraine', dial_code: '+380', code: 'UA' },\n  { name: 'United Arab Emirates', dial_code: '+971', code: 'AE' },\n  { name: 'United Kingdom', dial_code: '+44', code: 'GB' },\n  { name: 'United States', dial_code: '+1', code: 'US' },\n  { name: 'Uruguay', dial_code: '+598', code: 'UY' },\n  { name: 'Uzbekistan', dial_code: '+998', code: 'UZ' },\n  { name: 'Vanuatu', dial_code: '+678', code: 'VU' },\n  { name: 'Venezuela, Bolivarian Republic of Venezuela', dial_code: '+58', code: 'VE' },\n  { name: 'Vietnam', dial_code: '+84', code: 'VN' },\n  { name: 'Virgin Islands, British', dial_code: '+1284', code: 'VG' },\n  { name: 'Virgin Islands, U.S.', dial_code: '+1340', code: 'VI' },\n  { name: 'Wallis and Futuna', dial_code: '+681', code: 'WF' },\n  { name: 'Yemen', dial_code: '+967', code: 'YE' },\n  { name: 'Zambia', dial_code: '+260', code: 'ZM' },\n  { name: 'Zimbabwe', dial_code: '+263', code: 'ZW' }\n];\n\nexport default prefixePhone;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/constants/prefixePhone.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 147,
+    "kind": "variable",
+    "name": "prefixePhone",
+    "memberof": "src/constants/prefixePhone.js",
+    "static": true,
+    "longname": "src/constants/prefixePhone.js~prefixePhone",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/constants/prefixePhone.js",
+    "importStyle": "prefixePhone",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "undefined[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 148,
+    "kind": "file",
+    "name": "src/constants/time.js",
+    "content": "import tr from '../translate';\n\nexport const weekDays = [\n  tr('days.1'),\n  tr('days.2'),\n  tr('days.3'),\n  tr('days.4'),\n  tr('days.5'),\n  tr('days.6'),\n  tr('days.7')\n];\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/constants/time.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 149,
+    "kind": "variable",
+    "name": "weekDays",
+    "memberof": "src/constants/time.js",
+    "static": true,
+    "longname": "src/constants/time.js~weekDays",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/constants/time.js",
+    "importStyle": "{weekDays}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "undefined[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 150,
+    "kind": "file",
+    "name": "src/containers/AddFormVerification/index.js",
+    "content": "export { default } from './AddFormVerification';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/AddFormVerification/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 151,
+    "kind": "file",
+    "name": "src/containers/AddShopForm/DaysOnpeningHour/index.js",
+    "content": "export { default } from './DaysOnpeningHour';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/AddShopForm/DaysOnpeningHour/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 152,
+    "kind": "file",
+    "name": "src/containers/AddShopForm/SearchBar/index.js",
+    "content": "export { default } from './SearchBar';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/AddShopForm/SearchBar/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 153,
+    "kind": "file",
+    "name": "src/containers/AddShopForm/fromState.js",
+    "content": "import validator from './validator';\nimport tr from '../../translate';\n\nexport default ({ onChange, onBlur }, props) => {\n  const { shop } = props;\n  return {\n    address: {\n      name: 'address',\n      label: tr('add.form.inputs.address.label'),\n      value: null,\n      fillInfos: validator.name.fillInfos(),\n      error: null,\n      isValid: false,\n      toggleShake: 0,\n      onBlur,\n      handleChange: onChange\n    },\n    name: {\n      name: 'name',\n      componentName: 'input',\n      type: 'text',\n      label: tr('add.form.inputs.name.label'),\n      value: shop.name || '',\n      fillInfos: validator.name.fillInfos(),\n      error: null,\n      isValid: false,\n      toggleShake: 0,\n      onBlur,\n      handleChange: onChange\n    },\n    cat: {\n      name: 'cat',\n      componentName: 'input',\n      type: 'text',\n      label: tr('add.form.inputs.cat.label'),\n      value: shop.cat || '',\n      fillInfos: validator.cat.fillInfos(),\n      error: null,\n      isValid: false,\n      toggleShake: 0,\n      onBlur,\n      handleChange: onChange\n    },\n    description: {\n      name: 'description',\n      componentName: 'input',\n      type: 'text',\n      label: tr('add.form.inputs.description.label'),\n      value: shop.description || '',\n      fillInfos: validator.description.fillInfos(),\n      error: null,\n      isValid: false,\n      toggleShake: 0,\n      onBlur,\n      handleChange: onChange\n    }\n  };\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/AddShopForm/fromState.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 154,
+    "kind": "function",
+    "name": "fromState",
+    "memberof": "src/containers/AddShopForm/fromState.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/containers/AddShopForm/fromState.js~fromState",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/containers/AddShopForm/fromState.js",
+    "importStyle": "fromState",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"onChange\": *, \"onBlur\": *}"
+        ],
+        "defaultRaw": {
+          "onChange": null,
+          "onBlur": null
+        },
+        "defaultValue": "{\"onChange\":null,\"onBlur\":null}"
+      },
+      {
+        "name": "props",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"address\": *, \"name\": *, \"cat\": *, \"description\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 155,
+    "kind": "file",
+    "name": "src/containers/AddShopForm/index.js",
+    "content": "export { default } from './AddShopForm';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/AddShopForm/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 156,
+    "kind": "file",
+    "name": "src/containers/AddShopForm/validator.js",
+    "content": "import tr from '../../translate';\n\nexport default {\n  address: {\n    tranform: val => val,\n    test: val =>\n      !!(val && val.lat && val.lng && val.countryId && val.countryId.length && val.postalCode),\n    fillInfos: () => null,\n    errorMsg: () => tr('add.form.inputs.address.error')\n  },\n  cat: {\n    tranform: val => (val ? val.substring(0, 16) : ''),\n    test: val => val && val.length && val.length <= 16,\n    fillInfos: () => null,\n    errorMsg: () => tr('add.form.inputs.cat.error')\n  },\n  name: {\n    tranform: val => (val ? val.substring(0, 16) : ''),\n    test: val => val && val.length && val.length <= 16,\n    fillInfos: () => null,\n    errorMsg: () => tr('add.form.inputs.name.error')\n  },\n  description: {\n    tranform: val => (val || ''),\n    test: val => val && val.length && val.length <= 16,\n    fillInfos: () => null,\n    errorMsg: () => tr('add.form.inputs.description.error')\n  },\n  opening: {\n    tranform: val => (val || ''),\n    test: str => {\n      const hours = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUV';\n      let idx = 0;\n      for (let i = 0; i < str.length;) {\n        const testClose = str[i] === '0';\n        const testOpen = hours.includes(str[i]) && hours.includes(str[i + 1]);\n        if (!testClose && !testOpen) {\n          return false;\n        }\n        idx += 1;\n        i += testClose ? 1 : 2;\n      }\n      return idx === 7;\n    },\n    fillInfos: () => null,\n    errorMsg: () => tr('add.form.inputs.opening.error')\n  }\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/AddShopForm/validator.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 157,
+    "kind": "file",
+    "name": "src/containers/AddShopHome/index.js",
+    "content": "export { default } from './AddShopHome';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/AddShopHome/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 158,
+    "kind": "file",
+    "name": "src/containers/Home/index.js",
+    "content": "export { default } from './Home';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/Home/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 159,
+    "kind": "file",
+    "name": "src/containers/LeftPanel/index.js",
+    "content": "export { default } from './LeftPanel';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/LeftPanel/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 160,
+    "kind": "file",
+    "name": "src/containers/Map/GoogleMapWrapper/index.js",
+    "content": "export { default } from './GoogleMapWrapper';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/Map/GoogleMapWrapper/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 161,
+    "kind": "file",
+    "name": "src/containers/Map/InfoCard/ShopCard/index.js",
+    "content": "export { default } from './ShopCard';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/Map/InfoCard/ShopCard/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 162,
+    "kind": "file",
+    "name": "src/containers/Map/InfoCard/index.js",
+    "content": "export { default } from './InfoCard';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/Map/InfoCard/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 163,
+    "kind": "file",
+    "name": "src/containers/Map/Markers/ShopMarker/index.js",
+    "content": "export { default } from './ShopMarker';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/Map/Markers/ShopMarker/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 164,
+    "kind": "file",
+    "name": "src/containers/Map/SearchBar/index.js",
+    "content": "export { default } from './SearchBar';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/Map/SearchBar/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 165,
+    "kind": "file",
+    "name": "src/containers/Map/index.js",
+    "content": "export { default } from './Map';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/Map/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 166,
+    "kind": "file",
+    "name": "src/containers/PhoneVerification/PhoneForm/index.js",
+    "content": "export { default } from './PhoneForm';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/PhoneVerification/PhoneForm/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 167,
+    "kind": "file",
+    "name": "src/containers/PhoneVerification/ValidateCode/index.js",
+    "content": "export { default } from './ValidateCodeContainer';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/PhoneVerification/ValidateCode/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 168,
+    "kind": "file",
+    "name": "src/containers/PhoneVerification/index.js",
+    "content": "export { default } from './PhoneVerification';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/PhoneVerification/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 169,
+    "kind": "file",
+    "name": "src/containers/ShopRouter/index.js",
+    "content": "export { default } from './ShopRouter';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/ShopRouter/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 170,
+    "kind": "file",
+    "name": "src/containers/ShowShop/index.js",
+    "content": "export { default } from './ShowShop';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/ShowShop/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 171,
+    "kind": "file",
+    "name": "src/containers/index.js",
+    "content": "export { default as Home } from './Home';\nexport { default as Map } from './Map';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/containers/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 172,
+    "kind": "file",
+    "name": "src/helpers/apiResponse.js",
+    "content": "import tr from '../translate';\n\nexport const getErrorMessage = (errors, { response }) => {\n  const { status } = response;\n  if (status === 429) {\n    return tr('tooManyRequests');\n  } else if (Array.isArray(errors.message)) {\n    return errors.message.join('; ');\n  } else if (errors.message) {\n    return errors.message;\n  }\n  return response.statusText;\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/apiResponse.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 173,
+    "kind": "function",
+    "name": "getErrorMessage",
+    "memberof": "src/helpers/apiResponse.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/apiResponse.js~getErrorMessage",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/apiResponse.js",
+    "importStyle": "{getErrorMessage}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "errors",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "objectPattern1",
+        "types": [
+          "{\"response\": *}"
+        ],
+        "defaultRaw": {
+          "response": null
+        },
+        "defaultValue": "{\"response\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 174,
+    "kind": "file",
+    "name": "src/helpers/array.js",
+    "content": "export const uniqueArray = (arr, objKey) => {\n  const keyToPos = {};\n\n  arr.forEach((e, idx) => { keyToPos[e[objKey]] = idx; });\n  return arr.filter((e, idx) => keyToPos[e[objKey]] === idx);\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/array.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 175,
+    "kind": "function",
+    "name": "uniqueArray",
+    "memberof": "src/helpers/array.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/array.js~uniqueArray",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/array.js",
+    "importStyle": "{uniqueArray}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "arr",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "objKey",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 176,
+    "kind": "file",
+    "name": "src/helpers/calendar.js",
+    "content": "export const times = [\n  { key: 'a', val: '00:00' },\n  { key: 'b', val: '00:30' },\n  { key: 'c', val: '01:00' },\n  { key: 'd', val: '01:30' },\n  { key: 'e', val: '02:00' },\n  { key: 'f', val: '02:30' },\n  { key: 'g', val: '03:00' },\n  { key: 'h', val: '03:30' },\n  { key: 'i', val: '04:00' },\n  { key: 'j', val: '04:30' },\n  { key: 'k', val: '05:00' },\n  { key: 'l', val: '05:30' },\n  { key: 'm', val: '06:00' },\n  { key: 'n', val: '06:30' },\n  { key: 'o', val: '07:00' },\n  { key: 'p', val: '07:30' },\n  { key: 'q', val: '08:00' },\n  { key: 'r', val: '08:30' },\n  { key: 's', val: '09:00' },\n  { key: 't', val: '09:30' },\n  { key: 'u', val: '10:00' },\n  { key: 'v', val: '10:30' },\n  { key: 'w', val: '11:00' },\n  { key: 'x', val: '11:30' },\n  { key: 'y', val: '12:00' },\n  { key: 'z', val: '12:30' },\n  { key: 'A', val: '13:00' },\n  { key: 'B', val: '13:30' },\n  { key: 'C', val: '14:00' },\n  { key: 'D', val: '14:30' },\n  { key: 'E', val: '15:00' },\n  { key: 'F', val: '15:30' },\n  { key: 'G', val: '16:00' },\n  { key: 'H', val: '16:30' },\n  { key: 'I', val: '17:00' },\n  { key: 'J', val: '17:30' },\n  { key: 'K', val: '18:00' },\n  { key: 'L', val: '18:30' },\n  { key: 'M', val: '19:00' },\n  { key: 'N', val: '19:30' },\n  { key: 'O', val: '20:00' },\n  { key: 'P', val: '20:30' },\n  { key: 'Q', val: '21:00' },\n  { key: 'R', val: '21:30' },\n  { key: 'S', val: '22:00' },\n  { key: 'T', val: '22:30' },\n  { key: 'U', val: '23:00' },\n  { key: 'V', val: '23:30' }\n];\n\nexport const timesObj = {};\ntimes.forEach(e => {\n  timesObj[e.key] = e.val;\n});\nexport const hours = times.map(e => e.val);\n\nexport const convertDay = ({ open, openAt, closeAt }) => {\n  if (!open) {\n    return '0';\n  }\n  const charOpen = times.filter(e => e.val === openAt)[0].key;\n  const charClose = times.filter(e => e.val === closeAt)[0].key;\n  return charOpen + charClose;\n};\n\nexport const convertCalendar = str => {\n  const close = { open: false };\n  const days = [close, close, close, close, close, close, close];\n  let idx = 0;\n\n  for (let i = 0; i < str.length;) {\n    const testClose = str[i] === '0';\n    if (!testClose) {\n      days[idx] = {\n        open: true,\n        openAt: timesObj[str[i]],\n        closeAt: timesObj[str[i + 1]]\n      };\n    }\n    idx += 1;\n    i += testClose ? 1 : 2;\n  }\n\n  return days;\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/calendar.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 177,
+    "kind": "variable",
+    "name": "times",
+    "memberof": "src/helpers/calendar.js",
+    "static": true,
+    "longname": "src/helpers/calendar.js~times",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/calendar.js",
+    "importStyle": "{times}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "undefined[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 178,
+    "kind": "variable",
+    "name": "timesObj",
+    "memberof": "src/helpers/calendar.js",
+    "static": true,
+    "longname": "src/helpers/calendar.js~timesObj",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/calendar.js",
+    "importStyle": "{timesObj}",
+    "description": null,
+    "lineNumber": 52,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    }
+  },
+  {
+    "__docId__": 179,
+    "kind": "variable",
+    "name": "hours",
+    "memberof": "src/helpers/calendar.js",
+    "static": true,
+    "longname": "src/helpers/calendar.js~hours",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/calendar.js",
+    "importStyle": "{hours}",
+    "description": null,
+    "lineNumber": 56,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 180,
+    "kind": "function",
+    "name": "convertDay",
+    "memberof": "src/helpers/calendar.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/calendar.js~convertDay",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/calendar.js",
+    "importStyle": "{convertDay}",
+    "description": null,
+    "lineNumber": 58,
+    "undocument": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"open\": *, \"openAt\": *, \"closeAt\": *}"
+        ],
+        "defaultRaw": {
+          "open": null,
+          "openAt": null,
+          "closeAt": null
+        },
+        "defaultValue": "{\"open\":null,\"openAt\":null,\"closeAt\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 181,
+    "kind": "function",
+    "name": "convertCalendar",
+    "memberof": "src/helpers/calendar.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/calendar.js~convertCalendar",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/calendar.js",
+    "importStyle": "{convertCalendar}",
+    "description": null,
+    "lineNumber": 67,
+    "undocument": true,
+    "params": [
+      {
+        "name": "str",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 182,
+    "kind": "file",
+    "name": "src/helpers/ethereum/addShop.js",
+    "content": "import DthContract from 'dethercontract/contracts/DetherToken.json';\nimport DetherCore from 'dethercontract/contracts/DetherCore.json';\nimport web3Abi from 'web3-eth-abi';\n\nimport { web3js, helperWeb3 } from './utils';\n\nconst overloadedTransferAbi = {\n  constant: false,\n  inputs: [\n    {\n      name: '_to',\n      type: 'address'\n    },\n    {\n      name: '_value',\n      type: 'uint256'\n    },\n    {\n      name: '_data',\n      type: 'bytes'\n    }\n  ],\n  name: 'transfer',\n  outputs: [\n    {\n      name: '',\n      type: 'bool'\n    }\n  ],\n  payable: false,\n  stateMutability: 'nonpayable',\n  type: 'function'\n};\n\nconst toNBytes = (str, n) => {\n  let buffer = '';\n  for (let i = 0; i < n; i += 1) {\n    buffer += str[i] ? str[i].charCodeAt(0).toString(16) : '00';\n  }\n  return buffer;\n};\n\nconst shopToContract = (rawshop) => {\n  const hexshopGeo = `0x${toNBytes(rawshop.lat, 16)}${toNBytes(rawshop.lng, 16)}`;\n  const hexShopAddr = `${toNBytes(rawshop.countryId, 2)}${toNBytes(rawshop.postalCode, 16)}`;\n  const hexShopId = `${toNBytes(rawshop.cat, 16)}${toNBytes(rawshop.name, 16)}`;\n  const hexShopDesc = `${toNBytes(rawshop.description, 32)}${toNBytes(rawshop.opening, 16)}31`;\n\n  const hexShop = `${hexshopGeo}${hexShopAddr}${hexShopId}${hexShopDesc}`;\n  return hexShop;\n};\n\n/**\n * register a shop, SHOP need to have DTH and to be certified\n * @param {[Object]} description\n * @returns {[String]} transaction hash\n */\nconst addShop = (shop) =>\n  new Promise(async (res, rej) => {\n    try {\n      const hexShop = shopToContract(shop);\n      const { address, networkId } = await helperWeb3();\n      const transferMethodTransactionData = web3Abi.encodeFunctionCall(\n        overloadedTransferAbi,\n        [\n          DetherCore.networks[networkId].address,\n          20,\n          hexShop\n        ]\n      );\n      const tsx = await web3js.eth\n        .sendTransaction({\n          from: address,\n          to: DthContract.networks[networkId].address,\n          data: transferMethodTransactionData,\n          value: 0,\n          gas: 2000000\n        });\n      res(tsx);\n    } catch (e) {\n      rej(new TypeError(`Invalid shop transaction: ${e.message}`));\n    }\n  });\n\nexport default addShop;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/ethereum/addShop.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 183,
+    "kind": "variable",
+    "name": "overloadedTransferAbi",
+    "memberof": "src/helpers/ethereum/addShop.js",
+    "static": true,
+    "longname": "src/helpers/ethereum/addShop.js~overloadedTransferAbi",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/helpers/ethereum/addShop.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"constant\": *, \"inputs\": *, \"name\": string, \"outputs\": *, \"payable\": *, \"stateMutability\": string, \"type\": string}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 184,
+    "kind": "function",
+    "name": "toNBytes",
+    "memberof": "src/helpers/ethereum/addShop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/ethereum/addShop.js~toNBytes",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/helpers/ethereum/addShop.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 35,
+    "undocument": true,
+    "params": [
+      {
+        "name": "str",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "n",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 185,
+    "kind": "function",
+    "name": "shopToContract",
+    "memberof": "src/helpers/ethereum/addShop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/ethereum/addShop.js~shopToContract",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/helpers/ethereum/addShop.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 43,
+    "undocument": true,
+    "params": [
+      {
+        "name": "rawshop",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 186,
+    "kind": "function",
+    "name": "addShop",
+    "memberof": "src/helpers/ethereum/addShop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/ethereum/addShop.js~addShop",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/ethereum/addShop.js",
+    "importStyle": "addShop",
+    "description": "register a shop, SHOP need to have DTH and to be certified",
+    "lineNumber": 58,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{[String]} transaction hash"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "[Object]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "description",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "[String]"
+      ],
+      "spread": false,
+      "description": "transaction hash"
+    }
+  },
+  {
+    "__docId__": 187,
+    "kind": "file",
+    "name": "src/helpers/ethereum/deleteShop.js",
+    "content": "import { helperWeb3 } from './utils';\n\n/**\n * register a shop, SHOP need to have DTH and to be certified\n * @param {[Object]} description\n * @returns {[String]} transaction hash\n */\nexport const deleteShop = () =>\n  new Promise(async (res, rej) => {\n    try {\n      const { address, detherContract } = await helperWeb3();\n      const tsx = await detherContract.methods.deleteShop().send({ from: address, gas: 1000000 });\n      res(tsx);\n    } catch (e) {\n      rej(new TypeError(`Invalid transaction: ${e.message}`));\n    }\n  });\n\nexport default deleteShop;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/ethereum/deleteShop.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 188,
+    "kind": "function",
+    "name": "deleteShop",
+    "memberof": "src/helpers/ethereum/deleteShop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/ethereum/deleteShop.js~deleteShop",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/ethereum/deleteShop.js",
+    "importStyle": "{deleteShop}",
+    "description": "register a shop, SHOP need to have DTH and to be certified",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{[String]} transaction hash"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "[Object]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "description",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "[String]"
+      ],
+      "spread": false,
+      "description": "transaction hash"
+    }
+  },
+  {
+    "__docId__": 189,
+    "kind": "file",
+    "name": "src/helpers/ethereum/getBalance.js",
+    "content": "import { web3js, helperWeb3 } from './utils';\nimport isWeb3 from './isWeb3';\n\n/**\n * return balance of ETH and DTH of the web3 primary account\n * @returns {Object}\n */\nexport const getBalance = async () => {\n  const hasMetaMask = await isWeb3();\n\n  if (!hasMetaMask) return ({ eth: 0, dth: 0 });\n  return new Promise(async (res, rej) => {\n    try {\n      const balances = {};\n      const { address, dthContract } = await helperWeb3();\n      web3js.eth.getBalance(address).then(async (result, error) => {\n        if (!error) {\n          balances.eth = parseFloat(web3js.utils.fromWei(result, 'ether'));\n          balances.dth = parseFloat(web3js.utils.fromWei(\n            await dthContract.methods.balanceOf(address).call()\n            , 'ether'\n          ));\n          res(balances);\n        } else {\n          rej(new TypeError(`Invalid shop profile: ${error.message}`));\n        }\n      });\n    } catch (e) {\n      rej(e);\n    }\n  });\n};\n\nexport default getBalance;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/ethereum/getBalance.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 190,
+    "kind": "function",
+    "name": "getBalance",
+    "memberof": "src/helpers/ethereum/getBalance.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/helpers/ethereum/getBalance.js~getBalance",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/ethereum/getBalance.js",
+    "importStyle": "{getBalance}",
+    "description": "return balance of ETH and DTH of the web3 primary account",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 191,
+    "kind": "file",
+    "name": "src/helpers/ethereum/getShop.js",
+    "content": "import { web3js, helperWeb3 } from './utils';\n\n// TO DO\nconst validateShop = (shop) => {\n  if (!shop || typeof shop !== 'object') {\n    return { error: true, msg: 'Invalid args' };\n  }\n  // if (!shop.lat || Number.isNaN(shop.lat) || shop.lat > 90 || shop.lat < -90) {\n  //   return { error: true, msg: 'Invalid latitude' };\n  // }\n  // if (!shop.lng || Number.isNaN(shop.lng) || shop.lng > 180 || shop.lng < -180) {\n  //   return { error: true, msg: 'Invalid longitude' };\n  // }\n  // if (!shop.countryId || shop.countryId < 1 ||  shop.countryId > 4) {\n  //   return { error: true, msg: 'Invalid zone' };\n  // }\n  // if (!shop.rates || shop.rates <= 0 || shop.rates > 100) {\n  //   return { error: true, msg: 'Invalid rates' };\n  // }\n  // if (!shop.avatarId || !Number.isInteger(shop.avatarId) || shop.avatarId < 0) {\n  //   return { error: true, msg: 'Invalid avatar' };\n  // }\n  // if (!shop.currencyId || !Number.isInteger(shop.currencyId) || shop.currencyId < 0) {\n  //   return { error: true, msg: 'Invalid currency' };\n  // }\n  // if (!shop.messengerAddr || shop.messengerAddr.length < 2 || shop.messengerAddr.length > 30) {\n  //   return { error: true, msg: 'Invalid telegram' };\n  // }\n  // if (!shop.amount || Number.isNaN(shop.amount) || shop.amount < 0.01) {\n  //   return { error: true, msg: 'Invalid amount' };\n  // }\n  // if (!shop.postalCode) {\n  //   return { error: true, msg: 'Invalid amount' };\n  // }\n  return {};\n};\n\nconst shopFromContract = (rawShop) => {\n  const validation = validateShop(rawShop);\n  if (validation.error) throw new TypeError(validation.msg);\n  try {\n    return {\n      lat: web3js.utils.hexToUtf8(rawShop.lat).replace(/\\0/g, ''),\n      lng: web3js.utils.hexToUtf8(rawShop.lng).replace(/\\0/g, ''),\n      countryId: web3js.utils.hexToUtf8(rawShop.countryId).replace(/\\0/g, ''),\n      postalCode: web3js.utils.hexToUtf8(rawShop.postalCode).replace(/\\0/g, ''),\n      cat: web3js.utils.hexToUtf8(rawShop.cat).replace(/\\0/g, ''),\n      name: web3js.utils.hexToUtf8(rawShop.name).replace(/\\0/g, ''),\n      description: web3js.utils.hexToUtf8(rawShop.description).replace(/\\0/g, ''),\n      opening: web3js.utils.hexToUtf8(rawShop.opening).replace(/\\0/g, ''),\n    };\n  } catch (e) {\n    throw new TypeError(`Invalid shop profile: ${e.message}`);\n  }\n};\n\n/**\n * return formatted shop\n *  @returns {Object}\n */\nconst getShop = () =>\n  new Promise(async (res, rej) => {\n    try {\n      const { address, detherContract } = await helperWeb3();\n      const rawShop = await detherContract.methods.getShop(address).call();\n      let id = web3js.utils.hexToUtf8(rawShop[2]).replace(/\\0/g, '');\n      id = id.replace(/\\0/g, '');\n      if (!id)\n        res(null);\n      res(Object.assign(\n        {},\n        shopFromContract(rawShop),\n        {\n          ethAddress: address,\n        }\n      ));\n    } catch (e) {\n      rej(new TypeError(`Invalid shop profile: ${e.message}`));\n    }\n  });\n\nexport default getShop;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/ethereum/getShop.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 192,
+    "kind": "function",
+    "name": "validateShop",
+    "memberof": "src/helpers/ethereum/getShop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/ethereum/getShop.js~validateShop",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/helpers/ethereum/getShop.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [
+      {
+        "name": "shop",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 193,
+    "kind": "function",
+    "name": "shopFromContract",
+    "memberof": "src/helpers/ethereum/getShop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/ethereum/getShop.js~shopFromContract",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/helpers/ethereum/getShop.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 38,
+    "undocument": true,
+    "params": [
+      {
+        "name": "rawShop",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"lat\": *, \"lng\": *, \"countryId\": *, \"postalCode\": *, \"cat\": *, \"name\": *, \"description\": *, \"opening\": *}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 194,
+    "kind": "function",
+    "name": "getShop",
+    "memberof": "src/helpers/ethereum/getShop.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/ethereum/getShop.js~getShop",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/ethereum/getShop.js",
+    "importStyle": "getShop",
+    "description": "return formatted shop",
+    "lineNumber": 61,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Object}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 195,
+    "kind": "file",
+    "name": "src/helpers/ethereum/index.js",
+    "content": "export { default as addShop } from './addShop';\nexport { default as deleteShop } from './deleteShop';\nexport { default as getBalance } from './getBalance';\nexport { default as getShop } from './getShop';\nexport { default as isWeb3 } from './isWeb3';\nexport { default as isSmsReg } from './isSmsReg';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/ethereum/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 196,
+    "kind": "file",
+    "name": "src/helpers/ethereum/isSmsReg.js",
+    "content": "import { helperWeb3 } from './utils';\n\n/**\n * return true if is sms register\n * @returns {Bool}\n */\nexport const isSmsReg = () =>\n  new Promise(async (res, rej) => {\n    try {\n      const { address, smsContract } = await helperWeb3();\n      const isReg = await smsContract.methods.isCertified(address).call();\n      res(isReg);\n    } catch (e) {\n      rej(e);\n    }\n  });\n\nexport default isSmsReg;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/ethereum/isSmsReg.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 197,
+    "kind": "function",
+    "name": "isSmsReg",
+    "memberof": "src/helpers/ethereum/isSmsReg.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/ethereum/isSmsReg.js~isSmsReg",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/ethereum/isSmsReg.js",
+    "importStyle": "{isSmsReg}",
+    "description": "return true if is sms register",
+    "lineNumber": 7,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Bool}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Bool"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 198,
+    "kind": "file",
+    "name": "src/helpers/ethereum/isWeb3.js",
+    "content": "import { web3js } from './utils';\n\n/**\n * know if user as web3 injected\n * @returns {Eth address}\n */\nconst isWeb3 = async () => {\n  if (typeof window.web3 !== 'undefined') {\n    const address = (await web3js.eth.getAccounts())[0];\n    return (address);\n  }\n  return null;\n};\n\nexport default isWeb3;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/ethereum/isWeb3.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 199,
+    "kind": "function",
+    "name": "isWeb3",
+    "memberof": "src/helpers/ethereum/isWeb3.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/helpers/ethereum/isWeb3.js~isWeb3",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/ethereum/isWeb3.js",
+    "importStyle": "isWeb3",
+    "description": "know if user as web3 injected",
+    "lineNumber": 7,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Eth address}"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Eth address"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "params": []
+  },
+  {
+    "__docId__": 200,
+    "kind": "file",
+    "name": "src/helpers/ethereum/utils.js",
+    "content": "import Web3 from 'web3';\nimport DetherCore from 'dethercontract/contracts/DetherCore.json';\nimport DthContract from 'dethercontract/contracts/DetherToken.json';\nimport SmsCertifier from 'dethercontract/contracts/SmsCertifier.json';\n\nconst provider = window.web3 && window.web3.currentProvider;\nexport const web3js = new Web3(provider);\n\nexport const helperWeb3 = async () => {\n  const address = (await web3js.eth.getAccounts())[0];\n  const networkId = await web3js.eth.net.getId();\n  const detherContract = new web3js.eth\n    .Contract(DetherCore.abi, DetherCore.networks[networkId].address);\n  const dthContract = new web3js.eth\n    .Contract(DthContract.abi, DthContract.networks[networkId].address);\n  const smsContract = new web3js.eth\n    .Contract(SmsCertifier.abi, SmsCertifier.networks[networkId].address);\n\n  return {\n    address,\n    networkId,\n    detherContract,\n    dthContract,\n    smsContract\n  };\n};\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/ethereum/utils.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 201,
+    "kind": "variable",
+    "name": "provider",
+    "memberof": "src/helpers/ethereum/utils.js",
+    "static": true,
+    "longname": "src/helpers/ethereum/utils.js~provider",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/helpers/ethereum/utils.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 202,
+    "kind": "variable",
+    "name": "web3js",
+    "memberof": "src/helpers/ethereum/utils.js",
+    "static": true,
+    "longname": "src/helpers/ethereum/utils.js~web3js",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/ethereum/utils.js",
+    "importStyle": "{web3js}",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 203,
+    "kind": "function",
+    "name": "helperWeb3",
+    "memberof": "src/helpers/ethereum/utils.js",
+    "generator": false,
+    "async": true,
+    "static": true,
+    "longname": "src/helpers/ethereum/utils.js~helperWeb3",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/ethereum/utils.js",
+    "importStyle": "{helperWeb3}",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "{\"address\": *, \"networkId\": *, \"detherContract\": *, \"dthContract\": *, \"smsContract\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 204,
+    "kind": "file",
+    "name": "src/helpers/geocodeAPI.js",
+    "content": "import config from '../constants/config';\n\nconst GOOGLE_API = 'https://maps.google.com/maps/api/geocode/json';\n\nconst filterPostalCode = e => e.types.includes('postal_code') && !!e.long_name;\n\nconst GeocodeAPI = {\n  getPostalCodeFromAddressComponents(addressComponents) {\n    const elemFind = addressComponents.filter(filterPostalCode);\n    if (elemFind && elemFind.length) {\n      return elemFind[0].long_name;\n    }\n    return null;\n  },\n\n  getCountryIdFromAddressComponents(addressComponents) {\n    const elemFind = addressComponents.filter(e => e.types.includes('country') && !!e.short_name);\n    if (elemFind && elemFind.length) {\n      return elemFind[0].short_name;\n    }\n    return null;\n  },\n\n  /**\n   * @param {Object} lat and lng\n   * @returns {Promise} the postal code of the lat and lng\n   */\n  async postalCode({ lat, lng }) {\n    const results = await this.reverseGeocode({ lat, lng });\n\n    for (let i = 0; i < results.length; i += 1) {\n      const elemFind = this.getPostalCodeFromAddressComponents(results[i].address_components);\n      if (elemFind) {\n        return elemFind;\n      }\n    }\n    return null;\n  },\n\n  /**\n   * @param {Object} lat and lng\n   * @returns {Promise}\n   */\n  async reverseGeocode({ lat, lng }) {\n    if (!lat || !lng) {\n      return Promise.reject(new Error('Provided coordinates are invalid'));\n    }\n\n    const latLng = `${lat},${lng}`;\n    const url = `${GOOGLE_API}?key=${config.googleMapKey}&latlng=${encodeURI(latLng)}`;\n    const { results } = await this.handleUrl(url);\n    if (!results || results.length <= 0) {\n      return Promise.reject(new Error('Enable to reverse lat lng'));\n    }\n\n    return results;\n  },\n\n  async positionToAddress(position) {\n    return (await this.reverseGeocode(position))[0].formatted_address;\n  },\n\n  async handleUrl(url) {\n    const response = await fetch(url).catch(() => Promise.reject(new Error('Error fetching data')));\n\n    const json = await response\n      .json()\n      .catch(() => Promise.reject(new Error('Error parsing server response')));\n\n    if (json.status === 'OK') {\n      return json;\n    }\n    return Promise.reject(new Error(`Server returned status code ${json.status}`));\n  }\n};\n\nexport default GeocodeAPI;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/geocodeAPI.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 205,
+    "kind": "variable",
+    "name": "GOOGLE_API",
+    "memberof": "src/helpers/geocodeAPI.js",
+    "static": true,
+    "longname": "src/helpers/geocodeAPI.js~GOOGLE_API",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/helpers/geocodeAPI.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 206,
+    "kind": "function",
+    "name": "filterPostalCode",
+    "memberof": "src/helpers/geocodeAPI.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/geocodeAPI.js~filterPostalCode",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/helpers/geocodeAPI.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [
+      {
+        "name": "e",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 207,
+    "kind": "variable",
+    "name": "GeocodeAPI",
+    "memberof": "src/helpers/geocodeAPI.js",
+    "static": true,
+    "longname": "src/helpers/geocodeAPI.js~GeocodeAPI",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/geocodeAPI.js",
+    "importStyle": "GeocodeAPI",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"getPostalCodeFromAddressComponents\": function, \"getCountryIdFromAddressComponents\": function, \"postalCode\": function, \"reverseGeocode\": function, \"positionToAddress\": function, \"handleUrl\": function}"
+      ]
+    }
+  },
+  {
+    "__docId__": 208,
+    "kind": "file",
+    "name": "src/helpers/get.js",
+    "content": "const get = (object, key, defaultValue) => {\n  const result = object == null ? undefined : object[key];\n  return result === undefined ? defaultValue : result;\n};\n\nexport default get;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/get.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 209,
+    "kind": "function",
+    "name": "get",
+    "memberof": "src/helpers/get.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/get.js~get",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/get.js",
+    "importStyle": "get",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "object",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "defaultValue",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 210,
+    "kind": "file",
+    "name": "src/helpers/index.js",
+    "content": "export { default as get } from './get';\nexport { default as last } from './last';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 211,
+    "kind": "file",
+    "name": "src/helpers/last.js",
+    "content": "const last = (array) => {\n  const length = array == null ? 0 : array.length;\n  return length ? array[length - 1] : undefined;\n};\n\nexport default last;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/last.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 212,
+    "kind": "function",
+    "name": "last",
+    "memberof": "src/helpers/last.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/last.js~last",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/last.js",
+    "importStyle": "last",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "array",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 213,
+    "kind": "file",
+    "name": "src/helpers/shake.js",
+    "content": "/**\n * Shake style css\n */\nconst shake = () => {\n  this.setState({ shake: true });\n  setTimeout(() => this.setState({ shake: false }), 850);\n};\n\nconst setShake = context => shake.bind(context);\n\nexport { setShake };\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/shake.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 214,
+    "kind": "function",
+    "name": "shake",
+    "memberof": "src/helpers/shake.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/shake.js~shake",
+    "access": "public",
+    "export": false,
+    "importPath": "dether.shop/src/helpers/shake.js",
+    "importStyle": null,
+    "description": "Shake style css",
+    "lineNumber": 4,
+    "params": [],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 215,
+    "kind": "function",
+    "name": "setShake",
+    "memberof": "src/helpers/shake.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/shake.js~setShake",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/shake.js",
+    "importStyle": "{setShake}",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "params": [
+      {
+        "name": "context",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 216,
+    "kind": "file",
+    "name": "src/helpers/timers.js",
+    "content": "export const timeSince = time => (new Date()) - time;\nexport const phoneVerificationTime = time => (timeSince(time) < 15000);\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/helpers/timers.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 217,
+    "kind": "function",
+    "name": "timeSince",
+    "memberof": "src/helpers/timers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/timers.js~timeSince",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/timers.js",
+    "importStyle": "{timeSince}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "params": [
+      {
+        "name": "time",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 218,
+    "kind": "function",
+    "name": "phoneVerificationTime",
+    "memberof": "src/helpers/timers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/helpers/timers.js~phoneVerificationTime",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/helpers/timers.js",
+    "importStyle": "{phoneVerificationTime}",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true,
+    "params": [
+      {
+        "name": "time",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 219,
+    "kind": "file",
+    "name": "src/middlewares/index.js",
+    "content": "export { default as fetchMiddleware } from './fetch';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/middlewares/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 220,
+    "kind": "file",
+    "name": "src/reducers/index.js",
+    "content": "import { combineReducers } from 'redux';\n\n/*\n  Reducers\n */\nimport app from './app';\nimport map from './map';\nimport user from './user';\nimport shop from './shop';\nimport kyc from './kyc';\n\nconst appReducer = combineReducers({\n  app,\n  map,\n  user,\n  shop,\n  kyc\n});\n\nexport default appReducer;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/reducers/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 221,
+    "kind": "variable",
+    "name": "appReducer",
+    "memberof": "src/reducers/index.js",
+    "static": true,
+    "longname": "src/reducers/index.js~appReducer",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/reducers/index.js",
+    "importStyle": "appReducer",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 222,
+    "kind": "file",
+    "name": "src/styles/globalStyles.js",
+    "content": "/* eslint-disable */\nimport { injectGlobal } from 'styled-components';\nimport tokens from './tokens';\n\nconst globalStyles = injectGlobal`\n  * {\n    box-sizing: border-box;\n  }\n\n  html {\n    font-size: 62.5%;\n    height:100%;\n    width:100%;\n    overflow: hidden;\n  }\n\n  body {\n    color: ${tokens.colors.grey.darkest};\n    font-family:\n      -apple-system,\n      Roboto,\n      BlinkMacSystemFont,\n      \"Segoe UI\",\n      Oxygen-Sans,\n      Ubuntu,\n      Cantarell,\n      \"Helvetica Neue\",\n      sans-serif;\n\n    height:100%;\n    width:100%;\n    overflow: hidden;\n    font-size: ${tokens.fontSizes.m};\n    padding: 0;\n    margin: 0;\n    line-height: 1.35;\n    -webkit-font-smoothing: antialiased;\n  }\n\n  #root, #root > div {\n    height:100%;\n    width:100%;\n    overflow: hidden;\n  }\n\n  [role='button'],\n  [contenteditable='true'] {\n    outline: none;\n  }\n\n  a {\n    color: inherit;\n    text-decoration: inherit;\n    transition: color 0.2s ease;\n\n    &:hover {\n      color: ${tokens.colors.blue};\n    }\n  }\n\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    margin: 0;\n    font-size: ${tokens.fontSizes.m};\n  }\n\n  ul,\n  ol,\n  li,\n  dl,\n  dt,\n  dd {\n    padding: 0;\n    margin: 0;\n    list-style: none;\n  }\n\n  table {\n    width: 100%;\n    table-layout: fixed;\n    border-collapse: collapse;\n  }\n\n  form {\n    margin: 0;\n  }\n\n  input[type='range'],\n  input[type='text'],\n  input[type='search'],\n  input[type='email'],\n  input[type='date'],\n  input[type='password'],\n  input[type='tel'],\n  input[type='number'],\n  input[type='checkbox'],\n  input[type='radio'],\n  textarea,\n  select,\n  button {\n    margin: 0;\n    -webkit-appearance: none;\n    appearance: none;\n    outline: none;\n    border-radius: 0;\n    color: inherit;\n    border: none;\n    background: transparent;\n    font-size: inherit;\n  }\n\n  input[type='checkbox'],\n  input[type='radio'] {\n    border: solid 0.1rem ${tokens.colors.grey.dark};\n    width: ${tokens.spaces.m};\n    height: ${tokens.spaces.m};\n    vertical-align: middle;\n    margin-right: ${tokens.spaces.xs};\n    overflow: hidden;\n\n    &:checked:before {\n      content: '✓';\n      display: block;\n      color: ${tokens.colors.blue};\n      height: 100%;\n      width: 100%;\n      text-align: center;\n      line-height: 1;\n    }\n  }\n\n  input[type='radio'] {\n    border-radius: 50%;\n\n    &:checked {\n      background: transparent\n    }\n\n    &:checked:before {\n      content: \"\";\n      width: calc(${tokens.spaces.m} - 0.6rem);\n      height: calc(${tokens.spaces.m} - 0.6rem);\n      margin: 0.2rem;\n      border-radius: 50%;\n      background: ${tokens.colors.blue};\n    }\n  }\n\n  input,\n  select,\n  textarea {\n    font: inherit;\n  }\n\n  button,\n  input[type=\"button\"] {\n    padding: 0;\n    border: 0;\n    background: none;\n    outline: none;\n    cursor: pointer;\n  }\n`;\n\nexport default globalStyles;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/styles/globalStyles.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 223,
+    "kind": "variable",
+    "name": "globalStyles",
+    "memberof": "src/styles/globalStyles.js",
+    "static": true,
+    "longname": "src/styles/globalStyles.js~globalStyles",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/styles/globalStyles.js",
+    "importStyle": "globalStyles",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 224,
+    "kind": "file",
+    "name": "src/styles/tokens.js",
+    "content": "const tokens = {\n  colors: {\n    grey: {\n      lightest: '#F5F5F5',\n      lighter: '#D8D8D8',\n      light: '#9B9B9B',\n      dark: '#717171',\n      darker: '#3C3C3B',\n      darkest: '#2A2B43'\n    },\n    green: '#4DD2AF',\n    blue: '#4B53B6',\n    white: '#FFFFFF',\n    pink: '#E7827F',\n    gradients: {\n      pink: 'linear-gradient(35deg, #E96F8C, #C5445E)',\n      blue: 'linear-gradient(35deg, #4B53B6, #8C6FE9)'\n    }\n  },\n  shadow: '0 3px 3px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.04)',\n  fontSizes: {\n    xxxs: '0.9rem',\n    xxs: '1rem',\n    xs: '1.2rem',\n    s: '1.3rem',\n    m: '1.4rem',\n    l: '1.6rem',\n    xl: '1.8rem',\n    xxl: '2rem',\n    xxxl: '2.7rem'\n  },\n  spaces: {\n    none: 0,\n    xxs: '0.4rem',\n    xs: '0.8rem',\n    s: '1.2rem',\n    m: '1.6rem',\n    l: '2rem',\n    xl: '2.4rem',\n    xxl: '2.8rem'\n  },\n  radius: {\n    s: '0.6rem',\n    m: '1rem',\n    circle: '50%'\n  }\n};\n\nexport default tokens;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/styles/tokens.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 225,
+    "kind": "variable",
+    "name": "tokens",
+    "memberof": "src/styles/tokens.js",
+    "static": true,
+    "longname": "src/styles/tokens.js~tokens",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/styles/tokens.js",
+    "importStyle": "tokens",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"colors\": *, \"shadow\": string, \"fontSizes\": *, \"spaces\": *, \"radius\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 226,
+    "kind": "file",
+    "name": "src/translate/en/en.js",
+    "content": "/* eslint-disable max-lines */\n/* eslint-disable max-len */\nimport terms from './terms-en';\n\nconst en = {\n  terms,\n  phone: {\n    title: 'Enter your phone number',\n    step: 'Step 1 of 2',\n    label: 'Your phone number :',\n    country: {\n      label: 'Your country :',\n      placeholder: 'Enter your country name'\n    },\n    helper:\n      'Dether uses a phone number to verify each account. We will never share this information with a third party.',\n    valid_button: 'Confirm your phone number',\n    modal_text: 'Is this your phone number?',\n    modal_valid_button: 'Yes',\n    modal_edit_button: 'edit'\n  },\n  validate_code: {\n    title: 'Enter your verification code',\n    subtitle: '4-digit number',\n    step: 'Step 1 of 2',\n    loader_message: 'Checking your code, please wait a second.',\n    code_sent: ({ phoneNumber }) =>\n      `Verification code has been sent to ${phoneNumber} || Please wait a few moments to receive it.`,\n    change_button: 'Change phone number',\n    resend_button: 'Resend verification code'\n  },\n  add: {\n    home: {\n      title: 'DETHER FOR SHOP',\n      desc:\n        'A decentralized application for shops exchanging cryptocurrency for cash or accepting it as a means of payement.',\n      metamask_not_installed: 'You need to install Metamask to add your shop',\n      not_enougth_money: ({ minEth, minDth }) =>\n        `You should have at least ${minEth.toFixed(4)} ETH and ${minDth.toFixed(4)} DTH to add a shop`,\n      terms_check: 'I have read and agree to the',\n      terms_link: 'Terms and Conditions',\n      bt_add: 'Add you shop on the map'\n    },\n    form: {\n      inputs: {\n        address: {\n          label: 'Address :',\n          error: () => 'Invalide address'\n        },\n        cat: {\n          label: 'Category :',\n          error: () => 'length min 1 – max 16'\n        },\n        name: {\n          label: 'Name :',\n          error: () => 'length min 1 – max 16'\n        },\n        description: {\n          label: 'Description :',\n          error: () => 'length min 1 – max 16'\n        },\n        opening: {\n          error: () => 'Invalide opening'\n        }\n      }\n    }\n  },\n  header: {\n    buy_dth: 'Buy DTH',\n    your_balance: 'your balance',\n    refresh: 'Refresh'\n  },\n  loaderInitializer: {\n    title: 'Please wait',\n    message: 'Wy are trying to connect to your Metamask acount'\n  },\n  footer: {\n    all_right_reserved: 'all rights reserved',\n    terms_and_conditions: 'Terms and conditions'\n  },\n  shop_recap: {\n    informations: 'Informations :',\n    name: 'Name :',\n    category: 'Category :',\n    address: 'Address :',\n    description: 'Description :',\n    opening_hours: 'Opening hours :',\n    day: 'Day :',\n    opened_at: 'Opening time :',\n    closed_at: 'Closing time :',\n    closed: 'closed'\n  },\n  days: {\n    1: 'Monday',\n    2: 'Tuesday',\n    3: 'Wednesday',\n    4: 'Thursday',\n    5: 'Friday',\n    6: 'Saturday',\n    7: 'Sunday'\n  },\n  errors: {\n    phone: {\n      invalid: 'Please enter a valid phone number (it should be at list 5 digits long)',\n      country_blank: 'You need to select a country in the list',\n      wait_resend: 'Please wait 15 seconds before requesting a new code'\n    }\n  },\n  show_shop: {\n    transaction_pending: 'We are adding your shop on the Dether map, it can take some some minutes...',\n    delete_button: 'Delete Shop',\n    submit_button: 'Submit'\n  }\n};\n\nexport default en;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/translate/en/en.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 227,
+    "kind": "variable",
+    "name": "en",
+    "memberof": "src/translate/en/en.js",
+    "static": true,
+    "longname": "src/translate/en/en.js~en",
+    "access": "public",
+    "export": true,
+    "importPath": "dether.shop/src/translate/en/en.js",
+    "importStyle": "en",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"terms\": *, \"phone\": *, \"validate_code\": *, \"add\": *, \"header\": *, \"loaderInitializer\": *, \"footer\": *, \"shop_recap\": *, \"days\": *, \"errors\": *, \"show_shop\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 228,
+    "kind": "file",
+    "name": "src/translate/en/index.js",
+    "content": "export { default } from './en';\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/translate/en/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 229,
+    "kind": "file",
+    "name": "src/translate/en/terms-en.js",
+    "content": "/* eslint-disable */\nexport default `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at accumsan velit.||\nPhasellus malesuada rhoncus dui, ut elementum metus tempus eget. Morbi et tortor libero. Mauris||\nrutrum vulputate lectus eu ultrices. Nam eu tortor sapien. Phasellus vestibulum lacus||\nnisi, id gravida est molestie in. Duis finibus mollis ipsum, ultricies aliquet eros||\ninterdum eget. Sed feugiat sollicitudin mauris eget bibendum. Etiam nisi lorem, suscipit||\nut leo in, pellentesque tristique lectus. Nulla vel accumsan mi. Nulla facilisi. Fusce||\ndictum efficitur nibh,||nec condimentum urna ullamcorper at.Nullam quis iaculis dui. Vivamus gravida ullamcorper libero. Aliquam erat volutpat.||\nPellentesque feugiat mi vel congue varius. Vivamus pretium hendrerit est, sed elementum||\nnunc ultricies id. Mauris condimentum neque viverra augue luctus vestibulum. Nulla sit||\namet facilisis urna. Duis mi nulla, aliquet nec rhoncus eget, sollicitudin at orci.\nAliquam fermentum neque at orci sodales accumsan vel at est.||\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;||\nSed quis magna vehicula, interdum mi quis, consectetur eros. Etiam at eleifend erat .||\nAenean nisi neque, interdum semper massa ut, accumsan tristique lacus. Proin posuere||\nvenenatis risus vel malesuada. Suspendisse volutpat magna ac urna mattis, a ornare nibh||\ndictum. Donec tincidunt diam ut augue euismod, id vulputate magna porta. Quisque varius||\naliquam mauris, ac posuere velit faucibus venenatis. In tincidunt fringilla sem.||\nVestibulum interdum convallis massa, dapibus pellentesque leo interdum sit amet. Donec vel||\npharetra est, eget tincidunt libero.Maecenas vestibulum molestie ligula quis viverra. Pellentesque congue, massa ut iaculis||\nsuscipit, dolor enim laoreet mauris, eu tempor arcu libero ultricies arcu. Ut sed arcu ut||\nsapien luctus imperdiet eget ut sapien. Fusce commodo ante a augue tempor, at fringilla ex||\ndignissim. Aenean orci odio, laoreet in orci in, euismod mattis odio. Donec rutrum dui ex,||\nnec maximus nisl placerat at.Aliquam rutrum erat ligula, sodales tincidunt risus efficitur non. Duis elementum||\ntristique accumsan. Sed eu dolor nunc. Nulla vehicula ut lorem sit amet ultricies. Etiam||\nfacilisis finibus faucibus.Etiam quis lorem nec sem viverra congue et ut erat. Pellentesque condimentum consequat||\nefficitur. Fusce ac mauris aliquam, gravida orci ac, dictum ante. Cras pellentesque, nisi||\net tempus iaculis, urna arcu suscipit magna, nec placerat nunc ipsum ac sapien. Etiam eget||\nnulla vel eros auctor vulputate. Etiam accumsan lectus lectus, sed aliquet eros tincidunt||\nsit amet. Morbi justo nunc, vestibulum vitae aliquet at, facilisis non eros. Aliquam||\nefficitur nulla dolor, in finibus neque scelerisque et. Etiam justo erat, euismod sit amet||\nsapien porttitor, volutpat elementum nisl. Sed posuere ullamcorper tellus a tristique.||\nFusce bibendum elementum odio, in faucibus velit aliquam eget. Integer ullamcorper, enim||\nut volutpat lacinia, dolor dolor elementum diam, id luctus nisl ipsum rhoncus sem. Vivamus||\nat ipsum vitae velit facilisis mollis id sit amet justo.\n`;\n",
+    "static": true,
+    "longname": "/Users/javimosch/git/dether.shop/src/translate/en/terms-en.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
     "kind": "index",
     "content": "# Dether.shop\n\n## Table of Contents\n\n* [Install](#install)\n* [Docs](#docs)\n* [Test](#test)\n* [Build doc](#build-doc)\n* [Dependencies](#dependencies)\n* [Dev-Dependencies](#dev-dependencies)\n* [Bugs](#bugs)\n* [Donation](#donation)\n* [TODO](#todo)\n\n## Install\n\nUse yarn to install dependencies:\n\n```\ngit clone https://github.com/dethertech/dether.shop.git\ncd dether.shop\nyarn install\n```\n\n## Docs\n\nExtensive documentation of all the methods can be found on the [API documentation](https://dethertech.github.io/dether.shop)\n\n## Test\n```\nyarn test\n```\n\n## Build doc\n```\nyarn run esdoc\nyarn run publish:esdoc\n```\n\n## Dependencies\n\n* [dethercontract](https://github.com/dethertech/dethercontracts.git)\n\n## Dev-Dependencies\n\n* [dethercontract](https://github.com/dethertech/dethercontracts.git)\n\n\n## Bugs\n\nWhen you find issues, please report them:\n\n* web: [https://github.com/dethertech/dether.shop/issues](https://github.com/dethertech/dether.shop/issues)\n\n\n## Donation\n* [Ethereum Foundation](https://ethereum.org/donate)\n* [Etherscan](https://etherscan.io/address/0x71c7656ec7ab88b098defb751b7401b5f6d8976f)\n* [MyEtherWallet](https://etherscan.io/address/0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8)\n* [CoinMarketCap](https://etherscan.io/address/0x0074709077B8AE5a245E4ED161C971Dc4c3C8E2B)\n* [Ethers.js](https://etherscan.io/address/0xEA517D5a070e6705Cc5467858681Ed953d285Eb9)\n\n## TODO\n* Add more tests\n",
-    "longname": "/Users/ishak/Documents/dether.shop/README.md",
+    "longname": "/Users/javimosch/git/dether.shop/README.md",
     "name": "./README.md",
     "static": true,
     "access": "public"
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"dether.shop\",\n  \"version\": \"0.1.0\",\n  \"description\": \"Dether.shop Front-End\",\n  \"keywords\": [\n    \"dether\",\n    \"ethereum\"\n  ],\n  \"author\": \"Dether Team <hello@dether.io>\",\n  \"license\": \"LicenseRef-LICENSE\",\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/dethertech/dether.shop.git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/dethertech/dether.shop/issues\"\n  },\n  \"homepage\": \"https://shop.dether.io\",\n  \"dependencies\": {\n    \"react\": \"^16.2.0\",\n    \"react-dom\": \"^16.2.0\",\n    \"react-scripts\": \"1.1.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"esdoc\": \"./node_modules/.bin/esdoc\",\n    \"publish:esdoc\": \"gh-pages -d esdoc\"\n  },\n  \"devDependencies\": {\n    \"babel-eslint\": \"^8.2.2\",\n    \"esdoc\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"^4.18.1\",\n    \"eslint-config-airbnb\": \"^16.1.0\",\n    \"eslint-plugin-import\": \"^2.9.0\",\n    \"eslint-plugin-jsx-a11y\": \"^6.0.3\",\n    \"eslint-plugin-react\": \"^7.7.0\",\n    \"gh-pages\": \"^1.1.0\"\n  }\n}\n",
-    "longname": "/Users/ishak/Documents/dether.shop/package.json",
+    "content": "{\n  \"name\": \"dether.shop\",\n  \"version\": \"0.1.0\",\n  \"description\": \"Dether.shop Front-End\",\n  \"keywords\": [\n    \"dether\",\n    \"ethereum\"\n  ],\n  \"author\": \"Dether Team <hello@dether.io>\",\n  \"license\": \"Apache-2.0\",\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/dethertech/dether.shop.git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/dethertech/dether.shop/issues\"\n  },\n  \"homepage\": \"https://shop.dether.io\",\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build && echo '/* /index.html 200' > build/_redirects\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"lint\": \"eslint 'src/**/*.js'\",\n    \"esdoc\": \"./node_modules/.bin/esdoc\",\n    \"publish:esdoc\": \"gh-pages -d esdoc\",\n    \"storybook\": \"start-storybook -p 9001 -c .storybook\"\n  },\n  \"dependencies\": {\n    \"axios\": \"^0.18.0\",\n    \"classnames\": \"^2.2.5\",\n    \"dethercontract\": \"^2.0.1\",\n    \"google-map-react\": \"^0.27.0\",\n    \"points-cluster\": \"^0.1.4\",\n    \"prop-types\": \"^15.6.0\",\n    \"react\": \"^16.2.0\",\n    \"react-dom\": \"^16.2.0\",\n    \"react-places-autocomplete\": \"^6.0.0\",\n    \"react-redux\": \"^5.0.7\",\n    \"react-router\": \"^4.2.0\",\n    \"react-router-dom\": \"^4.2.2\",\n    \"react-scripts\": \"1.1.1\",\n    \"redux\": \"^3.7.2\",\n    \"redux-persist\": \"^5.9.1\",\n    \"redux-thunk\": \"^2.2.0\",\n    \"styled-components\": \"^3.1.6\",\n    \"web3\": \"^1.0.0-beta.30\",\n    \"web3-eth-abi\": \"^1.0.0-beta.30\"\n  },\n  \"devDependencies\": {\n    \"@storybook/addon-info\": \"^3.3.14\",\n    \"@storybook/react\": \"^3.3.14\",\n    \"babel-eslint\": \"^8.2.2\",\n    \"deep-freeze\": \"^0.0.1\",\n    \"enzyme\": \"^3.3.0\",\n    \"enzyme-adapter-react-16\": \"^1.1.1\",\n    \"esdoc\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"eslint\": \"^4.18.1\",\n    \"eslint-config-airbnb\": \"^16.1.0\",\n    \"eslint-plugin-import\": \"^2.9.0\",\n    \"eslint-plugin-jsx-a11y\": \"^6.0.3\",\n    \"eslint-plugin-react\": \"^7.7.0\",\n    \"gh-pages\": \"^1.1.0\",\n    \"husky\": \"^0.15.0-rc.8\",\n    \"jest-styled-components\": \"^5.0.0\",\n    \"jsdom\": \"^11.6.2\",\n    \"react-storybook-addon-chapters\": \"^2.1.3\",\n    \"react-test-renderer\": \"^16.2.0\",\n    \"storybook\": \"^1.0.0\"\n  },\n  \"husky\": {\n    \"hooks\": {\n      \"pre-commit\": \"yarn lint\",\n      \"pre-push\": \"CI=true yarn test\"\n    }\n  }\n}\n",
+    "longname": "/Users/javimosch/git/dether.shop/package.json",
     "name": "package.json",
     "static": true,
     "access": "public"
