@@ -107,7 +107,7 @@ class AddFormVerification extends PureComponent {
       return (
         <LoaderScreen
           title={tr('add_form_verification.loader_title')}
-          message={tr('add_form_verification.loader_message')}
+          message={tr('add_form_verification.loader_add_message')}
         />
       );
     }

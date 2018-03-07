@@ -97,7 +97,6 @@ export class ShowShop extends PureComponent {
     this.interval = setInterval(async () => {
       const status = await getTransactionStatus(transactionHash);
       if (status === 'success') {
-        console.log('DELETE SUCCESS');
         removeShopFromStore();
         history.push('/');
         this.endCheckTransaction();
@@ -111,11 +110,10 @@ export class ShowShop extends PureComponent {
   deleteShop = async () => {
     const { deleteContractShop, addDeleteShopTransaction } = this.props;
 
-    this.showLoader(tr('show_recap.loader_delete_message'));
+    this.showLoader();
     const transaction = await deleteContractShop().catch(e => console.log('Error', e));
     addDeleteShopTransaction(transaction.transactionHash);
     this.checkTransaction();
-    // TODO trads
     this.HideLoader();
   }
 
@@ -125,8 +123,8 @@ export class ShowShop extends PureComponent {
 
     return isLoading ?
       <LoaderScreen
-        title={tr('shop_recap.loader_title')}
-        message={tr('shop_recap.loader_message')}
+        title={tr('show_shop.loader_title')}
+        message={tr('show_shop.loader_delete_message')}
       />
       :
       <Fragment>
