@@ -58,7 +58,6 @@ class AddFormVerification extends PureComponent {
   getView = () => {
     const { isTransactionPending } = this.props;
 
-    // TODO trads
     if (isTransactionPending)
       return <div>{tr('add_form_verification.transaction_pending')}</div>;
     return <Button onClick={this.addShop}>{tr('add_form_verification.submit_button')}</Button>;
