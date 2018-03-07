@@ -20,6 +20,7 @@ const FooterText = styled.footer`
 `;
 
 const LeftWrapper = styled.div`
+  width: 100%;
   max-width: 42rem;
   margin: auto;
   padding: ${tokens.spaces.m};

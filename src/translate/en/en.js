@@ -42,6 +42,8 @@ const en = {
       bt_add: 'Add you shop on the map'
     },
     form: {
+      title: 'Register your shop',
+      step: 'Step 2 of 2',
       inputs: {
         address: {
           label: 'Address :',
@@ -62,7 +64,8 @@ const en = {
         opening: {
           error: () => 'Invalide opening'
         }
-      }
+      },
+      register_btn: 'Add your shop'
     }
   },
   header: {
@@ -107,7 +110,8 @@ const en = {
     }
   },
   show_shop: {
-    transaction_pending: 'We are adding your shop on the Dether map, it can take some some minutes...',
+    transaction_pending:
+      'We are adding your shop on the Dether map, it can take some some minutes...',
     delete_button: 'Delete Shop',
     submit_button: 'Submit'
   }

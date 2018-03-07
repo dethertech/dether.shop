@@ -38,10 +38,17 @@ const Wrapper = styled.div`
 
 const InputWrapper = styled.div`
   flex: 1;
+  display: flex;
 
   input {
     padding-left: 3rem !important;
-    width: 100% !important;
+    width: auto !important;
+    flex: 1 !important;
+  }
+
+  #PlacesAutocomplete__root {
+    width: auto !important;
+    flex: 1;
   }
 
   #PlacesAutocomplete__autocomplete-container {
