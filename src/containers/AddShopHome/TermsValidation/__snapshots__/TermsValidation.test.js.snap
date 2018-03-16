@@ -41,7 +41,7 @@ exports[`Component TermsValidation should be render without crash 1`] = `
           onClick={[Function]}
           type="checkbox"
         />
-        I have read and agree to the
+        By checking this box, you agree to our
       </label>
        
       <button

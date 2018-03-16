@@ -171,7 +171,7 @@ exports[`Components Header should render Header 1`] = `
         <div
           className="c10"
         >
-          your balance
+          Your balance
         </div>
       </div>
       <button
