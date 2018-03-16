@@ -8,7 +8,7 @@ export const isSmsReg = () =>
   new Promise(async (res, rej) => {
     try {
       const { address, smsContract } = await helperWeb3();
-      const isReg = await smsContract.methods.isCertified(address).call();
+      const isReg = await smsContract.methods.certified(address).call();
       res(isReg);
     } catch (e) {
       rej(e);

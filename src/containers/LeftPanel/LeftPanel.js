@@ -27,9 +27,9 @@ import {
 import { addShop as addShopAction } from '../../actions/shop';
 
 /**
- * LeftPanel containers
- * @extends PureComponent
- */
+* LeftPanel containers
+* @extends PureComponent
+*/
 export class LeftPanel extends PureComponent {
   static propTypes = {
     isAppInitialized: PropTypes.bool.isRequired,
@@ -59,11 +59,9 @@ export class LeftPanel extends PureComponent {
     clearInterval(this.interval);
   }
 
-  async initApp() {
+  initCheck = async () => {
     const {
-      isAppInitialized,
       setMetamaskInstalled,
-      setAppInitialized,
       setEthAddress,
       isWeb3,
       getShop,
@@ -74,31 +72,39 @@ export class LeftPanel extends PureComponent {
       setUserCertified
     } = this.props;
 
-    if (!isAppInitialized) {
-      const ethAddress = await isWeb3();
-      if (ethAddress) {
-        const [shop, balance, certified] = await Promise.all([
-          getShop(),
-          getBalance(),
-          isCertified()
-        ]);
+    const ethAddress = await isWeb3();
+    if (ethAddress) {
+      const [shop, balance, certified] = await Promise.all([
+        getShop(),
+        getBalance(),
+        isCertified()
+      ]);
 
-        console.log('HOME', shop);
-        if (shop) addShop(shop);
-        console.log('SHOP', shop);
-        if (balance) setBalance(balance);
-        if (certified) setUserCertified(certified);
-        setMetamaskInstalled(true);
-        setEthAddress(ethAddress);
-        this.interval = setInterval(this.refreshBalance, 10000);
-      }
+      if (shop) addShop(shop);
+      if (balance) setBalance(balance);
+      if (certified) setUserCertified(certified);
+      setMetamaskInstalled(true);
+      setEthAddress(ethAddress);
+    }
+  }
+  async initApp() {
+    const {
+      isAppInitialized,
+      setAppInitialized,
+    } = this.props;
+
+    if (!isAppInitialized) {
+      await this.initCheck();
+      this.interval = setInterval(this.refreshBalance, 10000);
       setAppInitialized(true);
     }
   }
 
   refreshBalance = async () => {
-    const { getBalance, setBalance } = this.props;
+    const { getBalance, setBalance, isMetamaskInstalled } = this.props;
 
+    if (!isMetamaskInstalled)
+      return this.initCheck();
     setBalance(await getBalance());
   }
 
@@ -127,7 +133,8 @@ export class LeftPanel extends PureComponent {
 const mapStateToProps = ({ app, user }) => ({
   isAppInitialized: app.isAppInitialized,
   balance: user.balance,
-  isTermsModalOpenened: app.isTermsModalOpenened
+  isTermsModalOpenened: app.isTermsModalOpenened,
+  isMetamaskInstalled: app.isMetamaskInstalled
 });
 
 const mapDispatchToProps = dispatch => ({
