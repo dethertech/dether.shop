@@ -1,4 +1,3 @@
-/* eslint max-lines: 0 */
 import React, { PureComponent } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';

@@ -4,7 +4,7 @@ import web3Abi from 'web3-eth-abi';
 
 import { web3js, helperWeb3 } from './utils';
 
-// TO DO
+// TODO
 // Make it with arrow function
 /* eslint-disable */
 const convertBase = function () {
@@ -29,6 +29,11 @@ const convertBase = function () {
 }();
 /* eslint-enable */
 
+/**
+ * [intTo4bytes description]
+ * @param  {[type]} intvalue [description]
+ * @return {[type]}          [description]
+ */
 const intTo4bytes = (intvalue) => {
   const hexvalue = convertBase.dec2hex(intvalue);
   let result = hexvalue;
@@ -38,6 +43,12 @@ const intTo4bytes = (intvalue) => {
   return result;
 };
 
+/**
+ * [toNBytes description]
+ * @param  {[type]} str [description]
+ * @param  {[type]} n   [description]
+ * @return {[type]}     [description]
+ */
 const toNBytes = (str, n) => {
   let buffer = '';
   for (let i = 0; i < n; i += 1) {
@@ -46,6 +57,11 @@ const toNBytes = (str, n) => {
   return buffer;
 };
 
+/**
+ * [shopToContract description]
+ * @param  {[type]} rawshop [description]
+ * @return {[type]}         [description]
+ */
 const shopToContract = (rawshop) => {
   const lat = intTo4bytes(parseFloat(rawshop.lat) * 100000);
   const lng = intTo4bytes(parseFloat(rawshop.lng) * 100000);

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { hasEnoughMoneyToAddShop } from '../../reducers/user';
 import { hasGoodNetwork } from '../../reducers/app';
+
 /*
 Containers
 */
@@ -23,7 +24,7 @@ class ShopRouter extends PureComponent {
     isUserReady: PropTypes.bool.isRequired
   };
 
-  render() {
+  render = () => {
     const { hasShop, isUserVerified, isUserReady } = this.props;
     if (hasShop)
       return <ShowShop />;

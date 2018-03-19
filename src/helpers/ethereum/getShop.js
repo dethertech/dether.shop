@@ -1,6 +1,6 @@
 import { web3js, helperWeb3 } from './utils';
 
-// TO DO
+// TODO: update validation, remove unused conditions
 const validateShop = (shop) => {
   if (!shop || typeof shop !== 'object') {
     return { error: true, msg: 'Invalid args' };
@@ -35,6 +35,11 @@ const validateShop = (shop) => {
   return {};
 };
 
+/**
+ * [shopFromContract description]
+ * @param  {[type]} rawShop [description]
+ * @return {[type]}         [description]
+ */
 const shopFromContract = (rawShop) => {
   const validation = validateShop(rawShop);
   if (validation.error) throw new TypeError(validation.msg);

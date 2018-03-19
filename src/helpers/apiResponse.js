@@ -1,5 +1,11 @@
 import tr from '../translate';
 
+/**
+ * [getErrorMessage description]
+ * @param  {[type]} errors   [description]
+ * @param  {[type]} response [description]
+ * @return {[type]}          [description]
+ */
 export const getErrorMessage = (errors, { response }) => {
   const { status } = response;
   if (status === 429) {

@@ -6,6 +6,10 @@ import SmsCertifier from 'dethercontract/contracts/SmsCertifier.json';
 const provider = window.web3 && window.web3.currentProvider;
 export const web3js = new Web3(provider);
 
+/**
+ * [helperWeb3 description]
+ * @return {Promise} [description]
+ */
 export const helperWeb3 = async () => {
   const address = (await web3js.eth.getAccounts())[0];
   const networkId = await web3js.eth.net.getId();

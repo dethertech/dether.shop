@@ -8,6 +8,11 @@ export const initialState = {
   areTermsAccepted: false
 };
 
+/**
+ * [hasGoodNetwork description]
+ * @param  {[type]}  ethNetwork [description]
+ * @return {Boolean}            [description]
+ */
 export const hasGoodNetwork = ({ ethNetwork }) => ethNetwork && ethNetwork === config.ethNetwork;
 
 /**
