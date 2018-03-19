@@ -11,12 +11,14 @@ import {
   getShop as getShopHelper,
   getBalance as getBalanceHelper,
   isWeb3 as isWeb3Helper,
-  isSmsReg as isSmsRegHelper
+  isSmsReg as isSmsRegHelper,
 } from '../../helpers';
 
+import { getNetwork } from '../../helpers/ethereum/getNetwork';
 import {
   setAppInitialized as setAppInitializedAction,
   setMetamaskInstalled as setMetamaskInstalledAction,
+  setEthNetwork as setEthNetworkAction,
   toggleTermsModal as toggleTermsModalAction
 } from '../../actions/app';
 import {
@@ -68,21 +70,24 @@ export class LeftPanel extends PureComponent {
       addShop,
       getBalance,
       setBalance,
+      setEthNetwork,
       isCertified,
       setUserCertified
     } = this.props;
 
     const ethAddress = await isWeb3();
     if (ethAddress) {
-      const [shop, balance, certified] = await Promise.all([
+      const [shop, balance, certified, network] = await Promise.all([
         getShop(),
         getBalance(),
-        isCertified()
+        isCertified(),
+        getNetwork(),
       ]);
 
       if (shop) addShop(shop);
       if (balance) setBalance(balance);
       if (certified) setUserCertified(certified);
+      if (network) setEthNetwork(network);
       setMetamaskInstalled(true);
       setEthAddress(ethAddress);
     }
@@ -145,10 +150,11 @@ const mapDispatchToProps = dispatch => ({
   setBalance: bindActionCreators(setBalanceAction, dispatch),
   setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
   toggleTermsModal: bindActionCreators(toggleTermsModalAction, dispatch),
+  setEthNetwork: bindActionCreators(setEthNetworkAction, dispatch),
   isWeb3: isWeb3Helper,
   getShop: getShopHelper,
   getBalance: getBalanceHelper,
-  isCertified: isSmsRegHelper
+  isCertified: isSmsRegHelper,
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LeftPanel));

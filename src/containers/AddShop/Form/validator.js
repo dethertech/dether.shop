@@ -1,4 +1,4 @@
-import tr from '../../translate';
+import tr from '../../../translate';
 
 export default {
   address: {

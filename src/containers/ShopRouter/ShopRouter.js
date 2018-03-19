@@ -1,16 +1,15 @@
 import React, { PureComponent } from 'react';
-import { withRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { hasEnoughMoneyToAddShop } from '../../reducers/user';
+import { hasGoodNetwork } from '../../reducers/app';
 /*
 Containers
 */
-import AddShopHome from '../AddShopHome';
+import AddShop from '../AddShop';
+import Home from '../Home';
 import PhoneVerification from '../PhoneVerification';
-import AddShopForm from '../AddShopForm';
-import AddFormVerification from '../AddFormVerification';
 import ShowShop from '../ShowShop';
 
 /**
@@ -21,32 +20,27 @@ class ShopRouter extends PureComponent {
   static propTypes = {
     isUserVerified: PropTypes.bool.isRequired,
     hasShop: PropTypes.bool.isRequired,
-    hasAccount: PropTypes.bool.isRequired
+    isUserReady: PropTypes.bool.isRequired
   };
 
   render() {
-    const { hasShop, isUserVerified, hasAccount } = this.props;
+    const { hasShop, isUserVerified, isUserReady } = this.props;
     if (hasShop)
       return <ShowShop />;
-    if (hasAccount) {
-      return (
-        <Switch>
-          {isUserVerified && <Route exact path="/add-form" component={AddShopForm} />}
-          {isUserVerified &&
-            <Route exact path="/add-form/verification" component={AddFormVerification} />}
-          {!isUserVerified && <Route exact path="/add-phone" component={PhoneVerification} />}
-          <Route path="/" component={AddShopHome} />
-        </Switch>
-      );
+    if (isUserReady) {
+      if (isUserVerified)
+        return <AddShop />;
+      return <PhoneVerification />;
     }
-    return <Route path="/" component={AddShopHome} />;
+    return <Home />;
   }
 }
 
 const mapStateToProps = ({ user, shop, app }) => ({
   isUserVerified: user.isCertified,
-  hasAccount: app.isMetamaskInstalled && hasEnoughMoneyToAddShop(user),
+  isUserReady: app.isMetamaskInstalled
+    && hasEnoughMoneyToAddShop(user) && hasGoodNetwork(app) && app.areTermsAccepted,
   hasShop: !!shop.shop
 });
 
-export default withRouter(connect(mapStateToProps, null)(ShopRouter));
+export default connect(mapStateToProps, null)(ShopRouter);

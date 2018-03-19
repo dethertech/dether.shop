@@ -3,27 +3,25 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { H1 } from '../../components/Headings';
-import { LabeledInput } from '../../components/Inputs';
-import { Padding } from '../../components/Spaces';
-import Mention from '../../components/Mention';
-import ProgressBar from '../../components/ProgressBar';
-import Button from '../../components/Button';
+import { H1 } from '../../../components/Headings';
+import { LabeledInput } from '../../../components/Inputs';
+import { Padding } from '../../../components/Spaces';
+import Mention from '../../../components/Mention';
+import ProgressBar from '../../../components/ProgressBar';
+import Button from '../../../components/Button';
 
-import { setDataShopPending as setDataShopPendingAction } from '../../actions/shop';
-import tr from '../../translate';
+import { setDataShopPending as setDataShopPendingAction } from '../../../actions/shop';
+import tr from '../../../translate';
 import DaysOnpeningHour from './DaysOnpeningHour';
 import validator from './validator';
 import fromState from './fromState';
 import SearchBar from './SearchBar';
 
-export class AddShopForm extends PureComponent {
+export class Form extends PureComponent {
   static propTypes = {
-    history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired,
     shop: PropTypes.shape({}).isRequired,
-    setDataShopPending: PropTypes.func.isRequired
+    setDataShopPending: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -62,10 +60,9 @@ export class AddShopForm extends PureComponent {
   };
 
   onSave = async () => {
-    console.log('wat');
     if (this.isFormValide()) {
       const { days, form } = this.state;
-      const { setDataShopPending, history } = this.props;
+      const { setDataShopPending, onSubmit } = this.props;
       const data = {
         ...form.address.value,
         cat: form.cat.value,
@@ -74,7 +71,7 @@ export class AddShopForm extends PureComponent {
         opening: days
       };
       setDataShopPending(data);
-      history.push('/add-form/verification');
+      onSubmit();
     }
   };
 
@@ -143,7 +140,7 @@ const mapStateToProps = ({ shop }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setDataShopPending: bindActionCreators(setDataShopPendingAction, dispatch)
+  setDataShopPending: bindActionCreators(setDataShopPendingAction, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddShopForm);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

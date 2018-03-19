@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import tokens from '../../../styles/tokens';
-import { Select } from '../../../components/Inputs';
-import { SwitchButton } from '../../../components/Button';
-import { hours } from '../../../helpers';
+import tokens from '../../../../styles/tokens';
+import { Select } from '../../../../components/Inputs';
+import { SwitchButton } from '../../../../components/Button';
+import { hours } from '../../../../helpers';
 
 const Wrapper = styled.div`
   display: flex;

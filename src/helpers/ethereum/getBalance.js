@@ -17,8 +17,8 @@ export const getBalance = async () => {
         if (!error) {
           balances.eth = parseFloat(web3js.utils.fromWei(result, 'ether'));
           balances.dth = parseFloat(web3js.utils.fromWei(
-            await dthContract.methods.balanceOf(address).call()
-            , 'ether'
+            await dthContract.methods.balanceOf(address).call(),
+            'ether'
           ));
           res(balances);
         } else {

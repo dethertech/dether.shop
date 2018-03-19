@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { persistStore, persistReducer, createTransform } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { initialState as appReducerInitialState } from '../reducers/app';
 
 /*
 Middlewares
@@ -19,12 +20,17 @@ Persist store config
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['shop'],
+  whitelist: ['shop', 'app'],
   transforms: [
     createTransform(
       state => ({ ...state, shop: null }),
       state => state,
       { whitelist: ['shop'] }
+    ),
+    createTransform(
+      state => ({ ...appReducerInitialState, areTermsAccepted: state.areTermsAccepted }),
+      state => state,
+      { whitelist: ['app'] }
     )
   ]
 };
