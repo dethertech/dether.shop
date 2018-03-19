@@ -4,6 +4,61 @@ import web3Abi from 'web3-eth-abi';
 
 import { web3js, helperWeb3 } from './utils';
 
+// TO DO
+// Make it with arrow function
+/* eslint-disable */
+const convertBase = function () {
+    function convertBase(baseFrom, baseTo) {
+        return function (num) {
+            return parseInt(num, baseFrom).toString(baseTo);
+        };
+    }
+    // binary to decimal
+    convertBase.bin2dec = convertBase(2, 10);
+    // binary to hexadecimal
+    convertBase.bin2hex = convertBase(2, 16);
+    // decimal to binary
+    convertBase.dec2bin = convertBase(10, 2);
+    // decimal to hexadecimal
+    convertBase.dec2hex = convertBase(10, 16);
+    // hexadecimal to binary
+    convertBase.hex2bin = convertBase(16, 2);
+    // hexadecimal to decimal
+    convertBase.hex2dec = convertBase(16, 10);
+    return convertBase;
+}();
+/* eslint-enable */
+
+const intTo4bytes = (intvalue) => {
+  const hexvalue = convertBase.dec2hex(intvalue);
+  let result = hexvalue;
+  for (let i = 0; i + hexvalue.length < 8; i += 1) {
+    result = `0${result}`;
+  }
+  return result;
+};
+
+const toNBytes = (str, n) => {
+  let buffer = '';
+  for (let i = 0; i < n; i += 1) {
+    buffer += str[i] ? str[i].charCodeAt(0).toString(16) : '00';
+  }
+  return buffer;
+};
+
+const shopToContract = (rawshop) => {
+  const lat = intTo4bytes(parseFloat(rawshop.lat) * 100000);
+  const lng = intTo4bytes(parseFloat(rawshop.lng) * 100000);
+
+  const hexshopGeo = `0x31${lat}${lng}`;
+  const hexShopAddr = `${toNBytes(rawshop.countryId, 2)}${toNBytes(rawshop.postalCode, 16)}`;
+  const hexShopId = `${toNBytes(rawshop.cat, 16)}${toNBytes(rawshop.name, 16)}`;
+  const hexShopDesc = `${toNBytes(rawshop.description, 32)}${toNBytes(rawshop.opening, 16)}31`;
+
+  const hexShop = `${hexshopGeo}${hexShopAddr}${hexShopId}${hexShopDesc}`;
+  return hexShop;
+};
+
 const overloadedTransferAbi = {
   constant: false,
   inputs: [
@@ -32,24 +87,6 @@ const overloadedTransferAbi = {
   type: 'function'
 };
 
-const toNBytes = (str, n) => {
-  let buffer = '';
-  for (let i = 0; i < n; i += 1) {
-    buffer += str[i] ? str[i].charCodeAt(0).toString(16) : '00';
-  }
-  return buffer;
-};
-
-const shopToContract = (rawshop) => {
-  const hexshopGeo = `0x${toNBytes(rawshop.lat, 16)}${toNBytes(rawshop.lng, 16)}`;
-  const hexShopAddr = `${toNBytes(rawshop.countryId, 2)}${toNBytes(rawshop.postalCode, 16)}`;
-  const hexShopId = `${toNBytes(rawshop.cat, 16)}${toNBytes(rawshop.name, 16)}`;
-  const hexShopDesc = `${toNBytes(rawshop.description, 32)}${toNBytes(rawshop.opening, 16)}31`;
-
-  const hexShop = `${hexshopGeo}${hexShopAddr}${hexShopId}${hexShopDesc}`;
-  return hexShop;
-};
-
 /**
  * register a shop, SHOP need to have DTH and to be certified
  * @param {[Object]} description
@@ -64,7 +101,7 @@ const addShop = (shop) =>
         overloadedTransferAbi,
         [
           DetherCore.networks[networkId].address,
-          20,
+          100,
           hexShop
         ]
       );

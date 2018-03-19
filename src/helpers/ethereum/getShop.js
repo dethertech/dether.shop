@@ -40,8 +40,8 @@ const shopFromContract = (rawShop) => {
   if (validation.error) throw new TypeError(validation.msg);
   try {
     return {
-      lat: web3js.utils.hexToUtf8(rawShop.lat).replace(/\0/g, ''),
-      lng: web3js.utils.hexToUtf8(rawShop.lng).replace(/\0/g, ''),
+      lat: parseFloat(rawShop.lat) / 100000,
+      lng: parseFloat(rawShop.lng) / 100000,
       countryId: web3js.utils.hexToUtf8(rawShop.countryId).replace(/\0/g, ''),
       postalCode: web3js.utils.hexToUtf8(rawShop.postalCode).replace(/\0/g, ''),
       cat: web3js.utils.hexToUtf8(rawShop.cat).replace(/\0/g, ''),
