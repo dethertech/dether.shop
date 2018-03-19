@@ -24,8 +24,14 @@ const toggleTermsModal = () => ({
   type: 'TOGGLE_TERMS_MODAL'
 });
 
+const setEthNetwork = id => ({
+  type: 'SET_ETH_NETWORK',
+  payload: id
+});
+
 export {
   setMetamaskInstalled,
   setAppInitialized,
-  toggleTermsModal
+  toggleTermsModal,
+  setEthNetwork
 };
