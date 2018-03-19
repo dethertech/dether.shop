@@ -56,47 +56,43 @@ class ComboBox extends PureComponent {
     };
   }
 
-  onFocus = () =>
-    this.setState(prevState => ({
-      ...prevState,
-      inputFocus: true,
-      showOptions: true
-    }));
+  onFocus = () => this.setState({ inputFocus: true, showOptions: true });
 
   onBlur = () => {
     const { onBlur } = this.props;
-    this.setState(prevState => ({ ...prevState, inputFocus: true }));
+    const { options, value } = this.state;
+
+    const matchOption = options.find(option => option.name.toUpperCase() === value.toUpperCase());
+    if (matchOption) this.onSelectOption(matchOption)();
+
+    this.setState({ inputFocus: true });
     setTimeout(() => {
       this.setState({ showOptions: false });
       onBlur();
-    }, 500);
+    }, 100);
   };
 
   onChange = event => {
     this.props.onChange();
     const val = event.target.value;
     this.filterOption(val);
-    this.setState(prevState => ({ ...prevState, value: val, showOptions: true }));
+    this.setState({ value: val, showOptions: true });
   };
 
   onSelectOption = option => () => {
-    this.setState(prevState => ({
-      ...prevState,
-      value: option.name,
-      showOptions: false
-    }));
+    console.log(option);
+    this.setState({ value: option.name, showOptions: false });
     this.props.onSelectedOption(option);
   };
 
   filterOption = filter => {
     const newOptions = getOptionsContainingWord(filter, this.props.data);
-    this.setState(prevState => ({ ...prevState, options: newOptions }));
+    this.setState({ options: newOptions });
   };
 
-  displayOptions = () => this.setState(prevState => ({ ...prevState, showOptions: true }));
+  displayOptions = () => this.setState({ showOptions: true });
 
-  toggleOptions = () =>
-    this.setState(prevState => ({ ...prevState, showOptions: !this.state.showOptions }));
+  toggleOptions = () => this.setState({ showOptions: !this.state.showOptions });
 
   render() {
     const { name, placeholder, hasError, isValid } = this.props;

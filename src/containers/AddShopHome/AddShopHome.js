@@ -23,7 +23,7 @@ import illustration from '../../assets/illustration.svg';
   Redux
  */
 import { toggleTermsModal as toggleTermsModalAction } from '../../actions';
-import { hasEnougthMoneyToAddShop } from '../../reducers/user';
+import { hasEnoughMoneyToAddShop } from '../../reducers/user';
 
 /*
   Components
@@ -141,7 +141,7 @@ export class AddShopHome extends PureComponent {
 }
 
 const mapStateToProps = ({ user, app }) => ({
-  hasEnougthMoney: hasEnougthMoneyToAddShop(user),
+  hasEnougthMoney: hasEnoughMoneyToAddShop(user),
   isMetamaskInstalled: app.isMetamaskInstalled,
   isUserVerified: user.isCertified,
   minEth: config.gasPrice.simpleTransac,
