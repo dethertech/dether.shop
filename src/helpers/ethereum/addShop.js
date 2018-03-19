@@ -101,7 +101,7 @@ const addShop = (shop) =>
         overloadedTransferAbi,
         [
           DetherCore.networks[networkId].address,
-          20,
+          100,
           hexShop
         ]
       );
