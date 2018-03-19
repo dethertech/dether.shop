@@ -13,11 +13,11 @@ const initialState = {
 const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_PHONE':
-      return { ...state, phone: payload.phone };
+      return { ...state, phone: payload };
     case 'SET_PHONE_COUNTRY':
-      return { ...state, phoneCountry: payload.phoneCountry };
+      return { ...state, phoneCountry: payload };
     case 'SET_PHONE_SENT':
-      return { ...state, phoneSent: payload.phoneSent };
+      return { ...state, phoneSent: payload };
     case 'SET_PHONE_VERIFIED':
       return { ...state, phoneVerif: true };
     case 'SEND_SMS_PENDING':

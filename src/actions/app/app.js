@@ -1,6 +1,6 @@
 /**
  * setMetamaskInstalled
- * @param {[type]} bool [description]
+ * @param {boolean} bool if metamask is installed
  */
 const setMetamaskInstalled = bool => ({
   type: 'SET_METAMASK_INSTALLED',
@@ -9,7 +9,7 @@ const setMetamaskInstalled = bool => ({
 
 /**
  * setAppInitialized
- * @param {[type]} bool [description]
+ * @param {boolean} bool [description]
  */
 const setAppInitialized = bool => ({
   type: 'SET_APP_INITIALIZED',
@@ -18,7 +18,6 @@ const setAppInitialized = bool => ({
 
 /**
  * toggleTermsModal
- * @return {[type]} [description]
  */
 const toggleTermsModal = () => ({
   type: 'TOGGLE_TERMS_MODAL'

@@ -17,9 +17,9 @@ const initialState = {
 export const mapReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_USER_POSITION':
-      return { ...state, userPosition: payload.userPosition };
+      return { ...state, userPosition: payload };
     case 'SET_CENTER_POSITION':
-      return { ...state, centerPosition: payload.centerPosition };
+      return { ...state, centerPosition: payload };
     case 'SET_MAP_INITIATED':
       return { ...state, mapInitiated: true };
     case 'FETCH_USER_INFO_SUCCESS': {
@@ -46,7 +46,7 @@ export const mapReducer = (state = initialState, { type, payload }) => {
         ...state,
         contentOnCard: {
           type: 'shop',
-          content: payload.shop
+          content: payload
         },
         cardOpened: true,
       };

@@ -1,7 +1,7 @@
 /*
   Constants
  */
-import config from '../constants/config';
+import { config } from '../../constants';
 
 /**
  * sendSms
@@ -43,7 +43,7 @@ const sendVerifCode = ({ code, phoneNumber, onSuccess, onError }) => ({
  */
 const setPhone = phone => ({
   type: 'SET_PHONE',
-  payload: { phone }
+  payload: phone
 });
 
 /**
@@ -52,7 +52,7 @@ const setPhone = phone => ({
  */
 const setPhoneCountry = phoneCountry => ({
   type: 'SET_PHONE_COUNTRY',
-  payload: { phoneCountry }
+  payload: phoneCountry
 });
 
 /**
@@ -61,7 +61,7 @@ const setPhoneCountry = phoneCountry => ({
  */
 const setPhoneSent = phoneSent => ({
   type: 'SET_PHONE_SENT',
-  payload: { phoneSent }
+  payload: phoneSent
 });
 
 /**
