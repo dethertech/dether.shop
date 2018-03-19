@@ -39,10 +39,13 @@ describe('Container ShowShop', () => {
             lat: '48.8628',
             lng: '2.3292'
           }}
-          addShopToStore={() => {}}
-          addShopToContract={() => {}}
+          addDeleteShopTransaction={() => {}}
+          removeShopFromStore={() => {}}
           isTransactionPending={false}
           deleteContractShop={() => {}}
+          transactionHash={'qwertyuio'}
+          history={{ push: () => {}}}
+          endTransaction={() => {}}
         />
     );
     expect(component).not.toBe(null);

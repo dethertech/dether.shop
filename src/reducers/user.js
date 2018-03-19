@@ -33,11 +33,11 @@ const userReducer = (state = initialState, { type, payload }) => {
 export const hasBalance = ({ balance }) => balance && (balance.eth !== 0 || balance.dth !== 0);
 
 /**
- * hasEnougthMoneyToAddShop
+ * hasEnoughMoneyToAddShop
  * @param  {[type]}  balance [description]
  * @return {Boolean}         [description]
  */
-export const hasEnougthMoneyToAddShop = ({ balance }) =>
+export const hasEnoughMoneyToAddShop = ({ balance }) =>
   hasBalance({ balance }) &&
   balance.eth >= config.gasPrice.simpleTransac &&
   balance.dth >= config.licensePrice;
