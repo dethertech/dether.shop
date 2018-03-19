@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
-import { LabeledInput } from '../../../components/Inputs';
-import tr from '../../../translate';
+import { LabeledInput } from '../../../../components/Inputs';
+import tr from '../../../../translate';
 
-import { GeocodeAPI } from '../../../helpers';
+import { GeocodeAPI } from '../../../../helpers';
 // import SearchBarWrapper from './SearchBarWrapper';
 
 export class SearchBar extends PureComponent {

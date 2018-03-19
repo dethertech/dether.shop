@@ -4,19 +4,19 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 
-import ShopRecap from '../../components/ShopRecap';
-import Button from '../../components/Button';
-import LoaderScreen from '../../components/Screens/LoaderScreen';
-import tr from '../../translate';
+import ShopRecap from '../../../components/ShopRecap';
+import Button from '../../../components/Button';
+import LoaderScreen from '../../../components/Screens/LoaderScreen';
+import tr from '../../../translate';
 
 import {
   addAddShopTransaction as addAddShopTransactionAction,
   addShop as addShopAction,
   endTransaction as endTransactionAction
-} from '../../actions/shop';
-import { addShop as addShopHelper, getTransactionStatus } from '../../helpers/ethereum';
+} from '../../../actions/shop';
+import { addShop as addShopHelper, getTransactionStatus } from '../../../helpers/ethereum';
 
-class AddFormVerification extends PureComponent {
+class Verification extends PureComponent {
   static propTypes = {
     pendingShop: PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -75,7 +75,6 @@ class AddFormVerification extends PureComponent {
       const status = await getTransactionStatus(transactionHash);
       if (status === 'success') {
         addShopToStore(pendingShop);
-        history.push('/shop');
         this.endCheckTransaction();
       } else if (status === 'error') {
         console.log('ADD Transaction Error', transactionHash);
@@ -132,4 +131,4 @@ const mapDispatchToProps = dispatch => ({
   endTransaction: bindActionCreators(endTransactionAction, dispatch)
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddFormVerification));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Verification));

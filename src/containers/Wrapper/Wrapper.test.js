@@ -8,7 +8,7 @@ import TestUtils from 'react-dom/test-utils';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import fakeStore from '../../constants/test/fakeStore';
-import Home from './index';
+import Wrapper from './index';
 import jsdom from 'jsdom'
 const { JSDOM } = jsdom;
 
@@ -35,10 +35,10 @@ const google = {
 global.google = google
 global.window.google = google
 
-describe('Container Home', () => {
+describe('Container Wrapper', () => {
   it('should be render without crash', () => {
     const component = TestUtils.renderIntoDocument(
-        <Provider store={store}><Router><Home /></Router></Provider>
+        <Provider store={store}><Router><Wrapper /></Router></Provider>
     );
     expect(component).not.toBe(null);
   });

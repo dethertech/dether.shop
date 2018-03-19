@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 
 import tr from '../../../translate';
 import { phoneVerificationTime, getErrorMessage } from '../../../helpers';
@@ -22,9 +21,6 @@ class ValidationCode extends PureComponent {
     sendVerifCode: PropTypes.func.isRequired,
     code: PropTypes.number,
     setUserCertified: PropTypes.func.isRequired,
-    history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
   };
 
   static defaultProps = {
@@ -51,7 +47,6 @@ class ValidationCode extends PureComponent {
     const {
       phoneNumber,
       sendVerifCode,
-      history,
       setUserCertified
     } = this.props;
 
@@ -59,7 +54,6 @@ class ValidationCode extends PureComponent {
       code,
       phoneNumber,
       onSuccess: () => {
-        history.push('/add-form');
         setUserCertified(true);
       },
       onError: (errors, res) => this.setState({ error: getErrorMessage(errors, res) })
@@ -92,4 +86,4 @@ const mapDispatchToProps = dispatch => ({
   setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch)
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ValidationCode));
+export default connect(mapStateToProps, mapDispatchToProps)(ValidationCode);

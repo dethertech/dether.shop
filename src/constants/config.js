@@ -2,7 +2,7 @@ const GAS_PRICE_ETH = Number(process.env.REACT_APP_GAS_PRICE_ETH);
 const GAS_AMOUNT = Number(process.env.REACT_APP_GAS_AMOUNT);
 
 export default {
-  ethNetwork: process.env.REACT_APP_ETH_NETWORK,
+  ethNetwork: Number(process.env.REACT_APP_ETH_NETWORK),
   gasPrice: {
     eth: GAS_PRICE_ETH,
     simpleTransac: GAS_PRICE_ETH * GAS_AMOUNT

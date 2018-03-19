@@ -1,5 +1,5 @@
 import validator from './validator';
-import tr from '../../translate';
+import tr from '../../../translate';
 
 export default ({ onChange, onBlur }, props) => {
   const { shop } = props;

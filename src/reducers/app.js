@@ -1,10 +1,11 @@
 import config from '../constants/config';
 
-const initialState = {
+export const initialState = {
   isMetamaskInstalled: false,
   isAppInitialized: false,
   isTermsModalOpenened: false,
-  ethNetwork: null
+  ethNetwork: null,
+  areTermsAccepted: false
 };
 
 export const hasGoodNetwork = ({ ethNetwork }) => ethNetwork && ethNetwork === config.ethNetwork;
@@ -22,6 +23,8 @@ const appReducer = (state = initialState, { type, payload }) => {
       return { ...state, isTermsModalOpenened: !state.isTermsModalOpenened };
     case 'SET_ETH_NETWORK':
       return { ...state, ethNetwork: payload };
+    case 'ACCEPT_TERMS':
+      return { ...state, areTermsAccepted: true };
     default:
       return state;
   }

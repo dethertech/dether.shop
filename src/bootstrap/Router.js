@@ -4,14 +4,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 /*
   Containers
  */
-import Home from '../containers/Home';
+import Wrapper from '../containers/Wrapper';
 
 /**
  * RouterComponent contains all routes
  */
 const RouterComponent = () => (
   <Router>
-    <Home />
+    <Wrapper />
   </Router>
 );
 

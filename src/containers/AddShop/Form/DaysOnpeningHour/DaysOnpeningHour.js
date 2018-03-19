@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { Padding } from '../../../components/Spaces';
-import { H3 } from '../../../components/Headings';
-import { convertDay } from '../../../helpers';
+import { Padding } from '../../../../components/Spaces';
+import { H3 } from '../../../../components/Headings';
+import { convertDay } from '../../../../helpers';
 
 import DayLineOnpeningHour from './DayLineOnpeningHour';
 

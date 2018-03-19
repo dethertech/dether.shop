@@ -2,7 +2,6 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
 
 /*
   Components
@@ -52,9 +51,6 @@ export class ShowShop extends PureComponent {
     deleteContractShop: PropTypes.func.isRequired,
     removeShopFromStore: PropTypes.func.isRequired,
     transactionHash: PropTypes.string.isRequired,
-    history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired,
     endTransaction: PropTypes.func.isRequired
   }
 
@@ -93,12 +89,11 @@ export class ShowShop extends PureComponent {
   }
 
   checkTransaction = () => {
-    const { transactionHash, removeShopFromStore, history } = this.props;
+    const { transactionHash, removeShopFromStore } = this.props;
     this.interval = setInterval(async () => {
       const status = await getTransactionStatus(transactionHash);
       if (status === 'success') {
         removeShopFromStore();
-        history.push('/');
         this.endCheckTransaction();
       } else if (status === 'error') {
         console.log('DELETE Transaction Error', transactionHash);
@@ -147,4 +142,4 @@ const mapDispatchToProps = dispatch => ({
   endTransaction: bindActionCreators(endTransactionAction, dispatch)
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ShowShop));
+export default connect(mapStateToProps, mapDispatchToProps)(ShowShop);

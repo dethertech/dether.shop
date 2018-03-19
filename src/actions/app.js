@@ -29,9 +29,12 @@ const setEthNetwork = id => ({
   payload: id
 });
 
+const acceptTerms = () => ({ type: 'ACCEPT_TERMS' });
+
 export {
   setMetamaskInstalled,
   setAppInitialized,
   toggleTermsModal,
-  setEthNetwork
+  setEthNetwork,
+  acceptTerms
 };
