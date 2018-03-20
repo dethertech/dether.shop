@@ -112,7 +112,7 @@ const addShop = (shop) =>
   new Promise(async (res, rej) => {
     try {
       const hexShop = shopToContract(shop);
-      const [address, networkId] = await Promise.All([getAddress(), getNetworkId()]);
+      const [address, networkId] = await Promise.all([getAddress(), getNetworkId()]);
       const transferMethodTransactionData = web3Abi.encodeFunctionCall(
         overloadedTransferAbi,
         [
