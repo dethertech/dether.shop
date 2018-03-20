@@ -2,7 +2,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import {Form} from './Form'
+import Verification from './Verification'
 import { storyWithStore } from '../../../helpers'
 
 const initialStore = {
@@ -19,10 +19,10 @@ const initialStore = {
       opening: '0000000'
     }
   }
-}
+};
 
-storiesOf('04 - Screens/Form', module)
+storiesOf('04 - Screens/Verification', module)
   .addDecorator(storyWithStore(initialStore))
-  .add('Form', () => (
-    <Form shop={initialStore.shop.pendingShop} setDataShopPending={() => null} onSubmit={() => null} />
-  ))
+  .add('Verification', () => (
+    <Verification shop={initialStore.shop.pendingShop} />
+  ));

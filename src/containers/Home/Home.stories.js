@@ -3,10 +3,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { storiesOf, addDecorator } from '@storybook/react'
 import { storyWithStore } from '../../helpers'
-import { AddShopHome } from './AddShopHome'
+import { Home } from './Home'
 
-storiesOf('04 - Screens/AddShopHome', module)
-.add('EnougthMoney', () => <AddShopHome
+storiesOf('04 - Screens/Home', module)
+.add('EnougthMoney', () => <Home
   hasEnougthMoney={true}
   isMetamaskInstalled={true}
   isPhoneVerified={true}
@@ -14,8 +14,8 @@ storiesOf('04 - Screens/AddShopHome', module)
   minDth={5.10945895866895045986}
 />)
 
-storiesOf('04 - Screens/AddShopHome', module)
-.add('Not EnougthMoney', () => <AddShopHome
+storiesOf('04 - Screens/Home', module)
+.add('Not EnougthMoney', () => <Home
   hasEnougthMoney={false}
   isMetamaskInstalled={true}
   isPhoneVerified={true}
@@ -23,8 +23,8 @@ storiesOf('04 - Screens/AddShopHome', module)
   minDth={5.10945895866895045986}
 />)
 
-storiesOf('04 - Screens/AddShopHome', module)
-.add('Metamask not installed', () => <AddShopHome
+storiesOf('04 - Screens/Home', module)
+.add('Metamask not installed', () => <Home
   hasEnougthMoney={true}
   isMetamaskInstalled={false}
   isPhoneVerified={true}

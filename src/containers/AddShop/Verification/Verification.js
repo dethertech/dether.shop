@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 
 import ShopRecap from '../../../components/ShopRecap';
 import Button from '../../../components/Button';
@@ -15,6 +16,15 @@ import {
   endTransaction as endTransactionAction
 } from '../../../actions/shop';
 import { addShop as addShopHelper, getTransactionStatus } from '../../../helpers/ethereum';
+
+const ButtonsWrapper = styled.div`
+  max-width: 48rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 40px;
+`;
 
 class Verification extends PureComponent {
   static propTypes = {
@@ -34,7 +44,8 @@ class Verification extends PureComponent {
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
     }).isRequired,
-    endTransaction: PropTypes.func.isRequired
+    endTransaction: PropTypes.func.isRequired,
+    goBack: PropTypes.func.isRequired
   }
 
   state = {
@@ -56,12 +67,19 @@ class Verification extends PureComponent {
   }
 
   getView = () => {
-    const { isTransactionPending } = this.props;
+    const { isTransactionPending, goBack } = this.props;
 
     if (isTransactionPending)
       return <div>{tr('add_form_verification.transaction_pending')}</div>;
-    return <Button onClick={this.addShop}>{tr('add_form_verification.submit_button')}</Button>;
-  }
+    return (
+      <ButtonsWrapper>
+        <Button width="45%" theme="primary" onClick={this.addShop}>
+          {tr('add_form_verification.submit_button')}
+        </Button>
+        <Button width="45%" onClick={goBack}>{tr('add_form_verification.edit_button')}</Button>
+      </ButtonsWrapper>
+    );
+  };
 
   endCheckTransaction = () => {
     const { endTransaction } = this.props;

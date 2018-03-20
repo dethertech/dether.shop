@@ -20,6 +20,7 @@ exports[`Component Button should be render danger colored button 1`] = `
   className="c0"
   disabled={false}
   onClick={[Function]}
+  width={null}
 >
   button
 </button>
@@ -46,6 +47,7 @@ exports[`Component Button should be render fullWidth button 1`] = `
   className="c0"
   disabled={false}
   onClick={[Function]}
+  width={null}
 >
   button
 </button>
@@ -71,6 +73,7 @@ exports[`Component Button should be render primary colored button 1`] = `
   className="c0"
   disabled={false}
   onClick={[Function]}
+  width={null}
 >
   button
 </button>
@@ -96,6 +99,7 @@ exports[`Component Button should be render without crash 1`] = `
   className="c0"
   disabled={false}
   onClick={[Function]}
+  width={null}
 >
   button
 </button>
