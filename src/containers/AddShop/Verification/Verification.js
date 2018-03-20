@@ -15,6 +15,7 @@ import {
   addShop as addShopAction,
   endTransaction as endTransactionAction
 } from '../../../actions/shop';
+import { fetchAll as fetchAllAction } from '../../../actions/map';
 import { addShop as addShopHelper, getTransactionStatus } from '../../../helpers/ethereum';
 
 const ButtonsWrapper = styled.div`
@@ -41,11 +42,10 @@ class Verification extends PureComponent {
     addAddShopTransaction: PropTypes.func.isRequired,
     isTransactionPending: PropTypes.bool.isRequired,
     transactionHash: PropTypes.string.isRequired,
-    history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired,
     endTransaction: PropTypes.func.isRequired,
-    goBack: PropTypes.func.isRequired
+    goBack: PropTypes.func.isRequired,
+    fetchAll: PropTypes.func.isRequired,
+    centerPosition: PropTypes.shape({}).isRequired
   }
 
   state = {
@@ -88,15 +88,15 @@ class Verification extends PureComponent {
   }
 
   checkTransaction = () => {
-    const { transactionHash, addShopToStore, pendingShop, history } = this.props;
+    const { transactionHash, addShopToStore, pendingShop, fetchAll, centerPosition } = this.props;
     this.interval = setInterval(async () => {
       const status = await getTransactionStatus(transactionHash);
       if (status === 'success') {
         addShopToStore(pendingShop);
+        fetchAll(centerPosition);
         this.endCheckTransaction();
       } else if (status === 'error') {
         console.log('ADD Transaction Error', transactionHash);
-        history.push('/add-form');
         this.endCheckTransaction();
       }
     }, 3000);
@@ -136,17 +136,19 @@ class Verification extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ shop }) => ({
+const mapStateToProps = ({ shop, map }) => ({
   pendingShop: shop.pendingShop,
   isTransactionPending: !!shop.transactionHash,
-  transactionHash: shop.transactionHash || ''
+  transactionHash: shop.transactionHash || '',
+  centerPosition: map.centerPosition
 });
 
 const mapDispatchToProps = dispatch => ({
   addShopToContract: addShopHelper,
   addShopToStore: bindActionCreators(addShopAction, dispatch),
   addAddShopTransaction: bindActionCreators(addAddShopTransactionAction, dispatch),
-  endTransaction: bindActionCreators(endTransactionAction, dispatch)
+  endTransaction: bindActionCreators(endTransactionAction, dispatch),
+  fetchAll: bindActionCreators(fetchAllAction, dispatch),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Verification));
