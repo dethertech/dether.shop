@@ -1,4 +1,4 @@
-import config from '../constants/config';
+import config from '../../constants/config';
 
 export const initialState = {
   isMetamaskInstalled: false,
