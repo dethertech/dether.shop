@@ -42,15 +42,10 @@ export class Form extends PureComponent {
 
   onChange = ({ target: { name, value: val } }) => {
     const validatorName = validator[name];
+    const value = validatorName.tranform(val);
 
     this.setState(pState => ({
-      form: {
-        ...pState.form,
-        [name]: {
-          ...pState.form[name],
-          value: validatorName.tranform(val, pState.form[name].value)
-        }
-      }
+      form: { ...pState.form, [name]: { ...pState.form[name], value } }
     }));
   };
 
