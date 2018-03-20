@@ -120,6 +120,7 @@ const en = {
   add_form_verification: {
     transaction_pending: 'We are adding your shop on the Dether map, it can take few minutes...',
     submit_button: 'Submit',
+    edit_button: 'Edit',
     loader_title: 'Please wait',
     loader_add_message: 'We are checking your request'
   }
