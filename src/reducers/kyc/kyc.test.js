@@ -3,7 +3,7 @@ import deepFreeze from 'deep-freeze';
 
 import kycReducer from './kyc';
 
-describe('reducer::app', () => {
+describe('reducer::kyc', () => {
   let defaultAction;
 
   beforeEach(() => {
