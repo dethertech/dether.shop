@@ -24,11 +24,19 @@ const toggleTermsModal = () => ({
   type: 'TOGGLE_TERMS_MODAL'
 });
 
+/**
+ * [setEthNetwork description]
+ * @param {[type]} id [description]
+ */
 const setEthNetwork = id => ({
   type: 'SET_ETH_NETWORK',
   payload: id
 });
 
+/**
+ * [acceptTerms description]
+ * @return {[type]} [description]
+ */
 const acceptTerms = () => ({ type: 'ACCEPT_TERMS' });
 
 export {

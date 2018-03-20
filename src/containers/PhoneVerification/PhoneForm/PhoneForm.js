@@ -131,7 +131,7 @@ class PhoneForm extends PureComponent {
     onSubmit(fullPhone, country);
   };
 
-  render() {
+  render = () => {
     const { submitError } = this.props;
     const {
       toggleShakePhone,

@@ -17,11 +17,28 @@ const addTransaction = ({ type, hash }) => ({
   payload: { type, hash }
 });
 
+/**
+ * [addAddShopTransaction description]
+ * @param {[type]} hash [description]
+ */
 const addAddShopTransaction = hash => addTransaction({ type: 'add', hash });
+
+/**
+ * [addDeleteShopTransaction description]
+ * @param {[type]} hash [description]
+ */
 const addDeleteShopTransaction = hash => addTransaction({ type: 'delete', hash });
 
+/**
+ * [endTransaction description]
+ * @return {[type]} [description]
+ */
 const endTransaction = () => ({ type: 'END_TRANSACTION' });
 
+/**
+ * [addShop description]
+ * @param {[type]} shop [description]
+ */
 const addShop = shop => ({
   type: 'ADD_SHOP',
   payload: shop

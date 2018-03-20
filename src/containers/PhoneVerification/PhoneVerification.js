@@ -1,7 +1,7 @@
-/* eslint max-lines: 0 */
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import PhoneForm from './PhoneForm';
 import ValidateCodeContainer from './ValidateCode';
 import LoaderScreen from '../../components/Screens/LoaderScreen';

@@ -2,9 +2,19 @@ import config from '../constants/config';
 
 const GOOGLE_API = 'https://maps.google.com/maps/api/geocode/json';
 
+/**
+ * [filterPostalCode description]
+ * @param  {[type]} e [description]
+ * @return {[type]}   [description]
+ */
 const filterPostalCode = e => e.types.includes('postal_code') && !!e.long_name;
 
 const GeocodeAPI = {
+  /**
+   * [getPostalCodeFromAddressComponents description]
+   * @param  {[type]} addressComponents [description]
+   * @return {[type]}                   [description]
+   */
   getPostalCodeFromAddressComponents(addressComponents) {
     const elemFind = addressComponents.filter(filterPostalCode);
     if (elemFind && elemFind.length) {
@@ -13,6 +23,11 @@ const GeocodeAPI = {
     return null;
   },
 
+  /**
+   * [getCountryIdFromAddressComponents description]
+   * @param  {[type]} addressComponents [description]
+   * @return {[type]}                   [description]
+   */
   getCountryIdFromAddressComponents(addressComponents) {
     const elemFind = addressComponents.filter(e => e.types.includes('country') && !!e.short_name);
     if (elemFind && elemFind.length) {
@@ -56,10 +71,20 @@ const GeocodeAPI = {
     return results;
   },
 
+  /**
+   * [positionToAddress description]
+   * @param  {[type]}  position [description]
+   * @return {Promise}          [description]
+   */
   async positionToAddress(position) {
     return (await this.reverseGeocode(position))[0].formatted_address;
   },
 
+  /**
+   * [handleUrl description]
+   * @param  {[type]}  url [description]
+   * @return {Promise}     [description]
+   */
   async handleUrl(url) {
     const response = await fetch(url).catch(() => Promise.reject(new Error('Error fetching data')));
 

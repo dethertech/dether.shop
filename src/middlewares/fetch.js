@@ -11,7 +11,8 @@ import { get, last } from '../helpers';
 import { config } from '../constants';
 
 /**
- * fetch Middleware function
+ * [fetchMiddleware description]
+ * @return {[type]} [description]
  */
 const fetchMiddleware = () => dispatch => async action => {
   const { type, url, params, data } = action;
