@@ -21,7 +21,7 @@ export default {
     errorMsg: () => tr('add.form.inputs.name.error')
   },
   description: {
-    tranform: val => (val || ''),
+    tranform: val => (val.substring(0, 16) || ''),
     test: val => val && val.length && val.length <= 16,
     fillInfos: () => null,
     errorMsg: () => tr('add.form.inputs.description.error')
