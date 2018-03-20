@@ -32,8 +32,8 @@ class ShopRecap extends PureComponent {
     name: PropTypes.string.isRequired,
     cat: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    lat: PropTypes.string.isRequired,
-    lng: PropTypes.string.isRequired
+    lat: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    lng: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
   };
 
   state = {

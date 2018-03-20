@@ -43,8 +43,8 @@ export class ShowShop extends PureComponent {
       cat: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       opening: PropTypes.string.isRequired,
-      lat: PropTypes.string.isRequired,
-      lng: PropTypes.string.isRequired
+      lat: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+      lng: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
     }).isRequired,
     addDeleteShopTransaction: PropTypes.func.isRequired,
     isTransactionPending: PropTypes.bool.isRequired,
