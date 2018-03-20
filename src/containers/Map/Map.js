@@ -57,7 +57,6 @@ export class Map extends Component {
 
   async componentWillMount() {
     const {
-      centerPosition,
       fetchAll,
       fetchPosition,
       fetchUserInfo,
@@ -68,7 +67,10 @@ export class Map extends Component {
     this.updateCluster(shops);
 
     await Promise.all([fetchPosition(), fetchUserInfo()]);
-    fetchAll(centerPosition);
+    this.interval = setInterval(() => {
+      const { centerPosition } = this.props;
+      fetchAll(centerPosition);
+    }, 30000);
     setMapInitiated();
   }
 
@@ -84,6 +86,11 @@ export class Map extends Component {
   componentWillUpdate(nextProps) {
     this.updateCluster(nextProps.shops);
   }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
 
   updateCluster(shops) {
     this.shopsCluster = getClusterData(shops, this.propsMap);

@@ -23,6 +23,7 @@ import {
   removeShop as removeShopAction,
   endTransaction as endTransactionAction
 } from '../../actions/shop';
+import { fetchAll as fetchAllAction } from '../../actions/map';
 
 /*
   Helpers
@@ -51,7 +52,9 @@ export class ShowShop extends PureComponent {
     deleteContractShop: PropTypes.func.isRequired,
     removeShopFromStore: PropTypes.func.isRequired,
     transactionHash: PropTypes.string.isRequired,
-    endTransaction: PropTypes.func.isRequired
+    endTransaction: PropTypes.func.isRequired,
+    fetchAll: PropTypes.func.isRequired,
+    centerPosition: PropTypes.shape({}).isRequired
   }
 
   state = {
@@ -89,11 +92,12 @@ export class ShowShop extends PureComponent {
   }
 
   checkTransaction = () => {
-    const { transactionHash, removeShopFromStore } = this.props;
+    const { transactionHash, removeShopFromStore, fetchAll, centerPosition } = this.props;
     this.interval = setInterval(async () => {
       const status = await getTransactionStatus(transactionHash);
       if (status === 'success') {
         removeShopFromStore();
+        fetchAll(centerPosition);
         this.endCheckTransaction();
       } else if (status === 'error') {
         console.log('DELETE Transaction Error', transactionHash);
@@ -129,17 +133,19 @@ export class ShowShop extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ shop }) => ({
+const mapStateToProps = ({ shop, map }) => ({
   shop: shop.shop,
   isTransactionPending: !!shop.transactionHash,
-  transactionHash: shop.transactionHash || ''
+  transactionHash: shop.transactionHash || '',
+  centerPosition: map.centerPosition
 });
 
 const mapDispatchToProps = dispatch => ({
   deleteContractShop: deleteShopHelper,
   removeShopFromStore: bindActionCreators(removeShopAction, dispatch),
   addDeleteShopTransaction: bindActionCreators(addDeleteShopTransactionAction, dispatch),
-  endTransaction: bindActionCreators(endTransactionAction, dispatch)
+  endTransaction: bindActionCreators(endTransactionAction, dispatch),
+  fetchAll: bindActionCreators(fetchAllAction, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowShop);
