@@ -46,6 +46,8 @@ describe('Container ShowShop', () => {
           transactionHash={'qwertyuio'}
           history={{ push: () => {}}}
           endTransaction={() => {}}
+          fetchAll={() => {}}
+          centerPosition={{ lat: 48.8628, lng: 2.3292 }}
         />
     );
     expect(component).not.toBe(null);
