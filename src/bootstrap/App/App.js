@@ -5,12 +5,12 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 /*
   Redux store
  */
-import store, { persistor } from './configureStore';
+import store, { persistor } from '../configureStore';
 
 /*
   Router
  */
-import Router from './Router';
+import Router from '../Router';
 
 /**
  * App

@@ -5,6 +5,6 @@ import './styles/globalStyles';
 /*
   App
  */
-import App from './bootstrap/App';
+import { App } from './bootstrap';
 
 render(<App />, document.getElementById('root'));
