@@ -1,4 +1,4 @@
-import { web3js, helperWeb3 } from './utils';
+import { web3js, getAddress, getDthContract } from './utils';
 import isWeb3 from './isWeb3';
 
 /**
@@ -12,7 +12,7 @@ export const getBalance = async () => {
   return new Promise(async (res, rej) => {
     try {
       const balances = {};
-      const { address, dthContract } = await helperWeb3();
+      const [address, dthContract] = await Promise.all([getAddress(), getDthContract()]);
       web3js.eth.getBalance(address).then(async (result, error) => {
         if (!error) {
           balances.eth = parseFloat(web3js.utils.fromWei(result, 'ether'));

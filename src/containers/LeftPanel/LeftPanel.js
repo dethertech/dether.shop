@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
+import config from '../../constants/config';
 import LeftPanelPage from './LeftPanelPage';
 import TermsModal from './TermsModal';
 
@@ -14,7 +15,7 @@ import {
   isSmsReg as isSmsRegHelper,
 } from '../../helpers';
 
-import { getNetwork } from '../../helpers/ethereum/getNetwork';
+import { getNetworkId } from '../../helpers/ethereum';
 import {
   setAppInitialized as setAppInitializedAction,
   setMetamaskInstalled as setMetamaskInstalledAction,
@@ -77,19 +78,21 @@ export class LeftPanel extends PureComponent {
 
     const ethAddress = await isWeb3();
     if (ethAddress) {
-      const [shop, balance, certified, network] = await Promise.all([
-        getShop(),
-        getBalance(),
-        isCertified(),
-        getNetwork(),
-      ]);
+      const network = await getNetworkId();
+      setEthNetwork(network);
+      if (network === config.ethNetwork) {
+        const [shop, balance, certified] = await Promise.all([
+          getShop(),
+          getBalance(),
+          isCertified()
+        ]);
 
-      if (shop) addShop(shop);
-      if (balance) setBalance(balance);
-      if (certified) setUserCertified(certified);
-      if (network) setEthNetwork(network);
-      setMetamaskInstalled(true);
-      setEthAddress(ethAddress);
+        if (shop) addShop(shop);
+        if (balance) setBalance(balance);
+        if (certified) setUserCertified(certified);
+        setMetamaskInstalled(true);
+        setEthAddress(ethAddress);
+      }
     }
   }
   async initApp() {

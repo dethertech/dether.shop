@@ -1,4 +1,4 @@
-import { helperWeb3 } from './utils';
+import { getAddress, getSmsContract } from './utils';
 
 /**
  * return true if is sms register
@@ -7,7 +7,7 @@ import { helperWeb3 } from './utils';
 export const isSmsReg = () =>
   new Promise(async (res, rej) => {
     try {
-      const { address, smsContract } = await helperWeb3();
+      const [address, smsContract] = await Promise.all([getAddress(), getSmsContract()]);
       const isReg = await smsContract.methods.certified(address).call();
       res(isReg);
     } catch (e) {
