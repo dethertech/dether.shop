@@ -4,7 +4,7 @@
  */
 const setUserPosition = userPosition => ({
   type: 'SET_USER_POSITION',
-  payload: { userPosition }
+  payload: userPosition
 });
 
 /**
@@ -13,7 +13,7 @@ const setUserPosition = userPosition => ({
  */
 const setCenterPosition = centerPosition => ({
   type: 'SET_CENTER_POSITION',
-  payload: { centerPosition }
+  payload: centerPosition
 });
 
 /**
@@ -31,7 +31,7 @@ const setUserInfo = (userInfo) => ({
  */
 const setShopOnCard = shop => ({
   type: 'SET_SHOP_ON_CARD',
-  payload: { shop },
+  payload: shop,
 });
 
 /**
