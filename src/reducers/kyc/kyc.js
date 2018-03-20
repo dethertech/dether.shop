@@ -8,9 +8,9 @@ const initialState = {
 };
 
 /**
- * userReducer
+ * kycReducer
  */
-const userReducer = (state = initialState, { type, payload }) => {
+const kycReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_PHONE':
       return { ...state, phone: payload };
@@ -37,4 +37,4 @@ const userReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export default userReducer;
+export default kycReducer;
