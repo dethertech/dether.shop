@@ -15,6 +15,8 @@ import {
   isSmsReg as isSmsRegHelper,
 } from '../../helpers';
 
+import { hasGoodNetwork as hasGoodNetworkHelper } from '../../reducers/app';
+
 import { getNetworkId } from '../../helpers/ethereum';
 import {
   setAppInitialized as setAppInitializedAction,
@@ -90,9 +92,9 @@ export class LeftPanel extends PureComponent {
         if (shop) addShop(shop);
         if (balance) setBalance(balance);
         if (certified) setUserCertified(certified);
-        setMetamaskInstalled(true);
         setEthAddress(ethAddress);
       }
+      if (network) setMetamaskInstalled(true);
     }
   }
   async initApp() {
@@ -109,11 +111,12 @@ export class LeftPanel extends PureComponent {
   }
 
   refreshBalance = async () => {
-    const { getBalance, setBalance, isMetamaskInstalled } = this.props;
+    const { getBalance, setBalance, isMetamaskInstalled, hasGoodNetwork } = this.props;
 
     if (!isMetamaskInstalled)
       return this.initCheck();
-    setBalance(await getBalance());
+    if (hasGoodNetwork)
+      setBalance(await getBalance());
   }
 
   render() {
@@ -142,7 +145,8 @@ const mapStateToProps = ({ app, user }) => ({
   isAppInitialized: app.isAppInitialized,
   balance: user.balance,
   isTermsModalOpenened: app.isTermsModalOpenened,
-  isMetamaskInstalled: app.isMetamaskInstalled
+  isMetamaskInstalled: app.isMetamaskInstalled,
+  hasGoodNetwork: hasGoodNetworkHelper(app)
 });
 
 const mapDispatchToProps = dispatch => ({

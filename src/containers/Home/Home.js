@@ -86,10 +86,10 @@ export class Home extends PureComponent {
 
     if (!isMetamaskInstalled)
       return tr('add.home.metamask_not_installed');
-    if (!hasEnoughMoney)
-      return tr('add.home.not_enougth_money', { minEth, minDth });
     if (!hasGoodNetwork)
       return tr('add.home.wrong_network');
+    if (!hasEnoughMoney)
+      return tr('add.home.not_enougth_money', { minEth, minDth });
   }
 
   checkTerms = e => {
