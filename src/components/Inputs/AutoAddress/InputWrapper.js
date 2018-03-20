@@ -42,7 +42,6 @@ const InputWrapper = styled.div`
 
   input {
     padding-left: 3rem !important;
-    width: auto !important;
     flex: 1 !important;
   }
 

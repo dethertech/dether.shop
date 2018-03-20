@@ -3,6 +3,7 @@ import tr from '../../../translate';
 
 export default ({ onChange, onBlur }, props) => {
   const { shop } = props;
+  console.log(shop);
   return {
     address: {
       name: 'address',

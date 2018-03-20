@@ -34,6 +34,12 @@ export const Wrapper = styled.button`
       width: 100%;
     `};
 
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
+    `};
+
   ${({ isSmall }) =>
     isSmall &&
     css`
@@ -65,13 +71,14 @@ export const Wrapper = styled.button`
   }
 `;
 
-const Button = ({ onClick, children, theme, fullWidth, disabled, isSmall }) => (
+const Button = ({ onClick, children, theme, fullWidth, disabled, isSmall, width }) => (
   <Wrapper
     isSmall={isSmall}
     fullWidth={fullWidth}
     theme={theme}
     disabled={disabled}
     onClick={onClick}
+    width={width}
   >
     {children}
   </Wrapper>
@@ -83,7 +90,8 @@ Button.propTypes = {
   fullWidth: PropTypes.bool,
   theme: PropTypes.oneOf(['primary', 'light', 'danger']),
   onClick: PropTypes.func,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  width: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -91,6 +99,7 @@ Button.defaultProps = {
   fullWidth: false,
   theme: 'light',
   isSmall: false,
+  width: null,
   onClick: () => {}
 };
 
