@@ -38,7 +38,9 @@ const en = {
         `You must have at least ${minEth.toFixed(4)} ETH and ${minDth.toFixed(4)} DTH to add a shop`,
       terms_check: 'By checking this box, you agree to our',
       terms_link: 'Terms and Conditions',
-      bt_add: 'Add your shop on the map'
+      bt_add: 'Add your shop on the map',
+      metamask_not_installed: 'Your are not connected to metamask',
+      wrong_network: 'Your are connected to the wrong network'
     },
     form: {
       title: 'REGISTER YOUR SHOP',

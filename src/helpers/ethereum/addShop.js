@@ -2,7 +2,7 @@ import DthContract from 'dethercontract/contracts/DetherToken.json';
 import DetherCore from 'dethercontract/contracts/DetherCore.json';
 import web3Abi from 'web3-eth-abi';
 
-import { web3js, helperWeb3 } from './utils';
+import { web3js, getAddress, getNetworkId } from './utils';
 
 // TODO
 // Make it with arrow function
@@ -112,7 +112,7 @@ const addShop = (shop) =>
   new Promise(async (res, rej) => {
     try {
       const hexShop = shopToContract(shop);
-      const { address, networkId } = await helperWeb3();
+      const [address, networkId] = await Promise.All([getAddress(), getNetworkId()]);
       const transferMethodTransactionData = web3Abi.encodeFunctionCall(
         overloadedTransferAbi,
         [

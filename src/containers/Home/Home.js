@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { hasGoodNetwork as hasGoodNetworkHelper } from '../../reducers/app';
 
 /*
   Config
@@ -53,11 +54,12 @@ const Wrapper = styled.div`
 export class Home extends PureComponent {
   static propTypes = {
     isMetamaskInstalled: PropTypes.bool.isRequired,
-    hasEnougthMoney: PropTypes.bool.isRequired,
+    hasEnoughMoney: PropTypes.bool.isRequired,
     minEth: PropTypes.number.isRequired,
     minDth: PropTypes.number.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
-    acceptTerms: PropTypes.func.isRequired
+    acceptTerms: PropTypes.func.isRequired,
+    hasGoodNetwork: PropTypes.bool.isRequired
   };
 
   constructor(props) {
@@ -79,6 +81,17 @@ export class Home extends PureComponent {
     this.setState({ checked });
   };
 
+  checkErrors = () => {
+    const { isMetamaskInstalled, hasEnoughMoney, hasGoodNetwork, minEth, minDth } = this.props;
+
+    if (!isMetamaskInstalled)
+      return tr('add.home.metamask_not_installed');
+    if (!hasGoodNetwork)
+      return tr('add.home.wrong_network');
+    if (!hasEnoughMoney)
+      return tr('add.home.not_enougth_money', { minEth, minDth });
+  }
+
   checkTerms = e => {
     const { checked, shake } = this.state;
     if (!checked) {
@@ -91,7 +104,8 @@ export class Home extends PureComponent {
 
   render = () => {
     const { checked, shake } = this.state;
-    const { isMetamaskInstalled, hasEnougthMoney, minEth, minDth, toggleTermsModal } = this.props;
+    const { toggleTermsModal } = this.props;
+    const error = this.checkErrors();
 
     return (
       <Wrapper>
@@ -105,19 +119,9 @@ export class Home extends PureComponent {
 
         <Padding vertical="l"><span>{tr('add.home.desc')}</span></Padding>
 
-        {!isMetamaskInstalled && (
-          <Message theme="error" alignCenter>
-            {tr('add.home.metamask_not_installed')}
-          </Message>
-        )}
-        {isMetamaskInstalled &&
-          !hasEnougthMoney && (
-            <Message theme="error" alignCenter>
-              {tr('add.home.not_enougth_money', { minEth, minDth })}
-            </Message>
-          )}
-        {isMetamaskInstalled &&
-          hasEnougthMoney && (
+        {error
+          ? <Message theme="error" alignCenter>{error}</Message>
+          : (
             <Padding vertical="l">
               <TermsValidation
                 shake={shake}
@@ -136,7 +140,8 @@ export class Home extends PureComponent {
 }
 
 const mapStateToProps = ({ user, app }) => ({
-  hasEnougthMoney: hasEnoughMoneyToAddShop(user),
+  hasEnoughMoney: hasEnoughMoneyToAddShop(user),
+  hasGoodNetwork: hasGoodNetworkHelper(app),
   isMetamaskInstalled: app.isMetamaskInstalled,
   isUserVerified: user.isCertified,
   minEth: config.gasPrice.simpleTransac,

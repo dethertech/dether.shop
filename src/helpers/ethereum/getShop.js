@@ -1,4 +1,4 @@
-import { web3js, helperWeb3 } from './utils';
+import { web3js, getAddress, getDetherContract } from './utils';
 
 // TODO: update validation, remove unused conditions
 const validateShop = (shop) => {
@@ -66,7 +66,7 @@ const shopFromContract = (rawShop) => {
 const getShop = () =>
   new Promise(async (res, rej) => {
     try {
-      const { address, detherContract } = await helperWeb3();
+      const [address, detherContract] = await Promise.all([getAddress(), getDetherContract()]);
       const rawShop = await detherContract.methods.getShop(address).call();
       let id = web3js.utils.hexToUtf8(rawShop[2]).replace(/\0/g, '');
       id = id.replace(/\0/g, '');
