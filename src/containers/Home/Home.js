@@ -32,10 +32,9 @@ import { hasEnoughMoneyToAddShop } from '../../reducers/user';
 /*
   Components
  */
-import Button from '../../components/Button';
+import { Button, Message } from '../../components';
 import { H1 } from '../../components/Headings';
 import { Padding } from '../../components/Spaces';
-import Message from '../../components/Message';
 import TermsValidation from './TermsValidation';
 
 /*

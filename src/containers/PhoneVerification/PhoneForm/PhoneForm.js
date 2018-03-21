@@ -5,14 +5,11 @@ import PropTypes from 'prop-types';
 import tr from '../../../translate';
 import { LabeledInput } from '../../../components/Inputs';
 import { Padding } from '../../../components/Spaces';
-import Button from '../../../components/Button';
+import { Button, Message, Mention, ProgressBar } from '../../../components';
 import tokens from '../../../styles/tokens';
 import countries from '../../../constants/prefixePhone';
 import PhoneModal from './PhoneModal';
-import Message from '../../../components/Message';
 import { H1 } from '../../../components/Headings';
-import ProgressBar from '../../../components/ProgressBar';
-import Mention from '../../../components/Mention';
 
 const DialCode = styled.div`
   vertical-align: middle;

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setShopOnCard as setShopOnCardAction } from '../../../../actions/map';
-import Marker from '../../../../components/Marker/';
+import { Marker } from '../../../../components';
 import { ShopIcon, ClusterShopIcon } from '../../../../components/MapIcons';
 
 class ShopMarker extends PureComponent {

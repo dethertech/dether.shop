@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import PhoneForm from './PhoneForm';
 import ValidateCodeContainer from './ValidateCode';
-import LoaderScreen from '../../components/Screens/LoaderScreen';
+import { LoaderScreen } from '../../components';
 import { getErrorMessage } from '../../helpers';
 import {
   sendSms as sendSmsAction,

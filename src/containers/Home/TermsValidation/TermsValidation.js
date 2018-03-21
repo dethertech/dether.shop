@@ -10,7 +10,7 @@ import tr from '../../../translate';
 /*
   Components
  */
-import Shake from '../../../components/Animations/Shake';
+import { Shake } from '../../../components/Animations';
 import { Margin } from '../../../components/Spaces';
 
 /*

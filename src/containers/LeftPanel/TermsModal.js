@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import tr from '../../translate';
 
-import Modal from '../../components/Modal';
-import Mention from '../../components/Mention';
+import { Modal, Mention } from '../../components';
 import { Padding } from '../../components/Spaces';
 import { H1 } from '../../components/Headings';
 

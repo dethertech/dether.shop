@@ -7,9 +7,7 @@ import { toast } from 'react-toastify';
 /*
   Components
  */
-import ShopRecap from '../../components/ShopRecap';
-import Button from '../../components/Button';
-import LoaderScreen from '../../components/Screens/LoaderScreen';
+import { ShopRecap, Button, LoaderScreen } from '../../components';
 
 /*
   Translate module

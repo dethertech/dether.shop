@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 /*
   Components
  */
-import Panels from '../../components/Panels';
+import { Panels } from '../../components';
 
 /*
   Containers

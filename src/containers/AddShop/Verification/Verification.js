@@ -6,9 +6,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
 
-import ShopRecap from '../../../components/ShopRecap';
-import Button from '../../../components/Button';
-import LoaderScreen from '../../../components/Screens/LoaderScreen';
+import { ShopRecap, Button, LoaderScreen } from '../../../components';
 import tr from '../../../translate';
 
 import {

@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import tokens from '../../../styles/tokens';
 
 import { Margin } from '../../../components/Spaces';
-import Mention from '../../../components/Mention';
+import { Mention } from '../../../components';
 
-import Shake from '../../../components/Animations/Shake';
+import { Shake } from '../../../components/Animations';
 import { Input, TextArea, ComboBox, AutoAddress } from '../';
 
 const Wrapper = styled.div`

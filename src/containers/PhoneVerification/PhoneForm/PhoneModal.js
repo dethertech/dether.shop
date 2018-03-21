@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 
 import tr from '../../../translate';
 import tokens from '../../../styles/tokens';
-import Modal from '../../../components/Modal';
-import Button from '../../../components/Button';
+import { Modal, Button } from '../../../components';
 import { H2 } from '../../../components/Headings';
 import { Padding } from '../../../components/Spaces';
 
