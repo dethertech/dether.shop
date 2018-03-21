@@ -3,7 +3,6 @@ import tr from '../../../translate';
 
 export default ({ onChange, onBlur }, props) => {
   const { shop } = props;
-  console.log(shop);
   return {
     address: {
       name: 'address',
@@ -27,7 +26,8 @@ export default ({ onChange, onBlur }, props) => {
       isValid: false,
       toggleShake: 0,
       onBlur,
-      handleChange: onChange
+      handleChange: onChange,
+      placeholder: tr('add.form.inputs.name.placeholder')
     },
     cat: {
       name: 'cat',
@@ -40,7 +40,8 @@ export default ({ onChange, onBlur }, props) => {
       isValid: false,
       toggleShake: 0,
       onBlur,
-      handleChange: onChange
+      handleChange: onChange,
+      placeholder: tr('add.form.inputs.cat.placeholder')
     },
     description: {
       name: 'description',
@@ -53,7 +54,8 @@ export default ({ onChange, onBlur }, props) => {
       isValid: false,
       toggleShake: 0,
       onBlur,
-      handleChange: onChange
+      handleChange: onChange,
+      placeholder: tr('add.form.inputs.description.placeholder')
     }
   };
 };
