@@ -80,7 +80,8 @@ const en = {
   },
   footer: {
     all_right_reserved: 'all rights reserved',
-    terms_and_conditions: 'Terms and conditions'
+    terms_and_conditions: 'Terms and conditions',
+    report_bug: 'Report a bug'
   },
   shop_recap: {
     informations: 'Information:',
