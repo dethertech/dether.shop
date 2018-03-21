@@ -52,15 +52,18 @@ const en = {
         },
         cat: {
           label: 'Category:',
-          error: () => 'length min 1 – max 16'
+          error: () => 'length min 1 – max 16',
+          placeholder: () => 'length min 1 – max 16'
         },
         name: {
           label: 'Name:',
-          error: () => 'length min 1 – max 16'
+          error: () => 'length min 1 – max 16',
+          placeholder: () => 'length min 1 – max 16'
         },
         description: {
           label: 'Description:',
-          error: () => 'length min 1 – max 16'
+          error: () => 'length min 1 – max 16',
+          placeholder: () => 'length min 1 – max 16'
         },
         opening: {
           error: () => 'Invalid opening'
