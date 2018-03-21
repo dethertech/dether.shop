@@ -22,13 +22,6 @@ const MapWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-
-  /* hide google legal mentions */
-  .gmnoprint,
-  .gm-style-cc,
-  iframe + div {
-    display: none !important;
-  }
 `;
 
 export class Map extends Component {
