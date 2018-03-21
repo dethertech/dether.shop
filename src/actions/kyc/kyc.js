@@ -5,11 +5,11 @@ import { config } from '../../constants';
 
 /**
  * sendSms
- * @param  {[type]} phoneNumber [description]
- * @param  {[type]} ethAddress  [description]
- * @param  {[type]} onSuccess   [description]
- * @param  {[type]} onError     [description]
- * @return {[type]}             [description]
+ * @param  {string}   phoneNumber   user phone number
+ * @param  {string}   ethAddress    user ethereum address
+ * @param  {function} onSuccess     Success function
+ * @param  {function} onError       Error function
+ * @return {object}                 Action
  */
 const sendSms = ({ phoneNumber, ethAddress, onSuccess, onError }) => ({
   type: 'API:SEND_SMS',
@@ -22,11 +22,11 @@ const sendSms = ({ phoneNumber, ethAddress, onSuccess, onError }) => ({
 
 /**
  * sendVerifCode
- * @param  {[type]} code        [description]
- * @param  {[type]} phoneNumber [description]
- * @param  {[type]} onSuccess   [description]
- * @param  {[type]} onError     [description]
- * @return {[type]}             [description]
+ * @param  {string}   code          Code verification
+ * @param  {string}   phoneNumber   user phone number
+ * @param  {function} onSuccess     Success function
+ * @param  {function} onError       Error function
+ * @return {object}                 Action
  */
 const sendVerifCode = ({ code, phoneNumber, onSuccess, onError }) => ({
   type: 'API:SEND_VERIF_CODE',
@@ -39,7 +39,7 @@ const sendVerifCode = ({ code, phoneNumber, onSuccess, onError }) => ({
 
 /**
  * setPhone
- * @param {[type]} phone [description]
+ * @param {String} phone Phone number
  */
 const setPhone = phone => ({
   type: 'SET_PHONE',
@@ -48,7 +48,7 @@ const setPhone = phone => ({
 
 /**
  * setPhoneCountry
- * @param {[type]} phoneCountry [description]
+ * @param {string} phoneCountry ISO country
  */
 const setPhoneCountry = phoneCountry => ({
   type: 'SET_PHONE_COUNTRY',
@@ -57,7 +57,7 @@ const setPhoneCountry = phoneCountry => ({
 
 /**
  * setPhoneSent
- * @param {[type]} phoneSent [description]
+ * @param {boolean} phoneSent [description]
  */
 const setPhoneSent = phoneSent => ({
   type: 'SET_PHONE_SENT',

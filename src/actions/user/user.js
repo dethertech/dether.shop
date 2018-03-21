@@ -4,7 +4,7 @@
  */
 const setEthAddress = ethAddress => ({
   type: 'SET_ETH_ADDRESS',
-  payload: { ethAddress }
+  payload: ethAddress
 });
 
 /**
@@ -13,7 +13,7 @@ const setEthAddress = ethAddress => ({
  */
 const setBalance = balance => ({
   type: 'SET_BALANCE',
-  payload: { balance }
+  payload: balance
 });
 
 /**

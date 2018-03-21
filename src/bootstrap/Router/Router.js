@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 /*
   Containers
  */
-import Wrapper from '../containers/Wrapper';
+import Wrapper from '../../containers/Wrapper';
 
 /**
  * RouterComponent contains all routes

@@ -1,4 +1,4 @@
-import config from '../constants/config';
+import config from '../../constants/config';
 
 const initialState = {
   balance: {
@@ -15,11 +15,11 @@ const initialState = {
 const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_BALANCE':
-      return { ...state, balance: payload.balance };
+      return { ...state, balance: payload };
     case 'SET_USER_CERTIFIED':
       return { ...state, isCertified: payload };
     case 'SET_ETH_ADDRESS':
-      return { ...state, ethAddress: payload.ethAddress };
+      return { ...state, ethAddress: payload };
     default:
       return state;
   }

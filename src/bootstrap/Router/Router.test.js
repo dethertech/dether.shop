@@ -7,9 +7,8 @@ import { Provider } from 'react-redux';
 import TestUtils from 'react-dom/test-utils';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { GeocodeAPI } from '../../helpers';
 import fakeStore from '../../constants/test/fakeStore';
-import { ShowShop } from './ShowShop';
+import RouterComponent from './Router';
 import jsdom from 'jsdom'
 const { JSDOM } = jsdom;
 
@@ -23,32 +22,23 @@ global.window = global.document.defaultView
 configure({ adapter: new Adapter() });
 
 const store = fakeStore({});
+const google = {
+  maps: {
+    places: {
+      AutocompleteService: class AutocompleteService {},
+      PlacesServiceStatus: {
+        OK: 'OK',
+      },
+    },
+  },
+}
+global.google = google
+global.window.google = google
 
-GeocodeAPI.positionToAddress = async () => 'Paris 2';
-GeocodeAPI.postalCode = async () => '75002';
-
-describe('Container ShowShop', () => {
+describe('Container RouterComponent', () => {
   it('should be render without crash', () => {
     const component = TestUtils.renderIntoDocument(
-        <ShowShop
-          shop={{
-            name: 'test',
-            cat: 'more test',
-            description: 'more more test',
-            opening: '0000000',
-            lat: '48.8628',
-            lng: '2.3292'
-          }}
-          addDeleteShopTransaction={() => {}}
-          removeShopFromStore={() => {}}
-          isTransactionPending={false}
-          deleteContractShop={() => {}}
-          transactionHash={'qwertyuio'}
-          history={{ push: () => {}}}
-          endTransaction={() => {}}
-          fetchAll={() => {}}
-          centerPosition={{ lat: 48.8628, lng: 2.3292 }}
-        />
+        <Provider store={store}><Router><RouterComponent /></Router></Provider>
     );
     expect(component).not.toBe(null);
   });

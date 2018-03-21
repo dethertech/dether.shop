@@ -74,4 +74,4 @@ When you find issues, please report them:
 * [Ethers.js](https://etherscan.io/address/0xEA517D5a070e6705Cc5467858681Ed953d285Eb9)
 
 ## TODO
-* Add more tests
+* Add App components tests
