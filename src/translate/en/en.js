@@ -108,6 +108,10 @@ const en = {
       invalid: 'Please enter a valid phone number (it should be at list 5 digits long)',
       country_blank: 'You need to select a country in the list',
       wait_resend: 'Please wait 15 seconds before requesting a new code'
+    },
+    transaction: {
+      throw: 'The transaction threw',
+      metamask_reject: 'Metamask rejected the transaction'
     }
   },
   show_shop: {

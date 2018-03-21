@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import { toast } from 'react-toastify';
 
 import ShopRecap from '../../../components/ShopRecap';
 import Button from '../../../components/Button';
@@ -88,7 +89,14 @@ class Verification extends PureComponent {
   }
 
   checkTransaction = () => {
-    const { transactionHash, addShopToStore, pendingShop, fetchAll, centerPosition } = this.props;
+    const {
+      transactionHash,
+      addShopToStore,
+      pendingShop,
+      fetchAll,
+      centerPosition,
+      goBack
+    } = this.props;
     this.interval = setInterval(async () => {
       const status = await getTransactionStatus(transactionHash);
       if (status === 'success') {
@@ -96,8 +104,9 @@ class Verification extends PureComponent {
         fetchAll(centerPosition);
         this.endCheckTransaction();
       } else if (status === 'error') {
-        console.log('ADD Transaction Error', transactionHash);
+        goBack();
         this.endCheckTransaction();
+        toast.error(tr('errors.transaction.throw'));
       }
     }, 3000);
   }
@@ -106,10 +115,15 @@ class Verification extends PureComponent {
     const { pendingShop, addAddShopTransaction, addShopToContract } = this.props;
 
     this.showLoader();
-    const transaction = await addShopToContract(pendingShop).catch(e => console.log('Error', e));
-    addAddShopTransaction(transaction.transactionHash);
-    this.checkTransaction();
-    this.HideLoader();
+    try {
+      const transaction = await addShopToContract(pendingShop);
+      addAddShopTransaction(transaction.transactionHash);
+      this.checkTransaction();
+      this.HideLoader();
+    } catch (e) {
+      toast.error(tr('errors.transaction.metamask_reject'));
+      this.HideLoader();
+    }
   };
 
   showLoader = () => this.setState({ isLoading: true });

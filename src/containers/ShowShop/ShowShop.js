@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { toast } from 'react-toastify';
 
 /*
   Components
@@ -100,8 +101,8 @@ export class ShowShop extends PureComponent {
         fetchAll(centerPosition);
         this.endCheckTransaction();
       } else if (status === 'error') {
-        console.log('DELETE Transaction Error', transactionHash);
         this.endCheckTransaction();
+        toast.error(tr('errors.transaction.throw'));
       }
     }, 3000);
   }
@@ -110,10 +111,15 @@ export class ShowShop extends PureComponent {
     const { deleteContractShop, addDeleteShopTransaction } = this.props;
 
     this.showLoader();
-    const transaction = await deleteContractShop().catch(e => console.log('Error', e));
-    addDeleteShopTransaction(transaction.transactionHash);
-    this.checkTransaction();
-    this.HideLoader();
+    try {
+      const transaction = await deleteContractShop();
+      addDeleteShopTransaction(transaction.transactionHash);
+      this.checkTransaction();
+      this.HideLoader();
+    } catch (e) {
+      toast.error(tr('errors.transaction.metamask_reject'));
+      this.HideLoader();
+    }
   }
 
   render = () => {
