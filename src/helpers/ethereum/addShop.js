@@ -4,30 +4,23 @@ import web3Abi from 'web3-eth-abi';
 
 import { web3js, getAddress, getNetworkId } from './utils';
 
-// TODO
-// Make it with arrow function
-/* eslint-disable */
-const convertBase = function () {
-    function convertBase(baseFrom, baseTo) {
-        return function (num) {
-            return parseInt(num, baseFrom).toString(baseTo);
-        };
-    }
+class ConvertBase {
+    convert = (baseFrom, baseTo) => num => parseInt(num, baseFrom).toString(baseTo);
     // binary to decimal
-    convertBase.bin2dec = convertBase(2, 10);
+    bin2dec = this.convert(2, 10);
     // binary to hexadecimal
-    convertBase.bin2hex = convertBase(2, 16);
+    bin2hex = this.convert(2, 16);
     // decimal to binary
-    convertBase.dec2bin = convertBase(10, 2);
+    dec2bin = this.convert(10, 2);
     // decimal to hexadecimal
-    convertBase.dec2hex = convertBase(10, 16);
+    dec2hex = this.convert(10, 16);
     // hexadecimal to binary
-    convertBase.hex2bin = convertBase(16, 2);
+    hex2bin = this.convert(16, 2);
     // hexadecimal to decimal
-    convertBase.hex2dec = convertBase(16, 10);
-    return convertBase;
-}();
-/* eslint-enable */
+    hex2dec = this.convert(16, 10);
+}
+
+const convertBase = new ConvertBase();
 
 /**
  * [intTo4bytes description]
