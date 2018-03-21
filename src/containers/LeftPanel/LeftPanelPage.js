@@ -73,6 +73,13 @@ class LeftPanelPage extends PureComponent {
                 <ButtonLink isSmall onClick={toggleModal}>
                   {tr('footer.terms_and_conditions')}
                 </ButtonLink>
+                &nbsp;-&nbsp;
+                <ButtonLink
+                  isSmall
+                  onClick={() => window.open('https://dethersupport.typeform.com/to/oajOgv')}
+                >
+                  {tr('footer.report_bug')}
+                </ButtonLink>
               </div>
             </FooterText>
           </Padding>
