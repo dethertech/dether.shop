@@ -1,4 +1,4 @@
-import config from '../constants/config';
+import config from '../../constants/config';
 
 const GOOGLE_API = 'https://maps.google.com/maps/api/geocode/json';
 
