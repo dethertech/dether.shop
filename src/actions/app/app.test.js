@@ -1,7 +1,4 @@
 /* global describe it expect */
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
 import {
   setMetamaskInstalled,
   setAppInitialized,
@@ -9,8 +6,6 @@ import {
   setEthNetwork,
   acceptTerms
 } from './app';
-
-configure({ adapter: new Adapter() });
 
 describe('App actions', () => {
   it('should create an actions to set true or false if metamask is installed' , () => {
