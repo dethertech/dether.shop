@@ -50,6 +50,7 @@ export class LeftPanel extends PureComponent {
     setUserCertified: PropTypes.func.isRequired,
     setAppInitialized: PropTypes.func.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
+    ethAddress: PropTypes.string.isRequired,
     isTermsModalOpenened: PropTypes.bool.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
@@ -63,6 +64,7 @@ export class LeftPanel extends PureComponent {
 
   componentWillUnmount() {
     clearInterval(this.interval);
+    clearInterval(this.interval2);
   }
 
   initCheck = async () => {
@@ -107,12 +109,29 @@ export class LeftPanel extends PureComponent {
     if (!isAppInitialized) {
       await this.initCheck();
       this.interval = setInterval(this.refreshBalance, 10000);
+      this.interval2 = setInterval(this.checkChangeAccount, 1000);
       setAppInitialized(true);
     }
   }
 
+  checkChangeAccount = async () => {
+    const {
+      ethAddress,
+      isWeb3
+    } = this.props;
+
+    const web3EthAddress = await isWeb3();
+    if (web3EthAddress && ethAddress !== web3EthAddress)
+      return this.initCheck();
+  }
+
   refreshBalance = async () => {
-    const { getBalance, setBalance, isMetamaskInstalled, hasGoodNetwork } = this.props;
+    const {
+      getBalance,
+      setBalance,
+      isMetamaskInstalled,
+      hasGoodNetwork
+    } = this.props;
 
     if (!isMetamaskInstalled)
       return this.initCheck();
@@ -148,7 +167,8 @@ const mapStateToProps = ({ app, user }) => ({
   balance: user.balance,
   isTermsModalOpenened: app.isTermsModalOpenened,
   isMetamaskInstalled: app.isMetamaskInstalled,
-  hasGoodNetwork: hasGoodNetworkHelper(app)
+  hasGoodNetwork: hasGoodNetworkHelper(app),
+  ethAddress: user.ethAddress || ''
 });
 
 const mapDispatchToProps = dispatch => ({
