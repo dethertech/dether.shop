@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { ToastContainer } from 'react-toastify';
 
 import config from '../../constants/config';
 import LeftPanelPage from './LeftPanelPage';
@@ -129,6 +130,7 @@ export class LeftPanel extends PureComponent {
 
     return (
       <Fragment>
+        <ToastContainer position="top-left" />
         <LeftPanelPage
           isAppInitialized={isAppInitialized}
           toggleModal={toggleTermsModal}
