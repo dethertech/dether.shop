@@ -29,7 +29,7 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
     "dethercontract": "^2.2.1",
-    "google-map-react": "^0.27.0",
+    "google-map-react": "^0.34.0",
     "points-cluster": "^0.1.4",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
