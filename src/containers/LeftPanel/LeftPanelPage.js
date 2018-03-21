@@ -7,11 +7,8 @@ import tr from '../../translate';
 import tokens from '../../styles/tokens';
 
 // component
-import Layout from '../../components/Layout';
+import { Layout, LoaderScreen, Header, ButtonLink } from '../../components';
 
-import LoaderScreen from '../../components/Screens/LoaderScreen';
-import Header from '../../components/Header';
-import ButtonLink from '../../components/ButtonLink';
 import { Padding } from '../../components/Spaces';
 import ShopRouter from '../ShopRouter';
 

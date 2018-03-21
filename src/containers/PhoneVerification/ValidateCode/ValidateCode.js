@@ -5,12 +5,8 @@ import PropTypes from 'prop-types';
 import tr from '../../../translate';
 import { Padding, Margin } from '../../../components/Spaces';
 import tokens from '../../../styles/tokens';
-import Loader from '../../../components/Loader';
-import ButtonLink from '../../../components/ButtonLink';
-import Message from '../../../components/Message';
+import { Loader, ButtonLink, Message, ProgressBar, Mention } from '../../../components';
 import { H1 } from '../../../components/Headings';
-import ProgressBar from '../../../components/ProgressBar';
-import Mention from '../../../components/Mention';
 
 const CodeBlock = styled.div`
   position: relative;
