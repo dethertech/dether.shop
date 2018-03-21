@@ -21,6 +21,7 @@ class GoogleMapWrapper extends PureComponent {
   options = {
     styles: googlemapStyle,
     disableDefaultUI: true,
+    zoomControl: true,
     gestureHandling: 'greedy'
   };
 
