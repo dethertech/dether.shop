@@ -13,7 +13,7 @@ export const initialState = {
  * @param  {[type]}  ethNetwork [description]
  * @return {Boolean}            [description]
  */
-export const hasGoodNetwork = ({ ethNetwork }) => ethNetwork && ethNetwork === config.ethNetwork;
+export const hasGoodNetwork = ({ ethNetwork }) => !!ethNetwork && ethNetwork === config.ethNetwork;
 
 /**
  * appReducer
