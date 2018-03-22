@@ -8,6 +8,8 @@ import WrapperMap from './GoogleMapWrapper/';
 import ShopMarker from './Markers/ShopMarker';
 import InfoCard from './InfoCard/';
 import SearchBar from './SearchBar/';
+import IconLocalisation from '../../components/Icon/svg/Localisation';
+
 import {
   setCenterPosition as setCenterPositionAction,
   setMapInitiated as setMapInitiatedAction,
@@ -16,6 +18,7 @@ import {
   fetchUserInfo as fetchUserInfoAction
 } from '../../actions/map';
 import { distance, getClusterData } from '../../helpers';
+import tokens from '../../styles/tokens';
 
 const MapWrapper = styled.div`
   position: relative;
@@ -23,6 +26,16 @@ const MapWrapper = styled.div`
   height: 100%;
   overflow: hidden;
 `;
+
+const CenterIcon = styled.div`
+  position: absolute;
+  right: ${tokens.spaces.s};
+  top: ${tokens.spaces.xxl};
+  margin-top: ${tokens.spaces.xxl};
+  padding: ${tokens.spaces.s};
+  cursor: pointer;
+`;
+
 
 export class Map extends Component {
   static propTypes = {
@@ -103,7 +116,7 @@ export class Map extends Component {
   };
 
   render() {
-    const { centerPosition } = this.props;
+    const { centerPosition, fetchPosition } = this.props;
     const ShopsMarkers = this.shopsCluster.map(shop => (
       <ShopMarker {...shop} key={shop.id} shop={shop} />
     ));
@@ -114,6 +127,7 @@ export class Map extends Component {
         </WrapperMap>
         <InfoCard />
         <SearchBar />
+        <CenterIcon onClick={fetchPosition}><IconLocalisation /></CenterIcon>
       </MapWrapper>
     );
   }
