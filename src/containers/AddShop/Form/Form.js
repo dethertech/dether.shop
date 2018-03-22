@@ -16,6 +16,7 @@ import DaysOnpeningHour from './DaysOnpeningHour';
 import validator from './validator';
 import fromState from './fromState';
 import SearchBar from './SearchBar';
+import { convertCalendar } from '../../../helpers/calendar';
 
 export class Form extends PureComponent {
   static propTypes = {
@@ -44,6 +45,7 @@ export class Form extends PureComponent {
     const validatorName = validator[name];
     const value = validatorName.tranform(val);
 
+    console.log(name, value);
     this.setState(pState => ({
       form: { ...pState.form, [name]: { ...pState.form[name], value } }
     }));
@@ -68,7 +70,7 @@ export class Form extends PureComponent {
         cat: form.cat.value,
         name: form.name.value,
         description: form.description.value,
-        opening: days
+        opening: days,
       };
       setDataShopPending(data);
       onSubmit();
@@ -107,6 +109,7 @@ export class Form extends PureComponent {
 
   render() {
     const { form } = this.state;
+    const { shop } = this.props;
     return (
       <Fragment>
         <H1>{tr('add.form.title')}</H1>
@@ -122,7 +125,7 @@ export class Form extends PureComponent {
           <LabeledInput {...form.description} />
         </Padding>
         <Padding bottom="m">
-          <DaysOnpeningHour onChange={this.onChangeDays} />
+          <DaysOnpeningHour days={convertCalendar(shop.opening)} onChange={this.onChangeDays} />
         </Padding>
 
         <Padding vertical="m">
