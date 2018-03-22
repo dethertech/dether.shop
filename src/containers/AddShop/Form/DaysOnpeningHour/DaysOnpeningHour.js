@@ -23,7 +23,8 @@ export class DaysOnpeningHour extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      days: props.days.map(e => convertDay(e))
+      days: props.days.map((e, i) => ({ ...e, name: daysName[i] })),
+      autoComplete: true
     };
   }
 
@@ -33,16 +34,20 @@ export class DaysOnpeningHour extends PureComponent {
 
   onChange(idx) {
     return obj => {
-      const { days } = this.state;
-      const arrayCopy = [...days];
-      arrayCopy[idx] = convertDay(obj);
-      this.setState(() => ({ days: arrayCopy }), this.callParent);
+      const { days, autoComplete } = this.state;
+      let copy = [...days];
+      copy[idx] = { ...obj };
+      if (idx === 0 && autoComplete)
+        copy = copy.map(day => ({ ...day, openAt: obj.openAt, closeAt: obj.closeAt }));
+      else if (days[idx].open)
+        this.setState({ autoComplete: false });
+      this.setState(() => ({ days: copy }), this.callParent);
     };
   }
 
   callParent() {
     const { days } = this.state;
-    this.props.onChange(days.join(''));
+    this.props.onChange(days.map(d => convertDay(d)).join(''));
   }
 
   render() {
@@ -51,8 +56,12 @@ export class DaysOnpeningHour extends PureComponent {
         <Padding bottom="m">
           <H3>Select Oppenning days of your shop :</H3>
         </Padding>
-        {daysName.map((dName, idx) => (
-          <DayLineOnpeningHour key={idx} onChange={this.onChange(idx)} day={dName} />
+        {this.state.days.map((day, idx) => (
+          <DayLineOnpeningHour
+            key={idx}
+            onChange={this.onChange(idx)}
+            {...day}
+          />
         ))}
       </div>
     );

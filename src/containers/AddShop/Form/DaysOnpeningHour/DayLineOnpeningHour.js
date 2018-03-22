@@ -23,42 +23,40 @@ const Wrapper = styled.div`
 
 class DayLineOnpeningHour extends PureComponent {
   static propTypes = {
-    day: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    openAt: PropTypes.string,
+    closeAt: PropTypes.string,
+    open: PropTypes.bool
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      open: false,
-      openAt: '08:00',
-      closeAt: '18:00'
-    };
+  static defaultProps = {
+    openAt: '08:00',
+    closeAt: '18:00',
+    open: false
   }
 
   onSelectDay = () => {
-    this.setState(prevState => ({ open: !prevState.open }), this.callParent);
+    const { open } = this.props;
+    this.callParent({ open: !open });
   };
 
-  onChange = ({ target: { name, value: val } }) => {
-    this.setState(() => ({ [name]: val }), this.callParent);
+  onChange = ({ target: { name, value } }) => {
+    this.callParent({ [name]: value });
   };
 
-  callParent = () => {
-    const { openAt, closeAt, open } = this.state;
-    const { onChange } = this.props;
-    onChange({ open, openAt, closeAt });
+  callParent = changedParams => {
+    const { onChange, name, ...day } = this.props;
+    onChange({ ...day, ...changedParams, name });
   };
 
   render() {
-    const { open, openAt, closeAt } = this.state;
-    const { day } = this.props;
+    const { name, open, openAt, closeAt } = this.props;
     return (
       <Wrapper>
         <div>
           <SwitchButton onClick={this.onSelectDay} checked={open} fullWidth>
-            {day}
+            {name}
           </SwitchButton>
         </div>
         <div>
@@ -66,7 +64,7 @@ class DayLineOnpeningHour extends PureComponent {
             name="openAt"
             disabled={!open}
             onChange={this.onChange}
-            selected={openAt}
+            value={openAt}
             data={hours}
           />
         </div>
@@ -75,7 +73,7 @@ class DayLineOnpeningHour extends PureComponent {
             name="closeAt"
             disabled={!open}
             onChange={this.onChange}
-            selected={closeAt}
+            value={closeAt}
             data={hours}
           />
         </div>

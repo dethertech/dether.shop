@@ -33,7 +33,7 @@ const InputSelectIcon = styled.div`
   margin-top: -0.6rem;
 `;
 
-const Select = ({ data, onChange, selected, ...rest }) => (
+const Select = ({ data, onChange, ...rest }) => (
   <SelectWrapper>
     <InputSelectIcon>
       <Icon
@@ -43,7 +43,7 @@ const Select = ({ data, onChange, selected, ...rest }) => (
         color={tokens.colors.grey.darkest}
       />
     </InputSelectIcon>
-    <InputSelect {...rest} defaultValue={selected} onChange={onChange}>
+    <InputSelect {...rest} onChange={onChange}>
       {data.length &&
         data.map(opt => (
           <option key={opt} value={opt}>
