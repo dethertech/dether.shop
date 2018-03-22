@@ -5,41 +5,39 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { hasGoodNetwork as hasGoodNetworkHelper } from '../../reducers/app';
 
-/*
-  Config
- */
+// Config
+
 import config from '../../constants/config';
 
-/*
-  Translate module
- */
+// Translate module
+
 import tr from '../../translate';
 
-/*
-  Assets
- */
+// Assets
+
 import illustration from '../../assets/illustration.svg';
 
-/*
-  Redux
- */
+// Redux
+
 import {
   toggleTermsModal as toggleTermsModalAction,
   acceptTerms as acceptTermsAction
 } from '../../actions';
 import { hasEnoughMoneyToAddShop } from '../../reducers/user';
 
-/*
-  Components
- */
+// Components
+
 import { Button, Message } from '../../components';
 import { H1 } from '../../components/Headings';
 import { Padding } from '../../components/Spaces';
 import TermsValidation from './TermsValidation';
 
-/*
-  Styles
- */
+// Constants
+
+import { hasSupportedBrowser } from '../../constants/browser';
+
+// Styles
+
 const Wrapper = styled.div`
   max-width: 40rem;
   margin: 0 auto;
@@ -83,6 +81,8 @@ export class Home extends PureComponent {
   checkErrors = () => {
     const { isMetamaskInstalled, hasEnoughMoney, hasGoodNetwork, minEth, minDth } = this.props;
 
+    if (!hasSupportedBrowser)
+      return tr('add.home.browser_not_supported');
     if (!isMetamaskInstalled)
       return tr('add.home.metamask_not_installed');
     if (!hasGoodNetwork)
