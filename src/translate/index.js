@@ -31,13 +31,35 @@ const patterns = [
 ];
 
 /* eslint no-useless-escape: 0 */
+/**
+  escape special regex characters
+  @param {String} str Regex string
+  @return {String} excaped regex string
+*/
 const escapeRegex = str => str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
+
+/**
+  Function passed to reduce to build the replacing regex with all the patterns
+  @param {String} r currentRegex
+  @param {Object} p pattern to add
+  @return {String} new regex
+ */
 const handleBuildRegex = (r, p) => (r ? (`${r}|${escapeRegex(p.symbol)}`) : escapeRegex(p.symbol));
+
+/**
+  Build the replacing regex string
+  @return {String} the regex string
+*/
 const regexPatternStr = `(${patterns.reduce(handleBuildRegex, '')})`;
+
+/**
+  Instantiate the replace regex
+  @return {RegExp} replace regex
+*/
 const regexPatterns = new RegExp(regexPatternStr);
 
 /**
- * parsePatterns
+ * parse Translation for styles patterns and replace with corresponding HTML/JSX
  * @param  {String} str
  * @return {[type]}     [description]
  */
