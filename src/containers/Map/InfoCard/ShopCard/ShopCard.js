@@ -105,7 +105,7 @@ ShopCard.propTypes = {
   category: PropTypes.string,
   address: PropTypes.string,
   description: PropTypes.string,
-  calendar: PropTypes.shape({})
+  calendar: PropTypes.array
 };
 
 ShopCard.defaultProps = {
