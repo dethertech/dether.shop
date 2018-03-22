@@ -6,7 +6,7 @@ import supercluster from 'points-cluster';
  * @param  {[type]}  pos2 [description]
  * @return {Boolean}      [description]
  */
-const isEqu = (pos1, pos2) => (
+export const isEqu = (pos1, pos2) => (
   pos1.lat === pos2.lat && pos1.lng === pos2.lng
 );
 
@@ -15,7 +15,7 @@ const isEqu = (pos1, pos2) => (
  * @param  {[type]} deg [description]
  * @return {[type]}     [description]
  */
-const toRadians = deg => deg * (Math.PI / 180);
+export const toRadians = deg => deg * (Math.PI / 180);
 
 /**
  * distance
@@ -23,7 +23,7 @@ const toRadians = deg => deg * (Math.PI / 180);
  * @param  {[type]} pos2 [description]
  * @return {[type]}      [description]
  */
-const distance = (pos1, pos2) => {
+export const distance = (pos1, pos2) => {
   const R = 6371e3; // metres
   const d1 = toRadians(pos1.lat);
   const d2 = toRadians(pos2.lat);
@@ -44,7 +44,7 @@ const distance = (pos1, pos2) => {
  * @param  {[type]} propsMap [description]
  * @return {[type]}          [description]
  */
-const getClusterData = (data, propsMap) => {
+export const getClusterData = (data, propsMap) => {
   const cl = supercluster(data, {
     minZoom: 0,
     maxZoom: 15,
@@ -95,5 +95,3 @@ export async function addressNameByPosition(position) {
   }
   return null;
 }
-
-export { isEqu, distance, getClusterData };

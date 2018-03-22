@@ -7,7 +7,6 @@ const initialState = {
   mapInitiated: false,
   cardOpened: false,
   userInfo: {},
-  tellers: [],
   shops: [],
 };
 

@@ -1,6 +1,6 @@
-export { default as get } from './get';
-export { default as last } from './last';
-export { default as GeocodeAPI } from './geocodeAPI';
+export * from './get';
+export * from './last';
+export * from './geocodeAPI';
 export * from './timers';
 export * from './stories';
 export * from './shake';

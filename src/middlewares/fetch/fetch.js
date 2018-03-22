@@ -3,12 +3,12 @@ import axios from 'axios';
 /*
   Helpers
  */
-import { get, last } from '../helpers';
+import { get, last } from '../../helpers';
 
 /*
   Constants
  */
-import { config } from '../constants';
+import { config } from '../../constants';
 
 /**
  * [fetchMiddleware description]
