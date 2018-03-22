@@ -40,7 +40,8 @@ const en = {
       terms_link: 'Terms and Conditions',
       bt_add: 'Add your shop on the map',
       metamask_not_installed: 'Your are not connected to metamask',
-      wrong_network: 'Your are connected to the wrong network'
+      wrong_network: 'Your are connected to the wrong network',
+      browser_not_supported: 'Your browser is not supported, Metamask is available on Google Chrome and Firefox only.'
     },
     form: {
       title: 'REGISTER YOUR SHOP',
