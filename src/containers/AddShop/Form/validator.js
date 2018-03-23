@@ -1,10 +1,12 @@
 import tr from '../../../translate';
+import { isZoneShopOpen } from '../../../helpers';
 
 export default {
   address: {
     tranform: val => val,
     test: val =>
-      !!(val && val.lat && val.lng && val.countryId && val.countryId.length && val.postalCode),
+      !!(val && val.lat && val.lng && val.countryId && val.countryId.length && val.postalCode
+      && isZoneShopOpen(val.countryId)),
     fillInfos: () => null,
     errorMsg: () => tr('add.form.inputs.address.error')
   },

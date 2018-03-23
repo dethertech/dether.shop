@@ -2,7 +2,7 @@ import DthContract from 'dethercontract/contracts/DetherToken.json';
 import DetherCore from 'dethercontract/contracts/DetherCore.json';
 import web3Abi from 'web3-eth-abi';
 
-import { web3js, getAddress, getNetworkId } from './utils';
+import { web3js, getAddress, getNetworkId, toNBytes } from './utils';
 
 class ConvertBase {
     convert = (baseFrom, baseTo) => num => parseInt(num, baseFrom).toString(baseTo);
@@ -34,20 +34,6 @@ const intTo4bytes = (intvalue) => {
     result = `0${result}`;
   }
   return result;
-};
-
-/**
- * [toNBytes description]
- * @param  {[type]} str [description]
- * @param  {[type]} n   [description]
- * @return {[type]}     [description]
- */
-const toNBytes = (str, n) => {
-  let buffer = '';
-  for (let i = 0; i < n; i += 1) {
-    buffer += str[i] ? str[i].charCodeAt(0).toString(16) : '00';
-  }
-  return buffer;
 };
 
 /**
