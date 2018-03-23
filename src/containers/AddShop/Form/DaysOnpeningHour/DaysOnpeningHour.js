@@ -22,9 +22,15 @@ export class DaysOnpeningHour extends PureComponent {
 
   constructor(props) {
     super(props);
+
+    let isNewCalendar = true;
     this.state = {
-      days: props.days.map((e, i) => ({ ...e, name: daysName[i] })),
-      autoComplete: true
+      days: props.days.map((e, i) => {
+        if (e.open)
+          isNewCalendar = false;
+        return ({ ...e, name: daysName[i] });
+      }),
+      autoComplete: isNewCalendar
     };
   }
 
