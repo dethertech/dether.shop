@@ -18,3 +18,17 @@ export const getDthContract = async () => new web3js.eth
 
 export const getSmsContract = async () => new web3js.eth
   .Contract(SmsCertifier.abi, SmsCertifier.networks[(await getNetworkId())].address);
+
+/**
+ * [toNBytes description]
+ * @param  {[type]} str [description]
+ * @param  {[type]} n   [description]
+ * @return {[type]}     [description]
+ */
+export const toNBytes = (str, n) => {
+  let buffer = '';
+  for (let i = 0; i < n; i += 1) {
+    buffer += str[i] ? str[i].charCodeAt(0).toString(16) : '00';
+  }
+  return buffer;
+};
