@@ -75,7 +75,7 @@ const DayHour = styled.div`
 
 const days = [...Array(7)].map((x, i) => tr(`days.${i + 1}`));
 
-const ShopCard = ({ name, category, address, description, calendar }) => (
+const ShopCard = ({ name, category, address, description, opening }) => (
   <Wrapper>
     <Card>
       <TopWrapper>
@@ -89,7 +89,7 @@ const ShopCard = ({ name, category, address, description, calendar }) => (
         <Adress>{address}</Adress>
         <Desc>{description}</Desc>
         <Hr />
-        {calendar.map((day, i) =>
+        {opening.map((day, i) =>
             day.open && (
               <DayHour key={days[i]}>
                 <DayContainer>{days[i]}</DayContainer> {day.openAt} - {day.closeAt}
@@ -105,7 +105,7 @@ ShopCard.propTypes = {
   category: PropTypes.string,
   address: PropTypes.string,
   description: PropTypes.string,
-  calendar: PropTypes.array
+  opening: PropTypes.array
 };
 
 ShopCard.defaultProps = {
@@ -113,14 +113,7 @@ ShopCard.defaultProps = {
   category: 'category',
   address: 'address',
   description: 'description',
-  calendar: [
-    { open: true, openAt: '8am', closeAt: '7:30pm' },
-    { open: true, openAt: '8:30am', closeAt: '7:30pm' },
-    { open: true, openAt: '8:30am', closeAt: '7:30pm' },
-    { open: true, openAt: '8:30am', closeAt: '7:30pm' },
-    { open: false, openAt: '8am', closeAt: '7:30pm' },
-    { open: false, openAt: '8am', closeAt: '7:30pm' }
-  ]
+  opening: []
 };
 
 export default ShopCard;
