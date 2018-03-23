@@ -3,11 +3,12 @@ import tr from '../../../translate';
 
 export default ({ onChange, onBlur }, props) => {
   const { shop } = props;
+  const { lat, lng, addressString, postalCode, countryId } = shop;
   return {
     address: {
       name: 'address',
       label: tr('add.form.inputs.address.label'),
-      value: null,
+      value: { lat, lng, addressString, postalCode, countryId },
       fillInfos: validator.name.fillInfos(),
       error: null,
       isValid: false,

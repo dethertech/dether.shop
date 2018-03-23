@@ -24,9 +24,12 @@ export class SearchBar extends PureComponent {
   constructor(props) {
     super(props);
 
+    const { inputOpt } = props;
+    const address = inputOpt.value && inputOpt.value.addressString;
+
     this.state = {
       isDirty: true,
-      address: ''
+      address: address || ''
     };
   }
 
@@ -50,7 +53,8 @@ export class SearchBar extends PureComponent {
       countryId,
       postalCode,
       lat: position.lat.toFixed(5),
-      lng: position.lng.toFixed(5)
+      lng: position.lng.toFixed(5),
+      addressString: address
     };
     let error;
     if (data.lat && data.lng && countryId && postalCode) {
