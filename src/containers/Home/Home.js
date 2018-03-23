@@ -13,10 +13,6 @@ import config from '../../constants/config';
 
 import tr from '../../translate';
 
-// Assets
-
-import illustration from '../../assets/illustration.svg';
-
 // Redux
 
 import {
@@ -27,7 +23,7 @@ import { hasEnoughMoneyToAddShop } from '../../reducers/user';
 
 // Components
 
-import { Button, Message } from '../../components';
+import { Button, Message, SvgHome } from '../../components';
 import { H1 } from '../../components/Headings';
 import { Padding } from '../../components/Spaces';
 import TermsValidation from './TermsValidation';
@@ -109,7 +105,7 @@ export class Home extends PureComponent {
     return (
       <Wrapper>
         <Padding top="l" bottom="s">
-          <img src={illustration} alt="" />
+          <SvgHome />
         </Padding>
 
         <Padding bottom="m">

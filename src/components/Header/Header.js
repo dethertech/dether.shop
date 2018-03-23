@@ -9,9 +9,10 @@ import { wait } from '../../helpers';
 import { ExternalLinkButton } from '../Button';
 
 import { Padding } from '../Spaces';
+
 import { Loader } from '../../components';
-import DetherLogo from '../../assets/logo.svg';
-import iconRefresh from '../../assets/home/icon_refresh.svg';
+
+import { SvgDether, SvgRefresh } from '../Svg';
 
 const Wrapper = styled.header`
   display: flex;
@@ -116,7 +117,7 @@ class Header extends PureComponent {
       <Wrapper>
         <Left>
           <Padding right="m">
-            <img style={{ verticalAlign: 'middle' }} src={DetherLogo} alt="" />
+            <SvgDether />
             <BtnWrapper>
               <ExternalLinkButton isSmall href="https://idex.market/eth/dth" target="_blank">
                 {tr('header.buy_dth')}
@@ -136,7 +137,7 @@ class Header extends PureComponent {
                     <YourBalance>{tr('header.your_balance')}</YourBalance>
                   </Balance>
                   <Refresh onClick={this.handleRefresh}>
-                    <img src={iconRefresh} alt="" />
+                    <SvgRefresh />
                     <RefreshText>{tr('header.refresh')}</RefreshText>
                   </Refresh>
                 </Fragment>
