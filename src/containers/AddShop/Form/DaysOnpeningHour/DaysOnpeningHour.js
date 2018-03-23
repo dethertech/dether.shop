@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Padding } from '../../../../components/Spaces';
 import { H3 } from '../../../../components/Headings';
 import { convertDay } from '../../../../helpers';
+import tr from '../../../../translate';
 
 import DayLineOnpeningHour from './DayLineOnpeningHour';
 
@@ -62,7 +63,7 @@ export class DaysOnpeningHour extends PureComponent {
     return (
       <div>
         <Padding bottom="m">
-          <H3>Select Oppenning days of your shop :</H3>
+          <H3>{tr('add.form.inputs.opening.label')}</H3>
         </Padding>
         {this.state.days.map((day, idx) => (
           <DayLineOnpeningHour

@@ -67,7 +67,8 @@ const en = {
           placeholder: () => 'length min 1 – max 16'
         },
         opening: {
-          error: () => 'Invalid opening'
+          error: () => 'Invalid opening',
+          label: 'Select Opening days of your shop:'
         }
       },
       register_btn: 'Add your shop'
