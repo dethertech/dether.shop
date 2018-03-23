@@ -17,11 +17,17 @@ const Wrapper = styled.header`
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
+  @media (max-width: 420px) {
+    flex-direction: column;
+  }
 `;
 
 const Left = styled.div`
   flex: 0 0 30%;
   text-align: left;
+  @media (max-width: 420px) {
+    padding-bottom: 20px;;
+  }
 `;
 
 const Right = styled.div`
@@ -46,6 +52,11 @@ const Balance = styled.div`
 
 const BtnWrapper = styled.div`
   padding-top: ${tokens.spaces.xs};
+  @media (max-width: 420px) {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+  }
 `;
 
 const EthBalanceWrapper = styled.div`
@@ -105,7 +116,7 @@ class Header extends PureComponent {
       <Wrapper>
         <Left>
           <Padding right="m">
-            <img src={DetherLogo} alt="" />
+            <img style={{ verticalAlign: 'middle' }} src={DetherLogo} alt="" />
             <BtnWrapper>
               <ExternalLinkButton isSmall href="https://idex.market/eth/dth" target="_blank">
                 {tr('header.buy_dth')}

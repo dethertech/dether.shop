@@ -121,6 +121,28 @@ exports[`Components Header should render Header 1`] = `
   margin-top: 0.4rem;
 }
 
+@media (max-width:420px) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media (max-width:420px) {
+  .c1 {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width:420px) {
+  .c3 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+  }
+}
+
 <header
   className="c0"
 >
@@ -133,6 +155,11 @@ exports[`Components Header should render Header 1`] = `
       <img
         alt=""
         src="logo.svg"
+        style={
+          Object {
+            "verticalAlign": "middle",
+          }
+        }
       />
       <div
         className="c3"
