@@ -43,10 +43,12 @@ export class DaysOnpeningHour extends PureComponent {
       const { days, autoComplete } = this.state;
       let copy = [...days];
       copy[idx] = { ...obj };
-      if (idx === 0 && autoComplete)
-        copy = copy.map(day => ({ ...day, openAt: obj.openAt, closeAt: obj.closeAt }));
-      else if (days[idx].open)
+      if (idx === 0 && autoComplete) {
+        copy = copy
+          .map((day, i) => (i < 5 ? ({ ...day, openAt: obj.openAt, closeAt: obj.closeAt }) : day));
+      } else if (days[idx].open) {
         this.setState({ autoComplete: false });
+      }
       this.setState(() => ({ days: copy }), this.callParent);
     };
   }
