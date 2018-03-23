@@ -27,11 +27,34 @@ const convertBase = new ConvertBase();
  * @param  {[type]} intvalue [description]
  * @return {[type]}          [description]
  */
-const intTo4bytes = (intvalue) => {
-  const hexvalue = convertBase.dec2hex(intvalue);
-  let result = hexvalue;
-  for (let i = 0; i + hexvalue.length < 8; i += 1) {
-    result = `0${result}`;
+// const intTo4bytes = (intvalue) => {
+//   const hexvalue = convertBase.dec2hex(intvalue);
+//   let result = hexvalue;
+//   for (let i = 0; i + hexvalue.length < 8; i += 1) {
+//     result = `0${result}`;
+//   }
+//   return result;
+// };
+
+//
+const intTo5bytes = (intvalue) => {
+  let hexvalue;
+  let result;
+  if (intvalue < 0) {
+    const newvalue = -intvalue;
+    hexvalue = convertBase.dec2hex(newvalue);
+    result = hexvalue;
+    for (let i = 0; i + hexvalue.length < 8; i += 1) {
+      result = `0${result}`;
+    }
+    result = `01${result}`;
+  } else {
+    hexvalue = convertBase.dec2hex(intvalue);
+    result = hexvalue;
+    for (let i = 0; i + hexvalue.length < 8; i += 1) {
+      result = `0${result}`;
+    }
+    result = `00${result}`;
   }
   return result;
 };
@@ -56,9 +79,15 @@ const toNBytes = (str, n) => {
  * @return {[type]}         [description]
  */
 const shopToContract = (rawshop) => {
-  const lat = intTo4bytes(parseFloat(rawshop.lat) * 100000);
-  const lng = intTo4bytes(parseFloat(rawshop.lng) * 100000);
-
+  // let lat;
+  // let lng;
+  // if (parseFloat(rawshop.lat) < 0) lat = intTo4bytesMinus(parseFloat(rawshop.lat) * 100000);
+  // else lat = intTo4bytes(parseFloat(rawshop.lat) * 100000);
+  // if (parseFloat(rawshop.lng) < 0) lng = intTo4bytesMinus(parseFloat(rawshop.lng) * 100000);
+  // else lng = intTo4bytes(parseFloat(rawshop.lng) * 100000);
+  const lat = intTo5bytes(parseFloat(rawshop.lat) * 100000);
+  const lng = intTo5bytes(parseFloat(rawshop.lng) * 100000);
+  console.log('shopfromcontract, lat lng => ', lat, lng);
   const hexshopGeo = `0x31${lat}${lng}`;
   const hexShopAddr = `${toNBytes(rawshop.countryId, 2)}${toNBytes(rawshop.postalCode, 16)}`;
   const hexShopId = `${toNBytes(rawshop.cat, 16)}${toNBytes(rawshop.name, 16)}`;
@@ -103,8 +132,10 @@ const overloadedTransferAbi = {
  */
 const addShop = (shop) =>
   new Promise(async (res, rej) => {
+    console.log('ADD SHOP : shop', shop);
     try {
       const hexShop = shopToContract(shop);
+      console.log('ADD SHOP: hexshop', hexShop);
       const [address, networkId] = await Promise.all([getAddress(), getNetworkId()]);
       const transferMethodTransactionData = web3Abi.encodeFunctionCall(
         overloadedTransferAbi,
@@ -122,6 +153,7 @@ const addShop = (shop) =>
           value: 0,
           gas: 2000000
         });
+      console.log('tsx ', tsx);
       res(tsx);
     } catch (e) {
       rej(new TypeError(`Invalid shop transaction: ${e.message}`));
