@@ -134,6 +134,11 @@ const en = {
     edit_button: 'Edit',
     loader_title: 'Please wait',
     loader_add_message: 'We are checking your request'
+  },
+  beta: {
+    title: 'Warning!',
+    text: 'Dether app is a Beta version. || Use it at your own risk',
+    button: 'I agree'
   }
 };
 
