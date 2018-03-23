@@ -34,6 +34,9 @@ const google = {
 }
 global.google = google
 global.window.google = google
+global.localStorage = {
+  getItem: () => 0
+};
 
 describe('Container Wrapper', () => {
   it('should be render without crash', () => {
