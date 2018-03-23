@@ -45,7 +45,6 @@ export class Form extends PureComponent {
     const validatorName = validator[name];
     const value = validatorName.tranform(val);
 
-    console.log(name, value);
     this.setState(pState => ({
       form: { ...pState.form, [name]: { ...pState.form[name], value } }
     }));
