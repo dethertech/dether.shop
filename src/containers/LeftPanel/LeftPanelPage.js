@@ -1,20 +1,17 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-
 import styled from 'styled-components';
+
 import tr from '../../translate';
 import tokens from '../../styles/tokens';
 
 // component
-import { Layout, LoaderScreen, Header, ButtonLink } from '../../components';
+import { Layout, LoaderScreen, Header } from '../../components';
+import Footer from './Footer';
 
 import { Padding } from '../../components/Spaces';
 import ShopRouter from '../ShopRouter';
-
-const FooterText = styled.footer`
-  font-size: ${tokens.fontSizes.s};
-`;
 
 const LeftWrapper = styled.div`
   width: 100%;
@@ -63,23 +60,7 @@ class LeftPanelPage extends PureComponent {
           <LeftWrapper>{this.getView()}</LeftWrapper>
         </Layout.ScrollableBody>
         <Layout.Footer>
-          <Padding all="m">
-            <FooterText>
-              <div>
-                <b>Dether</b> {tr('footer.all_right_reserved')} -{' '}
-                <ButtonLink isSmall onClick={toggleModal}>
-                  {tr('footer.terms_and_conditions')}
-                </ButtonLink>
-                &nbsp;-&nbsp;
-                <ButtonLink
-                  isSmall
-                  onClick={() => window.open('https://dethersupport.typeform.com/to/oajOgv')}
-                >
-                  {tr('footer.report_bug')}
-                </ButtonLink>
-              </div>
-            </FooterText>
-          </Padding>
+          <Footer toggleModal={toggleModal} />
         </Layout.Footer>
       </Layout>
     );
