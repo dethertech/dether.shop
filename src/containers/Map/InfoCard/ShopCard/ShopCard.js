@@ -75,21 +75,21 @@ const DayHour = styled.div`
 
 const days = [...Array(7)].map((x, i) => tr(`days.${i + 1}`));
 
-const ShopCard = ({ name, category, address, description, calendar }) => (
+const ShopCard = ({ name, cat, address, description, opening }) => (
   <Wrapper>
     <Card>
       <TopWrapper>
         <img src={avatar} alt="profile" width="65" />
         <UserProfile>
           <H1 light>{name}</H1>
-          {category}
+          {cat}
         </UserProfile>
       </TopWrapper>
       <BottomWrapper>
         <Adress>{address}</Adress>
         <Desc>{description}</Desc>
         <Hr />
-        {calendar.map((day, i) =>
+        {opening.map((day, i) =>
             day.open && (
               <DayHour key={days[i]}>
                 <DayContainer>{days[i]}</DayContainer> {day.openAt} - {day.closeAt}
@@ -102,25 +102,18 @@ const ShopCard = ({ name, category, address, description, calendar }) => (
 
 ShopCard.propTypes = {
   name: PropTypes.string,
-  category: PropTypes.string,
+  cat: PropTypes.string,
   address: PropTypes.string,
   description: PropTypes.string,
-  calendar: PropTypes.array
+  opening: PropTypes.array
 };
 
 ShopCard.defaultProps = {
   name: 'name',
-  category: 'category',
+  cat: 'category',
   address: 'address',
   description: 'description',
-  calendar: [
-    { open: true, openAt: '8am', closeAt: '7:30pm' },
-    { open: true, openAt: '8:30am', closeAt: '7:30pm' },
-    { open: true, openAt: '8:30am', closeAt: '7:30pm' },
-    { open: true, openAt: '8:30am', closeAt: '7:30pm' },
-    { open: false, openAt: '8am', closeAt: '7:30pm' },
-    { open: false, openAt: '8am', closeAt: '7:30pm' }
-  ]
+  opening: []
 };
 
 export default ShopCard;
