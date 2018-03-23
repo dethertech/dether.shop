@@ -75,14 +75,14 @@ const DayHour = styled.div`
 
 const days = [...Array(7)].map((x, i) => tr(`days.${i + 1}`));
 
-const ShopCard = ({ name, category, address, description, opening }) => (
+const ShopCard = ({ name, cat, address, description, opening }) => (
   <Wrapper>
     <Card>
       <TopWrapper>
         <img src={avatar} alt="profile" width="65" />
         <UserProfile>
           <H1 light>{name}</H1>
-          {category}
+          {cat}
         </UserProfile>
       </TopWrapper>
       <BottomWrapper>
@@ -102,7 +102,7 @@ const ShopCard = ({ name, category, address, description, opening }) => (
 
 ShopCard.propTypes = {
   name: PropTypes.string,
-  category: PropTypes.string,
+  cat: PropTypes.string,
   address: PropTypes.string,
   description: PropTypes.string,
   opening: PropTypes.array
@@ -110,7 +110,7 @@ ShopCard.propTypes = {
 
 ShopCard.defaultProps = {
   name: 'name',
-  category: 'category',
+  cat: 'category',
   address: 'address',
   description: 'description',
   opening: []
