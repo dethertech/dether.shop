@@ -9,3 +9,4 @@ export * from './calendar';
 export * from './array';
 export * from './apiResponse';
 export * from './ethereum';
+export { default as wait } from './wait';
