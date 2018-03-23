@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import tokens from '../../styles/tokens';
 import tr from '../../translate';
+import { wait } from '../../helpers';
 
 import { ExternalLinkButton } from '../Button';
 
 import { Padding } from '../Spaces';
+import { Loader } from '../../components';
 import DetherLogo from '../../assets/logo.svg';
 import iconRefresh from '../../assets/home/icon_refresh.svg';
 
@@ -76,38 +78,63 @@ const RefreshText = styled.div`
   margin-top: ${tokens.spaces.xxs};
 `;
 
-const Header = ({ onRefresh, EthBalance, DthBalance }) => (
-  <Wrapper>
-    <Left>
-      <Padding right="m">
-        <img src={DetherLogo} alt="" />
-        <BtnWrapper>
-          <ExternalLinkButton isSmall href="https://idex.market/eth/dth" target="_blank">
-            {tr('header.buy_dth')}
-          </ExternalLinkButton>
-        </BtnWrapper>
-      </Padding>
-    </Left>
-    <Right>
-      <WalletView>
-        <Balance>
-          <EthBalanceWrapper>{EthBalance} ETH</EthBalanceWrapper>
-          <DthBalanceWrapper>{DthBalance} DTH</DthBalanceWrapper>
-          <YourBalance>{tr('header.your_balance')}</YourBalance>
-        </Balance>
-        <Refresh onClick={onRefresh}>
-          <img src={iconRefresh} alt="" />
-          <RefreshText>{tr('header.refresh')}</RefreshText>
-        </Refresh>
-      </WalletView>
-    </Right>
-  </Wrapper>
-);
+class Header extends PureComponent {
+  static propTypes = {
+    onRefresh: PropTypes.func.isRequired,
+    EthBalance: PropTypes.string.isRequired,
+    DthBalance: PropTypes.string.isRequired
+  };
 
-Header.propTypes = {
-  onRefresh: PropTypes.func.isRequired,
-  EthBalance: PropTypes.string.isRequired,
-  DthBalance: PropTypes.string.isRequired
-};
+  state = {
+    isBalanceLoading: false
+  };
+
+  handleRefresh = async () => {
+    const { onRefresh } = this.props;
+
+    this.setState({ isBalanceLoading: true });
+    await onRefresh();
+    await wait(1000);
+    this.setState({ isBalanceLoading: false });
+  }
+  render() {
+    const { EthBalance, DthBalance } = this.props;
+    const { isBalanceLoading } = this.state;
+
+    return (
+      <Wrapper>
+        <Left>
+          <Padding right="m">
+            <img src={DetherLogo} alt="" />
+            <BtnWrapper>
+              <ExternalLinkButton isSmall href="https://idex.market/eth/dth" target="_blank">
+                {tr('header.buy_dth')}
+              </ExternalLinkButton>
+            </BtnWrapper>
+          </Padding>
+        </Left>
+        <Right>
+          <WalletView>
+            { isBalanceLoading
+                ? <Loader style={{ margin: 'auto' }} />
+                :
+                <Fragment>
+                  <Balance>
+                    <EthBalanceWrapper>{EthBalance} ETH</EthBalanceWrapper>
+                    <DthBalanceWrapper>{DthBalance} DTH</DthBalanceWrapper>
+                    <YourBalance>{tr('header.your_balance')}</YourBalance>
+                  </Balance>
+                  <Refresh onClick={this.handleRefresh}>
+                    <img src={iconRefresh} alt="" />
+                    <RefreshText>{tr('header.refresh')}</RefreshText>
+                  </Refresh>
+                </Fragment>
+            }
+          </WalletView>
+        </Right>
+      </Wrapper>
+    );
+  }
+}
 
 export default Header;
