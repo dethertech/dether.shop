@@ -22,16 +22,25 @@ class ConvertBase {
 
 const convertBase = new ConvertBase();
 
-/**
- * [intTo4bytes description]
- * @param  {[type]} intvalue [description]
- * @return {[type]}          [description]
- */
-const intTo4bytes = (intvalue) => {
-  const hexvalue = convertBase.dec2hex(intvalue);
-  let result = hexvalue;
-  for (let i = 0; i + hexvalue.length < 8; i += 1) {
-    result = `0${result}`;
+//
+const intTo5bytes = (intvalue) => {
+  let hexvalue;
+  let result;
+  if (intvalue < 0) {
+    const newvalue = -intvalue;
+    hexvalue = convertBase.dec2hex(newvalue);
+    result = hexvalue;
+    for (let i = 0; i + hexvalue.length < 8; i += 1) {
+      result = `0${result}`;
+    }
+    result = `01${result}`;
+  } else {
+    hexvalue = convertBase.dec2hex(intvalue);
+    result = hexvalue;
+    for (let i = 0; i + hexvalue.length < 8; i += 1) {
+      result = `0${result}`;
+    }
+    result = `00${result}`;
   }
   return result;
 };
@@ -42,9 +51,8 @@ const intTo4bytes = (intvalue) => {
  * @return {[type]}         [description]
  */
 const shopToContract = (rawshop) => {
-  const lat = intTo4bytes(parseFloat(rawshop.lat) * 100000);
-  const lng = intTo4bytes(parseFloat(rawshop.lng) * 100000);
-
+  const lat = intTo5bytes(parseFloat(rawshop.lat) * 100000);
+  const lng = intTo5bytes(parseFloat(rawshop.lng) * 100000);
   const hexshopGeo = `0x31${lat}${lng}`;
   const hexShopAddr = `${toNBytes(rawshop.countryId, 2)}${toNBytes(rawshop.postalCode, 16)}`;
   const hexShopId = `${toNBytes(rawshop.cat, 16)}${toNBytes(rawshop.name, 16)}`;
@@ -106,7 +114,7 @@ const addShop = (shop) =>
           to: DthContract.networks[networkId].address,
           data: transferMethodTransactionData,
           value: 0,
-          gas: 2000000
+          gas: 400000
         });
       res(tsx);
     } catch (e) {
