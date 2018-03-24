@@ -139,6 +139,11 @@ const en = {
     title: 'Warning!',
     text: 'Dether app is a Beta version. || Use it at your own risk',
     button: 'I agree'
+  },
+  map: {
+    shop_card: {
+      closed: 'closed'
+    }
   }
 };
 

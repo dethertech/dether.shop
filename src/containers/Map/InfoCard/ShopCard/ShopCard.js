@@ -90,11 +90,15 @@ const ShopCard = ({ name, cat, address, description, opening }) => (
         <Desc>{description}</Desc>
         <Hr />
         {opening.map((day, i) =>
-            day.open && (
-              <DayHour key={days[i]}>
-                <DayContainer>{days[i]}</DayContainer> {day.openAt} - {day.closeAt}
-              </DayHour>
-            ))}
+          (day.open ? (
+            <DayHour key={days[i]}>
+              <DayContainer>{days[i]}</DayContainer> {day.openAt} - {day.closeAt}
+            </DayHour>
+          ) : (
+            <DayHour key={days[i]}>
+              <DayContainer>{days[i]}</DayContainer> {tr('map.shop_card.closed')}
+            </DayHour>
+          )))}
       </BottomWrapper>
     </Card>
   </Wrapper>
