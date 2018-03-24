@@ -10,7 +10,6 @@ import tokens from '../../styles/tokens';
 import { Layout, LoaderScreen, Header } from '../../components';
 import Footer from './Footer';
 
-import { Padding } from '../../components/Spaces';
 import ShopRouter from '../ShopRouter';
 
 const LeftWrapper = styled.div`
@@ -18,6 +17,9 @@ const LeftWrapper = styled.div`
   max-width: 42rem;
   margin: auto;
   padding: ${tokens.spaces.m};
+  @media (max-width: 420px) {
+    padding: ${tokens.spaces.xs} ${tokens.spaces.m};
+  }
 `;
 
 class LeftPanelPage extends PureComponent {
