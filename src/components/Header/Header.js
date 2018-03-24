@@ -16,19 +16,18 @@ import { SvgDether, SvgRefresh } from '../Svg';
 
 const Wrapper = styled.header`
   display: flex;
+  justify-content: space-between;
   flex-flow: row nowrap;
   width: 100%;
+  padding: ${tokens.spaces.m};
   @media (max-width: 420px) {
-    flex-direction: column;
+    padding: ${tokens.spaces.s};
+    font-size: ${tokens.fontSizes.xs};
   }
 `;
 
 const Left = styled.div`
-  flex: 0 0 30%;
   text-align: left;
-  @media (max-width: 420px) {
-    padding-bottom: 20px;;
-  }
 `;
 
 const Right = styled.div`
@@ -43,6 +42,9 @@ const WalletView = styled.div`
   flex-flow: row nowrap;
   text-align: center;
   align-items: center;
+  @media (max-width: 420px) {
+    padding: ${tokens.spaces.xs};
+  }
 `;
 
 const Balance = styled.div`
@@ -53,10 +55,12 @@ const Balance = styled.div`
 
 const BtnWrapper = styled.div`
   padding-top: ${tokens.spaces.xs};
+  text-align: center;
   @media (max-width: 420px) {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 30px;
+    & > a {
+      padding: ${tokens.spaces.xs} ${tokens.spaces.xs};
+      font-size: ${tokens.fontSizes.xs};
+    }
   }
 `;
 
@@ -66,6 +70,10 @@ const EthBalanceWrapper = styled.div`
   flex: 0 0 50%;
   border-right: solid 1px ${tokens.colors.grey.lightest};
   padding-right: ${tokens.spaces.s};
+  @media (max-width: 420px) {
+    font-size: ${tokens.fontSizes.s};
+    padding-right: ${tokens.spaces.xs};
+  }
 `;
 
 const DthBalanceWrapper = styled.div`
@@ -73,6 +81,10 @@ const DthBalanceWrapper = styled.div`
   font-weight: 900;
   flex: 0 0 50%;
   padding-left: ${tokens.spaces.s};
+  @media (max-width: 420px) {
+    font-size: ${tokens.fontSizes.s};
+    padding-left: ${tokens.spaces.xs};
+  }
 `;
 
 const YourBalance = styled.div`

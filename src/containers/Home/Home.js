@@ -104,9 +104,7 @@ export class Home extends PureComponent {
 
     return (
       <Wrapper>
-        <Padding top="l" bottom="s">
-          <SvgHome />
-        </Padding>
+        <SvgHome />
 
         <Padding bottom="m">
           <H1>{tr('add.home.title')}</H1>
