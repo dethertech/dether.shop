@@ -179,6 +179,7 @@ class PhoneForm extends PureComponent {
             disabled={!country}
             toggleShake={toggleShakePhone}
             insertBefore={country && <DialCode>{country.dial_code}</DialCode>}
+            style={{ paddingLeft: '0.3rem' }}
             componentName="input"
             label={tr('phone.label')}
             type="tel"
