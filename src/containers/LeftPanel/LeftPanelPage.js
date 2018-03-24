@@ -52,9 +52,7 @@ class LeftPanelPage extends PureComponent {
     return (
       <Layout isFullScreen>
         <Layout.Header>
-          <Padding all="m">
-            <Header onRefresh={refreshBalance} EthBalance={eth} DthBalance={dth} />
-          </Padding>
+          <Header onRefresh={refreshBalance} EthBalance={eth} DthBalance={dth} />
         </Layout.Header>
         <Layout.ScrollableBody>
           <LeftWrapper>{this.getView()}</LeftWrapper>
