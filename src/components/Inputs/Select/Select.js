@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import tokens from '../../../styles/tokens';
 import Icon from '../../Icon';
 
@@ -19,6 +19,10 @@ const InputSelect = styled.select`
   width: 100%;
   padding: ${tokens.spaces.s};
   z-index: 1;
+
+  ${({ fakeDisable }) =>
+    fakeDisable &&
+    css`backgroundColor: red; opacity: 0.5;`};
 
   &:disabled {
     opacity: 0.5;
@@ -57,13 +61,15 @@ const Select = ({ data, onChange, ...rest }) => (
 Select.propTypes = {
   data: PropTypes.arrayOf(PropTypes.string.isRequired),
   onChange: PropTypes.func,
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  fakeDisable: PropTypes.bool
 };
 
 Select.defaultProps = {
   data: [],
   onChange: () => {},
-  selected: null
+  selected: null,
+  fakeDisable: false
 };
 
 export default Select;
