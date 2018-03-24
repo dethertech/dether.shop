@@ -15,3 +15,4 @@ export { default as LoaderScreen } from './Screens/LoaderScreen';
 export { default as ShopRecap } from './ShopRecap';
 export { default as SearchBarWrapper } from './SearchBarWrapper';
 export { default as SmallLink } from './SmallLink';
+export * from './Svg';

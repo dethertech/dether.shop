@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import tr from '../../../../translate';
 
-import avatar from '../../../../assets/home/avatar.svg';
 import tokens from '../../../../styles/tokens';
 import { H1 } from '../../../../components/Headings';
+
+import { SvgAvatar } from '../../../../components';
 
 const BottomWrapper = styled.div`
   padding: ${tokens.spaces.s};
@@ -79,7 +80,7 @@ const ShopCard = ({ name, cat, address, description, opening }) => (
   <Wrapper>
     <Card>
       <TopWrapper>
-        <img src={avatar} alt="profile" width="65" />
+        <SvgAvatar />
         <UserProfile>
           <H1 light>{name}</H1>
           {cat}
