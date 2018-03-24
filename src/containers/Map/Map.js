@@ -97,7 +97,6 @@ export class Map extends Component {
     clearInterval(this.interval);
   }
 
-
   updateCluster(shops) {
     this.shopsCluster = getClusterData(shops, this.propsMap);
   }
@@ -115,6 +114,12 @@ export class Map extends Component {
     }
   };
 
+  mapClick = () => {
+    if (this.refSearch) {
+      this.refSearch.getWrappedInstance().forceBlur();
+    }
+  };
+
   render() {
     const { centerPosition, fetchPosition } = this.props;
     const ShopsMarkers = this.shopsCluster.map(shop => (
@@ -122,11 +127,15 @@ export class Map extends Component {
     ));
     return (
       <MapWrapper>
-        <WrapperMap changeHandler={this.changeHandler} center={centerPosition}>
+        <WrapperMap
+          onClick={this.mapClick}
+          changeHandler={this.changeHandler}
+          center={centerPosition}
+        >
           {ShopsMarkers}
         </WrapperMap>
         <InfoCard />
-        <SearchBar />
+        <SearchBar ref={e => { this.refSearch = e; }} />
         <CenterIcon onClick={fetchPosition}><IconLocalisation /></CenterIcon>
       </MapWrapper>
     );

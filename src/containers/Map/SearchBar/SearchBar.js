@@ -23,6 +23,7 @@ export class SearchBar extends PureComponent {
 
   getAddress = async address => {
     const { setCenterPosition, fetchAll } = this.props;
+    this.forceBlur();
     const place = (await geocodeByAddress(address))[0];
     const position = await getLatLng(place);
     setCenterPosition(position);
@@ -30,14 +31,27 @@ export class SearchBar extends PureComponent {
     this.setState({ address });
   };
 
+  forceBlur = () => {
+    const inputs = document.querySelectorAll('#PlacesAutocomplete__root > input[type="text"]');
+    if (inputs && inputs.length) {
+      inputs[0].blur();
+    }
+  };
+
   render() {
     const inputProps = {
       value: this.state.address,
-      onChange: this.onChange
+      onChange: this.onChange,
+      autoFocus: false,
     };
     return (
       <SearchBarWrapper>
-        <PlacesAutocomplete onSelect={this.getAddress} inputProps={inputProps} />
+        <PlacesAutocomplete
+          id="PlacesAutocomplete"
+          onSelect={this.getAddress}
+          inputProps={inputProps}
+          onEnterKeyDown={this.forceBlur}
+        />
       </SearchBarWrapper>
     );
   }
@@ -47,4 +61,4 @@ const mapDispatchToProps = dispatch => ({
   setCenterPosition: bindActionCreators(setCenterPositionAction, dispatch),
   fetchAll: bindActionCreators(fetchAllAction, dispatch)
 });
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(null, mapDispatchToProps, null, { withRef: true })(SearchBar);
