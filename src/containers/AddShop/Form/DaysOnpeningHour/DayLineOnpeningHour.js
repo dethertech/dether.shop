@@ -42,7 +42,7 @@ class DayLineOnpeningHour extends PureComponent {
   };
 
   onChange = ({ target: { name, value } }) => {
-    this.callParent({ [name]: value });
+    this.callParent({ [name]: value, open: true });
   };
 
   callParent = changedParams => {
@@ -62,7 +62,7 @@ class DayLineOnpeningHour extends PureComponent {
         <div>
           <Select
             name="openAt"
-            disabled={!open}
+            fakeDisable={!open}
             onChange={this.onChange}
             value={openAt}
             data={hours}
@@ -71,7 +71,7 @@ class DayLineOnpeningHour extends PureComponent {
         <div>
           <Select
             name="closeAt"
-            disabled={!open}
+            fakeDisable={!open}
             onChange={this.onChange}
             value={closeAt}
             data={hours}
