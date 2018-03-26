@@ -137,34 +137,34 @@ exports[`Components Header should render Header 1`] = `
   }
 }
 
-@media (max-width:420px) {
+@media (max-width:550px) {
   .c0 {
     padding: 1.2rem;
     font-size: 1.2rem;
   }
 }
 
-@media (max-width:420px) {
+@media (max-width:550px) {
   .c6 {
     padding: 0.8rem;
   }
 }
 
-@media (max-width:420px) {
+@media (max-width:550px) {
   .c3 > a {
     padding: 0.8rem 0.8rem;
     font-size: 1.2rem;
   }
 }
 
-@media (max-width:420px) {
+@media (max-width:550px) {
   .c8 {
     font-size: 1.3rem;
     padding-right: 0.8rem;
   }
 }
 
-@media (max-width:420px) {
+@media (max-width:550px) {
   .c9 {
     font-size: 1.3rem;
     padding-left: 0.8rem;

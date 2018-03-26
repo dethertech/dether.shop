@@ -20,7 +20,7 @@ const Wrapper = styled.header`
   flex-flow: row nowrap;
   width: 100%;
   padding: ${tokens.spaces.m};
-  @media (max-width: 420px) {
+  @media (max-width: 550px) {
     padding: ${tokens.spaces.s};
     font-size: ${tokens.fontSizes.xs};
   }
@@ -42,7 +42,7 @@ const WalletView = styled.div`
   flex-flow: row nowrap;
   text-align: center;
   align-items: center;
-  @media (max-width: 420px) {
+  @media (max-width: 550px) {
     padding: ${tokens.spaces.xs};
   }
 `;
@@ -56,7 +56,7 @@ const Balance = styled.div`
 const BtnWrapper = styled.div`
   padding-top: ${tokens.spaces.xs};
   text-align: center;
-  @media (max-width: 420px) {
+  @media (max-width: 550px) {
     & > a {
       padding: ${tokens.spaces.xs} ${tokens.spaces.xs};
       font-size: ${tokens.fontSizes.xs};
@@ -70,7 +70,7 @@ const EthBalanceWrapper = styled.div`
   flex: 0 0 50%;
   border-right: solid 1px ${tokens.colors.grey.lightest};
   padding-right: ${tokens.spaces.s};
-  @media (max-width: 420px) {
+  @media (max-width: 550px) {
     font-size: ${tokens.fontSizes.s};
     padding-right: ${tokens.spaces.xs};
   }
@@ -81,7 +81,7 @@ const DthBalanceWrapper = styled.div`
   font-weight: 900;
   flex: 0 0 50%;
   padding-left: ${tokens.spaces.s};
-  @media (max-width: 420px) {
+  @media (max-width: 550px) {
     font-size: ${tokens.fontSizes.s};
     padding-left: ${tokens.spaces.xs};
   }

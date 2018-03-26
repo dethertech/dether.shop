@@ -17,7 +17,8 @@ import {
   fetchPosition as fetchPositionAction,
   fetchUserInfo as fetchUserInfoAction
 } from '../../actions/map';
-import { distance, getClusterData } from '../../helpers';
+import { distance, getClusterData, scrollToTop } from '../../helpers';
+import { SvgArrowUp } from '../../components/Svg';
 import tokens from '../../styles/tokens';
 
 const MapWrapper = styled.div`
@@ -34,6 +35,18 @@ const CenterIcon = styled.div`
   margin-top: ${tokens.spaces.xxl};
   padding: ${tokens.spaces.s};
   cursor: pointer;
+`;
+
+const BackUp = styled.button`
+  display: none;
+  position: absolute;
+  bottom: ${tokens.spaces.l};
+  left: ${tokens.spaces.s};
+  width: 30px;
+  height: 30px;
+  @media (max-width: 850px) {
+    display: block;
+  }
 `;
 
 
@@ -137,6 +150,7 @@ export class Map extends Component {
         <InfoCard />
         <SearchBar ref={e => { this.refSearch = e; }} />
         <CenterIcon onClick={fetchPosition}><IconLocalisation /></CenterIcon>
+        <BackUp onClick={() => scrollToTop(1000)}><SvgArrowUp /></BackUp>
       </MapWrapper>
     );
   }
