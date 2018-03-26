@@ -1,6 +1,14 @@
 import React, { Fragment } from 'react';
+import styled from 'styled-components';
 
 import en from './en';
+
+const Link = styled.a`
+  text-decoration: underline;
+  &:hover {
+    color: inherit;
+  }
+`;
 
 // Add translate file
 export const localeConfig = {
@@ -27,6 +35,13 @@ const patterns = [
     symbol: '||',
     toHtml: () => <br />,
     selfClosing: true
+  },
+  {
+    symbol: '##',
+    toHtml: s => {
+      const [link, text] = s.split('#');
+      return <Link target="_blank" href={link}>{text}</Link>;
+    }
   }
 ];
 
