@@ -80,7 +80,7 @@ export class Home extends PureComponent {
     if (!hasSupportedBrowser)
       return tr('add.home.browser_not_supported');
     if (!isMetamaskInstalled)
-      return tr('add.home.metamask_not_installed');
+      return tr('add.home.metamask_not_installed', { linkToMetamask: 'https://metamask.io/' });
     if (!hasGoodNetwork)
       return tr('add.home.wrong_network');
     if (!hasEnoughMoney)
