@@ -34,8 +34,12 @@ const en = {
       title: 'CRYPTOCURRENCY FOR SHOPS',
       desc:
         'Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.',
-      not_enougth_money: ({ minEth, minDth }) =>
+      not_enough_money: ({ minEth, minDth }) =>
         `You must have at least ${minEth.toFixed(4)} ETH and ${minDth.toFixed(4)} DTH to add a shop`,
+      not_enough_eth: ({ minEth }) =>
+        `You must have at least ${minEth.toFixed(4)} ETH to add a shop`,
+      not_enough_dth: ({ minDth }) =>
+        `You must have at least ${minDth.toFixed(4)} DTH to add a shop`,
       terms_check: 'By checking this box, you agree to our',
       terms_link: 'Terms and Conditions',
       bt_add: 'Add your shop on the map',
