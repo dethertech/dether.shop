@@ -49,7 +49,10 @@ const en = {
       inputs: {
         address: {
           label: 'Address:',
-          error: () => 'Invalid address'
+          errors: {
+            invalid: 'Invalid address',
+            zone: 'This Zone is not openened'
+          }
         },
         cat: {
           label: 'Category:',

@@ -61,7 +61,7 @@ export class Form extends PureComponent {
   };
 
   onSave = async () => {
-    if (this.isFormValide()) {
+    if (await this.isFormValide()) {
       const { days, form } = this.state;
       const { setDataShopPending, onSubmit } = this.props;
       const data = {
@@ -76,13 +76,13 @@ export class Form extends PureComponent {
     }
   };
 
-  checkValide(name, val) {
+  async checkValide(name, val) {
     const { form } = this.state;
     const objState = form[name];
     const validatorName = validator[name];
     const value = validatorName.tranform(val);
-    const isValid = validatorName.test(value);
-    console.log(isValid);
+    const error = await validatorName.test(value);
+    const isValid = !error;
 
     this.setState(pState => ({
       form: {
@@ -90,7 +90,7 @@ export class Form extends PureComponent {
         [name]: {
           ...pState.form[name],
           isValid,
-          error: isValid ? null : validatorName.errorMsg(value),
+          error,
           toggleShake: isValid ? objState.toggleShake : objState.toggleShake + 1
         }
       }
@@ -98,12 +98,12 @@ export class Form extends PureComponent {
     return isValid;
   }
 
-  isFormValide() {
+  async isFormValide() {
     const { form } = this.state;
     let isValide = true;
-    Object.keys(form).forEach(k => {
-      isValide = this.checkValide(k, form[k].value) && isValide;
-    });
+    await Promise.all(Object.keys(form).map(async k => {
+      isValide = await this.checkValide(k, form[k].value) && isValide;
+    }));
     return isValide;
   }
 
