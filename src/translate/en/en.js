@@ -63,8 +63,8 @@ const en = {
         },
         description: {
           label: 'Description:',
-          error: () => 'length min 1 – max 16',
-          placeholder: () => 'length min 1 – max 16'
+          error: 'length min 1 – max 32',
+          placeholder: 'length min 1 – max 32'
         },
         opening: {
           error: () => 'Invalid opening',
