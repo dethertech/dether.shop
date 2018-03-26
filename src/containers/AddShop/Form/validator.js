@@ -1,32 +1,36 @@
 import tr from '../../../translate';
 import { isZoneShopOpen } from '../../../helpers';
 
+const hasError = (condition, error) => (condition ? null : error);
+
 export default {
   address: {
     tranform: val => val,
-    test: val =>
-      !!(val && val.lat && val.lng && val.countryId && val.countryId.length && val.postalCode
-      && isZoneShopOpen(val.countryId)),
-    fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputs.address.error')
+    test: async val => {
+      if (!(val && val.lat && val.lng && val.countryId && val.countryId.length && val.postalCode))
+        return tr('add.form.inputs.address.errors.invalid');
+      const isOpen = await isZoneShopOpen(val.countryId);
+      if (!isOpen)
+        return tr('add.form.inputs.address.errors.zone');
+    },
+    fillInfos: () => null
   },
   cat: {
     tranform: val => (val ? val.substring(0, 16) : ''),
-    test: val => val && val.length && val.length <= 16,
-    fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputs.cat.error')
+    test: val => hasError((val && val.length && val.length <= 16), tr('add.form.inputs.cat.error')),
+    fillInfos: () => null
   },
   name: {
     tranform: val => (val ? val.substring(0, 16) : ''),
-    test: val => val && val.length && val.length <= 16,
-    fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputs.name.error')
+    test: val =>
+      hasError((val && val.length && val.length <= 16), tr('add.form.inputs.name.error')),
+    fillInfos: () => null
   },
   description: {
     tranform: val => (val.substring(0, 32) || ''),
-    test: val => val && val.length && val.length <= 32,
+    test: val =>
+      hasError((val && val.length && val.length <= 32), tr('add.form.inputs.description.error')),
     fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputs.description.error')
   },
   opening: {
     tranform: val => (val || ''),
@@ -37,14 +41,14 @@ export default {
         const testClose = str[i] === '0';
         const testOpen = hours.includes(str[i]) && hours.includes(str[i + 1]);
         if (!testClose && !testOpen) {
-          return false;
+          return tr('add.form.inputs.opening.error');
         }
         idx += 1;
         i += testClose ? 1 : 2;
       }
-      return idx === 7;
+      if (!(idx === 7))
+        return tr('add.form.inputs.opening.error');
     },
-    fillInfos: () => null,
-    errorMsg: () => tr('add.form.inputs.opening.error')
+    fillInfos: () => null
   }
 };

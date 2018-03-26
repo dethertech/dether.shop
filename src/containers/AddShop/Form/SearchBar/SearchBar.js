@@ -17,7 +17,7 @@ export class SearchBar extends PureComponent {
   static async postalCode(addressComponents, position) {
     return (
       GeocodeAPI.getPostalCodeFromAddressComponents(addressComponents) ||
-      GeocodeAPI.postalCode(position)
+      (await GeocodeAPI.postalCode(position)) || '0'
     );
   }
 
@@ -45,9 +45,7 @@ export class SearchBar extends PureComponent {
     const place = (await geocodeByAddress(address))[0];
     const position = await getLatLng(place);
     const countryId = GeocodeAPI.getCountryIdFromAddressComponents(place.address_components);
-    const postalCode =
-      GeocodeAPI.getPostalCodeFromAddressComponents(place.address_components) ||
-      (await GeocodeAPI.postalCode(position).catch(() => null));
+    const postalCode = await SearchBar.postalCode(place.address_components, position);
 
     const data = { ...position,
       countryId,
