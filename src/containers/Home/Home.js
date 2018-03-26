@@ -19,7 +19,7 @@ import {
   toggleTermsModal as toggleTermsModalAction,
   acceptTerms as acceptTermsAction
 } from '../../actions';
-import { hasEnoughMoneyToAddShop } from '../../reducers/user';
+import { hasEnoughEthToAddShop, hasEnoughDthToAddShop } from '../../reducers/user';
 
 // Components
 
@@ -47,7 +47,8 @@ const Wrapper = styled.div`
 export class Home extends PureComponent {
   static propTypes = {
     isMetamaskInstalled: PropTypes.bool.isRequired,
-    hasEnoughMoney: PropTypes.bool.isRequired,
+    hasEnoughEth: PropTypes.bool.isRequired,
+    hasEnoughDth: PropTypes.bool.isRequired,
     minEth: PropTypes.number.isRequired,
     minDth: PropTypes.number.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
@@ -75,7 +76,14 @@ export class Home extends PureComponent {
   };
 
   checkErrors = () => {
-    const { isMetamaskInstalled, hasEnoughMoney, hasGoodNetwork, minEth, minDth } = this.props;
+    const {
+      isMetamaskInstalled,
+      hasEnoughEth,
+      hasEnoughDth,
+      hasGoodNetwork,
+      minEth,
+      minDth
+    } = this.props;
 
     if (!hasSupportedBrowser)
       return tr('add.home.browser_not_supported');
@@ -83,8 +91,12 @@ export class Home extends PureComponent {
       return tr('add.home.metamask_not_installed');
     if (!hasGoodNetwork)
       return tr('add.home.wrong_network');
-    if (!hasEnoughMoney)
-      return tr('add.home.not_enougth_money', { minEth, minDth });
+    if (!hasEnoughEth && !hasEnoughDth)
+      return tr('add.home.not_enough_money', { minDth, minEth });
+    if (!hasEnoughEth)
+      return tr('add.home.not_enough_eth', { minEth });
+    if (!hasEnoughDth)
+      return tr('add.home.not_enough_dth', { minDth });
   }
 
   checkTerms = e => {
@@ -133,7 +145,8 @@ export class Home extends PureComponent {
 }
 
 const mapStateToProps = ({ user, app }) => ({
-  hasEnoughMoney: hasEnoughMoneyToAddShop(user),
+  hasEnoughEth: hasEnoughEthToAddShop(user.balance),
+  hasEnoughDth: hasEnoughDthToAddShop(user.balance),
   hasGoodNetwork: hasGoodNetworkHelper(app),
   isMetamaskInstalled: app.isMetamaskInstalled,
   isUserVerified: user.isCertified,
