@@ -11,6 +11,7 @@ describe('Components Header', () => {
       onRefresh={() => {}}
       EthBalance={'2.456'}
       DthBalance={'25634'}
+      toggleBuyModal={() => null}
     />);
 
     const tree = component.toJSON();

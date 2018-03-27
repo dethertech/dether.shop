@@ -6,7 +6,7 @@ import tokens from '../../styles/tokens';
 import tr from '../../translate';
 import { wait } from '../../helpers';
 
-import { ExternalLinkButton } from '../Button';
+import Button from '../Button';
 
 import { Padding } from '../Spaces';
 
@@ -106,7 +106,8 @@ class Header extends PureComponent {
   static propTypes = {
     onRefresh: PropTypes.func.isRequired,
     EthBalance: PropTypes.string.isRequired,
-    DthBalance: PropTypes.string.isRequired
+    DthBalance: PropTypes.string.isRequired,
+    toggleBuyModal: PropTypes.func.isRequired,
   };
 
   state = {
@@ -122,7 +123,7 @@ class Header extends PureComponent {
     this.setState({ isBalanceLoading: false });
   }
   render() {
-    const { EthBalance, DthBalance } = this.props;
+    const { EthBalance, DthBalance, toggleBuyModal } = this.props;
     const { isBalanceLoading } = this.state;
 
     return (
@@ -131,9 +132,9 @@ class Header extends PureComponent {
           <Padding right="m">
             <SvgDether />
             <BtnWrapper>
-              <ExternalLinkButton isSmall href="https://idex.market/eth/dth" target="_blank">
+              <Button isSmall onClick={toggleBuyModal}>
                 {tr('header.buy_dth')}
-              </ExternalLinkButton>
+              </Button>
             </BtnWrapper>
           </Padding>
         </Left>
