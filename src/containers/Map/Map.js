@@ -17,7 +17,7 @@ import {
   fetchPosition as fetchPositionAction,
   fetchUserInfo as fetchUserInfoAction
 } from '../../actions/map';
-import { distance, getClusterData, scrollToTop } from '../../helpers';
+import { distance, getClusterData, scrollToTop, LatLng } from '../../helpers';
 import { SvgArrowUp } from '../../components/Svg';
 import tokens from '../../styles/tokens';
 
@@ -49,7 +49,6 @@ const BackUp = styled.button`
   }
 `;
 
-
 export class Map extends Component {
   static propTypes = {
     setCenterPosition: PropTypes.func.isRequired,
@@ -75,13 +74,7 @@ export class Map extends Component {
   }
 
   async componentWillMount() {
-    const {
-      fetchAll,
-      fetchPosition,
-      fetchUserInfo,
-      setMapInitiated,
-      shops
-    } = this.props;
+    const { fetchAll, fetchPosition, fetchUserInfo, setMapInitiated, shops } = this.props;
 
     this.updateCluster(shops);
 
@@ -115,11 +108,11 @@ export class Map extends Component {
   }
 
   changeHandler = propsMap => {
-    const { center } = propsMap;
+    const center = LatLng(propsMap.center);
     const { mapInitiated, setCenterPosition, fetchAll, centerPosition } = this.props;
-    this.propsMap = propsMap;
-    // Fetch shops if position changed more than 100m
+    this.propsMap = { ...propsMap, center };
 
+    // Fetch shops if position changed more than 100m
     if (mapInitiated && distance(centerPosition, center) > 100) {
       setCenterPosition(center);
       const radius = distance(center, propsMap.bounds.se) / 1000;

@@ -95,3 +95,20 @@ export async function addressNameByPosition(position) {
   }
   return null;
 }
+
+/**
+ * call LatLng of google map
+ * @param  {Object} position
+ * @return {Object} position
+ */
+export function LatLng(position) {
+  if (window && window.google && window.google.maps && window.google.maps.LatLng) {
+    const newP = new window.google.maps.LatLng(position.lat, position.lng, false);
+    return {
+      ...position,
+      lat: newP.lat(),
+      lng: newP.lng()
+    };
+  }
+  return position;
+}
