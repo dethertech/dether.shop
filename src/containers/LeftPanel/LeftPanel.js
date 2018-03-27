@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import config from '../../constants/config';
 import LeftPanelPage from './LeftPanelPage';
 import TermsModal from './TermsModal';
+import BuyModal from './BuyModal';
 
 import {
   getShop as getShopHelper,
@@ -57,6 +58,10 @@ export class LeftPanel extends PureComponent {
       dth: PropTypes.number.isRequired,
     }).isRequired
   };
+
+  state = {
+    isBuyModalOpened: false,
+  }
 
   componentWillMount() {
     this.initApp();
@@ -139,6 +144,8 @@ export class LeftPanel extends PureComponent {
       setBalance(await getBalance());
   }
 
+  toggleBuyModal = () => this.setState({ isBuyModalOpened: !this.state.isBuyModalOpened });
+
   render() {
     const {
       isAppInitialized,
@@ -146,17 +153,20 @@ export class LeftPanel extends PureComponent {
       toggleTermsModal,
       isTermsModalOpenened
     } = this.props;
+    const { isBuyModalOpened } = this.state;
 
     return (
       <Fragment>
         <ToastContainer position="top-left" />
         <LeftPanelPage
           isAppInitialized={isAppInitialized}
-          toggleModal={toggleTermsModal}
+          toggleTermsModal={toggleTermsModal}
+          toggleBuyModal={this.toggleBuyModal}
           balance={balance}
           refreshBalance={this.refreshBalance}
         />
         {isTermsModalOpenened && <TermsModal closeFunc={toggleTermsModal} />}
+        {isBuyModalOpened && <BuyModal closeFunc={this.toggleBuyModal} />}
       </Fragment>
     );
   }

@@ -25,7 +25,8 @@ const LeftWrapper = styled.div`
 class LeftPanelPage extends PureComponent {
   static propTypes = {
     isAppInitialized: PropTypes.bool.isRequired,
-    toggleModal: PropTypes.func.isRequired,
+    toggleTermsModal: PropTypes.func.isRequired,
+    toggleBuyModal: PropTypes.func.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
       dth: PropTypes.number.isRequired
@@ -47,20 +48,25 @@ class LeftPanelPage extends PureComponent {
   };
 
   render() {
-    const { toggleModal, balance, refreshBalance } = this.props;
+    const { toggleTermsModal, toggleBuyModal, balance, refreshBalance } = this.props;
     const eth = balance.eth.toFixed(4);
     const dth = balance.dth.toFixed(4);
 
     return (
       <Layout isFullScreen>
         <Layout.Header>
-          <Header onRefresh={refreshBalance} EthBalance={eth} DthBalance={dth} />
+          <Header
+            onRefresh={refreshBalance}
+            EthBalance={eth}
+            DthBalance={dth}
+            toggleBuyModal={toggleBuyModal}
+          />
         </Layout.Header>
         <Layout.ScrollableBody>
           <LeftWrapper>{this.getView()}</LeftWrapper>
         </Layout.ScrollableBody>
         <Layout.Footer>
-          <Footer toggleModal={toggleModal} />
+          <Footer toggleTermsModal={toggleTermsModal} />
         </Layout.Footer>
       </Layout>
     );

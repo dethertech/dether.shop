@@ -152,6 +152,9 @@ const en = {
     shop_card: {
       closed: 'closed'
     }
+  },
+  buy_modal: {
+    title: 'Exchange'
   }
 };
 

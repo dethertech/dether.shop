@@ -11,12 +11,12 @@ const FooterText = styled.footer`
   font-size: ${tokens.fontSizes.s};
 `;
 
-const Footer = ({ toggleModal }) => (
+const Footer = ({ toggleTermsModal }) => (
   <Padding all="m">
     <FooterText>
       <div>
         <b>Dether</b> {tr('footer.all_right_reserved')} -{' '}
-        <ButtonLink isSmall onClick={toggleModal}>
+        <ButtonLink isSmall onClick={toggleTermsModal}>
           {tr('footer.terms_and_conditions')}
         </ButtonLink>
         &nbsp;-&nbsp;
@@ -37,7 +37,7 @@ const Footer = ({ toggleModal }) => (
 );
 
 Footer.propTypes = {
-  toggleModal: PropTypes.func.isRequired
+  toggleTermsModal: PropTypes.func.isRequired
 };
 
 export default Footer;
