@@ -69,7 +69,7 @@ class ComboBox extends PureComponent {
     setTimeout(() => {
       this.setState({ showOptions: false });
       onBlur();
-    }, 100);
+    }, 200);
   };
 
   onChange = event => {

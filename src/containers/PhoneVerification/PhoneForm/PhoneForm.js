@@ -94,7 +94,6 @@ class PhoneForm extends PureComponent {
 
     if (!country) {
       this.setState(prevState => ({
-        ...prevState,
         toggleShakeCountry: prevState.toggleShakePhone + 1,
         countryError: tr('errors.phone.country_blank')
       }));
@@ -114,12 +113,11 @@ class PhoneForm extends PureComponent {
     this.setState(prevState => ({ ...prevState, showModal: !prevState.showModal }));
 
   chooseCountry = country => {
-    this.setState(prevState => ({
-      ...prevState,
+    this.setState({
       country,
       countryError: null,
       isCountryValid: true
-    }));
+    });
   };
 
   handleSubmit = () => {
@@ -179,6 +177,7 @@ class PhoneForm extends PureComponent {
             disabled={!country}
             toggleShake={toggleShakePhone}
             insertBefore={country && <DialCode>{country.dial_code}</DialCode>}
+            style={{ paddingLeft: '0.3rem' }}
             componentName="input"
             label={tr('phone.label')}
             type="tel"
