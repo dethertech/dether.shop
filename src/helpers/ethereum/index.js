@@ -6,6 +6,5 @@ export { default as isWeb3 } from './isWeb3';
 export { default as isSmsReg } from './isSmsReg';
 export { default as getTransactionStatus } from './getTransactionStatus';
 export { default as isZoneShopOpen } from './isZoneShopOpen';
-export { default as isZoneOpen } from './isZoneOpen';
 export { default as getLicenceShop } from './getLicenceShop';
 export * from './utils';
