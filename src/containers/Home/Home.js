@@ -66,7 +66,6 @@ export class Home extends PureComponent {
 
   onClick = e => {
     const { acceptTerms } = this.props;
-
     if (this.checkTerms(e))
       acceptTerms();
   };
