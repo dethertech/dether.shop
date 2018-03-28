@@ -7,7 +7,7 @@ import { web3js } from './utils';
 const isWeb3 = async () => {
   if (typeof window.web3 !== 'undefined') {
     const address = (await web3js.eth.getAccounts())[0];
-    return (address);
+    return address;
   }
   return null;
 };

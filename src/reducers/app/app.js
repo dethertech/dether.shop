@@ -6,7 +6,7 @@ export const initialState = {
   isTermsModalOpenened: false,
   ethNetwork: null,
   areTermsAccepted: false,
-  licencePrice: null
+  licencePrice: null,
 };
 
 /**
@@ -14,7 +14,8 @@ export const initialState = {
  * @param  {[type]}  ethNetwork [description]
  * @return {Boolean}            [description]
  */
-export const hasGoodNetwork = ({ ethNetwork }) => !!ethNetwork && ethNetwork === config.ethNetwork;
+export const hasGoodNetwork = ({ ethNetwork }) =>
+  !!ethNetwork && ethNetwork === config.ethNetwork;
 
 export const isLicencePriceSet = ({ licencePrice }) => licencePrice != null;
 

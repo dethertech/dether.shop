@@ -1,4 +1,3 @@
-
 /* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -11,16 +10,16 @@ import tr from '../../../translate';
 import tokens from '../../../styles/tokens';
 
 const Root = styled.div`
-background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
 `;
 
 const Wrapper = styled.div`
-text-align: center;
-color: ${tokens.colors.grey.dark}
+  text-align: center;
+  color: ${tokens.colors.grey.dark};
 `;
 
 const Title = styled(H2)`
-color: ${tokens.colors.blue}
+  color: ${tokens.colors.blue};
 `;
 
 const WarningIcon = props => (
@@ -37,7 +36,6 @@ const WarningIcon = props => (
     </g>
   </svg>
 );
-
 
 const BetaModal = ({ close }) => (
   <Root>
@@ -57,7 +55,7 @@ const BetaModal = ({ close }) => (
 );
 
 BetaModal.propTypes = {
-  close: PropTypes.func.isRequired
+  close: PropTypes.func.isRequired,
 };
 
 export default BetaModal;

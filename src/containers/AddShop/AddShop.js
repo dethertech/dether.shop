@@ -13,9 +13,10 @@ class AddShop extends PureComponent {
   render() {
     const { verify } = this.state;
 
-    return (verify
-      ? <Verification goBack={this.toggleVerify} />
-      : <Form onSubmit={this.toggleVerify} />
+    return verify ? (
+      <Verification goBack={this.toggleVerify} />
+    ) : (
+      <Form onSubmit={this.toggleVerify} />
     );
   }
 }

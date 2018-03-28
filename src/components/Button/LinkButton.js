@@ -20,12 +20,12 @@ LinkButton.propTypes = {
   fullWidth: PropTypes.bool,
   theme: PropTypes.oneOf(['primary', 'light']),
   to: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 LinkButton.defaultProps = {
   fullWidth: false,
-  theme: 'light'
+  theme: 'light',
 };
 
 export default LinkButton;

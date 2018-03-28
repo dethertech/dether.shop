@@ -17,7 +17,7 @@ const TermsModal = ({ closeFunc }) => (
 );
 
 TermsModal.propTypes = {
-  closeFunc: PropTypes.func.isRequired
+  closeFunc: PropTypes.func.isRequired,
 };
 
 export default TermsModal;

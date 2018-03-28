@@ -3,10 +3,10 @@ import config from '../../constants/config';
 const initialState = {
   balance: {
     eth: 0,
-    dth: 0
+    dth: 0,
   },
   isCertified: false,
-  ethAddress: null
+  ethAddress: null,
 };
 
 /**
@@ -30,11 +30,13 @@ const userReducer = (state = initialState, { type, payload }) => {
  * @param  {[type]}  balance [description]
  * @return {Boolean}         [description]
  */
-export const hasBalance = ({ balance }) => balance && (balance.eth !== 0 || balance.dth !== 0);
+export const hasBalance = ({ balance }) =>
+  balance && (balance.eth !== 0 || balance.dth !== 0);
 
 export const hasEnoughDthToAddShop = ({ dth }, licencePrice) =>
-  (!!dth && dth >= Number(licencePrice));
-export const hasEnoughEthToAddShop = ({ eth }) => (!!eth && eth >= config.gasPrice.simpleTransac);
+  !!dth && dth >= Number(licencePrice);
+export const hasEnoughEthToAddShop = ({ eth }) =>
+  !!eth && eth >= config.gasPrice.simpleTransac;
 
 /**
  * hasEnoughMoneyToAddShop
@@ -42,9 +44,9 @@ export const hasEnoughEthToAddShop = ({ eth }) => (!!eth && eth >= config.gasPri
  * @return {Boolean}         [description]
  */
 export const hasEnoughMoneyToAddShop = ({ balance }, licencePrice) =>
-  hasBalance({ balance })
-  && hasEnoughDthToAddShop(balance, licencePrice)
-  && hasEnoughEthToAddShop(balance);
+  hasBalance({ balance }) &&
+  hasEnoughDthToAddShop(balance, licencePrice) &&
+  hasEnoughEthToAddShop(balance);
 
 /**
  * hasEnougthMoneyToRemoveShop

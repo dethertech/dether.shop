@@ -8,17 +8,33 @@ import tr from '../../../../translate';
 
 import DayLineOnpeningHour from './DayLineOnpeningHour';
 
-const daysName = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const daysName = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
 const defaultDay = { open: false };
 
 export class DaysOnpeningHour extends PureComponent {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
-    days: PropTypes.array
+    days: PropTypes.array,
   };
 
   static defaultProps = {
-    days: [defaultDay, defaultDay, defaultDay, defaultDay, defaultDay, defaultDay, defaultDay]
+    days: [
+      defaultDay,
+      defaultDay,
+      defaultDay,
+      defaultDay,
+      defaultDay,
+      defaultDay,
+      defaultDay,
+    ],
   };
 
   constructor(props) {
@@ -27,11 +43,10 @@ export class DaysOnpeningHour extends PureComponent {
     let isNewCalendar = true;
     this.state = {
       days: props.days.map((e, i) => {
-        if (e.open)
-          isNewCalendar = false;
-        return ({ ...e, name: daysName[i] });
+        if (e.open) isNewCalendar = false;
+        return { ...e, name: daysName[i] };
       }),
-      autoComplete: isNewCalendar
+      autoComplete: isNewCalendar,
     };
   }
 
@@ -45,8 +60,10 @@ export class DaysOnpeningHour extends PureComponent {
       let copy = [...days];
       copy[idx] = { ...obj };
       if (idx === 0 && autoComplete) {
-        copy = copy
-          .map((day, i) => (i < 5 ? ({ ...day, openAt: obj.openAt, closeAt: obj.closeAt }) : day));
+        copy = copy.map(
+          (day, i) =>
+            i < 5 ? { ...day, openAt: obj.openAt, closeAt: obj.closeAt } : day,
+        );
       } else if (days[idx].open) {
         this.setState({ autoComplete: false });
       }

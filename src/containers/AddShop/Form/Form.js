@@ -22,14 +22,14 @@ export class Form extends PureComponent {
   static propTypes = {
     shop: PropTypes.shape({}).isRequired,
     setDataShopPending: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
   };
 
   constructor(props) {
     super(props);
     this.state = {
       days: '0000000',
-      form: fromState(this, props)
+      form: fromState(this, props),
     };
   }
 
@@ -46,13 +46,16 @@ export class Form extends PureComponent {
     const value = validatorName.tranform(val);
 
     this.setState(pState => ({
-      form: { ...pState.form, [name]: { ...pState.form[name], value } }
+      form: { ...pState.form, [name]: { ...pState.form[name], value } },
     }));
   };
 
   onChangeAddress = addressObj => {
     this.setState(pState => ({
-      form: { ...pState.form, address: { ...pState.form.address, value: addressObj } }
+      form: {
+        ...pState.form,
+        address: { ...pState.form.address, value: addressObj },
+      },
     }));
   };
 
@@ -91,9 +94,11 @@ export class Form extends PureComponent {
           ...pState.form[name],
           isValid,
           error,
-          toggleShake: isValid ? objState.toggleShake : objState.toggleShake + 1
-        }
-      }
+          toggleShake: isValid
+            ? objState.toggleShake
+            : objState.toggleShake + 1,
+        },
+      },
     }));
     return isValid;
   }
@@ -101,9 +106,11 @@ export class Form extends PureComponent {
   async isFormValide() {
     const { form } = this.state;
     let isValide = true;
-    await Promise.all(Object.keys(form).map(async k => {
-      isValide = await this.checkValide(k, form[k].value) && isValide;
-    }));
+    await Promise.all(
+      Object.keys(form).map(async k => {
+        isValide = (await this.checkValide(k, form[k].value)) && isValide;
+      }),
+    );
     return isValide;
   }
 
@@ -126,7 +133,10 @@ export class Form extends PureComponent {
           <LabeledInput {...form.description} />
         </Padding>
         <Padding bottom="m">
-          <DaysOnpeningHour days={convertCalendar(shop.opening)} onChange={this.onChangeDays} />
+          <DaysOnpeningHour
+            days={convertCalendar(shop.opening)}
+            onChange={this.onChangeDays}
+          />
         </Padding>
 
         <Padding vertical="m">
@@ -140,7 +150,7 @@ export class Form extends PureComponent {
 }
 
 const mapStateToProps = ({ shop }) => ({
-  shop: shop.pendingShop
+  shop: shop.pendingShop,
 });
 
 const mapDispatchToProps = dispatch => ({

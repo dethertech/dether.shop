@@ -5,7 +5,13 @@ import PropTypes from 'prop-types';
 import tr from '../../../translate';
 import { Padding, Margin } from '../../../components/Spaces';
 import tokens from '../../../styles/tokens';
-import { Loader, ButtonLink, Message, ProgressBar, Mention } from '../../../components';
+import {
+  Loader,
+  ButtonLink,
+  Message,
+  ProgressBar,
+  Mention,
+} from '../../../components';
 import { H1 } from '../../../components/Headings';
 
 const CodeBlock = styled.div`
@@ -61,16 +67,16 @@ class ValidationCode extends PureComponent {
     phoneNumber: PropTypes.string.isRequired,
     editPhoneNumber: PropTypes.func.isRequired,
     reSendSms: PropTypes.func.isRequired,
-    error: PropTypes.string
+    error: PropTypes.string,
   };
 
   static defaultProps = {
     isPending: false,
-    error: null
+    error: null,
   };
 
   state = {
-    code: ''
+    code: '',
   };
 
   componentDidMount() {
@@ -83,9 +89,9 @@ class ValidationCode extends PureComponent {
     if (code.length <= 4) {
       this.setState(
         () => ({
-          code: value.toString()
+          code: value.toString(),
         }),
-        this.sendVerificationCode
+        this.sendVerificationCode,
       );
     }
   };
@@ -100,7 +106,13 @@ class ValidationCode extends PureComponent {
 
   render() {
     const { code } = this.state;
-    const { phoneNumber, editPhoneNumber, reSendSms, error, isPending } = this.props;
+    const {
+      phoneNumber,
+      editPhoneNumber,
+      reSendSms,
+      error,
+      isPending,
+    } = this.props;
     return (
       <Padding all="m">
         <H1>{tr('validate_code.title')}</H1>
@@ -150,7 +162,9 @@ class ValidationCode extends PureComponent {
                   </CodeBlock>
                 ))}
             </CodeWrapper>
-            <Mention>{tr('validate_code.code_sent', { phoneNumber }, { html: true })}</Mention>
+            <Mention>
+              {tr('validate_code.code_sent', { phoneNumber }, { html: true })}
+            </Mention>
           </div>
         )}
         <Margin top="l" bottom="xs">

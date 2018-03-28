@@ -9,7 +9,7 @@ import {
   Results,
   ResultItem,
   NoResultItem,
-  InputStatusIcon
+  InputStatusIcon,
 } from './styles';
 
 const getOptionsContainingWord = (word, options) => {
@@ -30,7 +30,7 @@ class ComboBox extends PureComponent {
     isValid: PropTypes.bool,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
-    defaultOption: PropTypes.any
+    defaultOption: PropTypes.any,
   };
 
   static defaultProps = {
@@ -42,7 +42,7 @@ class ComboBox extends PureComponent {
     data: [],
     name: '',
     placeholder: null,
-    defaultOption: ''
+    defaultOption: '',
   };
 
   constructor(props) {
@@ -52,7 +52,7 @@ class ComboBox extends PureComponent {
       value: props.defaultOption || '',
       options: [...this.props.data],
       showOptions: false,
-      inputFocus: false
+      inputFocus: false,
     };
   }
 
@@ -62,7 +62,9 @@ class ComboBox extends PureComponent {
     const { onBlur } = this.props;
     const { options, value } = this.state;
 
-    const matchOption = options.find(option => option.name.toUpperCase() === value.toUpperCase());
+    const matchOption = options.find(
+      option => option.name.toUpperCase() === value.toUpperCase(),
+    );
     if (matchOption) this.onSelectOption(matchOption)();
 
     this.setState({ inputFocus: true });
@@ -125,9 +127,14 @@ class ComboBox extends PureComponent {
           <ComboBox.InputStatusIcon hasError={hasError} isValid={isValid} />
         )}
         <ComboBox.Results showOptions={showOptions}>
-          {options.length === 0 && <ComboBox.NoResultItem>no results</ComboBox.NoResultItem>}
+          {options.length === 0 && (
+            <ComboBox.NoResultItem>no results</ComboBox.NoResultItem>
+          )}
           {options.map(option => (
-            <ComboBox.ResultItem key={option.name} onClick={this.onSelectOption(option)}>
+            <ComboBox.ResultItem
+              key={option.name}
+              onClick={this.onSelectOption(option)}
+            >
               {option.name}
             </ComboBox.ResultItem>
           ))}

@@ -17,9 +17,12 @@ import tr from '../../translate';
 
 import {
   toggleTermsModal as toggleTermsModalAction,
-  acceptTerms as acceptTermsAction
+  acceptTerms as acceptTermsAction,
 } from '../../actions';
-import { hasEnoughEthToAddShop, hasEnoughDthToAddShop } from '../../reducers/user';
+import {
+  hasEnoughEthToAddShop,
+  hasEnoughDthToAddShop,
+} from '../../reducers/user';
 
 // Components
 
@@ -53,21 +56,20 @@ export class Home extends PureComponent {
     minDth: PropTypes.string.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
     acceptTerms: PropTypes.func.isRequired,
-    hasGoodNetwork: PropTypes.bool.isRequired
+    hasGoodNetwork: PropTypes.bool.isRequired,
   };
 
   constructor(props) {
     super(props);
     this.state = {
       checked: false,
-      shake: 0
+      shake: 0,
     };
   }
 
   onClick = e => {
     const { acceptTerms } = this.props;
-    if (this.checkTerms(e))
-      acceptTerms();
+    if (this.checkTerms(e)) acceptTerms();
   };
 
   onCheck = ({ target: { checked } }) => {
@@ -81,22 +83,20 @@ export class Home extends PureComponent {
       hasEnoughDth,
       hasGoodNetwork,
       minEth,
-      minDth
+      minDth,
     } = this.props;
 
-    if (!hasSupportedBrowser)
-      return tr('add.home.browser_not_supported');
+    if (!hasSupportedBrowser) return tr('add.home.browser_not_supported');
     if (!isMetamaskInstalled)
-      return tr('add.home.metamask_not_installed', { linkToMetamask: 'https://metamask.io/' });
-    if (!hasGoodNetwork)
-      return tr('add.home.wrong_network');
+      return tr('add.home.metamask_not_installed', {
+        linkToMetamask: 'https://metamask.io/',
+      });
+    if (!hasGoodNetwork) return tr('add.home.wrong_network');
     if (!hasEnoughEth && !hasEnoughDth)
       return tr('add.home.not_enough_money', { minDth, minEth });
-    if (!hasEnoughEth)
-      return tr('add.home.not_enough_eth', { minEth });
-    if (!hasEnoughDth)
-      return tr('add.home.not_enough_dth', { minDth });
-  }
+    if (!hasEnoughEth) return tr('add.home.not_enough_eth', { minEth });
+    if (!hasEnoughDth) return tr('add.home.not_enough_dth', { minDth });
+  };
 
   checkTerms = e => {
     const { checked, shake } = this.state;
@@ -121,26 +121,30 @@ export class Home extends PureComponent {
           <H1>{tr('add.home.title')}</H1>
         </Padding>
 
-        <Padding vertical="l"><span>{tr('add.home.desc')}</span></Padding>
+        <Padding vertical="l">
+          <span>{tr('add.home.desc')}</span>
+        </Padding>
 
-        {error
-          ? <Message theme="error" alignCenter>{error}</Message>
-          : (
-            <Padding vertical="l">
-              <TermsValidation
-                shake={shake}
-                checked={checked}
-                handleCheck={this.onCheck}
-                toggleTermsModal={toggleTermsModal}
-              />
-              <Button fullWidth theme="primary" onClick={this.onClick}>
-                {tr('add.home.bt_add')}
-              </Button>
-            </Padding>
-          )}
+        {error ? (
+          <Message theme="error" alignCenter>
+            {error}
+          </Message>
+        ) : (
+          <Padding vertical="l">
+            <TermsValidation
+              shake={shake}
+              checked={checked}
+              handleCheck={this.onCheck}
+              toggleTermsModal={toggleTermsModal}
+            />
+            <Button fullWidth theme="primary" onClick={this.onClick}>
+              {tr('add.home.bt_add')}
+            </Button>
+          </Padding>
+        )}
       </Wrapper>
     );
-  }
+  };
 }
 
 const mapStateToProps = ({ user, app }) => ({
@@ -155,7 +159,7 @@ const mapStateToProps = ({ user, app }) => ({
 
 const mapDispatchToProps = dispatch => ({
   toggleTermsModal: bindActionCreators(toggleTermsModalAction, dispatch),
-  acceptTerms: bindActionCreators(acceptTermsAction, dispatch)
+  acceptTerms: bindActionCreators(acceptTermsAction, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

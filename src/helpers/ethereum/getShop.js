@@ -1,7 +1,7 @@
 import { web3js, getAddress, getDetherContract } from './utils';
 
 // TODO: update validation, remove unused conditions
-const validateShop = (shop) => {
+const validateShop = shop => {
   if (!shop || typeof shop !== 'object') {
     return { error: true, msg: 'Invalid args' };
   }
@@ -40,7 +40,7 @@ const validateShop = (shop) => {
  * @param  {[type]} rawShop [description]
  * @return {[type]}         [description]
  */
-const shopFromContract = (rawShop) => {
+const shopFromContract = rawShop => {
   const validation = validateShop(rawShop);
   if (validation.error) throw new TypeError(validation.msg);
   try {
@@ -51,7 +51,9 @@ const shopFromContract = (rawShop) => {
       postalCode: web3js.utils.hexToUtf8(rawShop.postalCode).replace(/\0/g, ''),
       cat: web3js.utils.hexToUtf8(rawShop.cat).replace(/\0/g, ''),
       name: web3js.utils.hexToUtf8(rawShop.name).replace(/\0/g, ''),
-      description: web3js.utils.hexToUtf8(rawShop.description).replace(/\0/g, ''),
+      description: web3js.utils
+        .hexToUtf8(rawShop.description)
+        .replace(/\0/g, ''),
       opening: web3js.utils.hexToUtf8(rawShop.opening).replace(/\0/g, ''),
     };
   } catch (e) {
@@ -66,19 +68,19 @@ const shopFromContract = (rawShop) => {
 const getShop = () =>
   new Promise(async (res, rej) => {
     try {
-      const [address, detherContract] = await Promise.all([getAddress(), getDetherContract()]);
+      const [address, detherContract] = await Promise.all([
+        getAddress(),
+        getDetherContract(),
+      ]);
       const rawShop = await detherContract.methods.getShop(address).call();
       let id = web3js.utils.hexToUtf8(rawShop[2]).replace(/\0/g, '');
       id = id.replace(/\0/g, '');
-      if (!id)
-        res(null);
-      res(Object.assign(
-        {},
-        shopFromContract(rawShop),
-        {
+      if (!id) res(null);
+      res(
+        Object.assign({}, shopFromContract(rawShop), {
           ethAddress: address,
-        }
-      ));
+        }),
+      );
     } catch (e) {
       rej(new TypeError(`Invalid shop profile: ${e.message}`));
     }

@@ -6,7 +6,10 @@ const scrollToTop = duration => {
     scrollCount += Math.PI / (duration / (newTimestamp - oldTimestamp));
     if (scrollCount >= Math.PI) window.scrollTo(0, 0);
     if (window.scrollY === 0) return;
-    window.scrollTo(0, Math.round(cosParameter + (cosParameter * Math.cos(scrollCount))));
+    window.scrollTo(
+      0,
+      Math.round(cosParameter + cosParameter * Math.cos(scrollCount)),
+    );
     oldTimestamp = newTimestamp;
     window.requestAnimationFrame(step);
   };

@@ -42,7 +42,7 @@ const PhoneModal = ({ submitPhone, backToEdit, phone }) => (
 PhoneModal.propTypes = {
   submitPhone: PropTypes.func.isRequired,
   backToEdit: PropTypes.func.isRequired,
-  phone: PropTypes.string.isRequired
+  phone: PropTypes.string.isRequired,
 };
 
 export default PhoneModal;

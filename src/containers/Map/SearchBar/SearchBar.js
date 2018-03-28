@@ -2,21 +2,24 @@ import React, { PureComponent } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 import {
   setCenterPosition as setCenterPositionAction,
-  fetchAll as fetchAllAction
+  fetchAll as fetchAllAction,
 } from '../../../actions/map';
 import SearchBarWrapper from './SearchBarWrapper';
 
 export class SearchBar extends PureComponent {
   static propTypes = {
     setCenterPosition: PropTypes.func.isRequired,
-    fetchAll: PropTypes.func.isRequired
+    fetchAll: PropTypes.func.isRequired,
   };
 
   state = {
-    address: ''
+    address: '',
   };
 
   onChange = address => this.setState({ address });
@@ -32,7 +35,9 @@ export class SearchBar extends PureComponent {
   };
 
   forceBlur = () => {
-    const inputs = document.querySelectorAll('#PlacesAutocomplete__root > input[type="text"]');
+    const inputs = document.querySelectorAll(
+      '#PlacesAutocomplete__root > input[type="text"]',
+    );
     if (inputs && inputs.length) {
       inputs[0].blur();
     }
@@ -59,6 +64,8 @@ export class SearchBar extends PureComponent {
 
 const mapDispatchToProps = dispatch => ({
   setCenterPosition: bindActionCreators(setCenterPositionAction, dispatch),
-  fetchAll: bindActionCreators(fetchAllAction, dispatch)
+  fetchAll: bindActionCreators(fetchAllAction, dispatch),
 });
-export default connect(null, mapDispatchToProps, null, { withRef: true })(SearchBar);
+export default connect(null, mapDispatchToProps, null, { withRef: true })(
+  SearchBar,
+);

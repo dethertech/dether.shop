@@ -1,5 +1,3 @@
 const reset = () => ({ type: 'RESET' });
 
-export {
-  reset
-};
+export { reset };

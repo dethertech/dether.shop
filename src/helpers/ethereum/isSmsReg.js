@@ -7,7 +7,10 @@ import { getAddress, getSmsContract } from './utils';
 export const isSmsReg = () =>
   new Promise(async (res, rej) => {
     try {
-      const [address, smsContract] = await Promise.all([getAddress(), getSmsContract()]);
+      const [address, smsContract] = await Promise.all([
+        getAddress(),
+        getSmsContract(),
+      ]);
       const isReg = await smsContract.methods.certified(address).call();
       res(isReg);
     } catch (e) {

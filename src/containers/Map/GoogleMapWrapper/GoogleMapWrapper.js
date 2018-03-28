@@ -16,18 +16,19 @@ class GoogleMapWrapper extends PureComponent {
     center: PropTypes.shape({}).isRequired,
     changeHandler: PropTypes.func.isRequired,
     onClick: PropTypes.func,
-    children: PropTypes.oneOfType([PropTypes.array, PropTypes.element]).isRequired
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
+      .isRequired,
   };
 
   static defaultProps = {
-    onClick: () => {}
+    onClick: () => {},
   };
 
   options = {
     styles: googlemapStyle,
     disableDefaultUI: true,
     zoomControl: true,
-    gestureHandling: 'greedy'
+    gestureHandling: 'greedy',
   };
 
   render = () => {
@@ -45,7 +46,7 @@ class GoogleMapWrapper extends PureComponent {
         {children}
       </GoogleMap>
     );
-  }
+  };
 }
 
 export default GoogleMapWrapper;

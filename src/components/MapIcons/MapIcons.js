@@ -59,20 +59,32 @@ const isXLarge = n => n.toString().length === 3;
 const isXXLarge = n => n.toString().length > 3;
 
 export const ClusterShopIcon = ({ num }) => (
-  <Wrapper bg="#EDD36B" l={isLarge(num)} xl={isXLarge(num)} xxl={isXXLarge(num)}>
+  <Wrapper
+    bg="#EDD36B"
+    l={isLarge(num)}
+    xl={isXLarge(num)}
+    xxl={isXXLarge(num)}
+  >
     <div>{num}</div>
   </Wrapper>
 );
 
 ClusterShopIcon.propTypes = {
-  num: PropTypes.number.isRequired
+  num: PropTypes.number.isRequired,
 };
 
 /* eslint-disable max-len */
 export const ShopIcon = () => (
   <Wrapper bg="#EDD36B">
     <svg viewBox="0 0 22 22">
-      <circle fill="none" strokeWidth="0.3rem" stroke="#fff" cx="11" cy="7" r="5" />
+      <circle
+        fill="none"
+        strokeWidth="0.3rem"
+        stroke="#fff"
+        cx="11"
+        cy="7"
+        r="5"
+      />
       <rect width="20" height="15" x="1" y="7" rx="2" />
     </svg>
   </Wrapper>

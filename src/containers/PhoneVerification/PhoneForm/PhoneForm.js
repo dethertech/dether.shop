@@ -31,12 +31,12 @@ class PhoneForm extends PureComponent {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
     submitError: PropTypes.string,
-    country: PropTypes.shape({})
+    country: PropTypes.shape({}),
   };
 
   static defaultProps = {
     submitError: null,
-    country: null
+    country: null,
   };
 
   constructor(props) {
@@ -51,7 +51,7 @@ class PhoneForm extends PureComponent {
       toggleShakePhone: 0,
       toggleShakeCountry: 0,
       country: props.country,
-      showModal: false
+      showModal: false,
     };
   }
 
@@ -75,7 +75,7 @@ class PhoneForm extends PureComponent {
       this.setState(prevState => ({
         ...prevState,
         toggleShakePhone: prevState.toggleShakePhone + 1,
-        phoneError: tr('errors.phone.invalid')
+        phoneError: tr('errors.phone.invalid'),
       }));
 
       return false;
@@ -83,7 +83,7 @@ class PhoneForm extends PureComponent {
 
     this.setState(prevState => ({
       ...prevState,
-      fullPhone: `${prevState.country.dial_code}${prevState.phone}`
+      fullPhone: `${prevState.country.dial_code}${prevState.phone}`,
     }));
 
     return true;
@@ -95,7 +95,7 @@ class PhoneForm extends PureComponent {
     if (!country) {
       this.setState(prevState => ({
         toggleShakeCountry: prevState.toggleShakePhone + 1,
-        countryError: tr('errors.phone.country_blank')
+        countryError: tr('errors.phone.country_blank'),
       }));
 
       return false;
@@ -110,13 +110,16 @@ class PhoneForm extends PureComponent {
   };
 
   toggleModal = () =>
-    this.setState(prevState => ({ ...prevState, showModal: !prevState.showModal }));
+    this.setState(prevState => ({
+      ...prevState,
+      showModal: !prevState.showModal,
+    }));
 
   chooseCountry = country => {
     this.setState({
       country,
       countryError: null,
-      isCountryValid: true
+      isCountryValid: true,
     });
   };
 
@@ -137,7 +140,7 @@ class PhoneForm extends PureComponent {
       phoneError,
       fullPhone,
       isCountryValid,
-      countryError
+      countryError,
     } = this.state;
 
     return (
@@ -196,7 +199,7 @@ class PhoneForm extends PureComponent {
         </Padding>
       </Fragment>
     );
-  }
+  };
 }
 
 export default PhoneForm;

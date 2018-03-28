@@ -32,20 +32,20 @@ const mapReducer = (state = initialState, { type, payload }) => {
       const { shops } = payload.data;
       return {
         ...state,
-        shops: uniqueArray([...state.shops, ...shops], 'id')
+        shops: uniqueArray([...state.shops, ...shops], 'id'),
       };
     }
     case 'FETCH_POSITION_BY_IP_SUCCESS': {
       const loc = payload.data.loc.split(',').map(l => parseFloat(l));
       const position = { lat: loc[0], lng: loc[1] };
-      return ({ ...state, userPosition: position, centerPosition: position });
+      return { ...state, userPosition: position, centerPosition: position };
     }
     case 'SET_SHOP_ON_CARD':
       return {
         ...state,
         contentOnCard: {
           type: 'shop',
-          content: payload
+          content: payload,
         },
         cardOpened: true,
       };

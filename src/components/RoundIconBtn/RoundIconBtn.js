@@ -17,17 +17,22 @@ const Wrapper = styled.button`
 
 const RoundIconBtn = ({ type, onClick }) => (
   <Wrapper onClick={onClick}>
-    <Icon name={type} size="1rem" strokeWidth="0.2rem" color={tokens.colors.grey.light} />
+    <Icon
+      name={type}
+      size="1rem"
+      strokeWidth="0.2rem"
+      color={tokens.colors.grey.light}
+    />
   </Wrapper>
 );
 
 RoundIconBtn.propTypes = {
   onClick: PropTypes.func,
-  type: PropTypes.oneOf(['close', 'prev']).isRequired
+  type: PropTypes.oneOf(['close', 'prev']).isRequired,
 };
 
 RoundIconBtn.defaultProps = {
-  onClick: () => {}
+  onClick: () => {},
 };
 
 export default RoundIconBtn;

@@ -79,11 +79,11 @@ const SearchBarWrapper = ({ children, isFocus }) => (
 
 SearchBarWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  isFocus: PropTypes.bool.isRequired
+  isFocus: PropTypes.bool.isRequired,
 };
 
 SearchBarWrapper.defaultProps = {
-  isFocus: false
+  isFocus: false,
 };
 
 export default SearchBarWrapper;

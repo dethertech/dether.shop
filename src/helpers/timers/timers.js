@@ -3,11 +3,11 @@
  * @param  {[type]} time [description]
  * @return {[type]}      [description]
  */
-export const timeSince = time => (new Date()) - time;
+export const timeSince = time => new Date() - time;
 
 /**
  * phoneVerificationTime
  * @param  {[type]} time [description]
  * @return {[type]}      [description]
  */
-export const phoneVerificationTime = time => (timeSince(time) < 15000);
+export const phoneVerificationTime = time => timeSince(time) < 15000;

@@ -11,8 +11,8 @@ const initialState = {
     name: '',
     description: '',
     cat: '',
-    opening: '0000000'
-  }
+    opening: '0000000',
+  },
 };
 
 /**
@@ -26,20 +26,20 @@ const shopReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         transactionType: payload.type,
-        transactionHash: payload.hash
+        transactionHash: payload.hash,
       };
     case 'ADD_SHOP':
       return {
         ...state,
         pendingShop: initialState.pendingShop,
         transactionHash: null,
-        shop: { ...state.shop, ...payload }
+        shop: { ...state.shop, ...payload },
       };
     case 'REMOVE_SHOP':
       return {
         ...state,
         shop: null,
-        pendingShop: { ...initialState.pendingShop }
+        pendingShop: { ...initialState.pendingShop },
       };
     case 'END_TRANSACTION':
       return { ...state, transactionHash: null };

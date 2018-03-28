@@ -29,10 +29,10 @@ class LeftPanelPage extends PureComponent {
     toggleBuyModal: PropTypes.func.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
-      dth: PropTypes.number.isRequired
+      dth: PropTypes.number.isRequired,
     }).isRequired,
     refreshBalance: PropTypes.func.isRequired,
-    isLicencePriceSet: PropTypes.bool.isRequired
+    isLicencePriceSet: PropTypes.bool.isRequired,
   };
   getView = () => {
     const { isWeb3Checked, isLicencePriceSet } = this.props;
@@ -49,7 +49,12 @@ class LeftPanelPage extends PureComponent {
   };
 
   render() {
-    const { toggleTermsModal, toggleBuyModal, balance, refreshBalance } = this.props;
+    const {
+      toggleTermsModal,
+      toggleBuyModal,
+      balance,
+      refreshBalance,
+    } = this.props;
     const eth = balance.eth.toFixed(4);
     const dth = balance.dth.toFixed(4);
 

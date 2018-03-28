@@ -6,9 +6,8 @@ import supercluster from 'points-cluster';
  * @param  {[type]}  pos2 [description]
  * @return {Boolean}      [description]
  */
-export const isEqu = (pos1, pos2) => (
-  pos1.lat === pos2.lat && pos1.lng === pos2.lng
-);
+export const isEqu = (pos1, pos2) =>
+  pos1.lat === pos2.lat && pos1.lng === pos2.lng;
 
 /**
  * toRadians
@@ -30,12 +29,12 @@ export const distance = (pos1, pos2) => {
   const dp = toRadians(pos2.lat - pos1.lat);
   const dl = toRadians(pos2.lng - pos2.lng);
 
-  const a = (Math.sin(dp / 2) * Math.sin(dp / 2)) +
-          (Math.cos(d1) * Math.cos(d2) *
-          Math.sin(dl / 2) * Math.sin(dl / 2));
+  const a =
+    Math.sin(dp / 2) * Math.sin(dp / 2) +
+    Math.cos(d1) * Math.cos(d2) * Math.sin(dl / 2) * Math.sin(dl / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-  return (R * c);
+  return R * c;
 };
 
 /**
@@ -48,7 +47,7 @@ export const getClusterData = (data, propsMap) => {
   const cl = supercluster(data, {
     minZoom: 0,
     maxZoom: 15,
-    radius: 100 // set this to if you want to change the distance to be use to clusters
+    radius: 100, // set this to if you want to change the distance to be use to clusters
   });
 
   return cl(propsMap).map(({ wx, wy, numPoints, points }) => ({
@@ -57,7 +56,7 @@ export const getClusterData = (data, propsMap) => {
     lng: wx,
     text: numPoints,
     numPoints,
-    id: `${numPoints}_${points[0].id}`
+    id: `${numPoints}_${points[0].id}`,
   }));
 };
 
@@ -102,12 +101,21 @@ export async function addressNameByPosition(position) {
  * @return {Object} position
  */
 export function LatLng(position) {
-  if (window && window.google && window.google.maps && window.google.maps.LatLng) {
-    const newP = new window.google.maps.LatLng(position.lat, position.lng, false);
+  if (
+    window &&
+    window.google &&
+    window.google.maps &&
+    window.google.maps.LatLng
+  ) {
+    const newP = new window.google.maps.LatLng(
+      position.lat,
+      position.lng,
+      false,
+    );
     return {
       ...position,
       lat: newP.lat(),
-      lng: newP.lng()
+      lng: newP.lng(),
     };
   }
   return position;

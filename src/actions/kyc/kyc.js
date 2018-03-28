@@ -17,7 +17,7 @@ const sendSms = ({ phoneNumber, ethAddress, onSuccess, onError }) => ({
   method: 'post',
   data: { phoneNumber, ethAddress },
   onSuccess,
-  onError
+  onError,
 });
 
 /**
@@ -34,7 +34,7 @@ const sendVerifCode = ({ code, phoneNumber, onSuccess, onError }) => ({
   method: 'post',
   data: { phoneNumber, code },
   onSuccess,
-  onError
+  onError,
 });
 
 /**
@@ -43,7 +43,7 @@ const sendVerifCode = ({ code, phoneNumber, onSuccess, onError }) => ({
  */
 const setPhone = phone => ({
   type: 'SET_PHONE',
-  payload: phone
+  payload: phone,
 });
 
 /**
@@ -52,7 +52,7 @@ const setPhone = phone => ({
  */
 const setPhoneCountry = phoneCountry => ({
   type: 'SET_PHONE_COUNTRY',
-  payload: phoneCountry
+  payload: phoneCountry,
 });
 
 /**
@@ -61,14 +61,14 @@ const setPhoneCountry = phoneCountry => ({
  */
 const setPhoneSent = phoneSent => ({
   type: 'SET_PHONE_SENT',
-  payload: phoneSent
+  payload: phoneSent,
 });
 
 /**
  * setPhoneVerified
  */
 const setPhoneVerified = () => ({
-  type: 'SET_PHONE_VERIFIED'
+  type: 'SET_PHONE_VERIFIED',
 });
 
 export {
@@ -77,5 +77,5 @@ export {
   setPhoneCountry,
   setPhoneSent,
   setPhoneVerified,
-  sendVerifCode
+  sendVerifCode,
 };

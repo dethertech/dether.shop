@@ -27,14 +27,14 @@ class DayLineOnpeningHour extends PureComponent {
     onChange: PropTypes.func.isRequired,
     openAt: PropTypes.string,
     closeAt: PropTypes.string,
-    open: PropTypes.bool
+    open: PropTypes.bool,
   };
 
   static defaultProps = {
     openAt: '08:00',
     closeAt: '18:00',
-    open: false
-  }
+    open: false,
+  };
 
   onSelectDay = () => {
     const { open } = this.props;

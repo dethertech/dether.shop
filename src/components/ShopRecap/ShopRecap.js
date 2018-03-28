@@ -39,25 +39,25 @@ class ShopRecap extends PureComponent {
     description: PropTypes.string.isRequired,
     lat: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     lng: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    licencePrice: PropTypes.string
+    licencePrice: PropTypes.string,
   };
 
   static defaultProps = {
-    licencePrice: null
-  }
+    licencePrice: null,
+  };
 
   state = {
-    address: ''
-  }
+    address: '',
+  };
 
   componentWillMount = async () => {
     const { lat, lng } = this.props;
 
-    const address = await GeocodeAPI
-      .positionToAddress({ lat, lng })
-      .catch(() => '');
+    const address = await GeocodeAPI.positionToAddress({ lat, lng }).catch(
+      () => '',
+    );
     this.setState({ address });
-  }
+  };
 
   render = () => {
     const { opening, name, cat, description, licencePrice } = this.props;
@@ -95,26 +95,24 @@ class ShopRecap extends PureComponent {
         {convertCalendar(opening).map((day, idx) => (
           <TableLine key={idx}>
             <TableCell>{weekDays[idx]}</TableCell>
-            {day.open
-            ?
-              (
-                <Fragment>
-                  <TableCell>{day.openAt}</TableCell>
-                  <TableCell>{day.closeAt}</TableCell>
-                </Fragment>
-              )
-            : <TableCell>{tr('shop_recap.closed')}</TableCell>
-            }
+            {day.open ? (
+              <Fragment>
+                <TableCell>{day.openAt}</TableCell>
+                <TableCell>{day.closeAt}</TableCell>
+              </Fragment>
+            ) : (
+              <TableCell>{tr('shop_recap.closed')}</TableCell>
+            )}
           </TableLine>
         ))}
-        {licencePrice &&
+        {licencePrice && (
           <PriceWrapper>
             {tr('shop_recap.licence_price', { price: licencePrice })}
           </PriceWrapper>
-        }
+        )}
       </Wrapper>
     );
-  }
+  };
 }
 
 export default ShopRecap;

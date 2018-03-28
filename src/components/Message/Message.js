@@ -9,13 +9,13 @@ const Wrapper = styled.div`
   margin: ${tokens.spaces.m} 0;
 
   ${({ theme }) =>
-    (theme === 'info'
+    theme === 'info'
       ? css`
           color: ${tokens.colors.grey.light};
         `
       : css`
           color: ${tokens.colors.pink};
-        `)};
+        `};
 
   ${({ alignLeft }) =>
     alignLeft &&
@@ -40,7 +40,7 @@ const Icon = styled.div`
   margin-right: ${tokens.spaces.s};
 
   ${({ theme }) =>
-    (theme === 'info'
+    theme === 'info'
       ? css`
           background-color: ${tokens.colors.blue};
           &:before {
@@ -52,7 +52,7 @@ const Icon = styled.div`
           &:before {
             content: '!';
           }
-        `)};
+        `};
 `;
 
 const Message = ({ theme, withIcon, alignLeft, children }) => (
@@ -66,13 +66,13 @@ Message.propTypes = {
   theme: PropTypes.oneOf(['info', 'error']),
   withIcon: PropTypes.bool,
   alignLeft: PropTypes.bool,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 Message.defaultProps = {
   alignLeft: false,
   theme: 'info',
-  withIcon: true
+  withIcon: true,
 };
 
 export default Message;

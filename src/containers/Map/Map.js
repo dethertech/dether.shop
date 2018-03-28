@@ -16,9 +16,7 @@ import {
   fetchAll as fetchAllAction,
   fetchPosition as fetchPositionAction,
 } from '../../actions/map';
-import {
-  initializeClientInfo as initializeClientInfoAction
-} from '../../actions/app';
+import { initializeClientInfo as initializeClientInfoAction } from '../../actions/app';
 import { distance, getClusterData, scrollToTop, LatLng } from '../../helpers';
 import { SvgArrowUp } from '../../components/Svg';
 import tokens from '../../styles/tokens';
@@ -60,7 +58,7 @@ export class Map extends Component {
     initializeClientInfo: PropTypes.func.isRequired,
     centerPosition: PropTypes.shape({}).isRequired,
     mapInitiated: PropTypes.bool.isRequired,
-    shops: PropTypes.array.isRequired
+    shops: PropTypes.array.isRequired,
   };
 
   constructor(props) {
@@ -71,7 +69,7 @@ export class Map extends Component {
       center: this.props.centerPosition,
       zoom: 16,
       bounds: { nw: { lat: 85, lng: -180 }, se: { lat: -85, lng: 180 } },
-      size: { width: 375, height: 600 }
+      size: { width: 375, height: 600 },
     };
   }
 
@@ -81,7 +79,7 @@ export class Map extends Component {
       fetchPosition,
       initializeClientInfo,
       setMapInitiated,
-      shops
+      shops,
     } = this.props;
 
     this.updateCluster(shops);
@@ -117,7 +115,12 @@ export class Map extends Component {
 
   changeHandler = propsMap => {
     const center = LatLng(propsMap.center);
-    const { mapInitiated, setCenterPosition, fetchAll, centerPosition } = this.props;
+    const {
+      mapInitiated,
+      setCenterPosition,
+      fetchAll,
+      centerPosition,
+    } = this.props;
     this.propsMap = { ...propsMap, center };
 
     // Fetch shops if position changed more than 100m
@@ -149,16 +152,24 @@ export class Map extends Component {
           {ShopsMarkers}
         </WrapperMap>
         <InfoCard />
-        <SearchBar ref={e => { this.refSearch = e; }} />
-        <CenterIcon onClick={fetchPosition}><IconLocalisation /></CenterIcon>
-        <BackUp onClick={() => scrollToTop(1000)}><SvgArrowUp /></BackUp>
+        <SearchBar
+          ref={e => {
+            this.refSearch = e;
+          }}
+        />
+        <CenterIcon onClick={fetchPosition}>
+          <IconLocalisation />
+        </CenterIcon>
+        <BackUp onClick={() => scrollToTop(1000)}>
+          <SvgArrowUp />
+        </BackUp>
       </MapWrapper>
     );
   }
 }
 
 const mapStateToProps = ({ map }) => ({
-  ...map
+  ...map,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -166,7 +177,10 @@ const mapDispatchToProps = dispatch => ({
   setMapInitiated: bindActionCreators(setMapInitiatedAction, dispatch),
   fetchAll: bindActionCreators(fetchAllAction, dispatch),
   fetchPosition: bindActionCreators(fetchPositionAction, dispatch),
-  initializeClientInfo: bindActionCreators(initializeClientInfoAction, dispatch)
+  initializeClientInfo: bindActionCreators(
+    initializeClientInfoAction,
+    dispatch,
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);

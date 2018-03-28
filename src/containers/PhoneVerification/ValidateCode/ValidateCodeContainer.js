@@ -25,11 +25,11 @@ class ValidationCode extends PureComponent {
 
   static defaultProps = {
     lastSend: null,
-    code: null
+    code: null,
   };
 
   state = {
-    error: ''
+    error: '',
   };
 
   checkReSend = () => {
@@ -38,17 +38,13 @@ class ValidationCode extends PureComponent {
 
     return lastSend && phoneVerificationTime(lastSend)
       ? this.setState({
-        error: tr('errors.phone.wait_resend')
-      })
+          error: tr('errors.phone.wait_resend'),
+        })
       : reSendSms(phoneNumber);
   };
 
   sendCode = code => {
-    const {
-      phoneNumber,
-      sendVerifCode,
-      setUserCertified
-    } = this.props;
+    const { phoneNumber, sendVerifCode, setUserCertified } = this.props;
 
     sendVerifCode({
       code,
@@ -56,13 +52,19 @@ class ValidationCode extends PureComponent {
       onSuccess: () => {
         setUserCertified(true);
       },
-      onError: (errors, res) => this.setState({ error: getErrorMessage(errors, res) })
+      onError: (errors, res) =>
+        this.setState({ error: getErrorMessage(errors, res) }),
     });
   };
 
   render() {
     const { error } = this.state;
-    const { editPhoneNumber, isSubmitCodePending, phoneNumber, code } = this.props;
+    const {
+      editPhoneNumber,
+      isSubmitCodePending,
+      phoneNumber,
+      code,
+    } = this.props;
     return (
       <ValidateCode
         phoneNumber={phoneNumber}
@@ -83,7 +85,7 @@ const mapStateToProps = ({ kyc: { isSubmitCodePending } }) => ({
 
 const mapDispatchToProps = dispatch => ({
   sendVerifCode: bindActionCreators(sendVerifCodeAction, dispatch),
-  setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch)
+  setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ValidationCode);

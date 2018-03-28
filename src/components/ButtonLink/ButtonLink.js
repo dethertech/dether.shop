@@ -5,11 +5,11 @@ import tokens from '../../styles/tokens';
 
 const buttonThemes = {
   primary: {
-    text: tokens.colors.blue
+    text: tokens.colors.blue,
   },
   light: {
-    text: tokens.colors.grey.darker
-  }
+    text: tokens.colors.grey.darker,
+  },
 };
 
 const Wrapper = styled.button`
@@ -39,7 +39,12 @@ const Wrapper = styled.button`
 `;
 
 const ButtonLink = ({ onClick, children, theme, disabled, isSmall }) => (
-  <Wrapper theme={theme} isSmall={isSmall} disabled={disabled} onClick={onClick}>
+  <Wrapper
+    theme={theme}
+    isSmall={isSmall}
+    disabled={disabled}
+    onClick={onClick}
+  >
     {children}
   </Wrapper>
 );
@@ -49,14 +54,14 @@ ButtonLink.propTypes = {
   isSmall: PropTypes.bool,
   theme: PropTypes.oneOf(['primary', 'light']),
   onClick: PropTypes.func,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 ButtonLink.defaultProps = {
   disabled: false,
   isSmall: false,
   theme: 'light',
-  onClick: () => {}
+  onClick: () => {},
 };
 
 export default ButtonLink;

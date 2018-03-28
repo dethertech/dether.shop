@@ -43,7 +43,7 @@ class TextArea extends PureComponent {
     isValid: PropTypes.bool,
     value: PropTypes.string,
     onChange: PropTypes.func,
-    name: PropTypes.string
+    name: PropTypes.string,
   };
 
   static defaultProps = {
@@ -51,7 +51,7 @@ class TextArea extends PureComponent {
     isValid: false,
     onChange: () => {},
     name: '',
-    value: ''
+    value: '',
   };
 
   constructor(props) {

@@ -6,7 +6,7 @@ import { getLicenceShop } from '../../helpers';
  */
 const setMetamaskInstalled = bool => ({
   type: 'SET_METAMASK_INSTALLED',
-  payload: bool
+  payload: bool,
 });
 
 /**
@@ -15,14 +15,14 @@ const setMetamaskInstalled = bool => ({
  */
 const setAppInitialized = bool => ({
   type: 'SET_APP_INITIALIZED',
-  payload: bool
+  payload: bool,
 });
 
 /**
  * toggleTermsModal
  */
 const toggleTermsModal = () => ({
-  type: 'TOGGLE_TERMS_MODAL'
+  type: 'TOGGLE_TERMS_MODAL',
 });
 
 /**
@@ -31,7 +31,7 @@ const toggleTermsModal = () => ({
  */
 const setEthNetwork = id => ({
   type: 'SET_ETH_NETWORK',
-  payload: id
+  payload: id,
 });
 
 /**
@@ -42,13 +42,13 @@ const acceptTerms = () => ({ type: 'ACCEPT_TERMS' });
 
 const setLicencePrice = licencePrice => ({
   type: 'SET_LICENCE_PRICE',
-  payload: licencePrice
+  payload: licencePrice,
 });
 
 const fetchClientInfo = ({ onSuccess }) => ({
   type: 'API:FETCH_USER_INFO',
   url: 'https://ipinfo.io/json',
-  onSuccess
+  onSuccess,
 });
 
 const getLicencePrice = async (dispatch, country) => {
@@ -61,15 +61,15 @@ const getLicencePrice = async (dispatch, country) => {
   }
 };
 
-const initializeClientInfo = () => async dispatch => (
+const initializeClientInfo = () => async dispatch =>
   new Promise((res, rej) => {
-    dispatch(fetchClientInfo({
-      onSuccess: data => res(getLicencePrice(dispatch, data.country)),
-      onError: error => rej(error)
-    }));
-  })
-);
-
+    dispatch(
+      fetchClientInfo({
+        onSuccess: data => res(getLicencePrice(dispatch, data.country)),
+        onError: error => rej(error),
+      }),
+    );
+  });
 
 export {
   setMetamaskInstalled,
@@ -78,5 +78,5 @@ export {
   setEthNetwork,
   acceptTerms,
   setLicencePrice,
-  initializeClientInfo
+  initializeClientInfo,
 };
