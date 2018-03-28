@@ -44,7 +44,7 @@ const en = {
       terms_link: 'Terms and Conditions',
       bt_add: 'Add your shop on the map',
       metamask_not_installed: ({ linkToMetamask }) =>
-        `You should have ##${linkToMetamask}#metamask## plugin installed and unlocked to be able to register your shop`,
+        `You should have ##${linkToMetamask}#Metamask## plugin installed and unlocked to be able to register your shop`,
       wrong_network: 'Your are connected to the wrong network',
       browser_not_supported: 'Your browser is not supported, Metamask is available on Google Chrome and Firefox only.'
     },
