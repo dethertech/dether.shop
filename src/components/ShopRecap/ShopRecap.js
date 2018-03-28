@@ -26,6 +26,11 @@ const TableCell = styled.div`
   flex: 0 0 33%;
 `;
 
+const PriceWrapper = styled.div`
+  font-size: ${tokens.fontSizes.l};
+  margin-top: 30px;
+`;
+
 class ShopRecap extends PureComponent {
   static propTypes = {
     opening: PropTypes.string.isRequired,
@@ -57,7 +62,6 @@ class ShopRecap extends PureComponent {
   render = () => {
     const { opening, name, cat, description, licencePrice } = this.props;
     const { address } = this.state;
-    console.log(licencePrice);
     return (
       <Wrapper>
         <H3>{tr('shop_recap.informations')}</H3>
@@ -104,11 +108,9 @@ class ShopRecap extends PureComponent {
           </TableLine>
         ))}
         {licencePrice &&
-          <Fragment>
-            <H3>{tr('shop_recap.informations')}</H3>
-            <Mention>{tr('shop_recap.closed_at')}</Mention>
-            {licencePrice}
-          </Fragment>
+          <PriceWrapper>
+            {tr('shop_recap.licence_price', { price: licencePrice })}
+          </PriceWrapper>
         }
       </Wrapper>
     );

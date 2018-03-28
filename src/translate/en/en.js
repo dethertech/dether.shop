@@ -107,7 +107,8 @@ const en = {
     day: 'Day:',
     opened_at: 'Opening time:',
     closed_at: 'Closing time:',
-    closed: 'closed'
+    closed: 'closed',
+    licence_price: ({ price }) => `**Licence price**: ${price} DTH`
   },
   days: {
     1: 'Monday',
