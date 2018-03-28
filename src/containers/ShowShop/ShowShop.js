@@ -128,6 +128,7 @@ export class ShowShop extends PureComponent {
       <LoaderScreen
         title={tr('show_shop.loader_title')}
         message={tr('show_shop.loader_delete_message')}
+        isTransaction
       />
       :
       <Fragment>
