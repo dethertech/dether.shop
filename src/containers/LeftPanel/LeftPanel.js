@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { ToastContainer } from 'react-toastify';
 
+import { reset } from '../../actions/root';
 import config from '../../constants/config';
 import LeftPanelPage from './LeftPanelPage';
 import TermsModal from './TermsModal';
@@ -117,11 +118,15 @@ export class LeftPanel extends PureComponent {
   checkChangeAccount = async () => {
     const {
       ethAddress,
+      resetApp
     } = this.props;
 
     const web3EthAddress = await isWeb3();
-    if (web3EthAddress && ethAddress !== web3EthAddress)
-      return this.initCheck();
+    if (web3EthAddress && ethAddress !== web3EthAddress) {
+      this.setState({ isWeb3Checked: false });
+      resetApp();
+      window.location.reload();
+    }
   }
 
   refreshBalance = async () => {
@@ -183,6 +188,7 @@ const mapDispatchToProps = dispatch => ({
   setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
   toggleTermsModal: bindActionCreators(toggleTermsModalAction, dispatch),
   setEthNetwork: bindActionCreators(setEthNetworkAction, dispatch),
+  resetApp: bindActionCreators(reset, dispatch),
   isCertified: isSmsRegHelper,
 });
 

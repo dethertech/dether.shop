@@ -17,4 +17,10 @@ const appReducer = combineReducers({
   kyc
 });
 
-export default appReducer;
+const rootReducer = (state, action) => {
+  if (action.type === 'RESET')
+    return appReducer(undefined, action);
+  return appReducer(state, action);
+};
+
+export default rootReducer;
