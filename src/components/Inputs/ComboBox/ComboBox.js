@@ -81,6 +81,7 @@ class ComboBox extends PureComponent {
 
   onSelectOption = option => () => {
     this.setState({ value: option.name, showOptions: false });
+    this.filterOption(option.name);
     this.props.onSelectedOption(option);
   };
 
