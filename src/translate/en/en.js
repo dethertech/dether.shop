@@ -162,6 +162,9 @@ const en = {
       Error: 'Error',
       too_many_requests: 'Please wait 15 seconds before submitting again'
     }
+  },
+  metamask: {
+    check_transaction: 'Please check your metamask to confirm the transaction'
   }
 };
 
