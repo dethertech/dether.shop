@@ -32,7 +32,7 @@ class Input extends PureComponent {
       'time',
       'url',
       'password',
-      'number'
+      'number',
     ]),
     name: PropTypes.string,
     placeholder: PropTypes.string,
@@ -43,7 +43,7 @@ class Input extends PureComponent {
     disabled: PropTypes.bool,
     hasError: PropTypes.bool,
     insertBefore: PropTypes.node,
-    insertAfter: PropTypes.node
+    insertAfter: PropTypes.node,
   };
 
   static defaultProps = {
@@ -57,7 +57,7 @@ class Input extends PureComponent {
     name: '',
     placeholder: null,
     type: 'text',
-    onChange: () => {}
+    onChange: () => {},
   };
 
   constructor(props) {
@@ -103,7 +103,9 @@ class Input extends PureComponent {
           {...rest}
         />
         {insertAfter && insertAfter}
-        {!!(hasError || isValid) && <InputStatusIcon hasError={hasError} isValid={isValid} />}
+        {!!(hasError || isValid) && (
+          <InputStatusIcon hasError={hasError} isValid={isValid} />
+        )}
       </InputWrapper>
     );
   }

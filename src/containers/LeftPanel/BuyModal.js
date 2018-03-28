@@ -11,7 +11,7 @@ import { exchanges } from '../../constants';
 
 const Title = styled.div`
   width: 100%;
-  text-align: center;;
+  text-align: center;
   font-size: 2.4em;
   font-weight: 600;
 `;
@@ -35,15 +35,16 @@ const BuyModal = ({ closeFunc }) => (
     <Padding bottom="l">
       <Title>{tr('buy_modal.title')}</Title>
       <ImageWrapper>
-        {exchanges.map(({ logo, url }) =>
-          <ExchangeImage key={url} src={logo} onClick={goTo(url)} />)}
+        {exchanges.map(({ logo, url }) => (
+          <ExchangeImage key={url} src={logo} onClick={goTo(url)} />
+        ))}
       </ImageWrapper>
     </Padding>
   </Modal>
 );
 
 BuyModal.propTypes = {
-  closeFunc: PropTypes.func.isRequired
+  closeFunc: PropTypes.func.isRequired,
 };
 
 export default BuyModal;

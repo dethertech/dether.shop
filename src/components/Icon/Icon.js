@@ -12,7 +12,7 @@ const Svg = styled.svg`
 `;
 
 const Line = styled.line.attrs({
-  vectorEffect: 'non-scaling-stroke'
+  vectorEffect: 'non-scaling-stroke',
 })`
   stroke: ${({ theme }) => theme.color};
   stroke-width: ${({ theme }) => theme.strokeWidth};
@@ -37,7 +37,7 @@ const icons = {
   carretDown: theme => <Polyline theme={theme} points="0 3 6 9 12 3" />,
   carretUp: theme => <Polyline theme={theme} points="0 9 6 3 12 9" />,
   carretRight: theme => <Polyline theme={theme} points="3 0 9 6 3 12" />,
-  check: theme => <Polyline theme={theme} points="0 6 4 10 12 1" />
+  check: theme => <Polyline theme={theme} points="0 6 4 10 12 1" />,
 };
 
 const Icon = ({ size, name, color, strokeWidth, fill }) => (
@@ -51,14 +51,14 @@ Icon.propTypes = {
   color: PropTypes.string,
   strokeWidth: PropTypes.string,
   fill: PropTypes.string,
-  name: PropTypes.oneOf(Object.keys(icons)).isRequired
+  name: PropTypes.oneOf(Object.keys(icons)).isRequired,
 };
 
 Icon.defaultProps = {
   size: '1.2rem',
   color: '#000',
   strokeWidth: '0.1rem',
-  fill: 'none'
+  fill: 'none',
 };
 
 export default Icon;

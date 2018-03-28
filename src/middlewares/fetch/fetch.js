@@ -29,13 +29,14 @@ const fetchMiddleware = () => dispatch => async action => {
     .then(res => {
       dispatch({
         type: `${baseType}_SUCCESS`,
-        payload: { ...action.payload, data: res.data }
+        payload: { ...action.payload, data: res.data },
       });
       if (action.onSuccess) return action.onSuccess(res.data);
     })
     .catch(err => {
       dispatch({ type: `${baseType}_ERROR` });
-      if (action.onError && err.response) return action.onError(err.response.data, err);
+      if (action.onError && err.response)
+        return action.onError(err.response.data, err);
       return err;
     });
 };

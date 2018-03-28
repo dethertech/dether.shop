@@ -28,7 +28,7 @@ const ProgressBar = ({ progressRatio }) => (
 );
 
 ProgressBar.propTypes = {
-  progressRatio: PropTypes.number.isRequired
+  progressRatio: PropTypes.number.isRequired,
 };
 
 export default ProgressBar;

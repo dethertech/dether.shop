@@ -20,26 +20,26 @@ import {
 
 import {
   hasGoodNetwork as hasGoodNetworkHelper,
-  isLicencePriceSet as isLicencePriceSetHelper
+  isLicencePriceSet as isLicencePriceSetHelper,
 } from '../../reducers/app';
 
 import { getNetworkId } from '../../helpers/ethereum';
 import {
   setMetamaskInstalled as setMetamaskInstalledAction,
   setEthNetwork as setEthNetworkAction,
-  toggleTermsModal as toggleTermsModalAction
+  toggleTermsModal as toggleTermsModalAction,
 } from '../../actions/app';
 import {
   setEthAddress as setEthAddressAction,
   setBalance as setBalanceAction,
-  setUserCertified as setUserCertifiedAction
+  setUserCertified as setUserCertifiedAction,
 } from '../../actions/user';
 import { addShop as addShopAction } from '../../actions/shop';
 
 /**
-* LeftPanel containers
-* @extends PureComponent
-*/
+ * LeftPanel containers
+ * @extends PureComponent
+ */
 export class LeftPanel extends PureComponent {
   static propTypes = {
     setMetamaskInstalled: PropTypes.func.isRequired,
@@ -55,13 +55,13 @@ export class LeftPanel extends PureComponent {
       eth: PropTypes.number.isRequired,
       dth: PropTypes.number.isRequired,
     }).isRequired,
-    isLicencePriceSet: PropTypes.bool.isRequired
+    isLicencePriceSet: PropTypes.bool.isRequired,
   };
 
   state = {
     isBuyModalOpened: false,
-    isWeb3Checked: false
-  }
+    isWeb3Checked: false,
+  };
 
   componentWillMount() {
     this.initApp();
@@ -80,7 +80,7 @@ export class LeftPanel extends PureComponent {
       setBalance,
       setEthNetwork,
       isCertified,
-      setUserCertified
+      setUserCertified,
     } = this.props;
 
     const ethAddress = await isWeb3();
@@ -101,11 +101,9 @@ export class LeftPanel extends PureComponent {
       }
       if (network) setMetamaskInstalled(true);
     }
-  }
+  };
   async initApp() {
-    const {
-      isWeb3Checked
-    } = this.state;
+    const { isWeb3Checked } = this.state;
 
     if (!isWeb3Checked) {
       await this.initCheck();
@@ -116,10 +114,7 @@ export class LeftPanel extends PureComponent {
   }
 
   checkChangeAccount = async () => {
-    const {
-      ethAddress,
-      resetApp
-    } = this.props;
+    const { ethAddress, resetApp } = this.props;
 
     const web3EthAddress = await isWeb3();
     if (web3EthAddress && ethAddress !== web3EthAddress) {
@@ -127,29 +122,24 @@ export class LeftPanel extends PureComponent {
       resetApp();
       window.location.reload();
     }
-  }
+  };
 
   refreshBalance = async () => {
-    const {
-      setBalance,
-      isMetamaskInstalled,
-      hasGoodNetwork
-    } = this.props;
+    const { setBalance, isMetamaskInstalled, hasGoodNetwork } = this.props;
 
-    if (!isMetamaskInstalled)
-      return this.initCheck();
-    if (hasGoodNetwork)
-      setBalance(await getBalance());
-  }
+    if (!isMetamaskInstalled) return this.initCheck();
+    if (hasGoodNetwork) setBalance(await getBalance());
+  };
 
-  toggleBuyModal = () => this.setState({ isBuyModalOpened: !this.state.isBuyModalOpened });
+  toggleBuyModal = () =>
+    this.setState({ isBuyModalOpened: !this.state.isBuyModalOpened });
 
   render() {
     const {
       balance,
       toggleTermsModal,
       isTermsModalOpenened,
-      isLicencePriceSet
+      isLicencePriceSet,
     } = this.props;
     const { isBuyModalOpened, isWeb3Checked } = this.state;
 
@@ -177,11 +167,14 @@ const mapStateToProps = ({ app, user }) => ({
   isMetamaskInstalled: app.isMetamaskInstalled,
   hasGoodNetwork: hasGoodNetworkHelper(app),
   ethAddress: user.ethAddress || '',
-  isLicencePriceSet: isLicencePriceSetHelper(app)
+  isLicencePriceSet: isLicencePriceSetHelper(app),
 });
 
 const mapDispatchToProps = dispatch => ({
-  setMetamaskInstalled: bindActionCreators(setMetamaskInstalledAction, dispatch),
+  setMetamaskInstalled: bindActionCreators(
+    setMetamaskInstalledAction,
+    dispatch,
+  ),
   setEthAddress: bindActionCreators(setEthAddressAction, dispatch),
   addShop: bindActionCreators(addShopAction, dispatch),
   setBalance: bindActionCreators(setBalanceAction, dispatch),
@@ -192,4 +185,6 @@ const mapDispatchToProps = dispatch => ({
   isCertified: isSmsRegHelper,
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LeftPanel));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(LeftPanel),
+);

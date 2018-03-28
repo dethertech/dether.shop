@@ -6,25 +6,26 @@ import { web3js, getAddress, getNetworkId, toNBytes } from './utils';
 import getLicenceShop from './getLicenceShop';
 
 class ConvertBase {
-    convert = (baseFrom, baseTo) => num => parseInt(num, baseFrom).toString(baseTo);
-    // binary to decimal
-    bin2dec = this.convert(2, 10);
-    // binary to hexadecimal
-    bin2hex = this.convert(2, 16);
-    // decimal to binary
-    dec2bin = this.convert(10, 2);
-    // decimal to hexadecimal
-    dec2hex = this.convert(10, 16);
-    // hexadecimal to binary
-    hex2bin = this.convert(16, 2);
-    // hexadecimal to decimal
-    hex2dec = this.convert(16, 10);
+  convert = (baseFrom, baseTo) => num =>
+    parseInt(num, baseFrom).toString(baseTo);
+  // binary to decimal
+  bin2dec = this.convert(2, 10);
+  // binary to hexadecimal
+  bin2hex = this.convert(2, 16);
+  // decimal to binary
+  dec2bin = this.convert(10, 2);
+  // decimal to hexadecimal
+  dec2hex = this.convert(10, 16);
+  // hexadecimal to binary
+  hex2bin = this.convert(16, 2);
+  // hexadecimal to decimal
+  hex2dec = this.convert(16, 10);
 }
 
 const convertBase = new ConvertBase();
 
 //
-const intTo5bytes = (intvalue) => {
+const intTo5bytes = intvalue => {
   let hexvalue;
   let result;
   if (intvalue < 0) {
@@ -51,13 +52,19 @@ const intTo5bytes = (intvalue) => {
  * @param  {[type]} rawshop [description]
  * @return {[type]}         [description]
  */
-const shopToContract = (rawshop) => {
+const shopToContract = rawshop => {
   const lat = intTo5bytes(parseFloat(rawshop.lat) * 100000);
   const lng = intTo5bytes(parseFloat(rawshop.lng) * 100000);
   const hexshopGeo = `0x31${lat}${lng}`;
-  const hexShopAddr = `${toNBytes(rawshop.countryId, 2)}${toNBytes(rawshop.postalCode, 16)}`;
+  const hexShopAddr = `${toNBytes(rawshop.countryId, 2)}${toNBytes(
+    rawshop.postalCode,
+    16,
+  )}`;
   const hexShopId = `${toNBytes(rawshop.cat, 16)}${toNBytes(rawshop.name, 16)}`;
-  const hexShopDesc = `${toNBytes(rawshop.description, 32)}${toNBytes(rawshop.opening, 16)}31`;
+  const hexShopDesc = `${toNBytes(rawshop.description, 32)}${toNBytes(
+    rawshop.opening,
+    16,
+  )}31`;
 
   const hexShop = `${hexshopGeo}${hexShopAddr}${hexShopId}${hexShopDesc}`;
   return hexShop;
@@ -68,27 +75,27 @@ const overloadedTransferAbi = {
   inputs: [
     {
       name: '_to',
-      type: 'address'
+      type: 'address',
     },
     {
       name: '_value',
-      type: 'uint256'
+      type: 'uint256',
     },
     {
       name: '_data',
-      type: 'bytes'
-    }
+      type: 'bytes',
+    },
   ],
   name: 'transfer',
   outputs: [
     {
       name: '',
-      type: 'bool'
-    }
+      type: 'bool',
+    },
   ],
   payable: false,
   stateMutability: 'nonpayable',
-  type: 'function'
+  type: 'function',
 };
 
 /**
@@ -96,28 +103,30 @@ const overloadedTransferAbi = {
  * @param {[Object]} description
  * @returns {[String]} transaction hash
  */
-const addShop = (shop) =>
+const addShop = shop =>
   new Promise(async (res, rej) => {
     try {
       const hexShop = shopToContract(shop);
-      const [address, networkId] = await Promise.all([getAddress(), getNetworkId()]);
+      const [address, networkId] = await Promise.all([
+        getAddress(),
+        getNetworkId(),
+      ]);
       const licencePrice = await getLicenceShop(shop.countryId);
       const transferMethodTransactionData = web3Abi.encodeFunctionCall(
         overloadedTransferAbi,
         [
           DetherCore.networks[networkId].address,
           web3js.utils.toWei(licencePrice),
-          hexShop
-        ]
+          hexShop,
+        ],
       );
-      const tsx = await web3js.eth
-        .sendTransaction({
-          from: address,
-          to: DthContract.networks[networkId].address,
-          data: transferMethodTransactionData,
-          value: 0,
-          gas: 400000
-        });
+      const tsx = await web3js.eth.sendTransaction({
+        from: address,
+        to: DthContract.networks[networkId].address,
+        data: transferMethodTransactionData,
+        value: 0,
+        gas: 400000,
+      });
       res(tsx);
     } catch (e) {
       rej(new TypeError(`Invalid shop transaction: ${e.message}`));

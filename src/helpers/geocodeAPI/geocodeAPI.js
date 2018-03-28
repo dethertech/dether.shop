@@ -29,7 +29,9 @@ const GeocodeAPI = {
    * @return {[type]}                   [description]
    */
   getCountryIdFromAddressComponents(addressComponents) {
-    const elemFind = addressComponents.filter(e => e.types.includes('country') && !!e.short_name);
+    const elemFind = addressComponents.filter(
+      e => e.types.includes('country') && !!e.short_name,
+    );
     if (elemFind && elemFind.length) {
       return elemFind[0].short_name;
     }
@@ -44,7 +46,9 @@ const GeocodeAPI = {
     const results = await this.reverseGeocode({ lat, lng });
 
     for (let i = 0; i < results.length; i += 1) {
-      const elemFind = this.getPostalCodeFromAddressComponents(results[i].address_components);
+      const elemFind = this.getPostalCodeFromAddressComponents(
+        results[i].address_components,
+      );
       if (elemFind) {
         return elemFind;
       }
@@ -62,7 +66,9 @@ const GeocodeAPI = {
     }
 
     const latLng = `${lat},${lng}`;
-    const url = `${GOOGLE_API}?key=${config.googleMapKey}&latlng=${encodeURI(latLng)}`;
+    const url = `${GOOGLE_API}?key=${config.googleMapKey}&latlng=${encodeURI(
+      latLng,
+    )}`;
     const { results } = await this.handleUrl(url);
     if (!results || results.length <= 0) {
       return Promise.reject(new Error('Enable to reverse lat lng'));
@@ -86,7 +92,9 @@ const GeocodeAPI = {
    * @return {Promise}     [description]
    */
   async handleUrl(url) {
-    const response = await fetch(url).catch(() => Promise.reject(new Error('Error fetching data')));
+    const response = await fetch(url).catch(() =>
+      Promise.reject(new Error('Error fetching data')),
+    );
 
     const json = await response
       .json()
@@ -95,8 +103,10 @@ const GeocodeAPI = {
     if (json.status === 'OK') {
       return json;
     }
-    return Promise.reject(new Error(`Server returned status code ${json.status}`));
-  }
+    return Promise.reject(
+      new Error(`Server returned status code ${json.status}`),
+    );
+  },
 };
 
 export default GeocodeAPI;

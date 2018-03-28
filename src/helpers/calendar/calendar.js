@@ -46,7 +46,7 @@ export const times = [
   { key: 'S', val: '22:00' },
   { key: 'T', val: '22:30' },
   { key: 'U', val: '23:00' },
-  { key: 'V', val: '23:30' }
+  { key: 'V', val: '23:30' },
 ];
 
 export const timesObj = {};
@@ -87,13 +87,13 @@ export const convertCalendar = str => {
   const days = [close, close, close, close, close, close, close];
   let idx = 0;
 
-  for (let i = 0; i < str.length;) {
+  for (let i = 0; i < str.length; ) {
     const testClose = str[i] === '0';
     if (!testClose) {
       days[idx] = {
         open: true,
         openAt: timesObj[str[i]],
-        closeAt: timesObj[str[i + 1]]
+        closeAt: timesObj[str[i + 1]],
       };
     }
     idx += 1;

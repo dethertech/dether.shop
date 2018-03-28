@@ -7,18 +7,18 @@ const buttonThemes = {
   primary: {
     text: tokens.colors.white,
     bg: tokens.colors.gradients.blue,
-    border: 'transparent'
+    border: 'transparent',
   },
   light: {
     text: tokens.colors.blue,
     bg: tokens.colors.white,
-    border: tokens.colors.blue
+    border: tokens.colors.blue,
   },
   danger: {
     text: tokens.colors.white,
     bg: tokens.colors.gradients.pink,
-    border: 'transparent'
-  }
+    border: 'transparent',
+  },
 };
 
 export const Wrapper = styled.button`
@@ -71,7 +71,15 @@ export const Wrapper = styled.button`
   }
 `;
 
-const Button = ({ onClick, children, theme, fullWidth, disabled, isSmall, width }) => (
+const Button = ({
+  onClick,
+  children,
+  theme,
+  fullWidth,
+  disabled,
+  isSmall,
+  width,
+}) => (
   <Wrapper
     isSmall={isSmall}
     fullWidth={fullWidth}
@@ -91,7 +99,7 @@ Button.propTypes = {
   theme: PropTypes.oneOf(['primary', 'light', 'danger']),
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired,
-  width: PropTypes.string
+  width: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -100,7 +108,7 @@ Button.defaultProps = {
   theme: 'light',
   isSmall: false,
   width: null,
-  onClick: () => {}
+  onClick: () => {},
 };
 
 export default Button;

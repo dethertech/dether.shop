@@ -11,13 +11,14 @@ import { GeocodeAPI } from '../../../../helpers';
 export class SearchBar extends PureComponent {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
-    inputOpt: PropTypes.shape({}).isRequired
+    inputOpt: PropTypes.shape({}).isRequired,
   };
 
   static async postalCode(addressComponents, position) {
     return (
       GeocodeAPI.getPostalCodeFromAddressComponents(addressComponents) ||
-      (await GeocodeAPI.postalCode(position)) || '0'
+      (await GeocodeAPI.postalCode(position)) ||
+      '0'
     );
   }
 
@@ -29,7 +30,7 @@ export class SearchBar extends PureComponent {
 
     this.state = {
       isDirty: true,
-      address: address || ''
+      address: address || '',
     };
   }
 
@@ -44,15 +45,21 @@ export class SearchBar extends PureComponent {
   onSelect = async address => {
     const place = (await geocodeByAddress(address))[0];
     const position = await getLatLng(place);
-    const countryId = GeocodeAPI.getCountryIdFromAddressComponents(place.address_components);
-    const postalCode = await SearchBar.postalCode(place.address_components, position);
+    const countryId = GeocodeAPI.getCountryIdFromAddressComponents(
+      place.address_components,
+    );
+    const postalCode = await SearchBar.postalCode(
+      place.address_components,
+      position,
+    );
 
-    const data = { ...position,
+    const data = {
+      ...position,
       countryId,
       postalCode,
       lat: position.lat.toFixed(5),
       lng: position.lng.toFixed(5),
-      addressString: address
+      addressString: address,
     };
     let error;
     if (data.lat && data.lng && countryId && postalCode) {

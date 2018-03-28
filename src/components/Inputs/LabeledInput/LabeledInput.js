@@ -75,8 +75,14 @@ const LabeledInput = ({
           />
         ),
         input: () => (
-          <Input name={name} hasError={!!error} onChange={handleChange} onBlur={onBlur} {...rest} />
-        )
+          <Input
+            name={name}
+            hasError={!!error}
+            onChange={handleChange}
+            onBlur={onBlur}
+            {...rest}
+          />
+        ),
       }[componentName]()}
     </Shake>
     {error && <ErrorText>{error}</ErrorText>}
@@ -92,7 +98,7 @@ LabeledInput.propTypes = {
   onBlur: PropTypes.func,
   componentName: PropTypes.string,
   error: PropTypes.string,
-  defaultOption: PropTypes.any
+  defaultOption: PropTypes.any,
 };
 
 LabeledInput.defaultProps = {
@@ -102,7 +108,7 @@ LabeledInput.defaultProps = {
   fillInfos: null,
   error: null,
   componentName: 'input',
-  defaultOption: null
+  defaultOption: null,
 };
 
 export default LabeledInput;

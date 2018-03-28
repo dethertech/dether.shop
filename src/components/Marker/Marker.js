@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 class Marker extends PureComponent {
   static propTypes = {
     handleClick: PropTypes.func,
-    children: PropTypes.oneOfType([PropTypes.array, PropTypes.element]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
+      .isRequired,
   };
 
   static defaultProps = {
@@ -14,11 +15,7 @@ class Marker extends PureComponent {
   render() {
     const { handleClick, children } = this.props;
 
-    return (
-      <div onClick={handleClick} >
-        {children}
-      </div>
-    );
+    return <div onClick={handleClick}>{children}</div>;
   }
 }
 

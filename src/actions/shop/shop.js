@@ -4,7 +4,7 @@
  */
 const setDataShopPending = data => ({
   type: 'SET_DATA_SHOP_PENDING',
-  payload: data
+  payload: data,
 });
 
 /**
@@ -14,7 +14,7 @@ const setDataShopPending = data => ({
  */
 const addTransaction = ({ type, hash }) => ({
   type: 'ADD_TRANSACTION',
-  payload: { type, hash }
+  payload: { type, hash },
 });
 
 /**
@@ -27,7 +27,8 @@ const addAddShopTransaction = hash => addTransaction({ type: 'add', hash });
  * [addDeleteShopTransaction description]
  * @param {[type]} hash [description]
  */
-const addDeleteShopTransaction = hash => addTransaction({ type: 'delete', hash });
+const addDeleteShopTransaction = hash =>
+  addTransaction({ type: 'delete', hash });
 
 /**
  * [endTransaction description]
@@ -41,7 +42,7 @@ const endTransaction = () => ({ type: 'END_TRANSACTION' });
  */
 const addShop = shop => ({
   type: 'ADD_SHOP',
-  payload: shop
+  payload: shop,
 });
 
 /**
@@ -49,7 +50,7 @@ const addShop = shop => ({
  * @return {[type]} [description]
  */
 const removeShop = () => ({
-  type: 'REMOVE_SHOP'
+  type: 'REMOVE_SHOP',
 });
 
 export {
@@ -59,5 +60,5 @@ export {
   endTransaction,
   addTransaction,
   addDeleteShopTransaction,
-  addAddShopTransaction
+  addAddShopTransaction,
 };

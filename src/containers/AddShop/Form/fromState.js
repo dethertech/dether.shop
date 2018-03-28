@@ -14,7 +14,7 @@ export default ({ onChange, onBlur }, props) => {
       isValid: false,
       toggleShake: 0,
       onBlur,
-      handleChange: onChange
+      handleChange: onChange,
     },
     name: {
       name: 'name',
@@ -28,7 +28,7 @@ export default ({ onChange, onBlur }, props) => {
       toggleShake: 0,
       onBlur,
       handleChange: onChange,
-      placeholder: tr('add.form.inputs.name.placeholder')
+      placeholder: tr('add.form.inputs.name.placeholder'),
     },
     cat: {
       name: 'cat',
@@ -42,7 +42,7 @@ export default ({ onChange, onBlur }, props) => {
       toggleShake: 0,
       onBlur,
       handleChange: onChange,
-      placeholder: tr('add.form.inputs.cat.placeholder')
+      placeholder: tr('add.form.inputs.cat.placeholder'),
     },
     description: {
       name: 'description',
@@ -56,7 +56,7 @@ export default ({ onChange, onBlur }, props) => {
       toggleShake: 0,
       onBlur,
       handleChange: onChange,
-      placeholder: tr('add.form.inputs.description.placeholder')
-    }
+      placeholder: tr('add.form.inputs.description.placeholder'),
+    },
   };
 };

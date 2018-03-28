@@ -22,7 +22,10 @@ const InputSelect = styled.select`
 
   ${({ fakeDisable }) =>
     fakeDisable &&
-    css`backgroundColor: red; opacity: 0.5;`};
+    css`
+      backgroundcolor: red;
+      opacity: 0.5;
+    `};
 
   &:disabled {
     opacity: 0.5;
@@ -62,14 +65,14 @@ Select.propTypes = {
   data: PropTypes.arrayOf(PropTypes.string.isRequired),
   onChange: PropTypes.func,
   selected: PropTypes.string,
-  fakeDisable: PropTypes.bool
+  fakeDisable: PropTypes.bool,
 };
 
 Select.defaultProps = {
   data: [],
   onChange: () => {},
   selected: null,
-  fakeDisable: false
+  fakeDisable: false,
 };
 
 export default Select;

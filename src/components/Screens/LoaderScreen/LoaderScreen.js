@@ -23,13 +23,13 @@ const LoaderScreen = ({ title, message, isTransaction }) => (
 LoaderScreen.propTypes = {
   isTransaction: PropTypes.bool,
   title: PropTypes.string,
-  message: PropTypes.string
+  message: PropTypes.string,
 };
 
 LoaderScreen.defaultProps = {
   title: null,
   message: null,
-  isTransaction: false
+  isTransaction: false,
 };
 
 export default LoaderScreen;

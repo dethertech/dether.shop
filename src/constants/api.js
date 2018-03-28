@@ -4,5 +4,5 @@ import config from './config';
 
 export default axios.create({
   baseURL: config.apiUrl,
-  timeout: 1000
+  timeout: 1000,
 });

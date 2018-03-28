@@ -14,36 +14,35 @@ import PhoneVerification from '../PhoneVerification';
 import ShowShop from '../ShowShop';
 
 /**
-* AddShopRouter containers
-* @extends PureComponent
-*/
+ * AddShopRouter containers
+ * @extends PureComponent
+ */
 class ShopRouter extends PureComponent {
   static propTypes = {
     isUserVerified: PropTypes.bool.isRequired,
     hasShop: PropTypes.bool.isRequired,
-    isUserReady: PropTypes.bool.isRequired
+    isUserReady: PropTypes.bool.isRequired,
   };
 
   render = () => {
     const { hasShop, isUserVerified, isUserReady } = this.props;
-    if (hasShop)
-      return <ShowShop />;
+    if (hasShop) return <ShowShop />;
     if (isUserReady) {
-      if (isUserVerified)
-        return <AddShop />;
+      if (isUserVerified) return <AddShop />;
       return <PhoneVerification />;
     }
     return <Home />;
-  }
+  };
 }
 
 const mapStateToProps = ({ user, shop, app }) => ({
   isUserVerified: user.isCertified,
-  isUserReady: app.isMetamaskInstalled
-    && hasEnoughMoneyToAddShop(user, app.licencePrice)
-    && hasGoodNetwork(app)
-    && app.areTermsAccepted,
-  hasShop: !!shop.shop
+  isUserReady:
+    app.isMetamaskInstalled &&
+    hasEnoughMoneyToAddShop(user, app.licencePrice) &&
+    hasGoodNetwork(app) &&
+    app.areTermsAccepted,
+  hasShop: !!shop.shop,
 });
 
 export default connect(mapStateToProps, null)(ShopRouter);

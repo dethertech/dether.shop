@@ -12,13 +12,13 @@ import tr from '../../../translate';
 import {
   addAddShopTransaction as addAddShopTransactionAction,
   addShop as addShopAction,
-  endTransaction as endTransactionAction
+  endTransaction as endTransactionAction,
 } from '../../../actions/shop';
 import { fetchAll as fetchAllAction } from '../../../actions/map';
 import {
   addShop as addShopHelper,
   getTransactionStatus,
-  getLicenceShop
+  getLicenceShop,
 } from '../../../helpers/ethereum';
 
 const ButtonsWrapper = styled.div`
@@ -39,7 +39,7 @@ class Verification extends PureComponent {
       opening: PropTypes.string.isRequired,
       lat: PropTypes.string.isRequired,
       lng: PropTypes.string.isRequired,
-      countryId: PropTypes.string.isRequired
+      countryId: PropTypes.string.isRequired,
     }).isRequired,
     addShopToStore: PropTypes.func.isRequired,
     addShopToContract: PropTypes.func.isRequired,
@@ -49,13 +49,13 @@ class Verification extends PureComponent {
     endTransaction: PropTypes.func.isRequired,
     goBack: PropTypes.func.isRequired,
     fetchAll: PropTypes.func.isRequired,
-    centerPosition: PropTypes.shape({}).isRequired
-  }
+    centerPosition: PropTypes.shape({}).isRequired,
+  };
 
   state = {
     isLoading: false,
-    licencePrice: null
-  }
+    licencePrice: null,
+  };
 
   async componentWillMount() {
     const { isTransactionPending, pendingShop } = this.props;
@@ -83,7 +83,9 @@ class Verification extends PureComponent {
         <Button width="45%" theme="primary" onClick={this.addShop}>
           {tr('add_form_verification.submit_button')}
         </Button>
-        <Button width="45%" onClick={goBack}>{tr('add_form_verification.edit_button')}</Button>
+        <Button width="45%" onClick={goBack}>
+          {tr('add_form_verification.edit_button')}
+        </Button>
       </ButtonsWrapper>
     );
   };
@@ -92,7 +94,7 @@ class Verification extends PureComponent {
     const { endTransaction } = this.props;
     endTransaction();
     clearInterval(this.interval);
-  }
+  };
 
   checkTransaction = () => {
     const {
@@ -101,7 +103,7 @@ class Verification extends PureComponent {
       pendingShop,
       fetchAll,
       centerPosition,
-      goBack
+      goBack,
     } = this.props;
     this.interval = setInterval(async () => {
       const status = await getTransactionStatus(transactionHash);
@@ -115,10 +117,14 @@ class Verification extends PureComponent {
         toast.error(tr('errors.transaction.throw'));
       }
     }, 3000);
-  }
+  };
 
   addShop = async () => {
-    const { pendingShop, addAddShopTransaction, addShopToContract } = this.props;
+    const {
+      pendingShop,
+      addAddShopTransaction,
+      addShopToContract,
+    } = this.props;
 
     this.showLoader();
     try {
@@ -161,15 +167,20 @@ const mapStateToProps = ({ shop, map }) => ({
   pendingShop: shop.pendingShop,
   isTransactionPending: !!shop.transactionHash,
   transactionHash: shop.transactionHash || '',
-  centerPosition: map.centerPosition
+  centerPosition: map.centerPosition,
 });
 
 const mapDispatchToProps = dispatch => ({
   addShopToContract: addShopHelper,
   addShopToStore: bindActionCreators(addShopAction, dispatch),
-  addAddShopTransaction: bindActionCreators(addAddShopTransactionAction, dispatch),
+  addAddShopTransaction: bindActionCreators(
+    addAddShopTransactionAction,
+    dispatch,
+  ),
   endTransaction: bindActionCreators(endTransactionAction, dispatch),
   fetchAll: bindActionCreators(fetchAllAction, dispatch),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Verification));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Verification),
+);

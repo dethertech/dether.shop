@@ -22,17 +22,18 @@ const persistConfig = {
   storage,
   whitelist: ['shop', 'app'],
   transforms: [
+    createTransform(state => ({ ...state, shop: null }), state => state, {
+      whitelist: ['shop'],
+    }),
     createTransform(
-      state => ({ ...state, shop: null }),
+      state => ({
+        ...appReducerInitialState,
+        areTermsAccepted: state.areTermsAccepted,
+      }),
       state => state,
-      { whitelist: ['shop'] }
+      { whitelist: ['app'] },
     ),
-    createTransform(
-      state => ({ ...appReducerInitialState, areTermsAccepted: state.areTermsAccepted }),
-      state => state,
-      { whitelist: ['app'] }
-    )
-  ]
+  ],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -47,8 +48,8 @@ const store = createStore(
     applyMiddleware(thunkMiddleware, fetchMiddleware),
     window.devToolsExtension && process.env.NODE_ENV === 'development'
       ? window.devToolsExtension()
-      : f => f
-  )
+      : f => f,
+  ),
 );
 
 if (module.hot) {

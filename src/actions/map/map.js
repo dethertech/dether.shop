@@ -4,7 +4,7 @@
  */
 const setUserPosition = userPosition => ({
   type: 'SET_USER_POSITION',
-  payload: userPosition
+  payload: userPosition,
 });
 
 /**
@@ -13,16 +13,16 @@ const setUserPosition = userPosition => ({
  */
 const setCenterPosition = centerPosition => ({
   type: 'SET_CENTER_POSITION',
-  payload: centerPosition
+  payload: centerPosition,
 });
 
 /**
  * setUserInfo
  * @param {[type]} userInfo [description]
  */
-const setUserInfo = (userInfo) => ({
+const setUserInfo = userInfo => ({
   type: 'SET_USER_INFO',
-  payload: { userInfo }
+  payload: { userInfo },
 });
 
 /**
@@ -56,7 +56,7 @@ const setMapInitiated = () => ({ type: 'SET_MAP_INITIATED' });
  * @param  {[type]} params [description]
  * @return {[type]}        [description]
  */
-const fetchShops = (params) => ({
+const fetchShops = params => ({
   type: 'API:FETCH_SHOPS',
   url: '/shop',
   params,
@@ -83,38 +83,35 @@ const fetchPositionByIp = res => ({
   type: 'API:FETCH_POSITION_BY_IP',
   url: 'https://ipinfo.io/json',
   onSuccess: () => res(),
-  onError: () => res()
+  onError: () => res(),
 });
 
 /**
  * fetchPosition
  * @return {[type]} [description]
  */
-const fetchPosition = () => (
-  async dispatch => (
-    new Promise(res => {
-      dispatch({ type: 'INITIATE_POSITION_PENDING' });
-      // If user accept geolocalisation
-      if ('geolocation' in navigator) {
-        navigator.geolocation.getCurrentPosition(
-          position => {
-            const positionF = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            };
-            dispatch(setUserPosition(positionF));
-            dispatch(setCenterPosition(positionF));
-            dispatch({ type: 'INITIATE_POSITION_SUCCESS' });
-            res(positionF);
-          },
-          () => dispatch(fetchPositionByIp(res))
-        );
-      }
-      // Else get geolocalisation from ip
-      dispatch(fetchPositionByIp(res));
-    })
-  )
-);
+const fetchPosition = () => async dispatch =>
+  new Promise(res => {
+    dispatch({ type: 'INITIATE_POSITION_PENDING' });
+    // If user accept geolocalisation
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          const positionF = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          dispatch(setUserPosition(positionF));
+          dispatch(setCenterPosition(positionF));
+          dispatch({ type: 'INITIATE_POSITION_SUCCESS' });
+          res(positionF);
+        },
+        () => dispatch(fetchPositionByIp(res)),
+      );
+    }
+    // Else get geolocalisation from ip
+    dispatch(fetchPositionByIp(res));
+  });
 
 export {
   setUserPosition,

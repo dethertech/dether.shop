@@ -6,16 +6,16 @@ export default [
   {
     name: 'Tidex',
     logo: tidexLogo,
-    url: 'https://tidex.com/exchange/dth/eth'
+    url: 'https://tidex.com/exchange/dth/eth',
   },
   {
     name: 'Idex',
     logo: idexLogo,
-    url: 'https://idex.market/eth/dth'
+    url: 'https://idex.market/eth/dth',
   },
   {
     name: 'Lykke',
     logo: lykkeLogo,
-    url: 'https://www.lykke.com/'
+    url: 'https://www.lykke.com/',
   },
 ];

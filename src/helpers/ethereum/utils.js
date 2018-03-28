@@ -10,14 +10,23 @@ export const getAddress = async () => (await web3js.eth.getAccounts())[0];
 
 export const getNetworkId = async () => web3js.eth.net.getId();
 
-export const getDetherContract = async () => new web3js.eth
-  .Contract(DetherCore.abi, DetherCore.networks[(await getNetworkId())].address);
+export const getDetherContract = async () =>
+  new web3js.eth.Contract(
+    DetherCore.abi,
+    DetherCore.networks[await getNetworkId()].address,
+  );
 
-export const getDthContract = async () => new web3js.eth
-  .Contract(DthContract.abi, DthContract.networks[(await getNetworkId())].address);
+export const getDthContract = async () =>
+  new web3js.eth.Contract(
+    DthContract.abi,
+    DthContract.networks[await getNetworkId()].address,
+  );
 
-export const getSmsContract = async () => new web3js.eth
-  .Contract(SmsCertifier.abi, SmsCertifier.networks[(await getNetworkId())].address);
+export const getSmsContract = async () =>
+  new web3js.eth.Contract(
+    SmsCertifier.abi,
+    SmsCertifier.networks[await getNetworkId()].address,
+  );
 
 /**
  * [toNBytes description]

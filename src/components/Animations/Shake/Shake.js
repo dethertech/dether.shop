@@ -29,16 +29,17 @@ const ShakeWrapper = styled.div`
 class Shake extends PureComponent {
   static propTypes = {
     toggle: PropTypes.number,
-    children: PropTypes.oneOfType([PropTypes.array, PropTypes.element]).isRequired
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
+      .isRequired,
   };
 
   static defaultProps = {
-    toggle: 0
+    toggle: 0,
   };
 
   state = {
     shake: false,
-    toggle: 0
+    toggle: 0,
   };
 
   componentWillReceiveProps = ({ toggle: propToggle }) => {

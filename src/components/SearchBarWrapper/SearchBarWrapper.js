@@ -65,7 +65,7 @@ const SearchBarWrapper = ({ children }) => (
 );
 
 SearchBarWrapper.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default SearchBarWrapper;

@@ -9,7 +9,7 @@ const Panels = styled.div`
   justify-content: center;
   ${mobile`
     flex-direction: column;
-  `}
+  `};
 `;
 
 Panels.Left = styled.div`

@@ -44,7 +44,10 @@ const TermsValidation = ({ shake, checked, handleCheck, toggleTermsModal }) => (
           />
           {tr('add.home.terms_check', null, { html: true })}
         </label>&nbsp;
-        <button onClick={toggleTermsModal} style={{ textDecoration: 'underline' }}>
+        <button
+          onClick={toggleTermsModal}
+          style={{ textDecoration: 'underline' }}
+        >
           {tr('add.home.terms_link')}
         </button>
       </Margin>
@@ -56,11 +59,11 @@ TermsValidation.propTypes = {
   shake: PropTypes.number.isRequired,
   checked: PropTypes.bool,
   handleCheck: PropTypes.func.isRequired,
-  toggleTermsModal: PropTypes.func.isRequired
+  toggleTermsModal: PropTypes.func.isRequired,
 };
 
 TermsValidation.defaultProps = {
-  checked: false
+  checked: false,
 };
 
 export default TermsValidation;

@@ -38,7 +38,7 @@ class InfoCard extends PureComponent {
   static propTypes = {
     cardOpened: PropTypes.bool.isRequired,
     closeCard: PropTypes.func.isRequired,
-    contentOnCard: PropTypes.shape({}).isRequired
+    contentOnCard: PropTypes.shape({}).isRequired,
   };
 
   setContent = () => {
@@ -69,11 +69,11 @@ class InfoCard extends PureComponent {
 
 const mapStateToProps = state => ({
   cardOpened: state.map.cardOpened,
-  contentOnCard: state.map.contentOnCard
+  contentOnCard: state.map.contentOnCard,
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeCard: () => dispatch({ type: 'CLOSE_CARD' })
+  closeCard: () => dispatch({ type: 'CLOSE_CARD' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InfoCard);

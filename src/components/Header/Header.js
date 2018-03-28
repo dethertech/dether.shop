@@ -111,7 +111,7 @@ class Header extends PureComponent {
   };
 
   state = {
-    isBalanceLoading: false
+    isBalanceLoading: false,
   };
 
   handleRefresh = async () => {
@@ -121,7 +121,7 @@ class Header extends PureComponent {
     await onRefresh();
     await wait(500);
     this.setState({ isBalanceLoading: false });
-  }
+  };
   render() {
     const { EthBalance, DthBalance, toggleBuyModal } = this.props;
     const { isBalanceLoading } = this.state;
@@ -140,21 +140,21 @@ class Header extends PureComponent {
         </Left>
         <Right>
           <WalletView>
-            { isBalanceLoading
-                ? <Loader style={{ margin: 'auto' }} />
-                :
-                <Fragment>
-                  <Balance>
-                    <EthBalanceWrapper>{EthBalance} ETH</EthBalanceWrapper>
-                    <DthBalanceWrapper>{DthBalance} DTH</DthBalanceWrapper>
-                    <YourBalance>{tr('header.your_balance')}</YourBalance>
-                  </Balance>
-                  <Refresh onClick={this.handleRefresh}>
-                    <SvgRefresh />
-                    <RefreshText>{tr('header.refresh')}</RefreshText>
-                  </Refresh>
-                </Fragment>
-            }
+            {isBalanceLoading ? (
+              <Loader style={{ margin: 'auto' }} />
+            ) : (
+              <Fragment>
+                <Balance>
+                  <EthBalanceWrapper>{EthBalance} ETH</EthBalanceWrapper>
+                  <DthBalanceWrapper>{DthBalance} DTH</DthBalanceWrapper>
+                  <YourBalance>{tr('header.your_balance')}</YourBalance>
+                </Balance>
+                <Refresh onClick={this.handleRefresh}>
+                  <SvgRefresh />
+                  <RefreshText>{tr('header.refresh')}</RefreshText>
+                </Refresh>
+              </Fragment>
+            )}
           </WalletView>
         </Right>
       </Wrapper>

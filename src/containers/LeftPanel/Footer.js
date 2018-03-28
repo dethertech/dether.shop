@@ -20,15 +20,11 @@ const Footer = ({ toggleTermsModal }) => (
           {tr('footer.terms_and_conditions')}
         </ButtonLink>
         &nbsp;-&nbsp;
-        <SmallLink
-          link="https://dethersupport.typeform.com/to/oajOgv"
-        >
+        <SmallLink link="https://dethersupport.typeform.com/to/oajOgv">
           {tr('footer.report_bug')}
         </SmallLink>
         &nbsp;-&nbsp;
-        <SmallLink
-          link="https://dethersupport.typeform.com/to/cNpMUB"
-        >
+        <SmallLink link="https://dethersupport.typeform.com/to/cNpMUB">
           {tr('footer.report_shop')}
         </SmallLink>
       </div>
@@ -37,7 +33,7 @@ const Footer = ({ toggleTermsModal }) => (
 );
 
 Footer.propTypes = {
-  toggleTermsModal: PropTypes.func.isRequired
+  toggleTermsModal: PropTypes.func.isRequired,
 };
 
 export default Footer;
