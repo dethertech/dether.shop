@@ -9,7 +9,7 @@ import tr from '../../translate';
 export const getErrorMessage = (errors, { response }) => {
   const { status } = response;
   if (status === 429) {
-    return tr('tooManyRequests');
+    return tr('api.errors.too_many_requests');
   } else if (Array.isArray(errors.message)) {
     return errors.message.join('; ');
   } else if (errors.message) {
