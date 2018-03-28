@@ -15,8 +15,10 @@ import {
   setMapInitiated as setMapInitiatedAction,
   fetchAll as fetchAllAction,
   fetchPosition as fetchPositionAction,
-  fetchUserInfo as fetchUserInfoAction
 } from '../../actions/map';
+import {
+  initializeClientInfo as initializeClientInfoAction
+} from '../../actions/app';
 import { distance, getClusterData, scrollToTop, LatLng } from '../../helpers';
 import { SvgArrowUp } from '../../components/Svg';
 import tokens from '../../styles/tokens';
@@ -55,7 +57,7 @@ export class Map extends Component {
     setMapInitiated: PropTypes.func.isRequired,
     fetchAll: PropTypes.func.isRequired,
     fetchPosition: PropTypes.func.isRequired,
-    fetchUserInfo: PropTypes.func.isRequired,
+    initializeClientInfo: PropTypes.func.isRequired,
     centerPosition: PropTypes.shape({}).isRequired,
     mapInitiated: PropTypes.bool.isRequired,
     shops: PropTypes.array.isRequired
@@ -74,11 +76,17 @@ export class Map extends Component {
   }
 
   async componentWillMount() {
-    const { fetchAll, fetchPosition, fetchUserInfo, setMapInitiated, shops } = this.props;
+    const {
+      fetchAll,
+      fetchPosition,
+      initializeClientInfo,
+      setMapInitiated,
+      shops
+    } = this.props;
 
     this.updateCluster(shops);
 
-    await Promise.all([fetchPosition(), fetchUserInfo()]);
+    await Promise.all([fetchPosition(), initializeClientInfo()]);
     this.interval = setInterval(() => {
       const { centerPosition } = this.props;
       fetchAll(centerPosition);
@@ -158,7 +166,7 @@ const mapDispatchToProps = dispatch => ({
   setMapInitiated: bindActionCreators(setMapInitiatedAction, dispatch),
   fetchAll: bindActionCreators(fetchAllAction, dispatch),
   fetchPosition: bindActionCreators(fetchPositionAction, dispatch),
-  fetchUserInfo: bindActionCreators(fetchUserInfoAction, dispatch)
+  initializeClientInfo: bindActionCreators(initializeClientInfoAction, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);

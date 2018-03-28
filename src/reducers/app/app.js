@@ -5,7 +5,8 @@ export const initialState = {
   isAppInitialized: false,
   isTermsModalOpenened: false,
   ethNetwork: null,
-  areTermsAccepted: false
+  areTermsAccepted: false,
+  licencePrice: null
 };
 
 /**
@@ -14,6 +15,8 @@ export const initialState = {
  * @return {Boolean}            [description]
  */
 export const hasGoodNetwork = ({ ethNetwork }) => !!ethNetwork && ethNetwork === config.ethNetwork;
+
+export const isLicencePriceSet = ({ licencePrice }) => licencePrice != null;
 
 /**
  * appReducer
@@ -30,6 +33,8 @@ const appReducer = (state = initialState, { type, payload }) => {
       return { ...state, ethNetwork: payload };
     case 'ACCEPT_TERMS':
       return { ...state, areTermsAccepted: true };
+    case 'SET_LICENCE_PRICE':
+      return { ...state, licencePrice: payload };
     default:
       return state;
   }

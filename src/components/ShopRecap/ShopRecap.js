@@ -33,8 +33,13 @@ class ShopRecap extends PureComponent {
     cat: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     lat: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    lng: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
+    lng: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    licencePrice: PropTypes.string
   };
+
+  static defaultProps = {
+    licencePrice: null
+  }
 
   state = {
     address: ''
@@ -50,9 +55,9 @@ class ShopRecap extends PureComponent {
   }
 
   render = () => {
-    const { opening, name, cat, description } = this.props;
+    const { opening, name, cat, description, licencePrice } = this.props;
     const { address } = this.state;
-
+    console.log(licencePrice);
     return (
       <Wrapper>
         <H3>{tr('shop_recap.informations')}</H3>
@@ -98,6 +103,13 @@ class ShopRecap extends PureComponent {
             }
           </TableLine>
         ))}
+        {licencePrice &&
+          <Fragment>
+            <H3>{tr('shop_recap.informations')}</H3>
+            <Mention>{tr('shop_recap.closed_at')}</Mention>
+            {licencePrice}
+          </Fragment>
+        }
       </Wrapper>
     );
   }

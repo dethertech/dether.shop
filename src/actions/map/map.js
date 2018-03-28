@@ -87,15 +87,6 @@ const fetchPositionByIp = res => ({
 });
 
 /**
- * fetchUserInfo
- * @return {[type]} [description]
- */
-const fetchUserInfo = () => ({
-  type: 'API:FETCH_USER_INFO',
-  url: 'https://ipinfo.io/json'
-});
-
-/**
  * fetchPosition
  * @return {[type]} [description]
  */
@@ -134,7 +125,6 @@ export {
   fetchShops,
   fetchPosition,
   fetchPositionByIp,
-  fetchUserInfo,
   fetchAll,
   openCard,
   closeCard,

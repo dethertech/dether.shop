@@ -1,3 +1,5 @@
+import { getLicenceShop } from '../../helpers';
+
 /**
  * setMetamaskInstalled
  * @param {boolean} bool if metamask is installed
@@ -38,10 +40,43 @@ const setEthNetwork = id => ({
  */
 const acceptTerms = () => ({ type: 'ACCEPT_TERMS' });
 
+const setLicencePrice = licencePrice => ({
+  type: 'SET_LICENCE_PRICE',
+  payload: licencePrice
+});
+
+const fetchClientInfo = ({ onSuccess }) => ({
+  type: 'API:FETCH_USER_INFO',
+  url: 'https://ipinfo.io/json',
+  onSuccess
+});
+
+const getLicencePrice = async (dispatch, country) => {
+  try {
+    const licencePrice = await getLicenceShop(country || 'FR');
+    dispatch(setLicencePrice(licencePrice));
+  } catch (e) {
+    console.log(e);
+    dispatch(setLicencePrice(40));
+  }
+};
+
+const initializeClientInfo = () => async dispatch => (
+  new Promise((res, rej) => {
+    dispatch(fetchClientInfo({
+      onSuccess: data => res(getLicencePrice(dispatch, data.country)),
+      onError: error => rej(error)
+    }));
+  })
+);
+
+
 export {
   setMetamaskInstalled,
   setAppInitialized,
   toggleTermsModal,
   setEthNetwork,
-  acceptTerms
+  acceptTerms,
+  setLicencePrice,
+  initializeClientInfo
 };

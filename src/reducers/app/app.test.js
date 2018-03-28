@@ -12,7 +12,8 @@ describe('reducer::app', () => {
       isAppInitialized: false,
       isTermsModalOpenened: false,
       ethNetwork: null,
-      areTermsAccepted: false
+      areTermsAccepted: false,
+      licencePrice: null
     };
     deepFreeze(defaultAction);
   });
