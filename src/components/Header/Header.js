@@ -119,7 +119,7 @@ class Header extends PureComponent {
 
     this.setState({ isBalanceLoading: true });
     await onRefresh();
-    await wait(1000);
+    await wait(500);
     this.setState({ isBalanceLoading: false });
   }
   render() {
