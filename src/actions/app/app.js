@@ -54,7 +54,7 @@ const fetchClientInfo = ({ onSuccess }) => ({
 const getLicencePrice = async (dispatch, country) => {
   try {
     const licencePrice = await getLicenceShop(country || 'FR');
-    dispatch(setLicencePrice(licencePrice));
+    dispatch(setLicencePrice(licencePrice || 40));
   } catch (e) {
     console.log(e);
     dispatch(setLicencePrice(40));
