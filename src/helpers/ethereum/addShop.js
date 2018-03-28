@@ -3,7 +3,7 @@ import DetherCore from 'dethercontract/contracts/DetherCore.json';
 import web3Abi from 'web3-eth-abi';
 
 import { web3js, getAddress, getNetworkId, toNBytes } from './utils';
-import { getPriceZone } from './getPriceZone';
+import getLicenceShop from './getLicenceShop';
 
 class ConvertBase {
     convert = (baseFrom, baseTo) => num => parseInt(num, baseFrom).toString(baseTo);
@@ -101,7 +101,7 @@ const addShop = (shop) =>
     try {
       const hexShop = shopToContract(shop);
       const [address, networkId] = await Promise.all([getAddress(), getNetworkId()]);
-      const licencePrice = await getPriceZone(shop.countryId);
+      const licencePrice = await getLicenceShop(shop.countryId);
       const transferMethodTransactionData = web3Abi.encodeFunctionCall(
         overloadedTransferAbi,
         [

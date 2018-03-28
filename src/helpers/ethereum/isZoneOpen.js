@@ -15,7 +15,7 @@ const toNBytes = (str, n) => {
 
 /**
  * return balance of ETH and DTH of the web3 primary account
- * @returns {Object}
+ * @returns {bool} is open or not
  */
 export const isZoneOpen = async (zoneId) => {
   const hasMetaMask = await isWeb3();
