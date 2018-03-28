@@ -50,7 +50,7 @@ export class Home extends PureComponent {
     hasEnoughEth: PropTypes.bool.isRequired,
     hasEnoughDth: PropTypes.bool.isRequired,
     minEth: PropTypes.number.isRequired,
-    minDth: PropTypes.number.isRequired,
+    minDth: PropTypes.string.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
     acceptTerms: PropTypes.func.isRequired,
     hasGoodNetwork: PropTypes.bool.isRequired
@@ -66,7 +66,6 @@ export class Home extends PureComponent {
 
   onClick = e => {
     const { acceptTerms } = this.props;
-
     if (this.checkTerms(e))
       acceptTerms();
   };
@@ -145,13 +144,13 @@ export class Home extends PureComponent {
 }
 
 const mapStateToProps = ({ user, app }) => ({
-  hasEnoughEth: hasEnoughEthToAddShop(user.balance),
-  hasEnoughDth: hasEnoughDthToAddShop(user.balance),
+  hasEnoughEth: hasEnoughEthToAddShop(user.balance, app.licencePrice),
+  hasEnoughDth: hasEnoughDthToAddShop(user.balance, app.licencePrice),
   hasGoodNetwork: hasGoodNetworkHelper(app),
   isMetamaskInstalled: app.isMetamaskInstalled,
   isUserVerified: user.isCertified,
   minEth: config.gasPrice.simpleTransac,
-  minDth: config.licensePrice
+  minDth: app.licencePrice,
 });
 
 const mapDispatchToProps = dispatch => ({

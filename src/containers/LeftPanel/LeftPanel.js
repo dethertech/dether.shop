@@ -11,17 +11,19 @@ import TermsModal from './TermsModal';
 import BuyModal from './BuyModal';
 
 import {
-  getShop as getShopHelper,
-  getBalance as getBalanceHelper,
-  isWeb3 as isWeb3Helper,
+  getShop,
+  getBalance,
+  isWeb3,
   isSmsReg as isSmsRegHelper,
 } from '../../helpers';
 
-import { hasGoodNetwork as hasGoodNetworkHelper } from '../../reducers/app';
+import {
+  hasGoodNetwork as hasGoodNetworkHelper,
+  isLicencePriceSet as isLicencePriceSetHelper
+} from '../../reducers/app';
 
 import { getNetworkId } from '../../helpers/ethereum';
 import {
-  setAppInitialized as setAppInitializedAction,
   setMetamaskInstalled as setMetamaskInstalledAction,
   setEthNetwork as setEthNetworkAction,
   toggleTermsModal as toggleTermsModalAction
@@ -39,28 +41,25 @@ import { addShop as addShopAction } from '../../actions/shop';
 */
 export class LeftPanel extends PureComponent {
   static propTypes = {
-    isAppInitialized: PropTypes.bool.isRequired,
     setMetamaskInstalled: PropTypes.func.isRequired,
     setEthAddress: PropTypes.func.isRequired,
-    isWeb3: PropTypes.func.isRequired,
-    getShop: PropTypes.func.isRequired,
     addShop: PropTypes.func.isRequired,
-    getBalance: PropTypes.func.isRequired,
     setBalance: PropTypes.func.isRequired,
     isCertified: PropTypes.func.isRequired,
     setUserCertified: PropTypes.func.isRequired,
-    setAppInitialized: PropTypes.func.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
     ethAddress: PropTypes.string.isRequired,
     isTermsModalOpenened: PropTypes.bool.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
       dth: PropTypes.number.isRequired,
-    }).isRequired
+    }).isRequired,
+    isLicencePriceSet: PropTypes.bool.isRequired
   };
 
   state = {
     isBuyModalOpened: false,
+    isWeb3Checked: false
   }
 
   componentWillMount() {
@@ -76,10 +75,7 @@ export class LeftPanel extends PureComponent {
     const {
       setMetamaskInstalled,
       setEthAddress,
-      isWeb3,
-      getShop,
       addShop,
-      getBalance,
       setBalance,
       setEthNetwork,
       isCertified,
@@ -94,7 +90,7 @@ export class LeftPanel extends PureComponent {
         const [shop, balance, certified] = await Promise.all([
           getShop(),
           getBalance(),
-          isCertified()
+          isCertified(),
         ]);
 
         if (shop) addShop(shop);
@@ -107,22 +103,20 @@ export class LeftPanel extends PureComponent {
   }
   async initApp() {
     const {
-      isAppInitialized,
-      setAppInitialized,
-    } = this.props;
+      isWeb3Checked
+    } = this.state;
 
-    if (!isAppInitialized) {
+    if (!isWeb3Checked) {
       await this.initCheck();
       this.interval = setInterval(this.refreshBalance, 10000);
       this.interval2 = setInterval(this.checkChangeAccount, 1000);
-      setAppInitialized(true);
+      this.setState({ isWeb3Checked: true });
     }
   }
 
   checkChangeAccount = async () => {
     const {
       ethAddress,
-      isWeb3
     } = this.props;
 
     const web3EthAddress = await isWeb3();
@@ -132,7 +126,6 @@ export class LeftPanel extends PureComponent {
 
   refreshBalance = async () => {
     const {
-      getBalance,
       setBalance,
       isMetamaskInstalled,
       hasGoodNetwork
@@ -148,18 +141,19 @@ export class LeftPanel extends PureComponent {
 
   render() {
     const {
-      isAppInitialized,
       balance,
       toggleTermsModal,
-      isTermsModalOpenened
+      isTermsModalOpenened,
+      isLicencePriceSet
     } = this.props;
-    const { isBuyModalOpened } = this.state;
+    const { isBuyModalOpened, isWeb3Checked } = this.state;
 
     return (
       <Fragment>
         <ToastContainer position="top-left" />
         <LeftPanelPage
-          isAppInitialized={isAppInitialized}
+          isWeb3Checked={isWeb3Checked}
+          isLicencePriceSet={isLicencePriceSet}
           toggleTermsModal={toggleTermsModal}
           toggleBuyModal={this.toggleBuyModal}
           balance={balance}
@@ -173,16 +167,15 @@ export class LeftPanel extends PureComponent {
 }
 
 const mapStateToProps = ({ app, user }) => ({
-  isAppInitialized: app.isAppInitialized,
   balance: user.balance,
   isTermsModalOpenened: app.isTermsModalOpenened,
   isMetamaskInstalled: app.isMetamaskInstalled,
   hasGoodNetwork: hasGoodNetworkHelper(app),
-  ethAddress: user.ethAddress || ''
+  ethAddress: user.ethAddress || '',
+  isLicencePriceSet: isLicencePriceSetHelper(app)
 });
 
 const mapDispatchToProps = dispatch => ({
-  setAppInitialized: bindActionCreators(setAppInitializedAction, dispatch),
   setMetamaskInstalled: bindActionCreators(setMetamaskInstalledAction, dispatch),
   setEthAddress: bindActionCreators(setEthAddressAction, dispatch),
   addShop: bindActionCreators(addShopAction, dispatch),
@@ -190,9 +183,6 @@ const mapDispatchToProps = dispatch => ({
   setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
   toggleTermsModal: bindActionCreators(toggleTermsModalAction, dispatch),
   setEthNetwork: bindActionCreators(setEthNetworkAction, dispatch),
-  isWeb3: isWeb3Helper,
-  getShop: getShopHelper,
-  getBalance: getBalanceHelper,
   isCertified: isSmsRegHelper,
 });
 

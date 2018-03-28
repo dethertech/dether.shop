@@ -102,15 +102,6 @@ describe('Map actions', () => {
     expect(fetchPositionByIp(payload)).toMatchObject(expectedAction);
   })
 
-
-  it('should create an actions to fetch user info' , () => {
-    const expectedAction = {
-      type: 'API:FETCH_USER_INFO',
-      url: 'https://ipinfo.io/json'
-    }
-    expect(fetchUserInfo()).toEqual(expectedAction);
-  })
-
   /**
    * TODO: add tests for
    * - fetchPosition()

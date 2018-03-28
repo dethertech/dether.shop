@@ -40,7 +40,9 @@ class ShopRouter extends PureComponent {
 const mapStateToProps = ({ user, shop, app }) => ({
   isUserVerified: user.isCertified,
   isUserReady: app.isMetamaskInstalled
-    && hasEnoughMoneyToAddShop(user) && hasGoodNetwork(app) && app.areTermsAccepted,
+    && hasEnoughMoneyToAddShop(user, app.licencePrice)
+    && hasGoodNetwork(app)
+    && app.areTermsAccepted,
   hasShop: !!shop.shop
 });
 
