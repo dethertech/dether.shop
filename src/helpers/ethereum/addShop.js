@@ -102,7 +102,6 @@ const addShop = (shop) =>
       const hexShop = shopToContract(shop);
       const [address, networkId] = await Promise.all([getAddress(), getNetworkId()]);
       const licencePrice = await getPriceZone(shop.countryId);
-      console.log('licence shop', licencePrice);
       const transferMethodTransactionData = web3Abi.encodeFunctionCall(
         overloadedTransferAbi,
         [
