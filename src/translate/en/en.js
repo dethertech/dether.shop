@@ -155,6 +155,12 @@ const en = {
   },
   buy_modal: {
     title: 'Exchange'
+  },
+  api: {
+    errors: {
+      Error: 'Error',
+      too_many_requests: 'Please wait 15 seconds before submitting again'
+    }
   }
 };
 

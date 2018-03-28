@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import tr from '../../translate';
 import PhoneForm from './PhoneForm';
 import ValidateCodeContainer from './ValidateCode';
 import { LoaderScreen } from '../../components';

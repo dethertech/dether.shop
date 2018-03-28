@@ -120,7 +120,7 @@ class ValidationCode extends PureComponent {
           error && (
             <ErrorWrapper>
               <Message alignLeft theme="error">
-                <b>{tr('errors.Error')}&nbsp;:&nbsp;</b>
+                <b>{tr('api.errors.Error')}&nbsp;:&nbsp;</b>
                 {error}
               </Message>
             </ErrorWrapper>
