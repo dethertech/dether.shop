@@ -15,7 +15,11 @@ import {
   endTransaction as endTransactionAction
 } from '../../../actions/shop';
 import { fetchAll as fetchAllAction } from '../../../actions/map';
-import { addShop as addShopHelper, getTransactionStatus } from '../../../helpers/ethereum';
+import {
+  addShop as addShopHelper,
+  getTransactionStatus,
+  getLicenceShop
+} from '../../../helpers/ethereum';
 
 const ButtonsWrapper = styled.div`
   max-width: 48rem;
@@ -34,7 +38,8 @@ class Verification extends PureComponent {
       description: PropTypes.string.isRequired,
       opening: PropTypes.string.isRequired,
       lat: PropTypes.string.isRequired,
-      lng: PropTypes.string.isRequired
+      lng: PropTypes.string.isRequired,
+      countryId: PropTypes.string.isRequired
     }).isRequired,
     addShopToStore: PropTypes.func.isRequired,
     addShopToContract: PropTypes.func.isRequired,
@@ -48,15 +53,18 @@ class Verification extends PureComponent {
   }
 
   state = {
-    isLoading: false
+    isLoading: false,
+    licencePrice: null
   }
 
-  componentWillMount() {
-    const { isTransactionPending } = this.props;
+  async componentWillMount() {
+    const { isTransactionPending, pendingShop } = this.props;
 
     if (isTransactionPending) {
       this.interval = this.checkTransaction();
     }
+    const licencePrice = await getLicenceShop(pendingShop.countryId);
+    this.setState({ licencePrice });
   }
 
   componentWillUnmount() {
@@ -129,7 +137,7 @@ class Verification extends PureComponent {
 
   render() {
     const { pendingShop } = this.props;
-    const { isLoading } = this.state;
+    const { isLoading, licencePrice } = this.state;
 
     if (isLoading) {
       return (
@@ -141,7 +149,7 @@ class Verification extends PureComponent {
     }
     return (
       <Fragment>
-        <ShopRecap {...pendingShop} />
+        <ShopRecap licencePrice={licencePrice} {...pendingShop} />
         {this.getView()}
       </Fragment>
     );

@@ -87,35 +87,36 @@ describe('reducer::user', () => {
 
 
   it('should the transactions price', () => {
+    const licencePrice = 100;
     expect(hasEnoughMoneyToAddShop({ balance: {
         eth: 0,
         dth: 0
       }
-    })).toEqual(false)
+    }, 40)).toEqual(false)
 
     expect(hasEnoughMoneyToAddShop({ balance: {
         eth: 0.00000000001,
         dth: 0
       }
-    })).toEqual(false)
+    }, 40)).toEqual(false)
 
     expect(hasEnoughMoneyToAddShop({ balance: {
         eth: 0.0001,
         dth: 0
       }
-    })).toEqual(false)
+    }, 40)).toEqual(false)
 
     expect(hasEnoughMoneyToAddShop({ balance: {
         eth: 0.0001,
         dth: 20
       }
-    })).toEqual(false)
+    }, 40)).toEqual(false)
 
     expect(hasEnoughMoneyToAddShop({ balance: {
         eth: 0.0001,
         dth: 40
       }
-    })).toEqual(true)
+    }, 40)).toEqual(true)
   })
 
   it('should check the balance to delete a shop', () => {

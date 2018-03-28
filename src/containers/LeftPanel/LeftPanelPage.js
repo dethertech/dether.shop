@@ -24,19 +24,20 @@ const LeftWrapper = styled.div`
 
 class LeftPanelPage extends PureComponent {
   static propTypes = {
-    isAppInitialized: PropTypes.bool.isRequired,
+    isWeb3Checked: PropTypes.bool.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
     toggleBuyModal: PropTypes.func.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
       dth: PropTypes.number.isRequired
     }).isRequired,
-    refreshBalance: PropTypes.func.isRequired
+    refreshBalance: PropTypes.func.isRequired,
+    isLicencePriceSet: PropTypes.bool.isRequired
   };
   getView = () => {
-    const { isAppInitialized } = this.props;
+    const { isWeb3Checked, isLicencePriceSet } = this.props;
 
-    if (!isAppInitialized) {
+    if (!isWeb3Checked || !isLicencePriceSet) {
       return (
         <LoaderScreen
           title={tr('loaderInitializer.title')}
