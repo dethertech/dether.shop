@@ -62,11 +62,11 @@ times.forEach(e => {
 export const hours = times.map(e => e.val);
 
 /**
- * [convertDay description]
- * @param  {[type]} open    [description]
- * @param  {[type]} openAt  [description]
- * @param  {[type]} closeAt [description]
- * @return {[type]}         [description]
+ * Encode Day Object
+ * @param  {Boolean} open    is shop open
+ * @param  {String} openAt  opening hour
+ * @param  {String} closeAt closing hour
+ * @return {String} encoded string
  */
 export const convertDay = ({ open, openAt, closeAt }) => {
   if (!open) {
@@ -78,9 +78,9 @@ export const convertDay = ({ open, openAt, closeAt }) => {
 };
 
 /**
- * [convertCalendar description]
- * @param  {[type]} str [description]
- * @return {[type]}     [description]
+ * Decode calendar String
+ * @param  {String} str encoded string
+ * @return {Object} calendar object
  */
 export const convertCalendar = str => {
   const close = { open: false };
