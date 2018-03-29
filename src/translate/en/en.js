@@ -174,7 +174,8 @@ const en = {
   },
   maintenance_page: {
     title: 'Website in maintenance',
-    message: 'Our application is not compatible with your browser',
+    message:
+      'The team is currently making upgrades to improve our service to you.||We’ll be back soon!',
   },
 };
 
