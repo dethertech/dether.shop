@@ -1,5 +1,9 @@
 import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router-dom';
+/*
+  Constants
+ */
+import { config } from '../../constants';
 
 /*
   Components
@@ -12,6 +16,7 @@ import BetaModal from './BetaModal';
  */
 import LeftPanel from '../LeftPanel';
 import Map from '../Map';
+import MaintenancePage from './MaintenancePage';
 
 /**
  * Home container
@@ -34,6 +39,9 @@ class Home extends PureComponent {
 
   render() {
     const { showModal } = this.state;
+    const { isOnMaintenance } = config;
+
+    if (isOnMaintenance) return <MaintenancePage />;
     return (
       <Panels>
         {showModal && <BetaModal close={this.closeModal} />}
