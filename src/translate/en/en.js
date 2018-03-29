@@ -123,6 +123,10 @@ const en = {
     7: 'Sunday',
   },
   errors: {
+    global_error: "Sorry... something wen't wrong",
+    report_a_bug: {
+      title: 'Report this bug',
+    },
     phone: {
       invalid:
         'Please enter a valid phone number (it should be at list 5 digits long)',

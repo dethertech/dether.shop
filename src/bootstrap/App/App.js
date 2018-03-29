@@ -11,16 +11,30 @@ import store, { persistor } from '../configureStore';
   Router
  */
 import Router from '../Router';
+import ReportABug from '../ReportABug/ReportABug';
 
 /**
  * App
  */
-const App = () => (
-  <Provider store={store}>
-    <PersistGate persistor={persistor}>
-      <Router />
-    </PersistGate>
-  </Provider>
-);
+
+class App extends React.Component {
+  state = {
+    error: false,
+  };
+  componentDidCatch(error, info) {
+    console.warn(error, info);
+    this.setState({
+      error: true,
+    });
+  }
+  render = () => (
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        {!this.state.error && <Router />}
+        {this.state.error && <ReportABug />}
+      </PersistGate>
+    </Provider>
+  );
+}
 
 export default App;
