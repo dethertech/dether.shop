@@ -1,10 +1,10 @@
 import tr from '../../translate';
 
 /**
- * [getErrorMessage description]
- * @param  {[type]} errors   [description]
- * @param  {[type]} response [description]
- * @return {[type]}          [description]
+ * Parse api response to return formatted error
+ * @param  {Array||String} errors   errors returned by api
+ * @param  {Object} response response returned by api
+ * @return {String} error message
  */
 export const getErrorMessage = (errors, { response }) => {
   const { status } = response;

@@ -63,7 +63,7 @@ const fetchShops = params => ({
 });
 
 /**
- * fetchAll
+ * fetch all shops from a radius around the specified position
  * @param  {[type]} centerPosition [description]
  * @param  {Number} [radius=3]     [description]
  * @return {[type]}                [description]
@@ -87,7 +87,7 @@ const fetchPositionByIp = res => ({
 });
 
 /**
- * fetchPosition
+ * Get the position of client, via the browser if he accepts or via his ip
  * @return {[type]} [description]
  */
 const fetchPosition = () => async dispatch =>

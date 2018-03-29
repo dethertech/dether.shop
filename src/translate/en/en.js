@@ -176,6 +176,11 @@ const en = {
   metamask: {
     check_transaction: 'Please check your metamask to confirm the transaction',
   },
+  maintenance_page: {
+    title: 'Website in maintenance',
+    message:
+      'The team is currently making upgrades to improve our service to you.||We’ll be back soon!',
+  },
 };
 
 export default en;

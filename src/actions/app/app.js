@@ -61,6 +61,9 @@ const getLicencePrice = async (dispatch, country) => {
   }
 };
 
+/**
+ * Fetch Client Informations via ip and get the licence price for his country
+ */
 const initializeClientInfo = () => async dispatch =>
   new Promise((res, rej) => {
     dispatch(
