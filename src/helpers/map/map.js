@@ -1,26 +1,34 @@
 import supercluster from 'points-cluster';
 
 /**
- * isEqu
- * @param  {[type]}  pos1 [description]
- * @param  {[type]}  pos2 [description]
- * @return {Boolean}      [description]
+ * Check if 2 postions are equal
+ * @param  {Object} pos1 postion object
+ * @param  {String} pos1.lat latitude
+ * @param  {String} pos1.lng longitude
+ * @param  {[type]} pos2 [description]
+ * @param  {String} pos2.lat latitude
+ * @param  {String} pos2.lng longitude
+ * @return {Boolean}
  */
 export const isEqu = (pos1, pos2) =>
   pos1.lat === pos2.lat && pos1.lng === pos2.lng;
 
 /**
- * toRadians
- * @param  {[type]} deg [description]
- * @return {[type]}     [description]
+ * convert degree value in radians
+ * @param  {Number} deg
+ * @return {Number}
  */
 export const toRadians = deg => deg * (Math.PI / 180);
 
 /**
- * distance
- * @param  {[type]} pos1 [description]
+ * get distance between 2 postions
+ * @param  {Object} pos1 postion object
+ * @param  {String} pos1.lat latitude
+ * @param  {String} pos1.lng longitude
  * @param  {[type]} pos2 [description]
- * @return {[type]}      [description]
+ * @param  {String} pos2.lat latitude
+ * @param  {String} pos2.lng longitude
+ * @return {Number} distance in meter
  */
 export const distance = (pos1, pos2) => {
   const R = 6371e3; // metres
