@@ -11,8 +11,11 @@ import { get, last } from '../../helpers';
 import { config } from '../../constants';
 
 /**
- * [fetchMiddleware description]
- * @return {[type]} [description]
+ * This middleware intercept every actions whose type is formatted like "API:${type}", fetch the Data
+ * from the url specified in the action and then broadcast the data or the errors
+ * in a dispatched action according to the status of the response :
+ * ${type}_SUCCESS for a success response
+ * ${type}_ERROR for an error response
  */
 const fetchMiddleware = () => dispatch => async action => {
   const { type, url, params, data } = action;
