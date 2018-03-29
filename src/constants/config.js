@@ -3,6 +3,8 @@ const GAS_PRICE_ETH = Number(
 );
 const GAS_AMOUNT = Number(process.env.REACT_APP_GAS_AMOUNT || 21000);
 
+const toBool = str => !(!!str && str === 'false');
+
 export default {
   ethNetwork: Number(process.env.REACT_APP_ETH_NETWORK || 42),
   gasPrice: {
@@ -15,4 +17,5 @@ export default {
     urlSend: process.env.REACT_APP_KYC_URL_SEND || '',
     urlVerif: process.env.REACT_APP_KYC_URL_VERIF || '',
   },
+  isOnMaintenance: toBool(process.env.REACT_APP_IS_ON_MAINTENANCE),
 };
