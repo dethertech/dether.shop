@@ -27,6 +27,10 @@ const Footer = ({ toggleTermsModal }) => (
         <SmallLink link="https://dethersupport.typeform.com/to/cNpMUB">
           {tr('footer.report_shop')}
         </SmallLink>
+        &nbsp;-&nbsp;
+        <SmallLink link="https://medium.com/@DETHER/tutorial-dether-for-shops-c6db11c0ded1">
+          {tr('footer.tutorial')}
+        </SmallLink>
       </div>
     </FooterText>
   </Padding>
