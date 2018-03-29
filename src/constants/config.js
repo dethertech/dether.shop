@@ -15,4 +15,5 @@ export default {
     urlSend: process.env.REACT_APP_KYC_URL_SEND || '',
     urlVerif: process.env.REACT_APP_KYC_URL_VERIF || '',
   },
+  reportABug: process.env.REACT_APP_REPORT_A_BUG,
 };

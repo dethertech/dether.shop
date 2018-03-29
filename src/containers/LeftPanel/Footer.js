@@ -6,6 +6,7 @@ import tr from '../../translate';
 import tokens from '../../styles/tokens';
 import { Padding } from '../../components/Spaces';
 import { SmallLink, ButtonLink } from '../../components';
+import config from '../../constants/config';
 
 const FooterText = styled.footer`
   font-size: ${tokens.fontSizes.s};
@@ -20,7 +21,7 @@ const Footer = ({ toggleTermsModal }) => (
           {tr('footer.terms_and_conditions')}
         </ButtonLink>
         &nbsp;-&nbsp;
-        <SmallLink link="https://dethersupport.typeform.com/to/oajOgv">
+        <SmallLink link={config.reportABug}>
           {tr('footer.report_bug')}
         </SmallLink>
         &nbsp;-&nbsp;
