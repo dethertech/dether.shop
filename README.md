@@ -26,11 +26,13 @@ yarn install
 Extensive documentation of all the methods can be found on the [API documentation](https://dethertech.github.io/dether.shop)
 
 ## Test
+
 ```
 yarn test
 ```
 
 ## Build doc
+
 ```
 yarn run esdoc
 yarn run publish:esdoc
@@ -38,7 +40,6 @@ yarn run publish:esdoc
 
 ## Dependencies
 
-* [dethercontract](https://github.com/dethertech/dethercontracts.git)
 * [axios](https://github.com/axios/axios)
 * [classnames](https://github.com/JedWatson/classnames)
 * [dethercontract](https://github.com/dethertech/detherContracts)
@@ -51,6 +52,7 @@ yarn run publish:esdoc
 * [react-redux](https://github.com/reactjs/react-redux)
 * [react-router](https://github.com/ReactTraining/react-router)
 * [react-router-dom](https://github.com/ReactTraining/react-router)
+* [react-toastify](https://github.com/fkhadra/react-toastify)
 * [react-scripts](https://github.com/facebook/create-react-app)
 * [redux](https://github.com/reactjs/redux)
 * [redux-persist](https://github.com/rt2zz/redux-persist)
@@ -65,8 +67,8 @@ When you find issues, please report them:
 
 * web: [https://github.com/dethertech/dether.shop/issues](https://github.com/dethertech/dether.shop/issues)
 
-
 ## Donation
+
 * [Ethereum Foundation](https://ethereum.org/donate)
 * [Etherscan](https://etherscan.io/address/0x71c7656ec7ab88b098defb751b7401b5f6d8976f)
 * [MyEtherWallet](https://etherscan.io/address/0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8)
@@ -74,4 +76,5 @@ When you find issues, please report them:
 * [Ethers.js](https://etherscan.io/address/0xEA517D5a070e6705Cc5467858681Ed953d285Eb9)
 
 ## TODO
+
 * Add App components tests
