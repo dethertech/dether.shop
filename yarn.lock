@@ -3267,9 +3267,9 @@ detective@^4.3.1:
     acorn "^5.2.1"
     defined "^1.0.0"
 
-dethercontract@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/dethercontract/-/dethercontract-2.3.0.tgz#593e8cf9c8567847c3c6550446e5df335e6dc0d3"
+dethercontract@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/dethercontract/-/dethercontract-3.0.0.tgz#1c3eb28cd82ba79d7a00aedf586bef9ea5d1131d"
 
 diff@^3.2.0:
   version "3.4.0"
