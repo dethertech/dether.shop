@@ -6,7 +6,7 @@ const tokens = {
       light: '#9B9B9B',
       dark: '#717171',
       darker: '#3C3C3B',
-      darkest: '#2A2B43'
+      darkest: '#2A2B43',
     },
     green: '#4DD2AF',
     blue: '#4B53B6',
@@ -14,8 +14,8 @@ const tokens = {
     pink: '#E7827F',
     gradients: {
       pink: 'linear-gradient(35deg, #E96F8C, #C5445E)',
-      blue: 'linear-gradient(35deg, #4B53B6, #8C6FE9)'
-    }
+      blue: 'linear-gradient(35deg, #4B53B6, #8C6FE9)',
+    },
   },
   shadow: '0 3px 3px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.04)',
   fontSizes: {
@@ -27,7 +27,7 @@ const tokens = {
     l: '1.6rem',
     xl: '1.8rem',
     xxl: '2rem',
-    xxxl: '2.7rem'
+    xxxl: '2.7rem',
   },
   spaces: {
     none: 0,
@@ -37,13 +37,13 @@ const tokens = {
     m: '1.6rem',
     l: '2rem',
     xl: '2.4rem',
-    xxl: '2.8rem'
+    xxl: '2.8rem',
   },
   radius: {
     s: '0.6rem',
     m: '1rem',
-    circle: '50%'
-  }
+    circle: '50%',
+  },
 };
 
 export default tokens;

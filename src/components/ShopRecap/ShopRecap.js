@@ -26,33 +26,42 @@ const TableCell = styled.div`
   flex: 0 0 33%;
 `;
 
+const PriceWrapper = styled.div`
+  font-size: ${tokens.fontSizes.l};
+  margin-top: 30px;
+`;
+
 class ShopRecap extends PureComponent {
   static propTypes = {
     opening: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     cat: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    lat: PropTypes.string.isRequired,
-    lng: PropTypes.string.isRequired
+    lat: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    lng: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+    licencePrice: PropTypes.string,
+  };
+
+  static defaultProps = {
+    licencePrice: null,
   };
 
   state = {
-    address: ''
-  }
+    address: '',
+  };
 
   componentWillMount = async () => {
     const { lat, lng } = this.props;
 
-    const address = await GeocodeAPI
-      .positionToAddress({ lat, lng })
-      .catch(() => '');
+    const address = await GeocodeAPI.positionToAddress({ lat, lng }).catch(
+      () => '',
+    );
     this.setState({ address });
-  }
+  };
 
   render = () => {
-    const { opening, name, cat, description } = this.props;
+    const { opening, name, cat, description, licencePrice } = this.props;
     const { address } = this.state;
-
     return (
       <Wrapper>
         <H3>{tr('shop_recap.informations')}</H3>
@@ -86,21 +95,24 @@ class ShopRecap extends PureComponent {
         {convertCalendar(opening).map((day, idx) => (
           <TableLine key={idx}>
             <TableCell>{weekDays[idx]}</TableCell>
-            {day.open
-            ?
-              (
-                <Fragment>
-                  <TableCell>{day.openAt}</TableCell>
-                  <TableCell>{day.closeAt}</TableCell>
-                </Fragment>
-              )
-            : <TableCell>{tr('shop_recap.closed')}</TableCell>
-            }
+            {day.open ? (
+              <Fragment>
+                <TableCell>{day.openAt}</TableCell>
+                <TableCell>{day.closeAt}</TableCell>
+              </Fragment>
+            ) : (
+              <TableCell>{tr('shop_recap.closed')}</TableCell>
+            )}
           </TableLine>
         ))}
+        {licencePrice && (
+          <PriceWrapper>
+            {tr('shop_recap.licence_price', { price: licencePrice })}
+          </PriceWrapper>
+        )}
       </Wrapper>
     );
-  }
+  };
 }
 
 export default ShopRecap;

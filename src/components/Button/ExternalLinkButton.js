@@ -19,12 +19,12 @@ ExternalLinkButton.propTypes = {
   fullWidth: PropTypes.bool,
   theme: PropTypes.oneOf(['primary', 'light']),
   href: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 ExternalLinkButton.defaultProps = {
   fullWidth: false,
-  theme: 'light'
+  theme: 'light',
 };
 
 export default ExternalLinkButton;

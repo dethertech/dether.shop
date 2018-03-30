@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 
 import tr from '../../../translate';
 import tokens from '../../../styles/tokens';
-import Modal from '../../../components/Modal';
-import Button from '../../../components/Button';
+import { Modal, Button } from '../../../components';
 import { H2 } from '../../../components/Headings';
 import { Padding } from '../../../components/Spaces';
 
@@ -43,7 +42,7 @@ const PhoneModal = ({ submitPhone, backToEdit, phone }) => (
 PhoneModal.propTypes = {
   submitPhone: PropTypes.func.isRequired,
   backToEdit: PropTypes.func.isRequired,
-  phone: PropTypes.string.isRequired
+  phone: PropTypes.string.isRequired,
 };
 
 export default PhoneModal;

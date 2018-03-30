@@ -20,7 +20,7 @@ class AutoAddress extends PureComponent {
     hasError: PropTypes.bool,
     inputProps: PropTypes.shape({}),
     onFocus: PropTypes.func,
-    onBlur: PropTypes.func
+    onBlur: PropTypes.func,
   };
 
   static defaultProps = {
@@ -29,7 +29,7 @@ class AutoAddress extends PureComponent {
     inputProps: {},
     onChange: () => {},
     onFocus: () => {},
-    onBlur: () => {}
+    onBlur: () => {},
   };
 
   constructor(props) {
@@ -53,9 +53,15 @@ class AutoAddress extends PureComponent {
       <InputWrapper isFocus={this.state.inputFocus}>
         <PlacesAutocomplete
           onSelect={onChange}
-          inputProps={{ ...inputProps, onBlur: this.onBlur, onFocus: this.onFocus }}
+          inputProps={{
+            ...inputProps,
+            onBlur: this.onBlur,
+            onFocus: this.onFocus,
+          }}
         />
-        {!!(hasError || isValid) && <InputStatusIcon hasError={hasError} isValid={isValid} />}
+        {!!(hasError || isValid) && (
+          <InputStatusIcon hasError={hasError} isValid={isValid} />
+        )}
       </InputWrapper>
     );
   }

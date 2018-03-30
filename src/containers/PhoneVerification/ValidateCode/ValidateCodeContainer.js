@@ -3,7 +3,6 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 
 import tr from '../../../translate';
 import { phoneVerificationTime, getErrorMessage } from '../../../helpers';
@@ -22,18 +21,15 @@ class ValidationCode extends PureComponent {
     sendVerifCode: PropTypes.func.isRequired,
     code: PropTypes.number,
     setUserCertified: PropTypes.func.isRequired,
-    history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired
   };
 
   static defaultProps = {
     lastSend: null,
-    code: null
+    code: null,
   };
 
   state = {
-    error: ''
+    error: '',
   };
 
   checkReSend = () => {
@@ -42,33 +38,33 @@ class ValidationCode extends PureComponent {
 
     return lastSend && phoneVerificationTime(lastSend)
       ? this.setState({
-        error: tr('errors.phone.wait_resend')
-      })
+          error: tr('errors.phone.wait_resend'),
+        })
       : reSendSms(phoneNumber);
   };
 
   sendCode = code => {
-    const {
-      phoneNumber,
-      sendVerifCode,
-      history,
-      setUserCertified
-    } = this.props;
+    const { phoneNumber, sendVerifCode, setUserCertified } = this.props;
 
     sendVerifCode({
       code,
       phoneNumber,
       onSuccess: () => {
-        history.push('/add-form');
         setUserCertified(true);
       },
-      onError: (errors, res) => this.setState({ error: getErrorMessage(errors, res) })
+      onError: (errors, res) =>
+        this.setState({ error: getErrorMessage(errors, res) }),
     });
   };
 
   render() {
     const { error } = this.state;
-    const { editPhoneNumber, isSubmitCodePending, phoneNumber, code } = this.props;
+    const {
+      editPhoneNumber,
+      isSubmitCodePending,
+      phoneNumber,
+      code,
+    } = this.props;
     return (
       <ValidateCode
         phoneNumber={phoneNumber}
@@ -89,7 +85,7 @@ const mapStateToProps = ({ kyc: { isSubmitCodePending } }) => ({
 
 const mapDispatchToProps = dispatch => ({
   sendVerifCode: bindActionCreators(sendVerifCodeAction, dispatch),
-  setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch)
+  setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ValidationCode));
+export default connect(mapStateToProps, mapDispatchToProps)(ValidationCode);

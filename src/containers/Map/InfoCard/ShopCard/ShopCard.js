@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import tr from '../../../../translate';
 
-import avatar from '../../../../assets/home/avatar.svg';
 import tokens from '../../../../styles/tokens';
 import { H1 } from '../../../../components/Headings';
+
+import { SvgAvatar } from '../../../../components';
 
 const BottomWrapper = styled.div`
   padding: ${tokens.spaces.s};
@@ -75,52 +76,53 @@ const DayHour = styled.div`
 
 const days = [...Array(7)].map((x, i) => tr(`days.${i + 1}`));
 
-const ShopCard = ({ shopName, category, address, description, calendar }) => (
+const ShopCard = ({ name, cat, address, description, opening }) => (
   <Wrapper>
     <Card>
       <TopWrapper>
-        <img src={avatar} alt="profile" width="65" />
+        <SvgAvatar />
         <UserProfile>
-          <H1 light>{shopName}</H1>
-          {category}
+          <H1 light>{name}</H1>
+          {cat}
         </UserProfile>
       </TopWrapper>
       <BottomWrapper>
         <Adress>{address}</Adress>
         <Desc>{description}</Desc>
         <Hr />
-        {calendar.map((day, i) =>
-            day.open && (
+        {opening.map(
+          (day, i) =>
+            day.open ? (
               <DayHour key={days[i]}>
-                <DayContainer>{days[i]}</DayContainer> {day.openAt} - {day.closeAt}
+                <DayContainer>{days[i]}</DayContainer> {day.openAt} -{' '}
+                {day.closeAt}
               </DayHour>
-            ))}
+            ) : (
+              <DayHour key={days[i]}>
+                <DayContainer>{days[i]}</DayContainer>{' '}
+                {tr('map.shop_card.closed')}
+              </DayHour>
+            ),
+        )}
       </BottomWrapper>
     </Card>
   </Wrapper>
 );
 
 ShopCard.propTypes = {
-  shopName: PropTypes.string,
-  category: PropTypes.string,
+  name: PropTypes.string,
+  cat: PropTypes.string,
   address: PropTypes.string,
   description: PropTypes.string,
-  calendar: PropTypes.shape({})
+  opening: PropTypes.array,
 };
 
 ShopCard.defaultProps = {
-  shopName: 'shopName',
-  category: 'category',
+  name: 'name',
+  cat: 'category',
   address: 'address',
   description: 'description',
-  calendar: [
-    { open: true, openAt: '8am', closeAt: '7:30pm' },
-    { open: true, openAt: '8:30am', closeAt: '7:30pm' },
-    { open: true, openAt: '8:30am', closeAt: '7:30pm' },
-    { open: true, openAt: '8:30am', closeAt: '7:30pm' },
-    { open: false, openAt: '8am', closeAt: '7:30pm' },
-    { open: false, openAt: '8am', closeAt: '7:30pm' }
-  ]
+  opening: [],
 };
 
 export default ShopCard;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import tokens from '../../../styles/tokens';
 import Icon from '../../Icon';
 
@@ -20,6 +20,13 @@ const InputSelect = styled.select`
   padding: ${tokens.spaces.s};
   z-index: 1;
 
+  ${({ fakeDisable }) =>
+    fakeDisable &&
+    css`
+      backgroundcolor: red;
+      opacity: 0.5;
+    `};
+
   &:disabled {
     opacity: 0.5;
   }
@@ -33,7 +40,7 @@ const InputSelectIcon = styled.div`
   margin-top: -0.6rem;
 `;
 
-const Select = ({ data, onChange, selected, ...rest }) => (
+const Select = ({ data, onChange, ...rest }) => (
   <SelectWrapper>
     <InputSelectIcon>
       <Icon
@@ -43,7 +50,7 @@ const Select = ({ data, onChange, selected, ...rest }) => (
         color={tokens.colors.grey.darkest}
       />
     </InputSelectIcon>
-    <InputSelect {...rest} defaultValue={selected} onChange={onChange}>
+    <InputSelect {...rest} onChange={onChange}>
       {data.length &&
         data.map(opt => (
           <option key={opt} value={opt}>
@@ -57,13 +64,15 @@ const Select = ({ data, onChange, selected, ...rest }) => (
 Select.propTypes = {
   data: PropTypes.arrayOf(PropTypes.string.isRequired),
   onChange: PropTypes.func,
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  fakeDisable: PropTypes.bool,
 };
 
 Select.defaultProps = {
   data: [],
   onChange: () => {},
-  selected: null
+  selected: null,
+  fakeDisable: false,
 };
 
 export default Select;

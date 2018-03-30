@@ -10,7 +10,7 @@ const loaderSize = {
   l: '6rem',
   s: '2rem',
   xs: '1.6rem',
-  m: '4rem'
+  m: '4rem',
 };
 
 const Loader = styled.div`
@@ -35,11 +35,11 @@ const Loader = styled.div`
 `;
 
 Loader.propTypes = {
-  size: PropTypes.oneOf(['l', 's', 'm'])
+  size: PropTypes.oneOf(['l', 's', 'm']),
 };
 
 Loader.defaultProps = {
-  size: 'm'
+  size: 'm',
 };
 
 export default Loader;

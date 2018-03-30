@@ -8,26 +8,44 @@ import WrapperMap from './GoogleMapWrapper/';
 import ShopMarker from './Markers/ShopMarker';
 import InfoCard from './InfoCard/';
 import SearchBar from './SearchBar/';
+import IconLocalisation from '../../components/Icon/svg/Localisation';
+
 import {
   setCenterPosition as setCenterPositionAction,
   setMapInitiated as setMapInitiatedAction,
   fetchAll as fetchAllAction,
   fetchPosition as fetchPositionAction,
-  fetchUserInfo as fetchUserInfoAction
 } from '../../actions/map';
-import { distance, getClusterData } from '../../helpers';
+import { initializeClientInfo as initializeClientInfoAction } from '../../actions/app';
+import { distance, getClusterData, scrollToTop, LatLng } from '../../helpers';
+import { SvgArrowUp } from '../../components/Svg';
+import tokens from '../../styles/tokens';
 
 const MapWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
+`;
 
-  /* hide google legal mentions */
-  .gmnoprint,
-  .gm-style-cc,
-  iframe + div {
-    display: none !important;
+const CenterIcon = styled.div`
+  position: absolute;
+  right: ${tokens.spaces.s};
+  top: ${tokens.spaces.xxl};
+  margin-top: ${tokens.spaces.xxl};
+  padding: ${tokens.spaces.s};
+  cursor: pointer;
+`;
+
+const BackUp = styled.button`
+  display: none;
+  position: absolute;
+  bottom: ${tokens.spaces.l};
+  left: ${tokens.spaces.s};
+  width: 30px;
+  height: 30px;
+  @media (max-width: 850px) {
+    display: block;
   }
 `;
 
@@ -37,10 +55,10 @@ export class Map extends Component {
     setMapInitiated: PropTypes.func.isRequired,
     fetchAll: PropTypes.func.isRequired,
     fetchPosition: PropTypes.func.isRequired,
-    fetchUserInfo: PropTypes.func.isRequired,
+    initializeClientInfo: PropTypes.func.isRequired,
     centerPosition: PropTypes.shape({}).isRequired,
     mapInitiated: PropTypes.bool.isRequired,
-    shops: PropTypes.array.isRequired
+    shops: PropTypes.array.isRequired,
   };
 
   constructor(props) {
@@ -51,24 +69,26 @@ export class Map extends Component {
       center: this.props.centerPosition,
       zoom: 16,
       bounds: { nw: { lat: 85, lng: -180 }, se: { lat: -85, lng: 180 } },
-      size: { width: 375, height: 600 }
+      size: { width: 375, height: 600 },
     };
   }
 
   async componentWillMount() {
     const {
-      centerPosition,
       fetchAll,
       fetchPosition,
-      fetchUserInfo,
+      initializeClientInfo,
       setMapInitiated,
-      shops
+      shops,
     } = this.props;
 
     this.updateCluster(shops);
 
-    await Promise.all([fetchPosition(), fetchUserInfo()]);
-    fetchAll(centerPosition);
+    await Promise.all([fetchPosition(), initializeClientInfo()]);
+    this.interval = setInterval(() => {
+      const { centerPosition } = this.props;
+      fetchAll(centerPosition, 1000);
+    }, 30000);
     setMapInitiated();
   }
 
@@ -85,16 +105,25 @@ export class Map extends Component {
     this.updateCluster(nextProps.shops);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   updateCluster(shops) {
     this.shopsCluster = getClusterData(shops, this.propsMap);
   }
 
   changeHandler = propsMap => {
-    const { center } = propsMap;
-    const { mapInitiated, setCenterPosition, fetchAll, centerPosition } = this.props;
-    this.propsMap = propsMap;
-    // Fetch shops if position changed more than 100m
+    const center = LatLng(propsMap.center);
+    const {
+      mapInitiated,
+      setCenterPosition,
+      fetchAll,
+      centerPosition,
+    } = this.props;
+    this.propsMap = { ...propsMap, center };
 
+    // Fetch shops if position changed more than 100m
     if (mapInitiated && distance(centerPosition, center) > 100) {
       setCenterPosition(center);
       const radius = distance(center, propsMap.bounds.se) / 1000;
@@ -102,25 +131,45 @@ export class Map extends Component {
     }
   };
 
+  mapClick = () => {
+    if (this.refSearch) {
+      this.refSearch.getWrappedInstance().forceBlur();
+    }
+  };
+
   render() {
-    const { centerPosition } = this.props;
+    const { centerPosition, fetchPosition } = this.props;
     const ShopsMarkers = this.shopsCluster.map(shop => (
       <ShopMarker {...shop} key={shop.id} shop={shop} />
     ));
     return (
       <MapWrapper>
-        <WrapperMap changeHandler={this.changeHandler} center={centerPosition}>
+        <WrapperMap
+          onClick={this.mapClick}
+          changeHandler={this.changeHandler}
+          center={centerPosition}
+        >
           {ShopsMarkers}
         </WrapperMap>
         <InfoCard />
-        <SearchBar />
+        <SearchBar
+          ref={e => {
+            this.refSearch = e;
+          }}
+        />
+        <CenterIcon onClick={fetchPosition}>
+          <IconLocalisation />
+        </CenterIcon>
+        <BackUp onClick={() => scrollToTop(1000)}>
+          <SvgArrowUp />
+        </BackUp>
       </MapWrapper>
     );
   }
 }
 
 const mapStateToProps = ({ map }) => ({
-  ...map
+  ...map,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -128,7 +177,10 @@ const mapDispatchToProps = dispatch => ({
   setMapInitiated: bindActionCreators(setMapInitiatedAction, dispatch),
   fetchAll: bindActionCreators(fetchAllAction, dispatch),
   fetchPosition: bindActionCreators(fetchPositionAction, dispatch),
-  fetchUserInfo: bindActionCreators(fetchUserInfoAction, dispatch)
+  initializeClientInfo: bindActionCreators(
+    initializeClientInfoAction,
+    dispatch,
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);

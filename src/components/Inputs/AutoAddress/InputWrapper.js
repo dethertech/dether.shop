@@ -42,7 +42,6 @@ const InputWrapper = styled.div`
 
   input {
     padding-left: 3rem !important;
-    width: auto !important;
     flex: 1 !important;
   }
 
@@ -80,11 +79,11 @@ const SearchBarWrapper = ({ children, isFocus }) => (
 
 SearchBarWrapper.propTypes = {
   children: PropTypes.node.isRequired,
-  isFocus: PropTypes.bool.isRequired
+  isFocus: PropTypes.bool.isRequired,
 };
 
 SearchBarWrapper.defaultProps = {
-  isFocus: false
+  isFocus: false,
 };
 
 export default SearchBarWrapper;

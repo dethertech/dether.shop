@@ -7,18 +7,18 @@ const buttonThemes = {
   primary: {
     text: tokens.colors.white,
     bg: tokens.colors.gradients.blue,
-    border: 'transparent'
+    border: 'transparent',
   },
   light: {
     text: tokens.colors.blue,
     bg: tokens.colors.white,
-    border: tokens.colors.blue
+    border: tokens.colors.blue,
   },
   danger: {
     text: tokens.colors.white,
     bg: tokens.colors.gradients.pink,
-    border: 'transparent'
-  }
+    border: 'transparent',
+  },
 };
 
 export const Wrapper = styled.button`
@@ -32,6 +32,12 @@ export const Wrapper = styled.button`
     fullWidth &&
     css`
       width: 100%;
+    `};
+
+  ${({ width }) =>
+    width &&
+    css`
+      width: ${width};
     `};
 
   ${({ isSmall }) =>
@@ -65,13 +71,22 @@ export const Wrapper = styled.button`
   }
 `;
 
-const Button = ({ onClick, children, theme, fullWidth, disabled, isSmall }) => (
+const Button = ({
+  onClick,
+  children,
+  theme,
+  fullWidth,
+  disabled,
+  isSmall,
+  width,
+}) => (
   <Wrapper
     isSmall={isSmall}
     fullWidth={fullWidth}
     theme={theme}
     disabled={disabled}
     onClick={onClick}
+    width={width}
   >
     {children}
   </Wrapper>
@@ -83,7 +98,8 @@ Button.propTypes = {
   fullWidth: PropTypes.bool,
   theme: PropTypes.oneOf(['primary', 'light', 'danger']),
   onClick: PropTypes.func,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  width: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -91,7 +107,8 @@ Button.defaultProps = {
   fullWidth: false,
   theme: 'light',
   isSmall: false,
-  onClick: () => {}
+  width: null,
+  onClick: () => {},
 };
 
 export default Button;

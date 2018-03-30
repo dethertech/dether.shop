@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled, { css } from 'styled-components';
 import tokens from '../../../styles/tokens';
-import RoundIconBtn from '../../../components/RoundIconBtn';
+import { RoundIconBtn } from '../../../components';
 import ShopCard from './ShopCard';
 
 const CloseBtnWrapper = styled.div`
@@ -38,7 +38,7 @@ class InfoCard extends PureComponent {
   static propTypes = {
     cardOpened: PropTypes.bool.isRequired,
     closeCard: PropTypes.func.isRequired,
-    contentOnCard: PropTypes.shape({}).isRequired
+    contentOnCard: PropTypes.shape({}).isRequired,
   };
 
   setContent = () => {
@@ -69,11 +69,11 @@ class InfoCard extends PureComponent {
 
 const mapStateToProps = state => ({
   cardOpened: state.map.cardOpened,
-  contentOnCard: state.map.contentOnCard
+  contentOnCard: state.map.contentOnCard,
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeCard: () => dispatch({ type: 'CLOSE_CARD' })
+  closeCard: () => dispatch({ type: 'CLOSE_CARD' }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InfoCard);

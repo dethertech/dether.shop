@@ -1,1 +1,6 @@
-export { ShopIcon, PersonIcon, ClusterShopIcon, ClusterPersonIcon } from './MapIcons';
+export {
+  ShopIcon,
+  PersonIcon,
+  ClusterShopIcon,
+  ClusterPersonIcon,
+} from './MapIcons';

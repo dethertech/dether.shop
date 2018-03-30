@@ -7,7 +7,7 @@ export default state => ({
     app: {
       isMetamaskInstalled: false,
       isAppInitialized: false,
-      isTermsModalOpenened: false
+      isTermsModalOpenened: false,
     },
     map: {
       userPosition: { lat: 48.8628, lng: 2.3292 },
@@ -26,7 +26,7 @@ export default state => ({
         description: 'more more test',
         opening: '0000000',
         lat: '48.8628',
-        lng: '2.3292'
+        lng: '2.3292',
       },
       transactionType: 'add',
       transactionHash: null, // if transactionHash !== null so you have a Transaction in pending
@@ -39,16 +39,16 @@ export default state => ({
           name: '',
           address: '',
           description: '',
-          calendar: '0000000'
-        }
+          calendar: '0000000',
+        },
       },
     },
     user: {
       balance: {
         eth: 0,
-        dth: 0
+        dth: 0,
       },
       isCertified: true,
-    }
+    },
   }),
 });

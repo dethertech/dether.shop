@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setShopOnCard as setShopOnCardAction } from '../../../../actions/map';
-import Marker from '../../../../components/Marker/';
+import { Marker } from '../../../../components';
 import { ShopIcon, ClusterShopIcon } from '../../../../components/MapIcons';
 
 class ShopMarker extends PureComponent {
@@ -12,11 +12,11 @@ class ShopMarker extends PureComponent {
     shop: PropTypes.shape({}).isRequired,
     lat: PropTypes.number.isRequired,
     lng: PropTypes.number.isRequired,
-    numPoints: PropTypes.number.isRequired
+    numPoints: PropTypes.number.isRequired,
   };
 
   static contextTypes = {
-    map: PropTypes.shape({})
+    map: PropTypes.shape({}),
   };
 
   handleClick = () => {
@@ -39,7 +39,7 @@ class ShopMarker extends PureComponent {
 }
 
 const mapDispatchToProps = dispatch => ({
-  setShopOnCard: bindActionCreators(setShopOnCardAction, dispatch)
+  setShopOnCard: bindActionCreators(setShopOnCardAction, dispatch),
 });
 
 export default connect(null, mapDispatchToProps)(ShopMarker);

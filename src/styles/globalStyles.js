@@ -11,7 +11,6 @@ const globalStyles = injectGlobal`
     font-size: 62.5%;
     height:100%;
     width:100%;
-    overflow: hidden;
   }
 
   body {
@@ -27,9 +26,7 @@ const globalStyles = injectGlobal`
       "Helvetica Neue",
       sans-serif;
 
-    height:100%;
     width:100%;
-    overflow: hidden;
     font-size: ${tokens.fontSizes.m};
     padding: 0;
     margin: 0;
@@ -38,9 +35,7 @@ const globalStyles = injectGlobal`
   }
 
   #root, #root > div {
-    height:100%;
     width:100%;
-    overflow: hidden;
   }
 
   [role='button'],

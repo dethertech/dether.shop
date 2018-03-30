@@ -10,5 +10,5 @@ export const weekDays = [
   tr('days.4'),
   tr('days.5'),
   tr('days.6'),
-  tr('days.7')
+  tr('days.7'),
 ];

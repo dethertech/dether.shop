@@ -1,26 +1,27 @@
 import styled from 'styled-components';
+import { mobile } from '../../styles/medias';
 import tokens from '../../styles/tokens';
 
 const Panels = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
+  width: 100vw;
   display: flex;
   align-items: stretch;
   justify-content: center;
+  ${mobile`
+    flex-direction: column;
+  `};
 `;
 
 Panels.Left = styled.div`
   background: ${tokens.colors.white};
   flex: 0 0 58rem;
   position: relative;
+  height: 100vh;
 `;
 
 Panels.Right = styled.div`
   flex: 1;
+  height: 100vh;
 `;
 
 Panels.displayName = 'Panels';

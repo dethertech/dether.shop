@@ -9,7 +9,7 @@ import {
   Results,
   ResultItem,
   NoResultItem,
-  InputStatusIcon
+  InputStatusIcon,
 } from './styles';
 
 const getOptionsContainingWord = (word, options) => {
@@ -30,7 +30,7 @@ class ComboBox extends PureComponent {
     isValid: PropTypes.bool,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
-    defaultOption: PropTypes.any
+    defaultOption: PropTypes.any,
   };
 
   static defaultProps = {
@@ -42,7 +42,7 @@ class ComboBox extends PureComponent {
     data: [],
     name: '',
     placeholder: null,
-    defaultOption: ''
+    defaultOption: '',
   };
 
   constructor(props) {
@@ -52,51 +52,49 @@ class ComboBox extends PureComponent {
       value: props.defaultOption || '',
       options: [...this.props.data],
       showOptions: false,
-      inputFocus: false
+      inputFocus: false,
     };
   }
 
-  onFocus = () =>
-    this.setState(prevState => ({
-      ...prevState,
-      inputFocus: true,
-      showOptions: true
-    }));
+  onFocus = () => this.setState({ inputFocus: true, showOptions: true });
 
   onBlur = () => {
     const { onBlur } = this.props;
-    this.setState(prevState => ({ ...prevState, inputFocus: true }));
+    const { options, value } = this.state;
+
+    const matchOption = options.find(
+      option => option.name.toUpperCase() === value.toUpperCase(),
+    );
+    if (matchOption) this.onSelectOption(matchOption)();
+
+    this.setState({ inputFocus: true });
     setTimeout(() => {
       this.setState({ showOptions: false });
       onBlur();
-    }, 500);
+    }, 200);
   };
 
   onChange = event => {
     this.props.onChange();
     const val = event.target.value;
     this.filterOption(val);
-    this.setState(prevState => ({ ...prevState, value: val, showOptions: true }));
+    this.setState({ value: val, showOptions: true });
   };
 
   onSelectOption = option => () => {
-    this.setState(prevState => ({
-      ...prevState,
-      value: option.name,
-      showOptions: false
-    }));
+    this.setState({ value: option.name, showOptions: false });
+    this.filterOption(option.name);
     this.props.onSelectedOption(option);
   };
 
   filterOption = filter => {
     const newOptions = getOptionsContainingWord(filter, this.props.data);
-    this.setState(prevState => ({ ...prevState, options: newOptions }));
+    this.setState({ options: newOptions });
   };
 
-  displayOptions = () => this.setState(prevState => ({ ...prevState, showOptions: true }));
+  displayOptions = () => this.setState({ showOptions: true });
 
-  toggleOptions = () =>
-    this.setState(prevState => ({ ...prevState, showOptions: !this.state.showOptions }));
+  toggleOptions = () => this.setState({ showOptions: !this.state.showOptions });
 
   render() {
     const { name, placeholder, hasError, isValid } = this.props;
@@ -129,9 +127,14 @@ class ComboBox extends PureComponent {
           <ComboBox.InputStatusIcon hasError={hasError} isValid={isValid} />
         )}
         <ComboBox.Results showOptions={showOptions}>
-          {options.length === 0 && <ComboBox.NoResultItem>no results</ComboBox.NoResultItem>}
+          {options.length === 0 && (
+            <ComboBox.NoResultItem>no results</ComboBox.NoResultItem>
+          )}
           {options.map(option => (
-            <ComboBox.ResultItem key={option.name} onClick={this.onSelectOption(option)}>
+            <ComboBox.ResultItem
+              key={option.name}
+              onClick={this.onSelectOption(option)}
+            >
               {option.name}
             </ComboBox.ResultItem>
           ))}

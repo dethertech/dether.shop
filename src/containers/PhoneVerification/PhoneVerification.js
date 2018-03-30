@@ -1,10 +1,10 @@
-/* eslint max-lines: 0 */
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import PhoneForm from './PhoneForm';
 import ValidateCodeContainer from './ValidateCode';
-import LoaderScreen from '../../components/Screens/LoaderScreen';
+import { LoaderScreen } from '../../components';
 import { getErrorMessage } from '../../helpers';
 import {
   sendSms as sendSmsAction,
@@ -23,11 +23,11 @@ class PhoneVerification extends PureComponent {
     setPhoneSent: PropTypes.func.isRequired,
     phone: PropTypes.string.isRequired,
     phoneCountry: PropTypes.shape({}),
-    phoneSent: PropTypes.bool.isRequired
+    phoneSent: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
-    phoneCountry: null
+    phoneCountry: null,
   };
 
   constructor(props) {
@@ -36,7 +36,7 @@ class PhoneVerification extends PureComponent {
       phoneNumber: props.phone || '',
       phoneCountry: props.phoneCountry,
       error: '',
-      code: null
+      code: null,
     };
   }
 
@@ -63,7 +63,9 @@ class PhoneVerification extends PureComponent {
   submitPhone = (phoneNumber, phoneCountry) => {
     const { sendSms, ethAddress } = this.props;
 
-    const stateToChange = phoneCountry ? { phoneNumber, phoneCountry } : { phoneNumber };
+    const stateToChange = phoneCountry
+      ? { phoneNumber, phoneCountry }
+      : { phoneNumber };
     this.setState(
       () => stateToChange,
       () => {
@@ -71,9 +73,9 @@ class PhoneVerification extends PureComponent {
           phoneNumber,
           ethAddress,
           onSuccess: this.submitPhoneSuccess,
-          onError: this.submitPhoneError
+          onError: this.submitPhoneError,
         });
-      }
+      },
     );
   };
 
@@ -82,7 +84,13 @@ class PhoneVerification extends PureComponent {
     const { phoneSent, isSubmitPhonePending } = this.props;
 
     if (!phoneSent && !isSubmitPhonePending) {
-      return <PhoneForm submitError={error} onSubmit={this.submitPhone} country={phoneCountry} />;
+      return (
+        <PhoneForm
+          submitError={error}
+          onSubmit={this.submitPhone}
+          country={phoneCountry}
+        />
+      );
     }
 
     if (isSubmitPhonePending) {
@@ -107,14 +115,14 @@ const mapStateToProps = ({ user, kyc }) => ({
   ethAddress: user.ethAddress,
   phone: kyc.phone,
   phoneSent: kyc.phoneSent,
-  phoneCountry: kyc.phoneCountry
+  phoneCountry: kyc.phoneCountry,
 });
 
 const mapDispatchToProps = dispatch => ({
   sendSms: params => dispatch(sendSmsAction(params)),
   setPhone: phone => dispatch(setPhoneAction(phone)),
   setPhoneCountry: country => dispatch(setPhoneCountryAction(country)),
-  setPhoneSent: bool => dispatch(setPhoneSentAction(bool))
+  setPhoneSent: bool => dispatch(setPhoneSentAction(bool)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneVerification);

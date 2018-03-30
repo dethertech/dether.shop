@@ -2,14 +2,12 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 /*
   Components
  */
-import ShopRecap from '../../components/ShopRecap';
-import Button from '../../components/Button';
-import LoaderScreen from '../../components/Screens/LoaderScreen';
+import { ShopRecap, Button, LoaderScreen } from '../../components';
 
 /*
   Translate module
@@ -22,15 +20,16 @@ import tr from '../../translate';
 import {
   addDeleteShopTransaction as addDeleteShopTransactionAction,
   removeShop as removeShopAction,
-  endTransaction as endTransactionAction
+  endTransaction as endTransactionAction,
 } from '../../actions/shop';
+import { fetchAll as fetchAllAction } from '../../actions/map';
 
 /*
   Helpers
  */
 import {
   deleteShop as deleteShopHelper,
-  getTransactionStatus
+  getTransactionStatus,
 } from '../../helpers';
 
 /**
@@ -44,23 +43,22 @@ export class ShowShop extends PureComponent {
       cat: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       opening: PropTypes.string.isRequired,
-      lat: PropTypes.string.isRequired,
-      lng: PropTypes.string.isRequired
+      lat: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+      lng: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     }).isRequired,
     addDeleteShopTransaction: PropTypes.func.isRequired,
     isTransactionPending: PropTypes.bool.isRequired,
     deleteContractShop: PropTypes.func.isRequired,
     removeShopFromStore: PropTypes.func.isRequired,
     transactionHash: PropTypes.string.isRequired,
-    history: PropTypes.shape({
-      push: PropTypes.func.isRequired
-    }).isRequired,
-    endTransaction: PropTypes.func.isRequired
-  }
+    endTransaction: PropTypes.func.isRequired,
+    fetchAll: PropTypes.func.isRequired,
+    centerPosition: PropTypes.shape({}).isRequired,
+  };
 
   state = {
-    isLoading: false
-  }
+    isLoading: false,
+  };
   componentWillMount() {
     const { isTransactionPending } = this.props;
 
@@ -80,8 +78,10 @@ export class ShowShop extends PureComponent {
 
     if (isTransactionPending)
       return <div>{tr('show_shop.transaction_pending')}</div>;
-    return <Button onClick={this.deleteShop}>{tr('show_shop.delete_button')}</Button>;
-  }
+    return (
+      <Button onClick={this.deleteShop}>{tr('show_shop.delete_button')}</Button>
+    );
+  };
 
   showLoader = () => this.setState({ isLoading: true });
   HideLoader = () => this.setState({ isLoading: false });
@@ -90,61 +90,78 @@ export class ShowShop extends PureComponent {
     const { endTransaction } = this.props;
     endTransaction();
     clearInterval(this.interval);
-  }
+  };
 
   checkTransaction = () => {
-    const { transactionHash, removeShopFromStore, history } = this.props;
+    const {
+      transactionHash,
+      removeShopFromStore,
+      fetchAll,
+      centerPosition,
+    } = this.props;
     this.interval = setInterval(async () => {
       const status = await getTransactionStatus(transactionHash);
       if (status === 'success') {
         removeShopFromStore();
-        history.push('/');
+        fetchAll(centerPosition);
         this.endCheckTransaction();
       } else if (status === 'error') {
-        console.log('DELETE Transaction Error', transactionHash);
         this.endCheckTransaction();
+        toast.error(tr('errors.transaction.throw'));
       }
     }, 3000);
-  }
+  };
 
   deleteShop = async () => {
     const { deleteContractShop, addDeleteShopTransaction } = this.props;
 
     this.showLoader();
-    const transaction = await deleteContractShop().catch(e => console.log('Error', e));
-    addDeleteShopTransaction(transaction.transactionHash);
-    this.checkTransaction();
-    this.HideLoader();
-  }
+    try {
+      const transaction = await deleteContractShop();
+      addDeleteShopTransaction(transaction.transactionHash);
+      this.checkTransaction();
+      this.HideLoader();
+    } catch (e) {
+      toast.error(tr('errors.transaction.metamask_reject'));
+      this.HideLoader();
+    }
+  };
 
   render = () => {
     const { shop } = this.props;
     const { isLoading } = this.state;
 
-    return isLoading ?
+    return isLoading ? (
       <LoaderScreen
         title={tr('show_shop.loader_title')}
         message={tr('show_shop.loader_delete_message')}
+        isTransaction
       />
-      :
+    ) : (
       <Fragment>
         <ShopRecap {...shop} />
         {this.getView()}
-      </Fragment>;
-  }
+      </Fragment>
+    );
+  };
 }
 
-const mapStateToProps = ({ shop }) => ({
+const mapStateToProps = ({ shop, map }) => ({
   shop: shop.shop,
   isTransactionPending: !!shop.transactionHash,
-  transactionHash: shop.transactionHash || ''
+  transactionHash: shop.transactionHash || '',
+  centerPosition: map.centerPosition,
 });
 
 const mapDispatchToProps = dispatch => ({
   deleteContractShop: deleteShopHelper,
   removeShopFromStore: bindActionCreators(removeShopAction, dispatch),
-  addDeleteShopTransaction: bindActionCreators(addDeleteShopTransactionAction, dispatch),
-  endTransaction: bindActionCreators(endTransactionAction, dispatch)
+  addDeleteShopTransaction: bindActionCreators(
+    addDeleteShopTransactionAction,
+    dispatch,
+  ),
+  endTransaction: bindActionCreators(endTransactionAction, dispatch),
+  fetchAll: bindActionCreators(fetchAllAction, dispatch),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ShowShop));
+export default connect(mapStateToProps, mapDispatchToProps)(ShowShop);

@@ -4,7 +4,15 @@ import tokens from '../../styles/tokens';
 
 const AllowedSpacesValues = Object.keys(tokens.spaces);
 
-const DivWithSpace = space => ({ all, horizontal, vertical, top, right, bottom, left }) => css`
+const DivWithSpace = space => ({
+  all,
+  horizontal,
+  vertical,
+  top,
+  right,
+  bottom,
+  left,
+}) => css`
   ${all &&
     css`
       ${space}: ${tokens.spaces[all]};
@@ -53,7 +61,8 @@ const globalPropTypes = {
   right: PropTypes.oneOf(AllowedSpacesValues),
   bottom: PropTypes.oneOf(AllowedSpacesValues),
   left: PropTypes.oneOf(AllowedSpacesValues),
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
+    .isRequired,
 };
 
 const defaultProps = {
@@ -63,7 +72,7 @@ const defaultProps = {
   top: null,
   right: null,
   bottom: null,
-  left: null
+  left: null,
 };
 
 Margin.propTypes = globalPropTypes;
