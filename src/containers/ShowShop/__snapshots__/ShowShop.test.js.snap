@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowShop::mount 1`] = `undefined`;
+
+exports[`ShowShop::shallow 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ShowShop
+    addDeleteShopTransaction={[Function]}
+    centerPosition={
+        Object {
+            "lat": 30,
+            "lng": 3,
+          }
+    }
+    deleteContractShop={[Function]}
+    endTransaction={[Function]}
+    fetchAll={[Function]}
+    isTransactionPending={false}
+    removeShopFromStore={[Function]}
+    shop={
+        Object {
+            "address": "40 rue Citadelle Paris",
+            "cat": "cool",
+            "countryId": "fr",
+            "description": "Super Magasin",
+            "lat": "30",
+            "lng": "3",
+            "name": "Magasin",
+            "opening": "0000000",
+            "postalCode": "75010",
+          }
+    }
+    transactionHash="0xwefwerfer"
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <ShopRecap
+          address="40 rue Citadelle Paris"
+          cat="cool"
+          countryId="fr"
+          description="Super Magasin"
+          lat="30"
+          licencePrice={null}
+          lng="3"
+          name="Magasin"
+          opening="0000000"
+          postalCode="75010"
+/>,
+        <Button
+          disabled={false}
+          fullWidth={false}
+          isSmall={false}
+          onClick={[Function]}
+          theme="light"
+          width={null}
+>
+          Delete Shop
+</Button>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "address": "40 rue Citadelle Paris",
+          "cat": "cool",
+          "countryId": "fr",
+          "description": "Super Magasin",
+          "lat": "30",
+          "licencePrice": null,
+          "lng": "3",
+          "name": "Magasin",
+          "opening": "0000000",
+          "postalCode": "75010",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Delete Shop",
+          "disabled": false,
+          "fullWidth": false,
+          "isSmall": false,
+          "onClick": [Function],
+          "theme": "light",
+          "width": null,
+        },
+        "ref": null,
+        "rendered": "Delete Shop",
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <ShopRecap
+            address="40 rue Citadelle Paris"
+            cat="cool"
+            countryId="fr"
+            description="Super Magasin"
+            lat="30"
+            licencePrice={null}
+            lng="3"
+            name="Magasin"
+            opening="0000000"
+            postalCode="75010"
+/>,
+          <Button
+            disabled={false}
+            fullWidth={false}
+            isSmall={false}
+            onClick={[Function]}
+            theme="light"
+            width={null}
+>
+            Delete Shop
+</Button>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "address": "40 rue Citadelle Paris",
+            "cat": "cool",
+            "countryId": "fr",
+            "description": "Super Magasin",
+            "lat": "30",
+            "licencePrice": null,
+            "lng": "3",
+            "name": "Magasin",
+            "opening": "0000000",
+            "postalCode": "75010",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Delete Shop",
+            "disabled": false,
+            "fullWidth": false,
+            "isSmall": false,
+            "onClick": [Function],
+            "theme": "light",
+            "width": null,
+          },
+          "ref": null,
+          "rendered": "Delete Shop",
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

@@ -1,0 +1,1033 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form::mount 1`] = `undefined`;
+
+exports[`Form::shallow 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Form
+    onSubmit={[Function]}
+    setDataShopPending={[Function]}
+    shop={
+        Object {
+            "address": "40 rue Citadelle Paris",
+            "cat": "cool",
+            "countryId": "fr",
+            "description": "Super Magasin",
+            "lat": null,
+            "lng": null,
+            "name": "Magasin",
+            "opening": "0000000",
+            "postalCode": "75010",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <styled.h1>
+          REGISTER YOUR SHOP
+</styled.h1>,
+        <styled.div>
+          Step 2 of 2
+</styled.div>,
+        <ProgressBar
+          progressRatio={1}
+/>,
+        <styled.div
+          all={null}
+          bottom={null}
+          horizontal={null}
+          left={null}
+          right={null}
+          top={null}
+          vertical="xl"
+>
+          <LabeledInput
+                    componentName="input"
+                    defaultOption={null}
+                    error={null}
+                    fillInfos={null}
+                    handleChange={[Function]}
+                    isValid={false}
+                    label="Name:"
+                    name="name"
+                    onBlur={[Function]}
+                    placeholder="length min 1 – max 16"
+                    toggleShake={0}
+                    type="text"
+                    value="Magasin"
+          />
+          <LabeledInput
+                    componentName="input"
+                    defaultOption={null}
+                    error={null}
+                    fillInfos={null}
+                    handleChange={[Function]}
+                    isValid={false}
+                    label="Category:"
+                    name="cat"
+                    onBlur={[Function]}
+                    placeholder="length min 1 – max 16"
+                    toggleShake={0}
+                    type="text"
+                    value="cool"
+          />
+          <SearchBar
+                    inputOpt={
+                              Object {
+                                        "error": null,
+                                        "fillInfos": null,
+                                        "handleChange": [Function],
+                                        "isValid": false,
+                                        "label": "Address:",
+                                        "name": "address",
+                                        "onBlur": [Function],
+                                        "toggleShake": 0,
+                                        "value": Object {
+                                          "addressString": undefined,
+                                          "countryId": "fr",
+                                          "lat": null,
+                                          "lng": null,
+                                          "postalCode": "75010",
+                                        },
+                                      }
+                    }
+                    onChange={[Function]}
+          />
+          <LabeledInput
+                    componentName="input"
+                    defaultOption={null}
+                    error={null}
+                    fillInfos={null}
+                    handleChange={[Function]}
+                    isValid={false}
+                    label="Description:"
+                    name="description"
+                    onBlur={[Function]}
+                    placeholder="length min 1 – max 32"
+                    toggleShake={0}
+                    type="text"
+                    value="Super Magasin"
+          />
+</styled.div>,
+        <styled.div
+          all={null}
+          bottom="m"
+          horizontal={null}
+          left={null}
+          right={null}
+          top={null}
+          vertical={null}
+>
+          <DaysOnpeningHour
+                    days={
+                              Array [
+                                        Object {
+                                          "open": false,
+                                        },
+                                        Object {
+                                          "open": false,
+                                        },
+                                        Object {
+                                          "open": false,
+                                        },
+                                        Object {
+                                          "open": false,
+                                        },
+                                        Object {
+                                          "open": false,
+                                        },
+                                        Object {
+                                          "open": false,
+                                        },
+                                        Object {
+                                          "open": false,
+                                        },
+                                      ]
+                    }
+                    onChange={[Function]}
+          />
+</styled.div>,
+        <styled.div
+          all={null}
+          bottom={null}
+          horizontal={null}
+          left={null}
+          right={null}
+          top={null}
+          vertical="m"
+>
+          <Button
+                    disabled={false}
+                    fullWidth={true}
+                    isSmall={false}
+                    onClick={[Function]}
+                    theme="primary"
+                    width={null}
+          >
+                    Add your shop
+          </Button>
+</styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "REGISTER YOUR SHOP",
+        },
+        "ref": null,
+        "rendered": "REGISTER YOUR SHOP",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Step 2 of 2",
+        },
+        "ref": null,
+        "rendered": "Step 2 of 2",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "progressRatio": 1,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "all": null,
+          "bottom": null,
+          "children": Array [
+            <LabeledInput
+              componentName="input"
+              defaultOption={null}
+              error={null}
+              fillInfos={null}
+              handleChange={[Function]}
+              isValid={false}
+              label="Name:"
+              name="name"
+              onBlur={[Function]}
+              placeholder="length min 1 – max 16"
+              toggleShake={0}
+              type="text"
+              value="Magasin"
+/>,
+            <LabeledInput
+              componentName="input"
+              defaultOption={null}
+              error={null}
+              fillInfos={null}
+              handleChange={[Function]}
+              isValid={false}
+              label="Category:"
+              name="cat"
+              onBlur={[Function]}
+              placeholder="length min 1 – max 16"
+              toggleShake={0}
+              type="text"
+              value="cool"
+/>,
+            <SearchBar
+              inputOpt={
+                            Object {
+                                          "error": null,
+                                          "fillInfos": null,
+                                          "handleChange": [Function],
+                                          "isValid": false,
+                                          "label": "Address:",
+                                          "name": "address",
+                                          "onBlur": [Function],
+                                          "toggleShake": 0,
+                                          "value": Object {
+                                            "addressString": undefined,
+                                            "countryId": "fr",
+                                            "lat": null,
+                                            "lng": null,
+                                            "postalCode": "75010",
+                                          },
+                                        }
+              }
+              onChange={[Function]}
+/>,
+            <LabeledInput
+              componentName="input"
+              defaultOption={null}
+              error={null}
+              fillInfos={null}
+              handleChange={[Function]}
+              isValid={false}
+              label="Description:"
+              name="description"
+              onBlur={[Function]}
+              placeholder="length min 1 – max 32"
+              toggleShake={0}
+              type="text"
+              value="Super Magasin"
+/>,
+          ],
+          "horizontal": null,
+          "left": null,
+          "right": null,
+          "top": null,
+          "vertical": "xl",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "componentName": "input",
+              "defaultOption": null,
+              "error": null,
+              "fillInfos": null,
+              "handleChange": [Function],
+              "isValid": false,
+              "label": "Name:",
+              "name": "name",
+              "onBlur": [Function],
+              "placeholder": "length min 1 – max 16",
+              "toggleShake": 0,
+              "type": "text",
+              "value": "Magasin",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "componentName": "input",
+              "defaultOption": null,
+              "error": null,
+              "fillInfos": null,
+              "handleChange": [Function],
+              "isValid": false,
+              "label": "Category:",
+              "name": "cat",
+              "onBlur": [Function],
+              "placeholder": "length min 1 – max 16",
+              "toggleShake": 0,
+              "type": "text",
+              "value": "cool",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "inputOpt": Object {
+                "error": null,
+                "fillInfos": null,
+                "handleChange": [Function],
+                "isValid": false,
+                "label": "Address:",
+                "name": "address",
+                "onBlur": [Function],
+                "toggleShake": 0,
+                "value": Object {
+                  "addressString": undefined,
+                  "countryId": "fr",
+                  "lat": null,
+                  "lng": null,
+                  "postalCode": "75010",
+                },
+              },
+              "onChange": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "componentName": "input",
+              "defaultOption": null,
+              "error": null,
+              "fillInfos": null,
+              "handleChange": [Function],
+              "isValid": false,
+              "label": "Description:",
+              "name": "description",
+              "onBlur": [Function],
+              "placeholder": "length min 1 – max 32",
+              "toggleShake": 0,
+              "type": "text",
+              "value": "Super Magasin",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "all": null,
+          "bottom": "m",
+          "children": <DaysOnpeningHour
+            days={
+                        Array [
+                                    Object {
+                                      "open": false,
+                                    },
+                                    Object {
+                                      "open": false,
+                                    },
+                                    Object {
+                                      "open": false,
+                                    },
+                                    Object {
+                                      "open": false,
+                                    },
+                                    Object {
+                                      "open": false,
+                                    },
+                                    Object {
+                                      "open": false,
+                                    },
+                                    Object {
+                                      "open": false,
+                                    },
+                                  ]
+            }
+            onChange={[Function]}
+/>,
+          "horizontal": null,
+          "left": null,
+          "right": null,
+          "top": null,
+          "vertical": null,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "days": Array [
+              Object {
+                "open": false,
+              },
+              Object {
+                "open": false,
+              },
+              Object {
+                "open": false,
+              },
+              Object {
+                "open": false,
+              },
+              Object {
+                "open": false,
+              },
+              Object {
+                "open": false,
+              },
+              Object {
+                "open": false,
+              },
+            ],
+            "onChange": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "all": null,
+          "bottom": null,
+          "children": <Button
+            disabled={false}
+            fullWidth={true}
+            isSmall={false}
+            onClick={[Function]}
+            theme="primary"
+            width={null}
+>
+            Add your shop
+</Button>,
+          "horizontal": null,
+          "left": null,
+          "right": null,
+          "top": null,
+          "vertical": "m",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Add your shop",
+            "disabled": false,
+            "fullWidth": true,
+            "isSmall": false,
+            "onClick": [Function],
+            "theme": "primary",
+            "width": null,
+          },
+          "ref": null,
+          "rendered": "Add your shop",
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <styled.h1>
+            REGISTER YOUR SHOP
+</styled.h1>,
+          <styled.div>
+            Step 2 of 2
+</styled.div>,
+          <ProgressBar
+            progressRatio={1}
+/>,
+          <styled.div
+            all={null}
+            bottom={null}
+            horizontal={null}
+            left={null}
+            right={null}
+            top={null}
+            vertical="xl"
+>
+            <LabeledInput
+                        componentName="input"
+                        defaultOption={null}
+                        error={null}
+                        fillInfos={null}
+                        handleChange={[Function]}
+                        isValid={false}
+                        label="Name:"
+                        name="name"
+                        onBlur={[Function]}
+                        placeholder="length min 1 – max 16"
+                        toggleShake={0}
+                        type="text"
+                        value="Magasin"
+            />
+            <LabeledInput
+                        componentName="input"
+                        defaultOption={null}
+                        error={null}
+                        fillInfos={null}
+                        handleChange={[Function]}
+                        isValid={false}
+                        label="Category:"
+                        name="cat"
+                        onBlur={[Function]}
+                        placeholder="length min 1 – max 16"
+                        toggleShake={0}
+                        type="text"
+                        value="cool"
+            />
+            <SearchBar
+                        inputOpt={
+                                    Object {
+                                                "error": null,
+                                                "fillInfos": null,
+                                                "handleChange": [Function],
+                                                "isValid": false,
+                                                "label": "Address:",
+                                                "name": "address",
+                                                "onBlur": [Function],
+                                                "toggleShake": 0,
+                                                "value": Object {
+                                                  "addressString": undefined,
+                                                  "countryId": "fr",
+                                                  "lat": null,
+                                                  "lng": null,
+                                                  "postalCode": "75010",
+                                                },
+                                              }
+                        }
+                        onChange={[Function]}
+            />
+            <LabeledInput
+                        componentName="input"
+                        defaultOption={null}
+                        error={null}
+                        fillInfos={null}
+                        handleChange={[Function]}
+                        isValid={false}
+                        label="Description:"
+                        name="description"
+                        onBlur={[Function]}
+                        placeholder="length min 1 – max 32"
+                        toggleShake={0}
+                        type="text"
+                        value="Super Magasin"
+            />
+</styled.div>,
+          <styled.div
+            all={null}
+            bottom="m"
+            horizontal={null}
+            left={null}
+            right={null}
+            top={null}
+            vertical={null}
+>
+            <DaysOnpeningHour
+                        days={
+                                    Array [
+                                                Object {
+                                                  "open": false,
+                                                },
+                                                Object {
+                                                  "open": false,
+                                                },
+                                                Object {
+                                                  "open": false,
+                                                },
+                                                Object {
+                                                  "open": false,
+                                                },
+                                                Object {
+                                                  "open": false,
+                                                },
+                                                Object {
+                                                  "open": false,
+                                                },
+                                                Object {
+                                                  "open": false,
+                                                },
+                                              ]
+                        }
+                        onChange={[Function]}
+            />
+</styled.div>,
+          <styled.div
+            all={null}
+            bottom={null}
+            horizontal={null}
+            left={null}
+            right={null}
+            top={null}
+            vertical="m"
+>
+            <Button
+                        disabled={false}
+                        fullWidth={true}
+                        isSmall={false}
+                        onClick={[Function]}
+                        theme="primary"
+                        width={null}
+            >
+                        Add your shop
+            </Button>
+</styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "REGISTER YOUR SHOP",
+          },
+          "ref": null,
+          "rendered": "REGISTER YOUR SHOP",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Step 2 of 2",
+          },
+          "ref": null,
+          "rendered": "Step 2 of 2",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "progressRatio": 1,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "all": null,
+            "bottom": null,
+            "children": Array [
+              <LabeledInput
+                componentName="input"
+                defaultOption={null}
+                error={null}
+                fillInfos={null}
+                handleChange={[Function]}
+                isValid={false}
+                label="Name:"
+                name="name"
+                onBlur={[Function]}
+                placeholder="length min 1 – max 16"
+                toggleShake={0}
+                type="text"
+                value="Magasin"
+/>,
+              <LabeledInput
+                componentName="input"
+                defaultOption={null}
+                error={null}
+                fillInfos={null}
+                handleChange={[Function]}
+                isValid={false}
+                label="Category:"
+                name="cat"
+                onBlur={[Function]}
+                placeholder="length min 1 – max 16"
+                toggleShake={0}
+                type="text"
+                value="cool"
+/>,
+              <SearchBar
+                inputOpt={
+                                Object {
+                                                "error": null,
+                                                "fillInfos": null,
+                                                "handleChange": [Function],
+                                                "isValid": false,
+                                                "label": "Address:",
+                                                "name": "address",
+                                                "onBlur": [Function],
+                                                "toggleShake": 0,
+                                                "value": Object {
+                                                  "addressString": undefined,
+                                                  "countryId": "fr",
+                                                  "lat": null,
+                                                  "lng": null,
+                                                  "postalCode": "75010",
+                                                },
+                                              }
+                }
+                onChange={[Function]}
+/>,
+              <LabeledInput
+                componentName="input"
+                defaultOption={null}
+                error={null}
+                fillInfos={null}
+                handleChange={[Function]}
+                isValid={false}
+                label="Description:"
+                name="description"
+                onBlur={[Function]}
+                placeholder="length min 1 – max 32"
+                toggleShake={0}
+                type="text"
+                value="Super Magasin"
+/>,
+            ],
+            "horizontal": null,
+            "left": null,
+            "right": null,
+            "top": null,
+            "vertical": "xl",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "componentName": "input",
+                "defaultOption": null,
+                "error": null,
+                "fillInfos": null,
+                "handleChange": [Function],
+                "isValid": false,
+                "label": "Name:",
+                "name": "name",
+                "onBlur": [Function],
+                "placeholder": "length min 1 – max 16",
+                "toggleShake": 0,
+                "type": "text",
+                "value": "Magasin",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "componentName": "input",
+                "defaultOption": null,
+                "error": null,
+                "fillInfos": null,
+                "handleChange": [Function],
+                "isValid": false,
+                "label": "Category:",
+                "name": "cat",
+                "onBlur": [Function],
+                "placeholder": "length min 1 – max 16",
+                "toggleShake": 0,
+                "type": "text",
+                "value": "cool",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "inputOpt": Object {
+                  "error": null,
+                  "fillInfos": null,
+                  "handleChange": [Function],
+                  "isValid": false,
+                  "label": "Address:",
+                  "name": "address",
+                  "onBlur": [Function],
+                  "toggleShake": 0,
+                  "value": Object {
+                    "addressString": undefined,
+                    "countryId": "fr",
+                    "lat": null,
+                    "lng": null,
+                    "postalCode": "75010",
+                  },
+                },
+                "onChange": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "componentName": "input",
+                "defaultOption": null,
+                "error": null,
+                "fillInfos": null,
+                "handleChange": [Function],
+                "isValid": false,
+                "label": "Description:",
+                "name": "description",
+                "onBlur": [Function],
+                "placeholder": "length min 1 – max 32",
+                "toggleShake": 0,
+                "type": "text",
+                "value": "Super Magasin",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "all": null,
+            "bottom": "m",
+            "children": <DaysOnpeningHour
+              days={
+                            Array [
+                                          Object {
+                                            "open": false,
+                                          },
+                                          Object {
+                                            "open": false,
+                                          },
+                                          Object {
+                                            "open": false,
+                                          },
+                                          Object {
+                                            "open": false,
+                                          },
+                                          Object {
+                                            "open": false,
+                                          },
+                                          Object {
+                                            "open": false,
+                                          },
+                                          Object {
+                                            "open": false,
+                                          },
+                                        ]
+              }
+              onChange={[Function]}
+/>,
+            "horizontal": null,
+            "left": null,
+            "right": null,
+            "top": null,
+            "vertical": null,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "days": Array [
+                Object {
+                  "open": false,
+                },
+                Object {
+                  "open": false,
+                },
+                Object {
+                  "open": false,
+                },
+                Object {
+                  "open": false,
+                },
+                Object {
+                  "open": false,
+                },
+                Object {
+                  "open": false,
+                },
+                Object {
+                  "open": false,
+                },
+              ],
+              "onChange": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "all": null,
+            "bottom": null,
+            "children": <Button
+              disabled={false}
+              fullWidth={true}
+              isSmall={false}
+              onClick={[Function]}
+              theme="primary"
+              width={null}
+>
+              Add your shop
+</Button>,
+            "horizontal": null,
+            "left": null,
+            "right": null,
+            "top": null,
+            "vertical": "m",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Add your shop",
+              "disabled": false,
+              "fullWidth": true,
+              "isSmall": false,
+              "onClick": [Function],
+              "theme": "primary",
+              "width": null,
+            },
+            "ref": null,
+            "rendered": "Add your shop",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

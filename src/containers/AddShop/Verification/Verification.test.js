@@ -1,10 +1,10 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import { ShowShop } from './ShowShop';
+import { Verification } from './Verification';
 
-describe('Containers::ShowShop', () => {
-  const shop = {
+describe('Containers::AddShop::Verification', () => {
+  const pendingShop = {
     lat: '30',
     lng: '3',
     address: '40 rue Citadelle Paris',
@@ -17,22 +17,24 @@ describe('Containers::ShowShop', () => {
   };
 
   const props = {
-    shop,
-    addDeleteShopTransaction: () => null,
+    pendingShop,
+    addShopToStore: () => null,
+    addShopToContract: () => null,
+    addAddShopTransaction: () => null,
     isTransactionPending: false,
-    deleteContractShop: () => null,
-    removeShopFromStore: () => null,
-    transactionHash: "0xwefwerfer",
+    transactionHash: '0x23874grfb2yb38f4h23784',
     endTransaction: () => null,
+    goBack: () => null,
     fetchAll: () => null,
     centerPosition: { lat: 30, lng: 3 },
-  };
-  const component = props => <ShowShop {...props} />
+  }
+
+  const component = props => <Verification {...props} />
 
   it('should match shallow snapshop', () => {
-    expect(shallow(component(props))).toMatchSnapshot('ShowShop::shallow');
+    expect(shallow(component(props))).toMatchSnapshot('Verification::shallow');
   });
   it('should match mounted snapshop', () => {
-    expect(toJson(component(props))).toMatchSnapshot('ShowShop::mount');
+    expect(toJson(component(props))).toMatchSnapshot('Verification::mount');
   });
 });

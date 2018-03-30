@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Containers::PhoneVerification should match snapshop 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PhoneVerification
+    ethAddress="0xawefwefweweq"
+    isSubmitPhonePending={false}
+    phone="623423423"
+    phoneCountry={null}
+    phoneSent={true}
+    sendSms={[Function]}
+    setPhone={[Function]}
+    setPhoneCountry={[Function]}
+    setPhoneSent={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "code": null,
+      "editPhoneNumber": [Function],
+      "lastSend": undefined,
+      "phoneNumber": "623423423",
+      "phoneSent": true,
+      "reSendSms": [Function],
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "code": null,
+        "editPhoneNumber": [Function],
+        "lastSend": undefined,
+        "phoneNumber": "623423423",
+        "phoneSent": true,
+        "reSendSms": [Function],
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
