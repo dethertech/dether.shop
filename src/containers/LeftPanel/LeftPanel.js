@@ -102,6 +102,7 @@ export class LeftPanel extends PureComponent {
       if (network) setMetamaskInstalled(true);
     }
   };
+
   async initApp() {
     const { isWeb3Checked } = this.state;
 
@@ -117,7 +118,7 @@ export class LeftPanel extends PureComponent {
     const { ethAddress, resetApp } = this.props;
 
     const web3EthAddress = await isWeb3();
-    if (web3EthAddress && ethAddress !== web3EthAddress) {
+    if (ethAddress && web3EthAddress && ethAddress !== web3EthAddress) {
       this.setState({ isWeb3Checked: false });
       resetApp();
       window.location.reload();
