@@ -87,7 +87,7 @@ export class Map extends Component {
     await Promise.all([fetchPosition(), initializeClientInfo()]);
     this.interval = setInterval(() => {
       const { centerPosition } = this.props;
-      fetchAll(centerPosition);
+      fetchAll(centerPosition, 1000);
     }, 30000);
     setMapInitiated();
   }

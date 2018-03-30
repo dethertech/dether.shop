@@ -69,8 +69,7 @@ const fetchShops = params => ({
  * @return {[type]}                [description]
  */
 const fetchAll = (centerPosition, radius = 3) => dispatch => {
-  let rad = radius > 30 ? 30 : radius;
-  rad = rad < 3 ? 3 : rad;
+  const rad = radius < 3 ? 3 : radius;
   dispatch(fetchShops({ ...centerPosition, radius: rad, limit: 500 }));
 };
 
