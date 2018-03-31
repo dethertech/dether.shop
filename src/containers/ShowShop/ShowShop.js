@@ -143,9 +143,7 @@ export class ShowShop extends PureComponent {
         title={tr('show_shop.loader_title')}
         message={tr('show_shop.loader_delete_message')}
         isTransaction
-      >
-        {showModal && <BetaModal close={this.closeModal} send />}
-      </LoaderScreen>
+      />
     ) : (
       <Fragment>
         {showModal && <BetaModal close={this.closeModal} send />}

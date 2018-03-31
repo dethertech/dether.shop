@@ -159,9 +159,7 @@ export class Verification extends PureComponent {
           title={tr('add_form_verification.loader_title')}
           message={tr('add_form_verification.loader_add_message')}
           isTransaction
-        >
-          {showModal && <BetaModal close={this.closeModal} />}
-        </LoaderScreen>
+        />
       );
     }
     return (
