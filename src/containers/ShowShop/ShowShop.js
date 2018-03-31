@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
   Components
  */
 import { ShopRecap, Button, LoaderScreen } from '../../components';
+import BetaModal from '../Wrapper/BetaModal';
 
 /*
   Translate module
@@ -58,6 +59,7 @@ export class ShowShop extends PureComponent {
 
   state = {
     isLoading: false,
+    showModal: false,
   };
   componentWillMount() {
     const { isTransactionPending } = this.props;
@@ -122,23 +124,31 @@ export class ShowShop extends PureComponent {
       this.checkTransaction();
       this.HideLoader();
     } catch (e) {
-      toast.error(tr('errors.transaction.metamask_reject'));
-      this.HideLoader();
+      // toast.error(tr('errors.transaction.metamask_reject'));
+      // this.HideLoader();
+      this.setState({ showModal: true });
     }
+  };
+
+  closeModal = () => {
+    this.setState({ showModal: false });
   };
 
   render = () => {
     const { shop } = this.props;
-    const { isLoading } = this.state;
+    const { isLoading, showModal } = this.state;
 
     return isLoading ? (
       <LoaderScreen
         title={tr('show_shop.loader_title')}
         message={tr('show_shop.loader_delete_message')}
         isTransaction
-      />
+      >
+        {showModal && <BetaModal close={this.closeModal} send />}
+      </LoaderScreen>
     ) : (
       <Fragment>
+        {showModal && <BetaModal close={this.closeModal} send />}
         <ShopRecap {...shop} />
         {this.getView()}
       </Fragment>
