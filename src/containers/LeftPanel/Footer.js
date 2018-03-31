@@ -17,6 +17,9 @@ const Footer = ({ toggleTermsModal }) => (
     <FooterText>
       <div>
         <b>Dether</b> {tr('footer.all_right_reserved')} -{' '}
+        <SmallLink link="https://medium.com/@DETHER/tutorial-dether-for-shops-c6db11c0ded1">
+          {tr('footer.tutorial')}
+        </SmallLink>
         <ButtonLink isSmall onClick={toggleTermsModal}>
           {tr('footer.terms_and_conditions')}
         </ButtonLink>
@@ -29,9 +32,6 @@ const Footer = ({ toggleTermsModal }) => (
           {tr('footer.report_shop')}
         </SmallLink>
         &nbsp;-&nbsp;
-        <SmallLink link="https://medium.com/@DETHER/tutorial-dether-for-shops-c6db11c0ded1">
-          {tr('footer.tutorial')}
-        </SmallLink>
       </div>
     </FooterText>
   </Padding>
