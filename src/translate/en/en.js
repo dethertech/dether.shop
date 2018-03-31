@@ -182,7 +182,8 @@ const en = {
     },
   },
   metamask: {
-    check_transaction: 'Please check your metamask to confirm the transaction',
+    check_transaction:
+      'Please check your Metamask account to see the status of your transaction. If nothing happens after 5 minutes, try refreshing the app.',
   },
   maintenance_page: {
     title: 'Website in maintenance',
