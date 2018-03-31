@@ -47,7 +47,7 @@ const setLicencePrice = licencePrice => ({
 
 const fetchClientInfo = ({ onSuccess }) => ({
   type: 'API:FETCH_USER_INFO',
-  url: 'https://ipinfo.io/json',
+  url: `https://ipinfo.io/json?token=${process.env.REACT_APP_TOKEN_IPINFO}`,
   onSuccess,
 });
 
