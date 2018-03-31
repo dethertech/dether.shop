@@ -61,7 +61,7 @@ class PhoneForm extends PureComponent {
 
   handlePhoneChange = ({ target: { value } }) => {
     this.setState({ phoneError: null });
-    const validPhone = val => /^\d{0,10}$/.test(val);
+    const validPhone = val => /^\d{0,15}$/.test(val);
 
     if (validPhone(value)) {
       return this.setState(prevState => ({ ...prevState, phone: value }));
