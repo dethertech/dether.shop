@@ -10,12 +10,13 @@ const SmallLink = ({ link, children }) => (
 );
 
 SmallLink.propTypes = {
-  link: PropTypes.string.isRequired,
+  link: PropTypes.string,
   children: PropTypes.node,
 };
 
 SmallLink.defaultProps = {
   children: null,
+  link: 'https://dether.io/',
 };
 
 export default SmallLink;

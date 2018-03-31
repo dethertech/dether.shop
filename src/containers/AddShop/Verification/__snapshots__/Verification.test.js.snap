@@ -48,6 +48,7 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
+        false,
         <ShopRecap
           address="40 rue Citadelle Paris"
           cat="cool"
@@ -86,6 +87,7 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      false,
       Object {
         "instance": null,
         "key": undefined,
@@ -183,6 +185,7 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
+          false,
           <ShopRecap
             address="40 rue Citadelle Paris"
             cat="cool"
@@ -221,6 +224,7 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        false,
         Object {
           "instance": null,
           "key": undefined,
