@@ -96,7 +96,7 @@ describe('Map actions', () => {
 
     const expectedAction = {
       type: 'API:FETCH_POSITION_BY_IP',
-      url: 'https://ipinfo.io/json'
+      url: `https://ipinfo.io/json?token=${process.env.REACT_APP_TOKEN_IPINFO}`
     }
 
     expect(fetchPositionByIp(payload)).toMatchObject(expectedAction);
