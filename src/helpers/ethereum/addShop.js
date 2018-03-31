@@ -125,7 +125,7 @@ const addShop = shop =>
         to: DthContract.networks[networkId].address,
         data: transferMethodTransactionData,
         gas: 400000,
-        gasPrice: 35000000000,
+        gasPrice: 13000000000,
       });
       res(tsx);
     } catch (e) {
