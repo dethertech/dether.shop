@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 
 import { ShopRecap, Button, LoaderScreen } from '../../../components';
 import tr from '../../../translate';
+import BetaModal from '../../Wrapper/BetaModal';
 
 import {
   addAddShopTransaction as addAddShopTransactionAction,
@@ -30,7 +31,7 @@ const ButtonsWrapper = styled.div`
   margin-top: 40px;
 `;
 
-class Verification extends PureComponent {
+export class Verification extends PureComponent {
   static propTypes = {
     pendingShop: PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -55,6 +56,7 @@ class Verification extends PureComponent {
   state = {
     isLoading: false,
     licencePrice: null,
+    showModal: false,
   };
 
   async componentWillMount() {
@@ -133,17 +135,23 @@ class Verification extends PureComponent {
       this.checkTransaction();
       this.HideLoader();
     } catch (e) {
-      toast.error(tr('errors.transaction.metamask_reject'));
-      this.HideLoader();
+      // console.log('AddShop::Metamask', e);
+      // toast.error(tr('errors.transaction.metamask_reject'));
+      // this.HideLoader();
+      this.setState({ showModal: true });
     }
   };
 
   showLoader = () => this.setState({ isLoading: true });
   HideLoader = () => this.setState({ isLoading: false });
 
+  closeModal = () => {
+    this.setState({ showModal: false });
+  };
+
   render() {
     const { pendingShop } = this.props;
-    const { isLoading, licencePrice } = this.state;
+    const { isLoading, licencePrice, showModal } = this.state;
 
     if (isLoading) {
       return (
@@ -151,11 +159,14 @@ class Verification extends PureComponent {
           title={tr('add_form_verification.loader_title')}
           message={tr('add_form_verification.loader_add_message')}
           isTransaction
-        />
+        >
+          {showModal && <BetaModal close={this.closeModal} />}
+        </LoaderScreen>
       );
     }
     return (
       <Fragment>
+        {showModal && <BetaModal close={this.closeModal} />}
         <ShopRecap licencePrice={licencePrice} {...pendingShop} />
         {this.getView()}
       </Fragment>

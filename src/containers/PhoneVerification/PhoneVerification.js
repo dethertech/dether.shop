@@ -13,7 +13,7 @@ import {
   setPhoneCountry as setPhoneCountryAction,
 } from '../../actions/kyc';
 
-class PhoneVerification extends PureComponent {
+export class PhoneVerification extends PureComponent {
   static propTypes = {
     isSubmitPhonePending: PropTypes.bool.isRequired,
     sendSms: PropTypes.func.isRequired,

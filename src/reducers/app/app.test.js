@@ -23,7 +23,7 @@ describe('reducer::app', () => {
   });
 
   it('should return ethereum network', () => {
-    expect(hasGoodNetwork({ ethNetwork: 42 })).toEqual(true)
+    expect(hasGoodNetwork({ ethNetwork: 1 })).toEqual(true)
   })
 
   describe('SET_METAMASK_INSTALLED', () => {

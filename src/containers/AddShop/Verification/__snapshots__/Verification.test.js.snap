@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Verification::mount 1`] = `undefined`;
+
+exports[`Verification::shallow 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Verification
+    addAddShopTransaction={[Function]}
+    addShopToContract={[Function]}
+    addShopToStore={[Function]}
+    centerPosition={
+        Object {
+            "lat": 30,
+            "lng": 3,
+          }
+    }
+    endTransaction={[Function]}
+    fetchAll={[Function]}
+    goBack={[Function]}
+    isTransactionPending={false}
+    pendingShop={
+        Object {
+            "address": "40 rue Citadelle Paris",
+            "cat": "cool",
+            "countryId": "fr",
+            "description": "Super Magasin",
+            "lat": "30",
+            "lng": "3",
+            "name": "Magasin",
+            "opening": "0000000",
+            "postalCode": "75010",
+          }
+    }
+    transactionHash="0x23874grfb2yb38f4h23784"
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        false,
+        <ShopRecap
+          address="40 rue Citadelle Paris"
+          cat="cool"
+          countryId="fr"
+          description="Super Magasin"
+          lat="30"
+          licencePrice={null}
+          lng="3"
+          name="Magasin"
+          opening="0000000"
+          postalCode="75010"
+/>,
+        <styled.div>
+          <Button
+                    disabled={false}
+                    fullWidth={false}
+                    isSmall={false}
+                    onClick={[Function]}
+                    theme="primary"
+                    width="45%"
+          >
+                    Submit
+          </Button>
+          <Button
+                    disabled={false}
+                    fullWidth={false}
+                    isSmall={false}
+                    onClick={[Function]}
+                    theme="light"
+                    width="45%"
+          >
+                    Edit
+          </Button>
+</styled.div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      false,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "address": "40 rue Citadelle Paris",
+          "cat": "cool",
+          "countryId": "fr",
+          "description": "Super Magasin",
+          "lat": "30",
+          "licencePrice": null,
+          "lng": "3",
+          "name": "Magasin",
+          "opening": "0000000",
+          "postalCode": "75010",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Button
+              disabled={false}
+              fullWidth={false}
+              isSmall={false}
+              onClick={[Function]}
+              theme="primary"
+              width="45%"
+>
+              Submit
+</Button>,
+            <Button
+              disabled={false}
+              fullWidth={false}
+              isSmall={false}
+              onClick={[Function]}
+              theme="light"
+              width="45%"
+>
+              Edit
+</Button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Submit",
+              "disabled": false,
+              "fullWidth": false,
+              "isSmall": false,
+              "onClick": [Function],
+              "theme": "primary",
+              "width": "45%",
+            },
+            "ref": null,
+            "rendered": "Submit",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Edit",
+              "disabled": false,
+              "fullWidth": false,
+              "isSmall": false,
+              "onClick": [Function],
+              "theme": "light",
+              "width": "45%",
+            },
+            "ref": null,
+            "rendered": "Edit",
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          false,
+          <ShopRecap
+            address="40 rue Citadelle Paris"
+            cat="cool"
+            countryId="fr"
+            description="Super Magasin"
+            lat="30"
+            licencePrice={null}
+            lng="3"
+            name="Magasin"
+            opening="0000000"
+            postalCode="75010"
+/>,
+          <styled.div>
+            <Button
+                        disabled={false}
+                        fullWidth={false}
+                        isSmall={false}
+                        onClick={[Function]}
+                        theme="primary"
+                        width="45%"
+            >
+                        Submit
+            </Button>
+            <Button
+                        disabled={false}
+                        fullWidth={false}
+                        isSmall={false}
+                        onClick={[Function]}
+                        theme="light"
+                        width="45%"
+            >
+                        Edit
+            </Button>
+</styled.div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        false,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "address": "40 rue Citadelle Paris",
+            "cat": "cool",
+            "countryId": "fr",
+            "description": "Super Magasin",
+            "lat": "30",
+            "licencePrice": null,
+            "lng": "3",
+            "name": "Magasin",
+            "opening": "0000000",
+            "postalCode": "75010",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Button
+                disabled={false}
+                fullWidth={false}
+                isSmall={false}
+                onClick={[Function]}
+                theme="primary"
+                width="45%"
+>
+                Submit
+</Button>,
+              <Button
+                disabled={false}
+                fullWidth={false}
+                isSmall={false}
+                onClick={[Function]}
+                theme="light"
+                width="45%"
+>
+                Edit
+</Button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "Submit",
+                "disabled": false,
+                "fullWidth": false,
+                "isSmall": false,
+                "onClick": [Function],
+                "theme": "primary",
+                "width": "45%",
+              },
+              "ref": null,
+              "rendered": "Submit",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "Edit",
+                "disabled": false,
+                "fullWidth": false,
+                "isSmall": false,
+                "onClick": [Function],
+                "theme": "light",
+                "width": "45%",
+              },
+              "ref": null,
+              "rendered": "Edit",
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

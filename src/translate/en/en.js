@@ -155,10 +155,17 @@ const en = {
     loader_title: 'Please wait',
     loader_add_message: 'We are checking your request',
   },
-  beta: {
+  beta_send: {
     title: 'Warning!',
-    text: 'Dether app is a Beta version. || Use it at your own risk',
-    button: 'I agree',
+    text:
+      'Congratulations! Your shop might take a couple minutes to appear on the Dether map. Click on your metamask to see your transaction status.',
+    button: 'Ok',
+  },
+  beta_receive: {
+    title: 'Warning!',
+    text:
+      'Your shop might take a couple minutes to disappear from the Dether map. Click on your metamask to see your transaction status.',
+    button: 'Ok',
   },
   map: {
     shop_card: {
