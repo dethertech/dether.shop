@@ -49,7 +49,7 @@ const BetaModal = ({ close, send }) => (
           {send ? tr('beta_send.text') : tr('beta_receive.text')}
         </Padding>
         <Button fullWidth onClick={close}>
-          {send ? tr('beta_send.button') : tr('beta_receive.text')}
+          {send ? tr('beta_send.button') : tr('beta_receive.button')}
         </Button>
       </Wrapper>
     </Modal>
