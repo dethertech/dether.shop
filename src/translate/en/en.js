@@ -99,7 +99,7 @@ const en = {
     terms_and_conditions: 'Terms and conditions',
     report_bug: 'Report a bug',
     report_shop: 'Report a shop',
-    tutorial: 'tutorial',
+    tutorial: 'Tutorial',
   },
   shop_recap: {
     informations: 'Information:',
