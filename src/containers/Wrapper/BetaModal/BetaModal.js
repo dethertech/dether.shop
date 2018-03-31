@@ -37,17 +37,19 @@ const WarningIcon = props => (
   </svg>
 );
 
-const BetaModal = ({ close }) => (
+const BetaModal = ({ close, send }) => (
   <Root>
     <Modal>
       <Wrapper>
         <Padding vertical="m">
           <WarningIcon />
-          <Title>{tr('beta.title')}</Title>
-          {tr('beta.text')}
+          <Title>
+            {send ? tr('beta_send.title') : tr('beta_receive.title')}
+          </Title>
+          {send ? tr('beta_send.text') : tr('beta_receive.text')}
         </Padding>
         <Button fullWidth onClick={close}>
-          {tr('beta.button')}
+          {send ? tr('beta_send.button') : tr('beta_receive.text')}
         </Button>
       </Wrapper>
     </Modal>
@@ -56,6 +58,11 @@ const BetaModal = ({ close }) => (
 
 BetaModal.propTypes = {
   close: PropTypes.func.isRequired,
+  send: PropTypes.bool,
+};
+
+BetaModal.defaultProps = {
+  send: false,
 };
 
 export default BetaModal;
