@@ -8,6 +8,7 @@ import map from './map';
 import user from './user';
 import shop from './shop';
 import kyc from './kyc';
+import transaction from './transaction';
 
 const appReducer = combineReducers({
   app,
@@ -15,6 +16,7 @@ const appReducer = combineReducers({
   user,
   shop,
   kyc,
+  transaction,
 });
 
 const rootReducer = (state, action) => {

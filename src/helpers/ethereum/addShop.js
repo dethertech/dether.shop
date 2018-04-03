@@ -103,34 +103,33 @@ const overloadedTransferAbi = {
  * @param {[Object]} description
  * @returns {[String]} transaction hash
  */
-const addShop = shop =>
-  new Promise(async (res, rej) => {
-    try {
-      const hexShop = shopToContract(shop);
-      const [address, networkId] = await Promise.all([
-        getAddress(),
-        getNetworkId(),
-      ]);
-      const licencePrice = await getLicenceShop(shop.countryId);
-      const transferMethodTransactionData = web3Abi.encodeFunctionCall(
-        overloadedTransferAbi,
-        [
-          DetherCore.networks[networkId].address,
-          web3js.utils.toWei(licencePrice),
-          hexShop,
-        ],
-      );
-      const tsx = await web3js.eth.sendTransaction({
+const addShop = async shop => {
+  const hexShop = shopToContract(shop);
+  const [address, networkId] = await Promise.all([
+    getAddress(),
+    getNetworkId(),
+  ]);
+  const licencePrice = await getLicenceShop(shop.countryId);
+  const transferMethodTransactionData = web3Abi.encodeFunctionCall(
+    overloadedTransferAbi,
+    [
+      DetherCore.networks[networkId].address,
+      web3js.utils.toWei(licencePrice),
+      hexShop,
+    ],
+  );
+  return new Promise((res, rej) => {
+    web3js.eth.sendTransaction(
+      {
         from: address,
         to: DthContract.networks[networkId].address,
         data: transferMethodTransactionData,
         gas: 400000,
         gasPrice: 13000000000,
-      });
-      res(tsx);
-    } catch (e) {
-      rej(new TypeError(`Invalid shop transaction: ${e.message}`));
-    }
+      },
+      (error, hash) => (error ? rej(error) : res(hash)),
+    );
   });
+};
 
 export default addShop;

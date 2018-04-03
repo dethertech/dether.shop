@@ -20,7 +20,7 @@ Persist store config
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['shop', 'app'],
+  whitelist: ['shop', 'app', 'transaction'],
   transforms: [
     createTransform(state => ({ ...state, shop: null }), state => state, {
       whitelist: ['shop'],
@@ -32,6 +32,14 @@ const persistConfig = {
       }),
       state => state,
       { whitelist: ['app'] },
+    ),
+    createTransform(
+      state => state,
+      state => ({
+        ...state,
+        sentTime: state.sentTime ? Date.parse(state.sentTime) : null,
+      }),
+      { whitelist: ['transaction'] },
     ),
   ],
 };

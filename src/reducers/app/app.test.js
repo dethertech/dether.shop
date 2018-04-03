@@ -2,6 +2,7 @@
 import deepFreeze from 'deep-freeze';
 
 import appReducer, { hasGoodNetwork } from './app';
+import config from '../../constants/config';
 
 describe('reducer::app', () => {
   let defaultAction;
@@ -23,7 +24,7 @@ describe('reducer::app', () => {
   });
 
   it('should return ethereum network', () => {
-    expect(hasGoodNetwork({ ethNetwork: 1 })).toEqual(true)
+    expect(hasGoodNetwork({ ethNetwork: config.ethNetwork })).toEqual(true)
   })
 
   describe('SET_METAMASK_INSTALLED', () => {

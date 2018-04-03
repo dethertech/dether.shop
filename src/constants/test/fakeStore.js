@@ -50,5 +50,10 @@ export default state => ({
       },
       isCertified: true,
     },
+    transaction: {
+      pending: false,
+      hash: null,
+      sentTime: null,
+    },
   }),
 });

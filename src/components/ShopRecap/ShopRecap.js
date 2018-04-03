@@ -50,7 +50,7 @@ class ShopRecap extends PureComponent {
     address: '',
   };
 
-  componentWillMount = async () => {
+  componentDidMount = async () => {
     const { lat, lng } = this.props;
 
     const address = await GeocodeAPI.positionToAddress({ lat, lng }).catch(

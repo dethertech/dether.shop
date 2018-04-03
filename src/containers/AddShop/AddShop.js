@@ -1,9 +1,15 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Form from './Form';
 import Verification from './Verification';
 
 class AddShop extends PureComponent {
+  static propTypes = {
+    isTransactionPending: PropTypes.bool.isRequired,
+  };
+
   state = {
     verify: false,
   };
@@ -12,8 +18,9 @@ class AddShop extends PureComponent {
 
   render() {
     const { verify } = this.state;
+    const { isTransactionPending } = this.props;
 
-    return verify ? (
+    return verify || isTransactionPending ? (
       <Verification goBack={this.toggleVerify} />
     ) : (
       <Form onSubmit={this.toggleVerify} />
@@ -21,4 +28,7 @@ class AddShop extends PureComponent {
   }
 }
 
-export default AddShop;
+const mapStateToProps = ({ transaction }) => ({
+  isTransactionPending: transaction.pending,
+});
+export default connect(mapStateToProps)(AddShop);

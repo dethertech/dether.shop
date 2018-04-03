@@ -12,6 +12,7 @@ export { default as Panels } from './Panels';
 export { default as ProgressBar } from './ProgressBar';
 export { default as RoundIconBtn } from './RoundIconBtn';
 export { default as LoaderScreen } from './Screens/LoaderScreen';
+export { default as TransactionFlow } from './Flows/TransactionFlow';
 export { default as ShopRecap } from './ShopRecap';
 export { default as SearchBarWrapper } from './SearchBarWrapper';
 export { default as SmallLink } from './SmallLink';
