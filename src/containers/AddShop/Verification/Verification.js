@@ -135,7 +135,7 @@ export class Verification extends PureComponent {
       this.checkTransaction();
       this.HideLoader();
     } catch (e) {
-      // console.log('AddShop::Metamask', e);
+      console.log('AddShop::Metamask', e);
       // toast.error(tr('errors.transaction.metamask_reject'));
       // this.HideLoader();
       this.setState({ showModal: true });
