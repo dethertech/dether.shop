@@ -12,6 +12,7 @@ describe('reducer::app', () => {
       isMetamaskInstalled: false,
       isAppInitialized: false,
       isTermsModalOpenened: false,
+      isWarningTransactionModalOpen: false,
       ethNetwork: null,
       areTermsAccepted: false,
       licencePrice: null

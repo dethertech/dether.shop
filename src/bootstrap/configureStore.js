@@ -37,7 +37,7 @@ const persistConfig = {
       state => state,
       state => ({
         ...state,
-        sentTime: state.sentTime ? Date.parse(state.sentTime) : null,
+        sentTime: state.sentTime ? new Date(state.sentTime) : null,
       }),
       { whitelist: ['transaction'] },
     ),

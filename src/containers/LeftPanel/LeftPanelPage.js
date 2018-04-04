@@ -9,6 +9,7 @@ import tokens from '../../styles/tokens';
 // component
 import { Layout, LoaderScreen, Header } from '../../components';
 import Footer from './Footer';
+import WarningTransactionModal from './WarningTransactionModal';
 
 import ShopRouter from '../ShopRouter';
 
@@ -33,6 +34,8 @@ class LeftPanelPage extends PureComponent {
     }).isRequired,
     refreshBalance: PropTypes.func.isRequired,
     isLicencePriceSet: PropTypes.bool.isRequired,
+    isWarningTransactionModalOpen: PropTypes.bool.isRequired,
+    closeWarningTransactionModal: PropTypes.func.isRequired,
   };
   getView = () => {
     const { isWeb3Checked, isLicencePriceSet } = this.props;
@@ -54,12 +57,17 @@ class LeftPanelPage extends PureComponent {
       toggleBuyModal,
       balance,
       refreshBalance,
+      isWarningTransactionModalOpen,
+      closeWarningTransactionModal,
     } = this.props;
     const eth = balance.eth.toFixed(4);
     const dth = balance.dth.toFixed(4);
 
     return (
       <Layout isFullScreen>
+        {isWarningTransactionModalOpen && (
+          <WarningTransactionModal closeFunc={closeWarningTransactionModal} />
+        )}
         <Layout.Header>
           <Header
             onRefresh={refreshBalance}

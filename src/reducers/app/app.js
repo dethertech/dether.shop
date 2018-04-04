@@ -4,6 +4,7 @@ export const initialState = {
   isMetamaskInstalled: false,
   isAppInitialized: false,
   isTermsModalOpenened: false,
+  isWarningTransactionModalOpen: false,
   ethNetwork: null,
   areTermsAccepted: false,
   licencePrice: null,
@@ -36,6 +37,11 @@ const appReducer = (state = initialState, { type, payload }) => {
       return { ...state, areTermsAccepted: true };
     case 'SET_LICENCE_PRICE':
       return { ...state, licencePrice: payload };
+    case 'TOGGLE_WARNING_TRANSACTION_MODAL':
+      return {
+        ...state,
+        isWarningTransactionModalOpen: !state.isWarningTransactionModalOpen,
+      };
     default:
       return state;
   }

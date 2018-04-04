@@ -26,6 +26,13 @@ const toggleTermsModal = () => ({
 });
 
 /**
+ * toggleWarningTransactionModal
+ */
+const toggleWarningTransactionModal = () => ({
+  type: 'TOGGLE_WARNING_TRANSACTION_MODAL',
+});
+
+/**
  * [setEthNetwork description]
  * @param {[type]} id [description]
  */
@@ -77,6 +84,7 @@ export {
   setMetamaskInstalled,
   setAppInitialized,
   toggleTermsModal,
+  toggleWarningTransactionModal,
   setEthNetwork,
   acceptTerms,
   setLicencePrice,

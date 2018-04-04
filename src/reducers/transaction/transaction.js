@@ -13,6 +13,8 @@ const transactionReducer = (state = initialState, { type, payload }) => {
         hash: payload,
         sentTime: new Date(),
       };
+    case 'SET_TRANSACTION_HASH':
+      return { ...state, hash: payload };
     case 'RESET_TRANSACTION':
       return initialState;
     default:

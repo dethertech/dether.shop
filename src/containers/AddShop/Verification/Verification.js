@@ -68,10 +68,11 @@ export class Verification extends PureComponent {
 
     const shop = await getShop();
     if (shop) {
-      fetchAll(centerPosition);
       this.setState({ transactionSubmitted: false });
+      fetchAll(centerPosition);
       resetTransaction();
       addShopToStore(shop);
+      return true;
     }
   };
 
@@ -91,7 +92,6 @@ export class Verification extends PureComponent {
   render() {
     const { pendingShop, isTransactionPending, goBack } = this.props;
     const { licencePrice, transactionSubmitted } = this.state;
-
     if (isTransactionPending || transactionSubmitted) {
       return (
         <TransactionFlow

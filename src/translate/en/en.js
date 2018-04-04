@@ -173,7 +173,7 @@ const en = {
     },
   },
   buy_modal: {
-    title: 'Exchange',
+    title: 'Exchanges',
   },
   api: {
     errors: {

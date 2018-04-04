@@ -7,4 +7,9 @@ const resetTransaction = () => ({
   type: 'RESET_TRANSACTION',
 });
 
-export { addTransaction, resetTransaction };
+const setTransactionHash = hash => ({
+  type: 'SET_TRANSACTION_HASH',
+  payload: hash,
+});
+
+export { addTransaction, resetTransaction, setTransactionHash };

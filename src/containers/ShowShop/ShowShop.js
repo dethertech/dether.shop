@@ -52,20 +52,6 @@ export class ShowShop extends PureComponent {
     transactionSubmitted: false,
   };
 
-  componentWillMount() {
-    const { isTransactionPending } = this.props;
-
-    if (isTransactionPending) {
-      this.interval = this.checkTransaction();
-    }
-  }
-
-  componentWillUnmount() {
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
-  }
-
   checkTransaction = async () => {
     const {
       removeShopFromStore,
@@ -80,6 +66,7 @@ export class ShowShop extends PureComponent {
       this.setState({ transactionSubmitted: false });
       resetTransaction();
       removeShopFromStore(shop);
+      return true;
     }
   };
 

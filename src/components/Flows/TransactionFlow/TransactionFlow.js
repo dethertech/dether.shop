@@ -2,14 +2,14 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { toast } from 'react-toastify';
 
-import tr from '../../../translate';
 import { getTransactionStatus } from '../../../helpers';
 import {
   addTransaction as addTransactionAction,
   resetTransaction as resetTransactionAction,
-} from '../../../actions/transaction';
+  setTransactionHash as setTransactionHashAction,
+  toggleWarningTransactionModal as toggleWarningTransactionModalAction,
+} from '../../../actions';
 
 import { LoaderScreen } from '../../';
 import TransactionFlowRecap from './TransactionFlowRecap';
@@ -38,55 +38,83 @@ class TransactionFlow extends PureComponent {
     }).isRequired,
     checkTransaction: PropTypes.func.isRequired,
     resetTransaction: PropTypes.func.isRequired,
+    addTransaction: PropTypes.func.isRequired,
+    setTransactionHash: PropTypes.func.isRequired,
+    toggleWarningTransactionModal: PropTypes.func.isRequired,
   };
 
-  async componentDidMount() {
-    const { sendTransaction, addTransaction, transaction } = this.props;
-    if (transaction.pending) this.runCheckTransactionProcess(transaction.hash);
-    else {
-      try {
-        const hash = await sendTransaction();
-        addTransaction(hash);
-        this.runCheckTransactionProcess(hash);
-      } catch (e) {
-        this.checkMetaMaskReceipt(e);
-      }
+  componentDidMount() {
+    const {
+      sendTransaction,
+      addTransaction,
+      transaction,
+      setTransactionHash,
+    } = this.props;
+    if (transaction.pending) return this.checkTransaction(transaction);
+    addTransaction();
+    sendTransaction()
+      .then(hash => {
+        setTransactionHash(hash);
+      })
+      .catch(e => this.checkMetaMaskReceipt(e));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { transaction } = nextProps;
+    if (transaction.pending && transaction.sentTime && !this.timeout) {
+      this.checkTransaction(nextProps.transaction);
     }
   }
 
   componentWillUnmount() {
-    if (this.interval) clearInterval(this.interval);
+    if (this.timeout) clearTimeout(this.timeout);
   }
 
-  runCheckTransactionProcess = hash => {
+  checkTransaction = async transaction => {
     const {
       onError,
       checkTransaction,
       resetTransaction,
-      transaction,
+      transaction: storeTransaction,
     } = this.props;
+    const { sentTime } = transaction;
+    const hash = transaction.hash || storeTransaction.hash;
+    const startTime = new Date();
 
-    // Check for 10 minutes
-    if (new Date() - transaction.sentTime > 600000) {
+    if (new Date() - sentTime > 600000) {
       resetTransaction();
       onError();
     }
-    this.interval = setInterval(async () => {
-      if (hash) {
-        const status = await getTransactionStatus(hash);
-        if (status === 'error') {
-          resetTransaction();
-          onError();
-        }
+    if (hash) {
+      const status = await getTransactionStatus(hash);
+      if (status === 'error') {
+        resetTransaction();
+        onError();
       }
-      checkTransaction();
-    }, 5000);
+    }
+
+    const isFinished = !!await checkTransaction();
+    if (isFinished) return;
+
+    const checkTime = new Date() - startTime;
+    if (checkTime > 5000) this.checkTransaction(transaction);
+    else {
+      this.timeout = setTimeout(
+        () => this.checkTransaction(transaction),
+        5000 - checkTime,
+      );
+    }
   };
 
-  checkMetaMaskReceipt = e => {
-    const { onError } = this.props;
-    console.log(e);
-    toast.error(tr('errors.transaction.metamask_reject'));
+  checkMetaMaskReceipt = () => {
+    const {
+      onError,
+      resetTransaction,
+      toggleWarningTransactionModal,
+    } = this.props;
+
+    toggleWarningTransactionModal();
+    resetTransaction();
     onError();
   };
 
@@ -110,6 +138,11 @@ const mapStateToProps = ({ transaction }) => ({
 const mapDispatchToProps = dispatch => ({
   addTransaction: bindActionCreators(addTransactionAction, dispatch),
   resetTransaction: bindActionCreators(resetTransactionAction, dispatch),
+  setTransactionHash: bindActionCreators(setTransactionHashAction, dispatch),
+  toggleWarningTransactionModal: bindActionCreators(
+    toggleWarningTransactionModalAction,
+    dispatch,
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TransactionFlow);

@@ -28,6 +28,7 @@ import {
   setMetamaskInstalled as setMetamaskInstalledAction,
   setEthNetwork as setEthNetworkAction,
   toggleTermsModal as toggleTermsModalAction,
+  toggleWarningTransactionModal as toggleWarningTransactionModalAction,
 } from '../../actions/app';
 import {
   setEthAddress as setEthAddressAction,
@@ -49,8 +50,10 @@ export class LeftPanel extends PureComponent {
     isCertified: PropTypes.func.isRequired,
     setUserCertified: PropTypes.func.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
+    toggleWarningTransactionModal: PropTypes.func.isRequired,
     ethAddress: PropTypes.string.isRequired,
     isTermsModalOpenened: PropTypes.bool.isRequired,
+    isWarningTransactionModalOpen: PropTypes.bool.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
       dth: PropTypes.number.isRequired,
@@ -141,6 +144,8 @@ export class LeftPanel extends PureComponent {
       toggleTermsModal,
       isTermsModalOpenened,
       isLicencePriceSet,
+      toggleWarningTransactionModal,
+      isWarningTransactionModalOpen,
     } = this.props;
     const { isBuyModalOpened, isWeb3Checked } = this.state;
 
@@ -154,6 +159,8 @@ export class LeftPanel extends PureComponent {
           toggleBuyModal={this.toggleBuyModal}
           balance={balance}
           refreshBalance={this.refreshBalance}
+          closeWarningTransactionModal={toggleWarningTransactionModal}
+          isWarningTransactionModalOpen={isWarningTransactionModalOpen}
         />
         {isTermsModalOpenened && <TermsModal closeFunc={toggleTermsModal} />}
         {isBuyModalOpened && <BuyModal closeFunc={this.toggleBuyModal} />}
@@ -165,6 +172,7 @@ export class LeftPanel extends PureComponent {
 const mapStateToProps = ({ app, user }) => ({
   balance: user.balance,
   isTermsModalOpenened: app.isTermsModalOpenened,
+  isWarningTransactionModalOpen: app.isWarningTransactionModalOpen,
   isMetamaskInstalled: app.isMetamaskInstalled,
   hasGoodNetwork: hasGoodNetworkHelper(app),
   ethAddress: user.ethAddress || '',
@@ -181,6 +189,10 @@ const mapDispatchToProps = dispatch => ({
   setBalance: bindActionCreators(setBalanceAction, dispatch),
   setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
   toggleTermsModal: bindActionCreators(toggleTermsModalAction, dispatch),
+  toggleWarningTransactionModal: bindActionCreators(
+    toggleWarningTransactionModalAction,
+    dispatch,
+  ),
   setEthNetwork: bindActionCreators(setEthNetworkAction, dispatch),
   resetApp: bindActionCreators(reset, dispatch),
   isCertified: isSmsRegHelper,

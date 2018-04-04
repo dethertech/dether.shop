@@ -28,7 +28,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
-    "dethercontract": "^3.0.0",
+    "dethercontract": "^3.1.0",
     "google-map-react": "^0.34.0",
     "platform": "^1.3.5",
     "points-cluster": "^0.1.4",
