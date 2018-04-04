@@ -8,8 +8,12 @@ import {
   addTransaction as addTransactionAction,
   resetTransaction as resetTransactionAction,
   setTransactionHash as setTransactionHashAction,
-  toggleWarningTransactionModal as toggleWarningTransactionModalAction,
+  openNotificationModal as openNotificationModalAction,
 } from '../../../actions';
+
+import { notificationsTypes } from '../../../constants';
+
+import tr from '../../../translate';
 
 import { LoaderScreen } from '../../';
 import TransactionFlowRecap from './TransactionFlowRecap';
@@ -40,7 +44,7 @@ class TransactionFlow extends PureComponent {
     resetTransaction: PropTypes.func.isRequired,
     addTransaction: PropTypes.func.isRequired,
     setTransactionHash: PropTypes.func.isRequired,
-    toggleWarningTransactionModal: PropTypes.func.isRequired,
+    openNotificationModal: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -107,13 +111,12 @@ class TransactionFlow extends PureComponent {
   };
 
   checkMetaMaskReceipt = () => {
-    const {
-      onError,
-      resetTransaction,
-      toggleWarningTransactionModal,
-    } = this.props;
+    const { onError, resetTransaction, openNotificationModal } = this.props;
 
-    toggleWarningTransactionModal();
+    openNotificationModal({
+      type: notificationsTypes.WARNING,
+      message: tr('notifications.transaction_error'),
+    });
     resetTransaction();
     onError();
   };
@@ -123,7 +126,7 @@ class TransactionFlow extends PureComponent {
     if (transaction.pending)
       return (
         <TransactionFlowRecap
-          message="Your transaction is pending"
+          message={tr('notifications.transaction_pending')}
           shop={shop}
         />
       );
@@ -139,8 +142,8 @@ const mapDispatchToProps = dispatch => ({
   addTransaction: bindActionCreators(addTransactionAction, dispatch),
   resetTransaction: bindActionCreators(resetTransactionAction, dispatch),
   setTransactionHash: bindActionCreators(setTransactionHashAction, dispatch),
-  toggleWarningTransactionModal: bindActionCreators(
-    toggleWarningTransactionModalAction,
+  openNotificationModal: bindActionCreators(
+    openNotificationModalAction,
     dispatch,
   ),
 });

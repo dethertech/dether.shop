@@ -1,5 +1,8 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+
 /*
   Constants
  */
@@ -9,7 +12,7 @@ import { config } from '../../constants';
   Components
  */
 import { Panels } from '../../components';
-// import BetaModal from './BetaModal';
+import NotificationModal from './NotificationModal';
 
 /*
   Containers
@@ -22,38 +25,29 @@ import MaintenancePage from './MaintenancePage';
  * Home container
  */
 
-// const getVisitCount = () =>
-//   Number(window.localStorage.getItem('dether.beta.visit')) || 0;
-// const setVisitCount = value =>
-//   window.localStorage.setItem('dether.beta.visit', value);
+export const Home = ({ isNotificationModalOpen }) => {
+  const { isOnMaintenance } = config;
 
-class Home extends PureComponent {
-  state = {
-    // showModal: getVisitCount() < 3,
-  };
+  if (isOnMaintenance) return <MaintenancePage />;
+  return (
+    <Panels>
+      {isNotificationModalOpen && <NotificationModal />}
+      <Panels.Left>
+        <LeftPanel />
+      </Panels.Left>
+      <Panels.Right>
+        <Map />
+      </Panels.Right>
+    </Panels>
+  );
+};
 
-  // closeModal = () => {
-  //   this.setState({ showModal: false });
-  //   setVisitCount(getVisitCount() + 1);
-  // };
+Home.propTypes = {
+  isNotificationModalOpen: PropTypes.bool.isRequired,
+};
 
-  render() {
-    // const { showModal } = this.state;
-    const { isOnMaintenance } = config;
+const mapStateToProps = ({ app }) => ({
+  isNotificationModalOpen: app.isNotificationModalOpen,
+});
 
-    if (isOnMaintenance) return <MaintenancePage />;
-    return (
-      <Panels>
-        {/* {showModal && <BetaModal close={this.closeModal} />} */}
-        <Panels.Left>
-          <LeftPanel />
-        </Panels.Left>
-        <Panels.Right>
-          <Map />
-        </Panels.Right>
-      </Panels>
-    );
-  }
-}
-
-export default withRouter(Home);
+export default withRouter(connect(mapStateToProps)(Home));

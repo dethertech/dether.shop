@@ -12,12 +12,15 @@ import {
   addShop as addShopAction,
   resetTransaction as resetTransactionAction,
   fetchAll as fetchAllAction,
+  openNotificationModal as openNotificationModalAction,
 } from '../../../actions';
 import {
   addShop as addShopHelper,
   getLicenceShop,
   getShop,
 } from '../../../helpers/ethereum';
+
+import { notificationsTypes } from '../../../constants';
 
 const ButtonsWrapper = styled.div`
   max-width: 48rem;
@@ -45,6 +48,7 @@ export class Verification extends PureComponent {
     goBack: PropTypes.func.isRequired,
     fetchAll: PropTypes.func.isRequired,
     centerPosition: PropTypes.shape({}).isRequired,
+    openNotificationModal: PropTypes.func.isRequired,
   };
 
   state = {
@@ -64,6 +68,7 @@ export class Verification extends PureComponent {
       resetTransaction,
       fetchAll,
       centerPosition,
+      openNotificationModal,
     } = this.props;
 
     const shop = await getShop();
@@ -72,6 +77,10 @@ export class Verification extends PureComponent {
       fetchAll(centerPosition);
       resetTransaction();
       addShopToStore(shop);
+      openNotificationModal({
+        type: notificationsTypes.SUCCESS,
+        message: tr('notifications.shop_deleted'),
+      });
       return true;
     }
   };
@@ -134,6 +143,10 @@ const mapDispatchToProps = dispatch => ({
   addShopToStore: bindActionCreators(addShopAction, dispatch),
   fetchAll: bindActionCreators(fetchAllAction, dispatch),
   resetTransaction: bindActionCreators(resetTransactionAction, dispatch),
+  openNotificationModal: bindActionCreators(
+    openNotificationModalAction,
+    dispatch,
+  ),
 });
 
 export default withRouter(

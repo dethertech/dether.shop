@@ -26,10 +26,18 @@ const toggleTermsModal = () => ({
 });
 
 /**
- * toggleWarningTransactionModal
+ * openNotificationModal
  */
-const toggleWarningTransactionModal = () => ({
-  type: 'TOGGLE_WARNING_TRANSACTION_MODAL',
+const openNotificationModal = ({ type, message }) => ({
+  type: 'OPEN_NOTIFICATION_MODAL',
+  payload: { type, message },
+});
+
+/**
+ * closeNotificationModal
+ */
+const closeNotificationModal = () => ({
+  type: 'CLOSE_NOTIFICATION_MODAL',
 });
 
 /**
@@ -84,7 +92,8 @@ export {
   setMetamaskInstalled,
   setAppInitialized,
   toggleTermsModal,
-  toggleWarningTransactionModal,
+  openNotificationModal,
+  closeNotificationModal,
   setEthNetwork,
   acceptTerms,
   setLicencePrice,

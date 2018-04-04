@@ -190,6 +190,20 @@ const en = {
     message:
       'The team is currently making upgrades to improve our service to you.||We’ll be back soon!',
   },
+  notifications: {
+    titles: {
+      warning: 'Warning !',
+      success: 'Success !',
+    },
+    transaction_error:
+      'An error has occurred. If a transaction is in progress, please wait. If a transaction is not in progress, please try your operation again.',
+    shop_deleted:
+      'Your shop has been deleted. It might take a few moments to be removed from the map. Hope to see you again soon!',
+    shop_added:
+      "Congratulations! You've added a shop. You're on your way to being listed on the Dether map! It might take a few moments to appear on the map–just hang tight!",
+    transaction_pending:
+      'The transaction is in progress. It may take up to 10 minutes to be processed.',
+  },
 };
 
 export default en;

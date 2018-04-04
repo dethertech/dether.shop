@@ -20,12 +20,17 @@ import {
   removeShop as removeShopAction,
   fetchAll as fetchAllAction,
   resetTransaction as resetTransactionAction,
+  openNotificationModal as openNotificationModalAction,
 } from '../../actions';
 
 /*
   Helpers
  */
 import { deleteShop as deleteShopHelper, getShop } from '../../helpers';
+/*
+  Constants
+ */
+import { notificationsTypes } from '../../constants';
 
 /**
  * ShowShop container
@@ -58,6 +63,7 @@ export class ShowShop extends PureComponent {
       resetTransaction,
       fetchAll,
       centerPosition,
+      openNotificationModal,
     } = this.props;
 
     const shop = await getShop();
@@ -66,6 +72,10 @@ export class ShowShop extends PureComponent {
       this.setState({ transactionSubmitted: false });
       resetTransaction();
       removeShopFromStore(shop);
+      openNotificationModal({
+        type: notificationsTypes.SUCCESS,
+        message: tr('notifications.shop_added'),
+      });
       return true;
     }
   };
@@ -124,6 +134,10 @@ const mapDispatchToProps = dispatch => ({
   removeShopFromStore: bindActionCreators(removeShopAction, dispatch),
   fetchAll: bindActionCreators(fetchAllAction, dispatch),
   resetTransaction: bindActionCreators(resetTransactionAction, dispatch),
+  openNotificationModal: bindActionCreators(
+    openNotificationModalAction,
+    dispatch,
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowShop);
