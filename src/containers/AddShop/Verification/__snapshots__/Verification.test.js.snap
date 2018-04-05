@@ -20,6 +20,7 @@ ShallowWrapper {
     fetchAll={[Function]}
     goBack={[Function]}
     isTransactionPending={false}
+    openNotificationModal={[Function]}
     pendingShop={
         Object {
             "address": "40 rue Citadelle Paris",

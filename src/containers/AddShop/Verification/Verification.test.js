@@ -20,6 +20,7 @@ describe('Containers::AddShop::Verification', () => {
     pendingShop,
     addShopToStore: () => null,
     addShopToContract: () => null,
+    openNotificationModal: () => null,
     addAddShopTransaction: () => null,
     isTransactionPending: false,
     transactionHash: '0x23874grfb2yb38f4h23784',

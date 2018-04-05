@@ -19,6 +19,7 @@ describe('Containers::ShowShop', () => {
   const props = {
     shop,
     addDeleteShopTransaction: () => null,
+    openNotificationModal: () => null,
     isTransactionPending: false,
     deleteContractShop: () => null,
     removeShopFromStore: () => null,
