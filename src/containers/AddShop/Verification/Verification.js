@@ -4,23 +4,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import { toast } from 'react-toastify';
 
-import { ShopRecap, Button, LoaderScreen } from '../../../components';
+import { ShopRecap, Button, TransactionFlow } from '../../../components';
 import tr from '../../../translate';
-import BetaModal from '../../Wrapper/BetaModal';
 
 import {
-  addAddShopTransaction as addAddShopTransactionAction,
   addShop as addShopAction,
-  endTransaction as endTransactionAction,
-} from '../../../actions/shop';
-import { fetchAll as fetchAllAction } from '../../../actions/map';
+  resetTransaction as resetTransactionAction,
+  fetchAll as fetchAllAction,
+  openNotificationModal as openNotificationModalAction,
+} from '../../../actions';
 import {
   addShop as addShopHelper,
-  getTransactionStatus,
   getLicenceShop,
+  getShop,
 } from '../../../helpers/ethereum';
+
+import { notificationsTypes } from '../../../constants';
 
 const ButtonsWrapper = styled.div`
   max-width: 48rem;
@@ -44,150 +44,109 @@ export class Verification extends PureComponent {
     }).isRequired,
     addShopToStore: PropTypes.func.isRequired,
     addShopToContract: PropTypes.func.isRequired,
-    addAddShopTransaction: PropTypes.func.isRequired,
     isTransactionPending: PropTypes.bool.isRequired,
-    transactionHash: PropTypes.string.isRequired,
-    endTransaction: PropTypes.func.isRequired,
     goBack: PropTypes.func.isRequired,
     fetchAll: PropTypes.func.isRequired,
     centerPosition: PropTypes.shape({}).isRequired,
+    openNotificationModal: PropTypes.func.isRequired,
   };
 
   state = {
-    isLoading: false,
     licencePrice: null,
-    showModal: false,
+    transactionSubmitted: false,
   };
 
   async componentWillMount() {
-    const { isTransactionPending, pendingShop } = this.props;
-
-    if (isTransactionPending) {
-      this.interval = this.checkTransaction();
-    }
+    const { pendingShop } = this.props;
     const licencePrice = await getLicenceShop(pendingShop.countryId);
     this.setState({ licencePrice });
   }
 
-  componentWillUnmount() {
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
-  }
-
-  getView = () => {
-    const { isTransactionPending, goBack } = this.props;
-
-    if (isTransactionPending)
-      return <div>{tr('add_form_verification.transaction_pending')}</div>;
-    return (
-      <ButtonsWrapper>
-        <Button width="45%" theme="primary" onClick={this.addShop}>
-          {tr('add_form_verification.submit_button')}
-        </Button>
-        <Button width="45%" onClick={goBack}>
-          {tr('add_form_verification.edit_button')}
-        </Button>
-      </ButtonsWrapper>
-    );
-  };
-
-  endCheckTransaction = () => {
-    const { endTransaction } = this.props;
-    endTransaction();
-    clearInterval(this.interval);
-  };
-
-  checkTransaction = () => {
+  checkTransaction = async () => {
     const {
-      transactionHash,
       addShopToStore,
-      pendingShop,
+      resetTransaction,
       fetchAll,
       centerPosition,
-      goBack,
+      openNotificationModal,
     } = this.props;
-    this.interval = setInterval(async () => {
-      const status = await getTransactionStatus(transactionHash);
-      if (status === 'success') {
-        addShopToStore(pendingShop);
-        fetchAll(centerPosition);
-        this.endCheckTransaction();
-      } else if (status === 'error') {
-        goBack();
-        this.endCheckTransaction();
-        toast.error(tr('errors.transaction.throw'));
-      }
-    }, 3000);
+
+    const shop = await getShop();
+    if (shop) {
+      this.setState({ transactionSubmitted: false });
+      fetchAll(centerPosition);
+      resetTransaction();
+      addShopToStore(shop);
+      openNotificationModal({
+        type: notificationsTypes.SUCCESS,
+        message: tr('notifications.shop_added'),
+      });
+      return true;
+    }
+  };
+
+  handleError = () => {
+    this.setState({ transactionSubmitted: false });
   };
 
   addShop = async () => {
-    const {
-      pendingShop,
-      addAddShopTransaction,
-      addShopToContract,
-    } = this.props;
+    const { pendingShop, addShopToContract } = this.props;
 
-    this.showLoader();
-    try {
-      const transaction = await addShopToContract(pendingShop);
-      addAddShopTransaction(transaction.transactionHash);
-      this.checkTransaction();
-      this.HideLoader();
-    } catch (e) {
-      console.log('AddShop::Metamask', e);
-      // toast.error(tr('errors.transaction.metamask_reject'));
-      // this.HideLoader();
-      this.setState({ showModal: true });
-    }
+    const transaction = await addShopToContract(pendingShop);
+    return transaction;
   };
 
-  showLoader = () => this.setState({ isLoading: true });
-  HideLoader = () => this.setState({ isLoading: false });
-
-  closeModal = () => {
-    this.setState({ showModal: false });
-  };
+  submitTransaction = () => this.setState({ transactionSubmitted: true });
 
   render() {
-    const { pendingShop } = this.props;
-    const { isLoading, licencePrice, showModal } = this.state;
-
-    if (isLoading) {
+    const { pendingShop, isTransactionPending, goBack } = this.props;
+    const { licencePrice, transactionSubmitted } = this.state;
+    if (isTransactionPending || transactionSubmitted) {
       return (
-        <LoaderScreen
-          title={tr('add_form_verification.loader_title')}
-          message={tr('add_form_verification.loader_add_message')}
+        <TransactionFlow
           isTransaction
+          loader={{
+            title: tr('add_form_verification.loader_title'),
+            message: tr('add_form_verification.loader_add_message'),
+          }}
+          sendTransaction={this.addShop}
+          onError={this.handleError}
+          shop={pendingShop}
+          checkTransaction={this.checkTransaction}
         />
       );
     }
     return (
       <Fragment>
-        {showModal && <BetaModal close={this.closeModal} />}
         <ShopRecap licencePrice={licencePrice} {...pendingShop} />
-        {this.getView()}
+        <ButtonsWrapper>
+          <Button width="45%" theme="primary" onClick={this.submitTransaction}>
+            {tr('add_form_verification.submit_button')}
+          </Button>
+          <Button width="45%" onClick={goBack}>
+            {tr('add_form_verification.edit_button')}
+          </Button>
+        </ButtonsWrapper>
       </Fragment>
     );
   }
 }
 
-const mapStateToProps = ({ shop, map }) => ({
+const mapStateToProps = ({ shop, map, transaction }) => ({
   pendingShop: shop.pendingShop,
-  isTransactionPending: !!shop.transactionHash,
-  transactionHash: shop.transactionHash || '',
+  isTransactionPending: transaction.pending,
   centerPosition: map.centerPosition,
 });
 
 const mapDispatchToProps = dispatch => ({
   addShopToContract: addShopHelper,
   addShopToStore: bindActionCreators(addShopAction, dispatch),
-  addAddShopTransaction: bindActionCreators(
-    addAddShopTransactionAction,
+  fetchAll: bindActionCreators(fetchAllAction, dispatch),
+  resetTransaction: bindActionCreators(resetTransactionAction, dispatch),
+  openNotificationModal: bindActionCreators(
+    openNotificationModalAction,
     dispatch,
   ),
-  endTransaction: bindActionCreators(endTransactionAction, dispatch),
-  fetchAll: bindActionCreators(fetchAllAction, dispatch),
 });
 
 export default withRouter(

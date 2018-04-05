@@ -8,8 +8,6 @@ describe('reducer::shop', () => {
 
   beforeEach(() => {
     defaultAction = {
-      transactionType: 'add',
-      transactionHash: null, // if transactionHash !== null so you have a Transaction in pending
       shop: null,
       pendingShop: {
         lat: null,
@@ -50,26 +48,6 @@ describe('reducer::shop', () => {
     it('should handle SET_DATA_SHOP_PENDING', () => {
       expect(shopReducer(defaultAction, action))
         .toEqual({ ...defaultAction, pendingShop: payload });
-    });
-  });
-
-  describe('ADD_TRANSACTION', () => {
-    const payload = {
-      type: 'del',
-      hash: '0x23rt23gf234gg234gf234g43g',
-    }
-    const action = {
-      type: 'ADD_TRANSACTION',
-      payload,
-    };
-
-    it('should handle ADD_TRANSACTION', () => {
-      expect(shopReducer(defaultAction, action))
-        .toEqual({
-          ...defaultAction,
-          transactionType: payload.type,
-          transactionHash: payload.hash
-        });
     });
   });
 

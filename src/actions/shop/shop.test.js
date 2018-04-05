@@ -6,10 +6,6 @@ import {
   addShop,
   removeShop,
   setDataShopPending,
-  endTransaction,
-  addTransaction,
-  addDeleteShopTransaction,
-  addAddShopTransaction
 } from './shop';
 
 configure({ adapter: new Adapter() });
@@ -32,40 +28,6 @@ describe('Shop actions', () => {
       type: 'SET_DATA_SHOP_PENDING'
     }
     expect(setDataShopPending(payload)).toEqual(expectedAction);
-  })
-
-  it('should create an actions to add a transaction' , () => {
-    const payload = { type: 'add', hash: null };
-    const expectedAction = {
-      payload,
-      type: 'ADD_TRANSACTION'
-    }
-    expect(addTransaction(payload)).toEqual(expectedAction);
-  })
-
-  it('should create an actions to add a transaction' , () => {
-    const payload = null
-    const expectedAction = {
-      payload: { type: 'add', hash: null },
-      type: 'ADD_TRANSACTION'
-    }
-    expect(addAddShopTransaction(payload)).toEqual(expectedAction);
-  })
-
-  it('should create an actions to add a transaction' , () => {
-    const payload = null
-    const expectedAction = {
-      payload: { type: 'delete', hash: null },
-      type: 'ADD_TRANSACTION'
-    }
-    expect(addDeleteShopTransaction(payload)).toEqual(expectedAction);
-  })
-
-  it('should create an actions to set end transaction' , () => {
-    const expectedAction = {
-      type: 'END_TRANSACTION'
-    }
-    expect(endTransaction()).toEqual(expectedAction);
   })
 
   it('should create an actions to add shop' , () => {
