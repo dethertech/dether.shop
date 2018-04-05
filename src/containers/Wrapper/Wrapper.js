@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect, compose } from 'react-redux';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
