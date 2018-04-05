@@ -80,14 +80,19 @@ class TransactionFlow extends PureComponent {
       checkTransaction,
       resetTransaction,
       transaction: storeTransaction,
+      openNotificationModal,
     } = this.props;
     const { sentTime } = transaction;
     const hash = transaction.hash || storeTransaction.hash;
     const startTime = new Date();
 
-    if (new Date() - sentTime > 600000) {
+    if (new Date() - sentTime > 10000) {
       resetTransaction();
-      onError();
+      openNotificationModal({
+        type: notificationsTypes.WARNING,
+        message: tr('notifications.transaction_timeout'),
+      });
+      return onError();
     }
     if (hash) {
       const status = await getTransactionStatus(hash);

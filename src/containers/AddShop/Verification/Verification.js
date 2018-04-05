@@ -79,7 +79,7 @@ export class Verification extends PureComponent {
       addShopToStore(shop);
       openNotificationModal({
         type: notificationsTypes.SUCCESS,
-        message: tr('notifications.shop_deleted'),
+        message: tr('notifications.shop_added'),
       });
       return true;
     }

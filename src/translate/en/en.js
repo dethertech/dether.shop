@@ -203,6 +203,7 @@ const en = {
       "Congratulations! You've added a shop. You're on your way to being listed on the Dether map! It might take a few moments to appear on the map–just hang tight!",
     transaction_pending:
       'The transaction is in progress. It may take up to 10 minutes to be processed.',
+    transaction_timeout: 'Transaction timeout',
   },
 };
 

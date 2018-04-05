@@ -12,7 +12,7 @@ export const notifications = {
     icon: WarningIcon,
   },
   SUCCESS: {
-    title: tr('notifications.titles.sucess'),
+    title: tr('notifications.titles.success'),
     icon: SuccessIcon,
   },
 };

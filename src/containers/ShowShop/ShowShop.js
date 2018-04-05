@@ -51,6 +51,7 @@ export class ShowShop extends PureComponent {
     removeShopFromStore: PropTypes.func.isRequired,
     fetchAll: PropTypes.func.isRequired,
     centerPosition: PropTypes.shape({}).isRequired,
+    openNotificationModal: PropTypes.func.isRequired,
   };
 
   state = {
@@ -74,7 +75,7 @@ export class ShowShop extends PureComponent {
       removeShopFromStore(shop);
       openNotificationModal({
         type: notificationsTypes.SUCCESS,
-        message: tr('notifications.shop_added'),
+        message: tr('notifications.shop_deleted'),
       });
       return true;
     }
