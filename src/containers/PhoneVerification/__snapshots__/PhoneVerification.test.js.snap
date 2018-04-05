@@ -10,6 +10,7 @@ ShallowWrapper {
     phone="623423423"
     phoneCountry={null}
     phoneSent={true}
+    phoneVerified={false}
     sendSms={[Function]}
     setPhone={[Function]}
     setPhoneCountry={[Function]}

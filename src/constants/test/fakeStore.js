@@ -50,6 +50,7 @@ export default state => ({
         dth: 0,
       },
       isCertified: true,
+      phoneVerified: false,
     },
     transaction: {
       pending: false,
