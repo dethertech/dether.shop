@@ -5,3 +5,4 @@ export { default as SvgRefresh } from './SvgRefresh';
 export { default as SvgArrowUp } from './SvgArrowUp';
 export { default as WarningIcon } from './Warning';
 export { default as SuccessIcon } from './Success';
+export { default as Maintenance } from './Maintenance';
