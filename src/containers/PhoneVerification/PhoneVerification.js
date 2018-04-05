@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import PhoneForm from './PhoneForm';
 import ValidateCodeContainer from './ValidateCode';
+import CertifyPending from './CertifyPending';
 import { LoaderScreen } from '../../components';
 import { getErrorMessage } from '../../helpers';
 import {
@@ -24,6 +25,7 @@ export class PhoneVerification extends PureComponent {
     phone: PropTypes.string.isRequired,
     phoneCountry: PropTypes.shape({}),
     phoneSent: PropTypes.bool.isRequired,
+    phoneVerified: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
@@ -69,6 +71,7 @@ export class PhoneVerification extends PureComponent {
     this.setState(
       () => stateToChange,
       () => {
+        console.log('send');
         sendSms({
           phoneNumber,
           ethAddress,
@@ -81,7 +84,9 @@ export class PhoneVerification extends PureComponent {
 
   render = () => {
     const { lastSend, phoneNumber, phoneCountry, error, code } = this.state;
-    const { phoneSent, isSubmitPhonePending } = this.props;
+    const { phoneSent, phoneVerified, isSubmitPhonePending } = this.props;
+
+    if (phoneVerified) return <CertifyPending />;
 
     if (!phoneSent && !isSubmitPhonePending) {
       return (
@@ -116,6 +121,7 @@ const mapStateToProps = ({ user, kyc }) => ({
   phone: kyc.phone,
   phoneSent: kyc.phoneSent,
   phoneCountry: kyc.phoneCountry,
+  phoneVerified: user.phoneVerified,
 });
 
 const mapDispatchToProps = dispatch => ({

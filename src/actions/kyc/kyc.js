@@ -11,12 +11,11 @@ import { config } from '../../constants';
  * @param  {function} onError       Error function
  * @return {object}                 Action
  */
-const sendSms = ({ phoneNumber, ethAddress, onSuccess, onError }) => ({
+const sendSms = ({ phoneNumber, ethAddress, onError }) => ({
   type: 'API:SEND_SMS',
-  url: config.kyc.urlSend,
+  url: config.kyc.sendUrl,
   method: 'post',
   data: { phoneNumber, ethAddress },
-  onSuccess,
   onError,
 });
 
@@ -30,7 +29,7 @@ const sendSms = ({ phoneNumber, ethAddress, onSuccess, onError }) => ({
  */
 const sendVerifCode = ({ code, phoneNumber, onSuccess, onError }) => ({
   type: 'API:SEND_VERIF_CODE',
-  url: config.kyc.urlVerif,
+  url: config.kyc.verifUrl,
   method: 'post',
   data: { phoneNumber, code },
   onSuccess,
@@ -64,18 +63,4 @@ const setPhoneSent = phoneSent => ({
   payload: phoneSent,
 });
 
-/**
- * setPhoneVerified
- */
-const setPhoneVerified = () => ({
-  type: 'SET_PHONE_VERIFIED',
-});
-
-export {
-  sendSms,
-  setPhone,
-  setPhoneCountry,
-  setPhoneSent,
-  setPhoneVerified,
-  sendVerifCode,
-};
+export { sendSms, setPhone, setPhoneCountry, setPhoneSent, sendVerifCode };

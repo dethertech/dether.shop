@@ -11,12 +11,7 @@ import LeftPanelPage from './LeftPanelPage';
 import TermsModal from './TermsModal';
 import BuyModal from './BuyModal';
 
-import {
-  getShop,
-  getBalance,
-  isWeb3,
-  isSmsReg as isSmsRegHelper,
-} from '../../helpers';
+import { getShop, getBalance, isWeb3 } from '../../helpers';
 
 import {
   hasGoodNetwork as hasGoodNetworkHelper,
@@ -32,7 +27,7 @@ import {
 import {
   setEthAddress as setEthAddressAction,
   setBalance as setBalanceAction,
-  setUserCertified as setUserCertifiedAction,
+  checkUserCertified as checkUserCertifiedAction,
 } from '../../actions/user';
 import { addShop as addShopAction } from '../../actions/shop';
 
@@ -46,8 +41,7 @@ export class LeftPanel extends PureComponent {
     setEthAddress: PropTypes.func.isRequired,
     addShop: PropTypes.func.isRequired,
     setBalance: PropTypes.func.isRequired,
-    isCertified: PropTypes.func.isRequired,
-    setUserCertified: PropTypes.func.isRequired,
+    checkUserCertified: PropTypes.func.isRequired,
     toggleTermsModal: PropTypes.func.isRequired,
     ethAddress: PropTypes.string.isRequired,
     isTermsModalOpenened: PropTypes.bool.isRequired,
@@ -79,8 +73,7 @@ export class LeftPanel extends PureComponent {
       addShop,
       setBalance,
       setEthNetwork,
-      isCertified,
-      setUserCertified,
+      checkUserCertified,
     } = this.props;
 
     const ethAddress = await isWeb3();
@@ -88,15 +81,14 @@ export class LeftPanel extends PureComponent {
       const network = await getNetworkId();
       setEthNetwork(network);
       if (network === config.ethNetwork) {
-        const [shop, balance, certified] = await Promise.all([
+        const [shop, balance] = await Promise.all([
           getShop(),
           getBalance(),
-          isCertified(),
+          checkUserCertified(ethAddress),
         ]);
 
         if (shop) addShop(shop);
         if (balance) setBalance(balance);
-        if (certified) setUserCertified(certified);
         setEthAddress(ethAddress);
       }
       if (network) setMetamaskInstalled(true);
@@ -179,11 +171,10 @@ const mapDispatchToProps = dispatch => ({
   setEthAddress: bindActionCreators(setEthAddressAction, dispatch),
   addShop: bindActionCreators(addShopAction, dispatch),
   setBalance: bindActionCreators(setBalanceAction, dispatch),
-  setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
+  checkUserCertified: bindActionCreators(checkUserCertifiedAction, dispatch),
   toggleTermsModal: bindActionCreators(toggleTermsModalAction, dispatch),
   setEthNetwork: bindActionCreators(setEthNetworkAction, dispatch),
   resetApp: bindActionCreators(reset, dispatch),
-  isCertified: isSmsRegHelper,
 });
 
 export default withRouter(
