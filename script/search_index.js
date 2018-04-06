@@ -6,9 +6,9 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "dether.shop/src/helpers/geocodeapi.js~geocodeapi",
+    "dether.shop/src/helpers/geocodeapi/geocodeapi.js~geocodeapi",
     "variable/index.html#static-variable-GeocodeAPI",
-    "<span>GeocodeAPI</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/geocodeAPI.js</span>",
+    "<span>GeocodeAPI</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/geocodeAPI/geocodeAPI.js</span>",
     "variable"
   ],
   [
@@ -120,39 +120,45 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "dether.shop/src/actions/shop.js~addshop",
-    "function/index.html#static-function-addShop",
-    "<span>addShop</span> <span class=\"search-result-import-path\">dether.shop/src/actions/shop.js</span>",
+    "dether.shop/src/actions/app/app.js~acceptterms",
+    "function/index.html#static-function-acceptTerms",
+    "<span>acceptTerms</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app/app.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/helpers/ethereum/addshop.js~addshop",
+    "dether.shop/src/actions/shop/shop.js~addshop",
     "function/index.html#static-function-addShop",
-    "<span>addShop</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/addShop.js</span>",
+    "<span>addShop</span> <span class=\"search-result-import-path\">dether.shop/src/actions/shop/shop.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/shop.js~addtransaction",
+    "dether.shop/src/actions/transaction/transaction.js~addtransaction",
     "function/index.html#static-function-addTransaction",
-    "<span>addTransaction</span> <span class=\"search-result-import-path\">dether.shop/src/actions/shop.js</span>",
+    "<span>addTransaction</span> <span class=\"search-result-import-path\">dether.shop/src/actions/transaction/transaction.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/reducers/index.js~appreducer",
-    "variable/index.html#static-variable-appReducer",
-    "<span>appReducer</span> <span class=\"search-result-import-path\">dether.shop/src/reducers/index.js</span>",
-    "variable"
+    "dether.shop/src/actions/user/user.js~checkusercertified",
+    "function/index.html#static-function-checkUserCertified",
+    "<span>checkUserCertified</span> <span class=\"search-result-import-path\">dether.shop/src/actions/user/user.js</span>",
+    "function"
   ],
   [
-    "dether.shop/src/helpers/calendar.js~convertcalendar",
+    "dether.shop/src/actions/app/app.js~closenotificationmodal",
+    "function/index.html#static-function-closeNotificationModal",
+    "<span>closeNotificationModal</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app/app.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/calendar/calendar.js~convertcalendar",
     "function/index.html#static-function-convertCalendar",
-    "<span>convertCalendar</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar.js</span>",
+    "<span>convertCalendar</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar/calendar.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/helpers/calendar.js~convertday",
+    "dether.shop/src/helpers/calendar/calendar.js~convertday",
     "function/index.html#static-function-convertDay",
-    "<span>convertDay</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar.js</span>",
+    "<span>convertDay</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar/calendar.js</span>",
     "function"
   ],
   [
@@ -168,15 +174,21 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "dether.shop/src/containers/addshopform/fromstate.js~fromstate",
+    "dether.shop/src/containers/addshop/form/fromstate.js~fromstate",
     "function/index.html#static-function-fromState",
-    "<span>fromState</span> <span class=\"search-result-import-path\">dether.shop/src/containers/AddShopForm/fromState.js</span>",
+    "<span>fromState</span> <span class=\"search-result-import-path\">dether.shop/src/containers/AddShop/Form/fromState.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/helpers/get.js~get",
+    "dether.shop/src/helpers/get/get.js~get",
     "function/index.html#static-function-get",
-    "<span>get</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/get.js</span>",
+    "<span>get</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/get/get.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/ethereum/utils.js~getaddress",
+    "function/index.html#static-function-getAddress",
+    "<span>getAddress</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/utils.js</span>",
     "function"
   ],
   [
@@ -186,9 +198,33 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "dether.shop/src/helpers/apiresponse.js~geterrormessage",
+    "dether.shop/src/helpers/ethereum/utils.js~getdethercontract",
+    "function/index.html#static-function-getDetherContract",
+    "<span>getDetherContract</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/utils.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/ethereum/utils.js~getdthcontract",
+    "function/index.html#static-function-getDthContract",
+    "<span>getDthContract</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/utils.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/apiresponse/apiresponse.js~geterrormessage",
     "function/index.html#static-function-getErrorMessage",
-    "<span>getErrorMessage</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/apiResponse.js</span>",
+    "<span>getErrorMessage</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/apiResponse/apiResponse.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/ethereum/getlicenceshop.js~getlicenceshop",
+    "function/index.html#static-function-getLicenceShop",
+    "<span>getLicenceShop</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/getLicenceShop.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/ethereum/utils.js~getnetworkid",
+    "function/index.html#static-function-getNetworkId",
+    "<span>getNetworkId</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/utils.js</span>",
     "function"
   ],
   [
@@ -198,22 +234,40 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "dether.shop/src/helpers/ethereum/utils.js~getsmscontract",
+    "function/index.html#static-function-getSmsContract",
+    "<span>getSmsContract</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/utils.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/ethereum/gettransactionstatus.js~gettransactionstatus",
+    "function/index.html#static-function-getTransactionStatus",
+    "<span>getTransactionStatus</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/getTransactionStatus.js</span>",
+    "function"
+  ],
+  [
     "dether.shop/src/styles/globalstyles.js~globalstyles",
     "variable/index.html#static-variable-globalStyles",
     "<span>globalStyles</span> <span class=\"search-result-import-path\">dether.shop/src/styles/globalStyles.js</span>",
     "variable"
   ],
   [
-    "dether.shop/src/helpers/ethereum/utils.js~helperweb3",
-    "function/index.html#static-function-helperWeb3",
-    "<span>helperWeb3</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/utils.js</span>",
-    "function"
+    "dether.shop/src/constants/browser.js~hassupportedbrowser",
+    "variable/index.html#static-variable-hasSupportedBrowser",
+    "<span>hasSupportedBrowser</span> <span class=\"search-result-import-path\">dether.shop/src/constants/browser.js</span>",
+    "variable"
   ],
   [
-    "dether.shop/src/helpers/calendar.js~hours",
+    "dether.shop/src/helpers/calendar/calendar.js~hours",
     "variable/index.html#static-variable-hours",
-    "<span>hours</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar.js</span>",
+    "<span>hours</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar/calendar.js</span>",
     "variable"
+  ],
+  [
+    "dether.shop/src/actions/app/app.js~initializeclientinfo",
+    "function/index.html#static-function-initializeClientInfo",
+    "<span>initializeClientInfo</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app/app.js</span>",
+    "function"
   ],
   [
     "dether.shop/src/helpers/ethereum/issmsreg.js~issmsreg",
@@ -228,21 +282,51 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "dether.shop/src/helpers/last.js~last",
-    "function/index.html#static-function-last",
-    "<span>last</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/last.js</span>",
+    "dether.shop/src/helpers/ethereum/iszoneshopopen.js~iszoneshopopen",
+    "function/index.html#static-function-isZoneShopOpen",
+    "<span>isZoneShopOpen</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/isZoneShopOpen.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/bootstrap/configurestore.js~persistor",
-    "variable/index.html#static-variable-persistor",
-    "<span>persistor</span> <span class=\"search-result-import-path\">dether.shop/src/bootstrap/configureStore.js</span>",
+    "dether.shop/src/helpers/last/last.js~last",
+    "function/index.html#static-function-last",
+    "<span>last</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/last/last.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/styles/medias.js~mobile",
+    "function/index.html#static-function-mobile",
+    "<span>mobile</span> <span class=\"search-result-import-path\">dether.shop/src/styles/medias.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/constants/notifications.js~notifications",
+    "variable/index.html#static-variable-notifications",
+    "<span>notifications</span> <span class=\"search-result-import-path\">dether.shop/src/constants/notifications.js</span>",
     "variable"
   ],
   [
-    "dether.shop/src/helpers/timers.js~phoneverificationtime",
+    "dether.shop/src/constants/notifications.js~notificationstypes",
+    "variable/index.html#static-variable-notificationsTypes",
+    "<span>notificationsTypes</span> <span class=\"search-result-import-path\">dether.shop/src/constants/notifications.js</span>",
+    "variable"
+  ],
+  [
+    "dether.shop/src/actions/app/app.js~opennotificationmodal",
+    "function/index.html#static-function-openNotificationModal",
+    "<span>openNotificationModal</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app/app.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/parse/parse.js~parseerror",
+    "function/index.html#static-function-parseError",
+    "<span>parseError</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/parse/parse.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/timers/timers.js~phoneverificationtime",
     "function/index.html#static-function-phoneVerificationTime",
-    "<span>phoneVerificationTime</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/timers.js</span>",
+    "<span>phoneVerificationTime</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/timers/timers.js</span>",
     "function"
   ],
   [
@@ -252,117 +336,153 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "dether.shop/src/actions/shop.js~removeshop",
+    "dether.shop/src/actions/shop/shop.js~removeshop",
     "function/index.html#static-function-removeShop",
-    "<span>removeShop</span> <span class=\"search-result-import-path\">dether.shop/src/actions/shop.js</span>",
+    "<span>removeShop</span> <span class=\"search-result-import-path\">dether.shop/src/actions/shop/shop.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/kyc.js~sendsms",
+    "dether.shop/src/actions/root/root.js~reset",
+    "function/index.html#static-function-reset",
+    "<span>reset</span> <span class=\"search-result-import-path\">dether.shop/src/actions/root/root.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/actions/transaction/transaction.js~resettransaction",
+    "function/index.html#static-function-resetTransaction",
+    "<span>resetTransaction</span> <span class=\"search-result-import-path\">dether.shop/src/actions/transaction/transaction.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/reducers/index.js~rootreducer",
+    "function/index.html#static-function-rootReducer",
+    "<span>rootReducer</span> <span class=\"search-result-import-path\">dether.shop/src/reducers/index.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/scrolltop/scrolltop.js~scrolltotop",
+    "function/index.html#static-function-scrollToTop",
+    "<span>scrollToTop</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/scrollTop/scrollTop.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/actions/kyc/kyc.js~sendsms",
     "function/index.html#static-function-sendSms",
-    "<span>sendSms</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc.js</span>",
+    "<span>sendSms</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc/kyc.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/kyc.js~sendverifcode",
+    "dether.shop/src/actions/kyc/kyc.js~sendverifcode",
     "function/index.html#static-function-sendVerifCode",
-    "<span>sendVerifCode</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc.js</span>",
+    "<span>sendVerifCode</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc/kyc.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/app.js~setappinitialized",
+    "dether.shop/src/actions/app/app.js~setappinitialized",
     "function/index.html#static-function-setAppInitialized",
-    "<span>setAppInitialized</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app.js</span>",
+    "<span>setAppInitialized</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app/app.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/user.js~setbalance",
+    "dether.shop/src/actions/user/user.js~setbalance",
     "function/index.html#static-function-setBalance",
-    "<span>setBalance</span> <span class=\"search-result-import-path\">dether.shop/src/actions/user.js</span>",
+    "<span>setBalance</span> <span class=\"search-result-import-path\">dether.shop/src/actions/user/user.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/shop.js~setdatashoppending",
+    "dether.shop/src/actions/shop/shop.js~setdatashoppending",
     "function/index.html#static-function-setDataShopPending",
-    "<span>setDataShopPending</span> <span class=\"search-result-import-path\">dether.shop/src/actions/shop.js</span>",
+    "<span>setDataShopPending</span> <span class=\"search-result-import-path\">dether.shop/src/actions/shop/shop.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/user.js~setethaddress",
+    "dether.shop/src/actions/user/user.js~setethaddress",
     "function/index.html#static-function-setEthAddress",
-    "<span>setEthAddress</span> <span class=\"search-result-import-path\">dether.shop/src/actions/user.js</span>",
+    "<span>setEthAddress</span> <span class=\"search-result-import-path\">dether.shop/src/actions/user/user.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/app.js~setmetamaskinstalled",
+    "dether.shop/src/actions/app/app.js~setethnetwork",
+    "function/index.html#static-function-setEthNetwork",
+    "<span>setEthNetwork</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app/app.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/actions/app/app.js~setlicenceprice",
+    "function/index.html#static-function-setLicencePrice",
+    "<span>setLicencePrice</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app/app.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/actions/app/app.js~setmetamaskinstalled",
     "function/index.html#static-function-setMetamaskInstalled",
-    "<span>setMetamaskInstalled</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app.js</span>",
+    "<span>setMetamaskInstalled</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app/app.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/kyc.js~setphone",
+    "dether.shop/src/actions/kyc/kyc.js~setphone",
     "function/index.html#static-function-setPhone",
-    "<span>setPhone</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc.js</span>",
+    "<span>setPhone</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc/kyc.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/kyc.js~setphonecountry",
+    "dether.shop/src/actions/kyc/kyc.js~setphonecountry",
     "function/index.html#static-function-setPhoneCountry",
-    "<span>setPhoneCountry</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc.js</span>",
+    "<span>setPhoneCountry</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc/kyc.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/kyc.js~setphonesent",
+    "dether.shop/src/actions/kyc/kyc.js~setphonesent",
     "function/index.html#static-function-setPhoneSent",
-    "<span>setPhoneSent</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc.js</span>",
+    "<span>setPhoneSent</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc/kyc.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/kyc.js~setphoneverified",
+    "dether.shop/src/actions/user/user.js~setphoneverified",
     "function/index.html#static-function-setPhoneVerified",
-    "<span>setPhoneVerified</span> <span class=\"search-result-import-path\">dether.shop/src/actions/kyc.js</span>",
+    "<span>setPhoneVerified</span> <span class=\"search-result-import-path\">dether.shop/src/actions/user/user.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/helpers/shake.js~setshake",
+    "dether.shop/src/helpers/shake/shake.js~setshake",
     "function/index.html#static-function-setShake",
-    "<span>setShake</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/shake.js</span>",
+    "<span>setShake</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/shake/shake.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/actions/user.js~setusercertified",
-    "function/index.html#static-function-setUserCertified",
-    "<span>setUserCertified</span> <span class=\"search-result-import-path\">dether.shop/src/actions/user.js</span>",
+    "dether.shop/src/actions/transaction/transaction.js~settransactionhash",
+    "function/index.html#static-function-setTransactionHash",
+    "<span>setTransactionHash</span> <span class=\"search-result-import-path\">dether.shop/src/actions/transaction/transaction.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/bootstrap/configurestore.js~store",
-    "variable/index.html#static-variable-store",
-    "<span>store</span> <span class=\"search-result-import-path\">dether.shop/src/bootstrap/configureStore.js</span>",
-    "variable"
-  ],
-  [
-    "dether.shop/src/helpers/timers.js~timesince",
+    "dether.shop/src/helpers/timers/timers.js~timesince",
     "function/index.html#static-function-timeSince",
-    "<span>timeSince</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/timers.js</span>",
+    "<span>timeSince</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/timers/timers.js</span>",
     "function"
   ],
   [
-    "dether.shop/src/helpers/calendar.js~times",
+    "dether.shop/src/helpers/calendar/calendar.js~times",
     "variable/index.html#static-variable-times",
-    "<span>times</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar.js</span>",
+    "<span>times</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar/calendar.js</span>",
     "variable"
   ],
   [
-    "dether.shop/src/helpers/calendar.js~timesobj",
+    "dether.shop/src/helpers/calendar/calendar.js~timesobj",
     "variable/index.html#static-variable-timesObj",
-    "<span>timesObj</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar.js</span>",
+    "<span>timesObj</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/calendar/calendar.js</span>",
     "variable"
   ],
   [
-    "dether.shop/src/actions/app.js~toggletermsmodal",
+    "dether.shop/src/helpers/ethereum/utils.js~tonbytes",
+    "function/index.html#static-function-toNBytes",
+    "<span>toNBytes</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/ethereum/utils.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/actions/app/app.js~toggletermsmodal",
     "function/index.html#static-function-toggleTermsModal",
-    "<span>toggleTermsModal</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app.js</span>",
+    "<span>toggleTermsModal</span> <span class=\"search-result-import-path\">dether.shop/src/actions/app/app.js</span>",
     "function"
   ],
   [
@@ -372,9 +492,15 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "dether.shop/src/helpers/array.js~uniquearray",
+    "dether.shop/src/helpers/array/array.js~uniquearray",
     "function/index.html#static-function-uniqueArray",
-    "<span>uniqueArray</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/array.js</span>",
+    "<span>uniqueArray</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/array/array.js</span>",
+    "function"
+  ],
+  [
+    "dether.shop/src/helpers/wait/wait.js~wait",
+    "function/index.html#static-function-wait",
+    "<span>wait</span> <span class=\"search-result-import-path\">dether.shop/src/helpers/wait/wait.js</span>",
     "function"
   ],
   [
@@ -672,9 +798,15 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
-    "src/actions/app.js",
-    "file/src/actions/app.js.html",
-    "src/actions/app.js",
+    "src/actions/app/app.js",
+    "file/src/actions/app/app.js.html",
+    "src/actions/app/app.js",
+    "file"
+  ],
+  [
+    "src/actions/app/index.js",
+    "file/src/actions/app/index.js.html",
+    "src/actions/app/index.js",
     "file"
   ],
   [
@@ -684,27 +816,87 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/actions/kyc.js",
-    "file/src/actions/kyc.js.html",
-    "src/actions/kyc.js",
+    "src/actions/kyc/index.js",
+    "file/src/actions/kyc/index.js.html",
+    "src/actions/kyc/index.js",
     "file"
   ],
   [
-    "src/actions/shop.js",
-    "file/src/actions/shop.js.html",
-    "src/actions/shop.js",
+    "src/actions/kyc/kyc.js",
+    "file/src/actions/kyc/kyc.js.html",
+    "src/actions/kyc/kyc.js",
     "file"
   ],
   [
-    "src/actions/user.js",
-    "file/src/actions/user.js.html",
-    "src/actions/user.js",
+    "src/actions/map/index.js",
+    "file/src/actions/map/index.js.html",
+    "src/actions/map/index.js",
     "file"
   ],
   [
-    "src/bootstrap/configurestore.js",
-    "file/src/bootstrap/configureStore.js.html",
-    "src/bootstrap/configureStore.js",
+    "src/actions/root/index.js",
+    "file/src/actions/root/index.js.html",
+    "src/actions/root/index.js",
+    "file"
+  ],
+  [
+    "src/actions/root/root.js",
+    "file/src/actions/root/root.js.html",
+    "src/actions/root/root.js",
+    "file"
+  ],
+  [
+    "src/actions/shop/index.js",
+    "file/src/actions/shop/index.js.html",
+    "src/actions/shop/index.js",
+    "file"
+  ],
+  [
+    "src/actions/shop/shop.js",
+    "file/src/actions/shop/shop.js.html",
+    "src/actions/shop/shop.js",
+    "file"
+  ],
+  [
+    "src/actions/transaction/index.js",
+    "file/src/actions/transaction/index.js.html",
+    "src/actions/transaction/index.js",
+    "file"
+  ],
+  [
+    "src/actions/transaction/transaction.js",
+    "file/src/actions/transaction/transaction.js.html",
+    "src/actions/transaction/transaction.js",
+    "file"
+  ],
+  [
+    "src/actions/user/index.js",
+    "file/src/actions/user/index.js.html",
+    "src/actions/user/index.js",
+    "file"
+  ],
+  [
+    "src/actions/user/user.js",
+    "file/src/actions/user/user.js.html",
+    "src/actions/user/user.js",
+    "file"
+  ],
+  [
+    "src/bootstrap/app/index.js",
+    "file/src/bootstrap/App/index.js.html",
+    "src/bootstrap/App/index.js",
+    "file"
+  ],
+  [
+    "src/bootstrap/router/index.js",
+    "file/src/bootstrap/Router/index.js.html",
+    "src/bootstrap/Router/index.js",
+    "file"
+  ],
+  [
+    "src/bootstrap/index.js",
+    "file/src/bootstrap/index.js.html",
+    "src/bootstrap/index.js",
     "file"
   ],
   [
@@ -729,6 +921,12 @@ window.esdocSearchIndex = [
     "src/components/buttonlink/index.js",
     "file/src/components/ButtonLink/index.js.html",
     "src/components/ButtonLink/index.js",
+    "file"
+  ],
+  [
+    "src/components/flows/transactionflow/index.js",
+    "file/src/components/Flows/TransactionFlow/index.js.html",
+    "src/components/Flows/TransactionFlow/index.js",
     "file"
   ],
   [
@@ -888,12 +1086,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/components/page404/index.js",
-    "file/src/components/Page404/index.js.html",
-    "src/components/Page404/index.js",
-    "file"
-  ],
-  [
     "src/components/panels/panels.js",
     "file/src/components/Panels/Panels.js.html",
     "src/components/Panels/Panels.js",
@@ -924,6 +1116,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/components/screens/index.js",
+    "file/src/components/Screens/index.js.html",
+    "src/components/Screens/index.js",
+    "file"
+  ],
+  [
     "src/components/searchbarwrapper/index.js",
     "file/src/components/SearchBarWrapper/index.js.html",
     "src/components/SearchBarWrapper/index.js",
@@ -933,6 +1131,12 @@ window.esdocSearchIndex = [
     "src/components/shoprecap/index.js",
     "file/src/components/ShopRecap/index.js.html",
     "src/components/ShopRecap/index.js",
+    "file"
+  ],
+  [
+    "src/components/smalllink/index.js",
+    "file/src/components/SmallLink/index.js.html",
+    "src/components/SmallLink/index.js",
     "file"
   ],
   [
@@ -948,6 +1152,48 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/components/svg/svgarrowup/index.js",
+    "file/src/components/Svg/SvgArrowUp/index.js.html",
+    "src/components/Svg/SvgArrowUp/index.js",
+    "file"
+  ],
+  [
+    "src/components/svg/svgavatar/index.js",
+    "file/src/components/Svg/SvgAvatar/index.js.html",
+    "src/components/Svg/SvgAvatar/index.js",
+    "file"
+  ],
+  [
+    "src/components/svg/svgdether/index.js",
+    "file/src/components/Svg/SvgDether/index.js.html",
+    "src/components/Svg/SvgDether/index.js",
+    "file"
+  ],
+  [
+    "src/components/svg/svghome/index.js",
+    "file/src/components/Svg/SvgHome/index.js.html",
+    "src/components/Svg/SvgHome/index.js",
+    "file"
+  ],
+  [
+    "src/components/svg/svgrefresh/index.js",
+    "file/src/components/Svg/SvgRefresh/index.js.html",
+    "src/components/Svg/SvgRefresh/index.js",
+    "file"
+  ],
+  [
+    "src/components/svg/index.js",
+    "file/src/components/Svg/index.js.html",
+    "src/components/Svg/index.js",
+    "file"
+  ],
+  [
+    "src/components/svg/template.js",
+    "file/src/components/Svg/template.js.html",
+    "src/components/Svg/template.js",
+    "file"
+  ],
+  [
     "src/components/index.js",
     "file/src/components/index.js.html",
     "src/components/index.js",
@@ -960,15 +1206,33 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/constants/browser.js",
+    "file/src/constants/browser.js.html",
+    "src/constants/browser.js",
+    "file"
+  ],
+  [
     "src/constants/config.js",
     "file/src/constants/config.js.html",
     "src/constants/config.js",
     "file"
   ],
   [
+    "src/constants/exchanges.js",
+    "file/src/constants/exchanges.js.html",
+    "src/constants/exchanges.js",
+    "file"
+  ],
+  [
     "src/constants/index.js",
     "file/src/constants/index.js.html",
     "src/constants/index.js",
+    "file"
+  ],
+  [
+    "src/constants/notifications.js",
+    "file/src/constants/notifications.js.html",
+    "src/constants/notifications.js",
     "file"
   ],
   [
@@ -984,45 +1248,51 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/containers/addformverification/index.js",
-    "file/src/containers/AddFormVerification/index.js.html",
-    "src/containers/AddFormVerification/index.js",
+    "src/containers/addshop/form/daysonpeninghour/index.js",
+    "file/src/containers/AddShop/Form/DaysOnpeningHour/index.js.html",
+    "src/containers/AddShop/Form/DaysOnpeningHour/index.js",
     "file"
   ],
   [
-    "src/containers/addshopform/daysonpeninghour/index.js",
-    "file/src/containers/AddShopForm/DaysOnpeningHour/index.js.html",
-    "src/containers/AddShopForm/DaysOnpeningHour/index.js",
+    "src/containers/addshop/form/searchbar/index.js",
+    "file/src/containers/AddShop/Form/SearchBar/index.js.html",
+    "src/containers/AddShop/Form/SearchBar/index.js",
     "file"
   ],
   [
-    "src/containers/addshopform/searchbar/index.js",
-    "file/src/containers/AddShopForm/SearchBar/index.js.html",
-    "src/containers/AddShopForm/SearchBar/index.js",
+    "src/containers/addshop/form/fromstate.js",
+    "file/src/containers/AddShop/Form/fromState.js.html",
+    "src/containers/AddShop/Form/fromState.js",
     "file"
   ],
   [
-    "src/containers/addshopform/fromstate.js",
-    "file/src/containers/AddShopForm/fromState.js.html",
-    "src/containers/AddShopForm/fromState.js",
+    "src/containers/addshop/form/index.js",
+    "file/src/containers/AddShop/Form/index.js.html",
+    "src/containers/AddShop/Form/index.js",
     "file"
   ],
   [
-    "src/containers/addshopform/index.js",
-    "file/src/containers/AddShopForm/index.js.html",
-    "src/containers/AddShopForm/index.js",
+    "src/containers/addshop/form/validator.js",
+    "file/src/containers/AddShop/Form/validator.js.html",
+    "src/containers/AddShop/Form/validator.js",
     "file"
   ],
   [
-    "src/containers/addshopform/validator.js",
-    "file/src/containers/AddShopForm/validator.js.html",
-    "src/containers/AddShopForm/validator.js",
+    "src/containers/addshop/verification/index.js",
+    "file/src/containers/AddShop/Verification/index.js.html",
+    "src/containers/AddShop/Verification/index.js",
     "file"
   ],
   [
-    "src/containers/addshophome/index.js",
-    "file/src/containers/AddShopHome/index.js.html",
-    "src/containers/AddShopHome/index.js",
+    "src/containers/addshop/index.js",
+    "file/src/containers/AddShop/index.js.html",
+    "src/containers/AddShop/index.js",
+    "file"
+  ],
+  [
+    "src/containers/home/termsvalidation/index.js",
+    "file/src/containers/Home/TermsValidation/index.js.html",
+    "src/containers/Home/TermsValidation/index.js",
     "file"
   ],
   [
@@ -1074,6 +1344,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/containers/phoneverification/certifypending/index.js",
+    "file/src/containers/PhoneVerification/CertifyPending/index.js.html",
+    "src/containers/PhoneVerification/CertifyPending/index.js",
+    "file"
+  ],
+  [
     "src/containers/phoneverification/phoneform/index.js",
     "file/src/containers/PhoneVerification/PhoneForm/index.js.html",
     "src/containers/PhoneVerification/PhoneForm/index.js",
@@ -1104,33 +1380,57 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/containers/wrapper/notificationmodal/index.js",
+    "file/src/containers/Wrapper/NotificationModal/index.js.html",
+    "src/containers/Wrapper/NotificationModal/index.js",
+    "file"
+  ],
+  [
+    "src/containers/wrapper/index.js",
+    "file/src/containers/Wrapper/index.js.html",
+    "src/containers/Wrapper/index.js",
+    "file"
+  ],
+  [
     "src/containers/index.js",
     "file/src/containers/index.js.html",
     "src/containers/index.js",
     "file"
   ],
   [
-    "src/helpers/apiresponse.js",
-    "file/src/helpers/apiResponse.js.html",
-    "src/helpers/apiResponse.js",
+    "src/helpers/apiresponse/apiresponse.js",
+    "file/src/helpers/apiResponse/apiResponse.js.html",
+    "src/helpers/apiResponse/apiResponse.js",
     "file"
   ],
   [
-    "src/helpers/array.js",
-    "file/src/helpers/array.js.html",
-    "src/helpers/array.js",
+    "src/helpers/apiresponse/index.js",
+    "file/src/helpers/apiResponse/index.js.html",
+    "src/helpers/apiResponse/index.js",
     "file"
   ],
   [
-    "src/helpers/calendar.js",
-    "file/src/helpers/calendar.js.html",
-    "src/helpers/calendar.js",
+    "src/helpers/array/array.js",
+    "file/src/helpers/array/array.js.html",
+    "src/helpers/array/array.js",
     "file"
   ],
   [
-    "src/helpers/ethereum/addshop.js",
-    "file/src/helpers/ethereum/addShop.js.html",
-    "src/helpers/ethereum/addShop.js",
+    "src/helpers/array/index.js",
+    "file/src/helpers/array/index.js.html",
+    "src/helpers/array/index.js",
+    "file"
+  ],
+  [
+    "src/helpers/calendar/calendar.js",
+    "file/src/helpers/calendar/calendar.js.html",
+    "src/helpers/calendar/calendar.js",
+    "file"
+  ],
+  [
+    "src/helpers/calendar/index.js",
+    "file/src/helpers/calendar/index.js.html",
+    "src/helpers/calendar/index.js",
     "file"
   ],
   [
@@ -1146,9 +1446,21 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/helpers/ethereum/getlicenceshop.js",
+    "file/src/helpers/ethereum/getLicenceShop.js.html",
+    "src/helpers/ethereum/getLicenceShop.js",
+    "file"
+  ],
+  [
     "src/helpers/ethereum/getshop.js",
     "file/src/helpers/ethereum/getShop.js.html",
     "src/helpers/ethereum/getShop.js",
+    "file"
+  ],
+  [
+    "src/helpers/ethereum/gettransactionstatus.js",
+    "file/src/helpers/ethereum/getTransactionStatus.js.html",
+    "src/helpers/ethereum/getTransactionStatus.js",
     "file"
   ],
   [
@@ -1170,21 +1482,39 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/helpers/ethereum/iszoneshopopen.js",
+    "file/src/helpers/ethereum/isZoneShopOpen.js.html",
+    "src/helpers/ethereum/isZoneShopOpen.js",
+    "file"
+  ],
+  [
     "src/helpers/ethereum/utils.js",
     "file/src/helpers/ethereum/utils.js.html",
     "src/helpers/ethereum/utils.js",
     "file"
   ],
   [
-    "src/helpers/geocodeapi.js",
-    "file/src/helpers/geocodeAPI.js.html",
-    "src/helpers/geocodeAPI.js",
+    "src/helpers/geocodeapi/geocodeapi.js",
+    "file/src/helpers/geocodeAPI/geocodeAPI.js.html",
+    "src/helpers/geocodeAPI/geocodeAPI.js",
     "file"
   ],
   [
-    "src/helpers/get.js",
-    "file/src/helpers/get.js.html",
-    "src/helpers/get.js",
+    "src/helpers/geocodeapi/index.js",
+    "file/src/helpers/geocodeAPI/index.js.html",
+    "src/helpers/geocodeAPI/index.js",
+    "file"
+  ],
+  [
+    "src/helpers/get/get.js",
+    "file/src/helpers/get/get.js.html",
+    "src/helpers/get/get.js",
+    "file"
+  ],
+  [
+    "src/helpers/get/index.js",
+    "file/src/helpers/get/index.js.html",
+    "src/helpers/get/index.js",
     "file"
   ],
   [
@@ -1194,21 +1524,99 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/helpers/last.js",
-    "file/src/helpers/last.js.html",
-    "src/helpers/last.js",
+    "src/helpers/last/index.js",
+    "file/src/helpers/last/index.js.html",
+    "src/helpers/last/index.js",
     "file"
   ],
   [
-    "src/helpers/shake.js",
-    "file/src/helpers/shake.js.html",
-    "src/helpers/shake.js",
+    "src/helpers/last/last.js",
+    "file/src/helpers/last/last.js.html",
+    "src/helpers/last/last.js",
     "file"
   ],
   [
-    "src/helpers/timers.js",
-    "file/src/helpers/timers.js.html",
-    "src/helpers/timers.js",
+    "src/helpers/map/index.js",
+    "file/src/helpers/map/index.js.html",
+    "src/helpers/map/index.js",
+    "file"
+  ],
+  [
+    "src/helpers/parse/index.js",
+    "file/src/helpers/parse/index.js.html",
+    "src/helpers/parse/index.js",
+    "file"
+  ],
+  [
+    "src/helpers/parse/parse.js",
+    "file/src/helpers/parse/parse.js.html",
+    "src/helpers/parse/parse.js",
+    "file"
+  ],
+  [
+    "src/helpers/scrolltop/index.js",
+    "file/src/helpers/scrollTop/index.js.html",
+    "src/helpers/scrollTop/index.js",
+    "file"
+  ],
+  [
+    "src/helpers/scrolltop/scrolltop.js",
+    "file/src/helpers/scrollTop/scrollTop.js.html",
+    "src/helpers/scrollTop/scrollTop.js",
+    "file"
+  ],
+  [
+    "src/helpers/shake/index.js",
+    "file/src/helpers/shake/index.js.html",
+    "src/helpers/shake/index.js",
+    "file"
+  ],
+  [
+    "src/helpers/shake/shake.js",
+    "file/src/helpers/shake/shake.js.html",
+    "src/helpers/shake/shake.js",
+    "file"
+  ],
+  [
+    "src/helpers/stories/index.js",
+    "file/src/helpers/stories/index.js.html",
+    "src/helpers/stories/index.js",
+    "file"
+  ],
+  [
+    "src/helpers/timers/index.js",
+    "file/src/helpers/timers/index.js.html",
+    "src/helpers/timers/index.js",
+    "file"
+  ],
+  [
+    "src/helpers/timers/timers.js",
+    "file/src/helpers/timers/timers.js.html",
+    "src/helpers/timers/timers.js",
+    "file"
+  ],
+  [
+    "src/helpers/wait/index.js",
+    "file/src/helpers/wait/index.js.html",
+    "src/helpers/wait/index.js",
+    "file"
+  ],
+  [
+    "src/helpers/wait/wait.js",
+    "file/src/helpers/wait/wait.js.html",
+    "src/helpers/wait/wait.js",
+    "file"
+  ],
+  [
+    "src/middlewares/fetch/__mocks__/axios.js",
+    "file/src/middlewares/fetch/__mocks__/axios.js.html",
+    "src/middlewares/fetch/__mocks__/axios.js",
+    "file"
+  ],
+  [
+    "src/middlewares/fetch/index.js",
+    "file/src/middlewares/fetch/index.js.html",
+    "src/middlewares/fetch/index.js",
     "file"
   ],
   [
@@ -1218,15 +1626,63 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/reducers/app/index.js",
+    "file/src/reducers/app/index.js.html",
+    "src/reducers/app/index.js",
+    "file"
+  ],
+  [
     "src/reducers/index.js",
     "file/src/reducers/index.js.html",
     "src/reducers/index.js",
     "file"
   ],
   [
+    "src/reducers/kyc/index.js",
+    "file/src/reducers/kyc/index.js.html",
+    "src/reducers/kyc/index.js",
+    "file"
+  ],
+  [
+    "src/reducers/map/index.js",
+    "file/src/reducers/map/index.js.html",
+    "src/reducers/map/index.js",
+    "file"
+  ],
+  [
+    "src/reducers/shop/index.js",
+    "file/src/reducers/shop/index.js.html",
+    "src/reducers/shop/index.js",
+    "file"
+  ],
+  [
+    "src/reducers/transaction/index.js",
+    "file/src/reducers/transaction/index.js.html",
+    "src/reducers/transaction/index.js",
+    "file"
+  ],
+  [
+    "src/reducers/user/index.js",
+    "file/src/reducers/user/index.js.html",
+    "src/reducers/user/index.js",
+    "file"
+  ],
+  [
+    "src/setuptests.js",
+    "file/src/setupTests.js.html",
+    "src/setupTests.js",
+    "file"
+  ],
+  [
     "src/styles/globalstyles.js",
     "file/src/styles/globalStyles.js.html",
     "src/styles/globalStyles.js",
+    "file"
+  ],
+  [
+    "src/styles/medias.js",
+    "file/src/styles/medias.js.html",
+    "src/styles/medias.js",
     "file"
   ],
   [

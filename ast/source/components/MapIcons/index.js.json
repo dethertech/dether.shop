@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 87,
+  "end": 96,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 2,
+      "line": 7,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 87,
+    "end": 96,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 2,
+        "line": 7,
         "column": 0
       }
     },
@@ -31,192 +31,192 @@
       {
         "type": "ExportNamedDeclaration",
         "start": 0,
-        "end": 86,
+        "end": 95,
         "loc": {
           "start": {
             "line": 1,
             "column": 0
           },
           "end": {
-            "line": 1,
-            "column": 86
+            "line": 6,
+            "column": 20
           }
         },
         "declaration": null,
         "specifiers": [
           {
             "type": "ExportSpecifier",
-            "start": 9,
-            "end": 17,
+            "start": 11,
+            "end": 19,
             "loc": {
               "start": {
-                "line": 1,
-                "column": 9
+                "line": 2,
+                "column": 2
               },
               "end": {
-                "line": 1,
+                "line": 2,
+                "column": 10
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 11,
+              "end": 19,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 2
+                },
+                "end": {
+                  "line": 2,
+                  "column": 10
+                },
+                "identifierName": "ShopIcon"
+              },
+              "name": "ShopIcon"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 11,
+              "end": 19,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 2
+                },
+                "end": {
+                  "line": 2,
+                  "column": 10
+                },
+                "identifierName": "ShopIcon"
+              },
+              "name": "ShopIcon"
+            }
+          },
+          {
+            "type": "ExportSpecifier",
+            "start": 23,
+            "end": 33,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 2
+              },
+              "end": {
+                "line": 3,
+                "column": 12
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 23,
+              "end": 33,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 2
+                },
+                "end": {
+                  "line": 3,
+                  "column": 12
+                },
+                "identifierName": "PersonIcon"
+              },
+              "name": "PersonIcon"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 23,
+              "end": 33,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 2
+                },
+                "end": {
+                  "line": 3,
+                  "column": 12
+                },
+                "identifierName": "PersonIcon"
+              },
+              "name": "PersonIcon"
+            }
+          },
+          {
+            "type": "ExportSpecifier",
+            "start": 37,
+            "end": 52,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 2
+              },
+              "end": {
+                "line": 4,
                 "column": 17
               }
             },
             "local": {
               "type": "Identifier",
-              "start": 9,
-              "end": 17,
+              "start": 37,
+              "end": 52,
               "loc": {
                 "start": {
-                  "line": 1,
-                  "column": 9
+                  "line": 4,
+                  "column": 2
                 },
                 "end": {
-                  "line": 1,
+                  "line": 4,
                   "column": 17
                 },
-                "identifierName": "ShopIcon"
+                "identifierName": "ClusterShopIcon"
               },
-              "name": "ShopIcon"
+              "name": "ClusterShopIcon"
             },
             "exported": {
               "type": "Identifier",
-              "start": 9,
-              "end": 17,
+              "start": 37,
+              "end": 52,
               "loc": {
                 "start": {
-                  "line": 1,
-                  "column": 9
+                  "line": 4,
+                  "column": 2
                 },
                 "end": {
-                  "line": 1,
+                  "line": 4,
                   "column": 17
                 },
-                "identifierName": "ShopIcon"
+                "identifierName": "ClusterShopIcon"
               },
-              "name": "ShopIcon"
+              "name": "ClusterShopIcon"
             }
           },
           {
             "type": "ExportSpecifier",
-            "start": 19,
-            "end": 29,
+            "start": 56,
+            "end": 73,
             "loc": {
               "start": {
-                "line": 1,
+                "line": 5,
+                "column": 2
+              },
+              "end": {
+                "line": 5,
                 "column": 19
-              },
-              "end": {
-                "line": 1,
-                "column": 29
               }
             },
             "local": {
               "type": "Identifier",
-              "start": 19,
-              "end": 29,
+              "start": 56,
+              "end": 73,
               "loc": {
                 "start": {
-                  "line": 1,
+                  "line": 5,
+                  "column": 2
+                },
+                "end": {
+                  "line": 5,
                   "column": 19
-                },
-                "end": {
-                  "line": 1,
-                  "column": 29
-                },
-                "identifierName": "PersonIcon"
-              },
-              "name": "PersonIcon"
-            },
-            "exported": {
-              "type": "Identifier",
-              "start": 19,
-              "end": 29,
-              "loc": {
-                "start": {
-                  "line": 1,
-                  "column": 19
-                },
-                "end": {
-                  "line": 1,
-                  "column": 29
-                },
-                "identifierName": "PersonIcon"
-              },
-              "name": "PersonIcon"
-            }
-          },
-          {
-            "type": "ExportSpecifier",
-            "start": 31,
-            "end": 46,
-            "loc": {
-              "start": {
-                "line": 1,
-                "column": 31
-              },
-              "end": {
-                "line": 1,
-                "column": 46
-              }
-            },
-            "local": {
-              "type": "Identifier",
-              "start": 31,
-              "end": 46,
-              "loc": {
-                "start": {
-                  "line": 1,
-                  "column": 31
-                },
-                "end": {
-                  "line": 1,
-                  "column": 46
-                },
-                "identifierName": "ClusterShopIcon"
-              },
-              "name": "ClusterShopIcon"
-            },
-            "exported": {
-              "type": "Identifier",
-              "start": 31,
-              "end": 46,
-              "loc": {
-                "start": {
-                  "line": 1,
-                  "column": 31
-                },
-                "end": {
-                  "line": 1,
-                  "column": 46
-                },
-                "identifierName": "ClusterShopIcon"
-              },
-              "name": "ClusterShopIcon"
-            }
-          },
-          {
-            "type": "ExportSpecifier",
-            "start": 48,
-            "end": 65,
-            "loc": {
-              "start": {
-                "line": 1,
-                "column": 48
-              },
-              "end": {
-                "line": 1,
-                "column": 65
-              }
-            },
-            "local": {
-              "type": "Identifier",
-              "start": 48,
-              "end": 65,
-              "loc": {
-                "start": {
-                  "line": 1,
-                  "column": 48
-                },
-                "end": {
-                  "line": 1,
-                  "column": 65
                 },
                 "identifierName": "ClusterPersonIcon"
               },
@@ -224,16 +224,16 @@
             },
             "exported": {
               "type": "Identifier",
-              "start": 48,
-              "end": 65,
+              "start": 56,
+              "end": 73,
               "loc": {
                 "start": {
-                  "line": 1,
-                  "column": 48
+                  "line": 5,
+                  "column": 2
                 },
                 "end": {
-                  "line": 1,
-                  "column": 65
+                  "line": 5,
+                  "column": 19
                 },
                 "identifierName": "ClusterPersonIcon"
               },
@@ -243,16 +243,16 @@
         ],
         "source": {
           "type": "StringLiteral",
-          "start": 73,
-          "end": 85,
+          "start": 82,
+          "end": 94,
           "loc": {
             "start": {
-              "line": 1,
-              "column": 73
+              "line": 6,
+              "column": 7
             },
             "end": {
-              "line": 1,
-              "column": 85
+              "line": 6,
+              "column": 19
             }
           },
           "extra": {
@@ -333,16 +333,16 @@
         "binop": null
       },
       "value": "ShopIcon",
-      "start": 9,
-      "end": 17,
+      "start": 11,
+      "end": 19,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 9
+          "line": 2,
+          "column": 2
         },
         "end": {
-          "line": 1,
-          "column": 17
+          "line": 2,
+          "column": 10
         }
       }
     },
@@ -359,16 +359,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 17,
-      "end": 18,
+      "start": 19,
+      "end": 20,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 17
+          "line": 2,
+          "column": 10
         },
         "end": {
-          "line": 1,
-          "column": 18
+          "line": 2,
+          "column": 11
         }
       }
     },
@@ -385,16 +385,16 @@
         "binop": null
       },
       "value": "PersonIcon",
-      "start": 19,
-      "end": 29,
+      "start": 23,
+      "end": 33,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 19
+          "line": 3,
+          "column": 2
         },
         "end": {
-          "line": 1,
-          "column": 29
+          "line": 3,
+          "column": 12
         }
       }
     },
@@ -411,16 +411,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 29,
-      "end": 30,
+      "start": 33,
+      "end": 34,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 29
+          "line": 3,
+          "column": 12
         },
         "end": {
-          "line": 1,
-          "column": 30
+          "line": 3,
+          "column": 13
         }
       }
     },
@@ -437,16 +437,16 @@
         "binop": null
       },
       "value": "ClusterShopIcon",
-      "start": 31,
-      "end": 46,
+      "start": 37,
+      "end": 52,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 31
+          "line": 4,
+          "column": 2
         },
         "end": {
-          "line": 1,
-          "column": 46
+          "line": 4,
+          "column": 17
         }
       }
     },
@@ -463,16 +463,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 46,
-      "end": 47,
+      "start": 52,
+      "end": 53,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 46
+          "line": 4,
+          "column": 17
         },
         "end": {
-          "line": 1,
-          "column": 47
+          "line": 4,
+          "column": 18
         }
       }
     },
@@ -489,16 +489,42 @@
         "binop": null
       },
       "value": "ClusterPersonIcon",
-      "start": 48,
-      "end": 65,
+      "start": 56,
+      "end": 73,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 48
+          "line": 5,
+          "column": 2
         },
         "end": {
-          "line": 1,
-          "column": 65
+          "line": 5,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 73,
+      "end": 74,
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 19
+        },
+        "end": {
+          "line": 5,
+          "column": 20
         }
       }
     },
@@ -514,16 +540,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 66,
-      "end": 67,
+      "start": 75,
+      "end": 76,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 66
+          "line": 6,
+          "column": 0
         },
         "end": {
-          "line": 1,
-          "column": 67
+          "line": 6,
+          "column": 1
         }
       }
     },
@@ -540,16 +566,16 @@
         "binop": null
       },
       "value": "from",
-      "start": 68,
-      "end": 72,
+      "start": 77,
+      "end": 81,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 68
+          "line": 6,
+          "column": 2
         },
         "end": {
-          "line": 1,
-          "column": 72
+          "line": 6,
+          "column": 6
         }
       }
     },
@@ -567,16 +593,16 @@
         "updateContext": null
       },
       "value": "./MapIcons",
-      "start": 73,
-      "end": 85,
+      "start": 82,
+      "end": 94,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 73
+          "line": 6,
+          "column": 7
         },
         "end": {
-          "line": 1,
-          "column": 85
+          "line": 6,
+          "column": 19
         }
       }
     },
@@ -593,16 +619,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 85,
-      "end": 86,
+      "start": 94,
+      "end": 95,
       "loc": {
         "start": {
-          "line": 1,
-          "column": 85
+          "line": 6,
+          "column": 19
         },
         "end": {
-          "line": 1,
-          "column": 86
+          "line": 6,
+          "column": 20
         }
       }
     },
@@ -619,15 +645,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 87,
-      "end": 87,
+      "start": 96,
+      "end": 96,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 7,
           "column": 0
         },
         "end": {
-          "line": 2,
+          "line": 7,
           "column": 0
         }
       }

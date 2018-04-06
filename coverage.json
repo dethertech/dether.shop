@@ -1,56 +1,51 @@
 {
-  "coverage": "8.23%",
-  "expectCount": 85,
-  "actualCount": 7,
+  "coverage": "33.63%",
+  "expectCount": 110,
+  "actualCount": 37,
   "files": {
-    "src/actions/app.js": {
+    "src/actions/app/app.js": {
+      "expectCount": 11,
+      "actualCount": 8,
+      "undocumentLines": [
+        63,
+        69,
+        58
+      ]
+    },
+    "src/actions/kyc/kyc.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/actions/root/root.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/actions/shop/shop.js": {
+      "expectCount": 3,
+      "actualCount": 3,
+      "undocumentLines": []
+    },
+    "src/actions/transaction/transaction.js": {
       "expectCount": 3,
       "actualCount": 0,
       "undocumentLines": [
         1,
         6,
-        11
+        10
       ]
     },
-    "src/actions/kyc.js": {
-      "expectCount": 6,
+    "src/actions/user/user.js": {
+      "expectCount": 4,
       "actualCount": 0,
       "undocumentLines": [
         3,
-        21,
-        26,
-        31,
-        36,
-        12
-      ]
-    },
-    "src/actions/shop.js": {
-      "expectCount": 4,
-      "actualCount": 0,
-      "undocumentLines": [
-        11,
-        16,
-        1,
-        6
-      ]
-    },
-    "src/actions/user.js": {
-      "expectCount": 3,
-      "actualCount": 0,
-      "undocumentLines": [
-        1,
-        6,
-        11
-      ]
-    },
-    "src/bootstrap/configureStore.js": {
-      "expectCount": 4,
-      "actualCount": 0,
-      "undocumentLines": [
-        19,
-        25,
-        46,
-        30
+        8,
+        13,
+        23
       ]
     },
     "src/components/Headings/Headings.js": {
@@ -124,7 +119,7 @@
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
-        4
+        5
       ]
     },
     "src/components/Spaces/Spaces.js": {
@@ -133,18 +128,34 @@
       "undocumentLines": [
         5,
         7,
-        40,
-        44,
         48,
-        59
+        52,
+        56,
+        68
+      ]
+    },
+    "src/constants/browser.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
       ]
     },
     "src/constants/config.js": {
-      "expectCount": 2,
+      "expectCount": 3,
       "actualCount": 0,
       "undocumentLines": [
         1,
-        2
+        4,
+        6
+      ]
+    },
+    "src/constants/notifications.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        9
       ]
     },
     "src/constants/prefixePhone.js": {
@@ -158,48 +169,39 @@
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
-        3
+        6
       ]
     },
-    "src/containers/AddShopForm/fromState.js": {
+    "src/containers/AddShop/Form/fromState.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
         4
       ]
     },
-    "src/helpers/apiResponse.js": {
+    "src/containers/AddShop/Form/validator.js": {
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
-        3
+        4
       ]
     },
-    "src/helpers/array.js": {
+    "src/helpers/apiResponse/apiResponse.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
-    "src/helpers/calendar.js": {
+    "src/helpers/array/array.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/helpers/calendar/calendar.js": {
       "expectCount": 5,
-      "actualCount": 0,
+      "actualCount": 3,
       "undocumentLines": [
         1,
-        52,
-        56,
-        58,
-        67
-      ]
-    },
-    "src/helpers/ethereum/addShop.js": {
-      "expectCount": 4,
-      "actualCount": 1,
-      "undocumentLines": [
-        7,
-        35,
-        43
+        52
       ]
     },
     "src/helpers/ethereum/deleteShop.js": {
@@ -212,13 +214,24 @@
       "actualCount": 1,
       "undocumentLines": []
     },
+    "src/helpers/ethereum/getLicenceShop.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
     "src/helpers/ethereum/getShop.js": {
       "expectCount": 3,
-      "actualCount": 1,
+      "actualCount": 2,
       "undocumentLines": [
-        4,
-        38
+        4
       ]
+    },
+    "src/helpers/ethereum/getTransactionStatus.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "src/helpers/ethereum/isSmsReg.js": {
       "expectCount": 1,
@@ -230,58 +243,96 @@
       "actualCount": 1,
       "undocumentLines": []
     },
-    "src/helpers/ethereum/utils.js": {
-      "expectCount": 3,
+    "src/helpers/ethereum/isZoneShopOpen.js": {
+      "expectCount": 1,
       "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "src/helpers/ethereum/utils.js": {
+      "expectCount": 8,
+      "actualCount": 1,
       "undocumentLines": [
         6,
         7,
-        9
+        9,
+        11,
+        13,
+        19,
+        25
       ]
     },
-    "src/helpers/geocodeAPI.js": {
+    "src/helpers/geocodeAPI/geocodeAPI.js": {
       "expectCount": 3,
-      "actualCount": 0,
-      "undocumentLines": [
-        3,
-        5,
-        7
-      ]
-    },
-    "src/helpers/get.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
-    },
-    "src/helpers/last.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
-    },
-    "src/helpers/shake.js": {
-      "expectCount": 2,
       "actualCount": 1,
       "undocumentLines": [
-        9
+        3,
+        12
       ]
     },
-    "src/helpers/timers.js": {
-      "expectCount": 2,
+    "src/helpers/get/get.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/helpers/last/last.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/helpers/parse/parse.js": {
+      "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
-        1,
-        2
+        3
+      ]
+    },
+    "src/helpers/scrollTop/scrollTop.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/helpers/shake/shake.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/helpers/timers/timers.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/helpers/wait/wait.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/middlewares/fetch/__mocks__/axios.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
       ]
     },
     "src/reducers/index.js": {
-      "expectCount": 1,
+      "expectCount": 2,
       "actualCount": 0,
       "undocumentLines": [
-        12
+        13,
+        22
+      ]
+    },
+    "src/setupTests.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        6,
+        17
       ]
     },
     "src/styles/globalStyles.js": {
@@ -289,6 +340,13 @@
       "actualCount": 0,
       "undocumentLines": [
         5
+      ]
+    },
+    "src/styles/medias.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
       ]
     },
     "src/styles/tokens.js": {
