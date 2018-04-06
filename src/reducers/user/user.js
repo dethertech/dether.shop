@@ -1,12 +1,13 @@
 import config from '../../constants/config';
 
-const initialState = {
+export const initialState = {
   balance: {
     eth: 0,
     dth: 0,
   },
   isCertified: false,
   ethAddress: null,
+  phoneVerified: false,
 };
 
 /**
@@ -16,8 +17,12 @@ const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_BALANCE':
       return { ...state, balance: payload };
-    case 'SET_USER_CERTIFIED':
-      return { ...state, isCertified: payload };
+    case 'FETCH_USER_CERTIFIED_SUCCESS': {
+      const { isCertified } = payload.data.data;
+      return { ...state, isCertified: !!isCertified };
+    }
+    case 'SET_PHONE_VERIFIED':
+      return { ...state, phoneVerified: true };
     case 'SET_ETH_ADDRESS':
       return { ...state, ethAddress: payload };
     default:

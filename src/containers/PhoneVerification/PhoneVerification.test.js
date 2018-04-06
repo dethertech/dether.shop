@@ -14,6 +14,7 @@ describe('Containers::PhoneVerification', () => {
       setPhoneSent: () => null,
       ethAddress: '0xawefwefweweq',
       phoneSent: true,
+      phoneVerified: false,
       phone: '623423423'
     }
     wrapper = shallow((

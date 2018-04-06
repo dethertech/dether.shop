@@ -2,7 +2,7 @@ import tr from '../../translate';
 
 /**
  * Parse api response to return formatted error
- * @param  {Array||String} errors   errors returned by api
+ * @param  {Array|String} errors   errors returned by api
  * @param  {Object} response response returned by api
  * @return {String} error message
  */

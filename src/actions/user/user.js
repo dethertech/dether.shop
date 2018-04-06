@@ -1,28 +1,27 @@
-/**
- * setEthAddress
- * @param {[type]} ethAddress [description]
- */
+import { config } from '../../constants';
+
 const setEthAddress = ethAddress => ({
   type: 'SET_ETH_ADDRESS',
   payload: ethAddress,
 });
 
-/**
- * setBalance
- * @param {[type]} balance [description]
- */
 const setBalance = balance => ({
   type: 'SET_BALANCE',
   payload: balance,
 });
 
-/**
- * setUserCertified
- * @param {[type]} bool [description]
- */
-const setUserCertified = bool => ({
-  type: 'SET_USER_CERTIFIED',
-  payload: bool,
+const checkUserCertified = ethAddress => dispatch =>
+  new Promise((res, rej) => {
+    dispatch({
+      type: 'API:FETCH_USER_CERTIFIED',
+      url: config.kyc.isCertifiedUrl(ethAddress),
+      onSuccess: data => res(data),
+      onError: error => rej(error),
+    });
+  });
+
+const setPhoneVerified = () => ({
+  type: 'SET_PHONE_VERIFIED',
 });
 
-export { setEthAddress, setBalance, setUserCertified };
+export { setEthAddress, setBalance, checkUserCertified, setPhoneVerified };

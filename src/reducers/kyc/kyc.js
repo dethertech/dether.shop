@@ -23,7 +23,7 @@ const kycReducer = (state = initialState, { type, payload }) => {
     case 'SEND_SMS_PENDING':
       return { ...state, isSubmitPhonePending: true };
     case 'SEND_SMS_SUCCESS':
-      return { ...state, isSubmitPhonePending: false };
+      return { ...state, isSubmitPhonePending: false, phoneSent: true };
     case 'SEND_SMS_ERROR':
       return { ...state, isSubmitPhonePending: false };
     case 'SEND_VERIF_CODE_PENDING':

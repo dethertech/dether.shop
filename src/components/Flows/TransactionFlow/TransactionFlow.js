@@ -60,7 +60,7 @@ class TransactionFlow extends PureComponent {
       .then(hash => {
         setTransactionHash(hash);
       })
-      .catch(e => this.checkMetaMaskReceipt(e));
+      .catch(() => this.transactionError());
   }
 
   componentWillReceiveProps(nextProps) {
@@ -86,7 +86,7 @@ class TransactionFlow extends PureComponent {
     const hash = transaction.hash || storeTransaction.hash;
     const startTime = new Date();
 
-    if (new Date() - sentTime > 10000) {
+    if (new Date() - sentTime > 600000) {
       resetTransaction();
       openNotificationModal({
         type: notificationsTypes.WARNING,
@@ -97,8 +97,7 @@ class TransactionFlow extends PureComponent {
     if (hash) {
       const status = await getTransactionStatus(hash);
       if (status === 'error') {
-        resetTransaction();
-        onError();
+        return this.transactionError();
       }
     }
 
@@ -108,6 +107,9 @@ class TransactionFlow extends PureComponent {
     const checkTime = new Date() - startTime;
     if (checkTime > 5000) this.checkTransaction(transaction);
     else {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
       this.timeout = setTimeout(
         () => this.checkTransaction(transaction),
         5000 - checkTime,
@@ -115,7 +117,7 @@ class TransactionFlow extends PureComponent {
     }
   };
 
-  checkMetaMaskReceipt = () => {
+  transactionError = () => {
     const { onError, resetTransaction, openNotificationModal } = this.props;
 
     openNotificationModal({

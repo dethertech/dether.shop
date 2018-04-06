@@ -9,7 +9,7 @@ import { phoneVerificationTime, getErrorMessage } from '../../../helpers';
 
 import ValidateCode from './ValidateCode';
 import { sendVerifCode as sendVerifCodeAction } from '../../../actions/kyc';
-import { setUserCertified as setUserCertifiedAction } from '../../../actions/user';
+import { setPhoneVerified as setPhoneVerifiedAction } from '../../../actions/user';
 
 class ValidationCode extends PureComponent {
   static propTypes = {
@@ -20,7 +20,7 @@ class ValidationCode extends PureComponent {
     lastSend: PropTypes.instanceOf(Date),
     sendVerifCode: PropTypes.func.isRequired,
     code: PropTypes.number,
-    setUserCertified: PropTypes.func.isRequired,
+    setPhoneVerified: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -44,13 +44,13 @@ class ValidationCode extends PureComponent {
   };
 
   sendCode = code => {
-    const { phoneNumber, sendVerifCode, setUserCertified } = this.props;
+    const { phoneNumber, sendVerifCode, setPhoneVerified } = this.props;
 
     sendVerifCode({
       code,
       phoneNumber,
       onSuccess: () => {
-        setUserCertified(true);
+        setPhoneVerified();
       },
       onError: (errors, res) =>
         this.setState({ error: getErrorMessage(errors, res) }),
@@ -85,7 +85,7 @@ const mapStateToProps = ({ kyc: { isSubmitCodePending } }) => ({
 
 const mapDispatchToProps = dispatch => ({
   sendVerifCode: bindActionCreators(sendVerifCodeAction, dispatch),
-  setUserCertified: bindActionCreators(setUserCertifiedAction, dispatch),
+  setPhoneVerified: bindActionCreators(setPhoneVerifiedAction, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ValidationCode);

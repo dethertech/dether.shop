@@ -29,6 +29,10 @@ const en = {
     change_button: 'Change phone number',
     resend_button: 'Resend verification code',
   },
+  check_certify: {
+    title: 'Please wait',
+    message: 'We are certifying your address, it can take a few minutes',
+  },
   add: {
     home: {
       title: 'CRYPTOCURRENCY FOR SHOPS',
