@@ -27,6 +27,7 @@
     "svgr": "svgr -d src/components/Svg/copy src/components/Svg/copy --template src/components/Svg/template.js --single-quote"
   },
   "dependencies": {
+    "@dether.io/detherweb3": "^0.3.1",
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
     "dethercontract": "^3.1.0",
