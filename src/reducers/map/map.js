@@ -53,6 +53,8 @@ const mapReducer = (state = initialState, { type, payload }) => {
       return { ...state, cardOpened: true };
     case 'CLOSE_CARD':
       return { ...state, cardOpened: false, contentOnCard: {} };
+    case 'RESET_SHOPS':
+      return { ...state, shops: [] };
     default:
       return state;
   }

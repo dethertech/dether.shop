@@ -71,7 +71,6 @@ export class PhoneVerification extends PureComponent {
     this.setState(
       () => stateToChange,
       () => {
-        console.log('send');
         sendSms({
           phoneNumber,
           ethAddress,

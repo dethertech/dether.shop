@@ -18,9 +18,9 @@ import tr from '../../translate';
  */
 import {
   removeShop as removeShopAction,
-  fetchAll as fetchAllAction,
   resetTransaction as resetTransactionAction,
   openNotificationModal as openNotificationModalAction,
+  reloadShops as reloadShopsAction,
 } from '../../actions';
 
 /*
@@ -49,9 +49,9 @@ export class ShowShop extends PureComponent {
     isTransactionPending: PropTypes.bool.isRequired,
     deleteContractShop: PropTypes.func.isRequired,
     removeShopFromStore: PropTypes.func.isRequired,
-    fetchAll: PropTypes.func.isRequired,
     centerPosition: PropTypes.shape({}).isRequired,
     openNotificationModal: PropTypes.func.isRequired,
+    reloadShops: PropTypes.func.isRequired,
   };
 
   state = {
@@ -62,14 +62,14 @@ export class ShowShop extends PureComponent {
     const {
       removeShopFromStore,
       resetTransaction,
-      fetchAll,
       centerPosition,
       openNotificationModal,
+      reloadShops,
     } = this.props;
 
     const shop = await getShop();
     if (!shop) {
-      fetchAll(centerPosition);
+      reloadShops(centerPosition);
       this.setState({ transactionSubmitted: false });
       resetTransaction();
       removeShopFromStore(shop);
@@ -133,8 +133,8 @@ const mapStateToProps = ({ shop, map, transaction }) => ({
 const mapDispatchToProps = dispatch => ({
   deleteContractShop: deleteShopHelper,
   removeShopFromStore: bindActionCreators(removeShopAction, dispatch),
-  fetchAll: bindActionCreators(fetchAllAction, dispatch),
   resetTransaction: bindActionCreators(resetTransactionAction, dispatch),
+  reloadShops: bindActionCreators(reloadShopsAction, dispatch),
   openNotificationModal: bindActionCreators(
     openNotificationModalAction,
     dispatch,

@@ -112,6 +112,15 @@ const fetchPosition = () => async dispatch =>
     dispatch(fetchPositionByIp(res));
   });
 
+const resetShops = () => ({
+  type: 'RESET_SHOPS',
+});
+
+const reloadShops = centerPosition => dispatch => {
+  dispatch(resetShops());
+  dispatch(fetchAll(centerPosition));
+};
+
 export {
   setUserPosition,
   setCenterPosition,
@@ -124,4 +133,5 @@ export {
   fetchAll,
   openCard,
   closeCard,
+  reloadShops,
 };
