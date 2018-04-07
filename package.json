@@ -27,7 +27,6 @@
     "svgr": "svgr -d src/components/Svg/copy src/components/Svg/copy --template src/components/Svg/template.js --single-quote"
   },
   "dependencies": {
-    "@dether.io/detherweb3": "^0.3.1",
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
     "dethercontract": "^3.1.0",
@@ -47,8 +46,8 @@
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.1.6",
-    "web3": "^1.0.0-beta.30",
-    "web3-eth-abi": "^1.0.0-beta.30"
+    "web3": "^1.0.0-beta.33",
+    "web3-eth-abi": "^1.0.0-beta.33"
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.3.14",
