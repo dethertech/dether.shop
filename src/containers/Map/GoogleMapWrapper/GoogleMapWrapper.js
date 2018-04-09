@@ -15,6 +15,7 @@ class GoogleMapWrapper extends PureComponent {
   static propTypes = {
     center: PropTypes.shape({}).isRequired,
     changeHandler: PropTypes.func.isRequired,
+    zoom: PropTypes.number,
     onClick: PropTypes.func,
     children: PropTypes.oneOfType([PropTypes.array, PropTypes.element])
       .isRequired,
@@ -22,6 +23,7 @@ class GoogleMapWrapper extends PureComponent {
 
   static defaultProps = {
     onClick: () => {},
+    zoom: 16,
   };
 
   options = {
@@ -32,13 +34,13 @@ class GoogleMapWrapper extends PureComponent {
   };
 
   render = () => {
-    const { children, center, changeHandler, onClick } = this.props;
+    const { children, center, changeHandler, onClick, zoom } = this.props;
 
     return (
       <GoogleMap
         bootstrapURLKeys={{ key: config.googleMapKey }}
         center={center}
-        zoom={16}
+        zoom={zoom}
         options={this.options}
         onChange={changeHandler}
         onClick={onClick}
