@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import { convertCalendar, GeocodeAPI } from '../../helpers';
 import tokens from '../../styles/tokens';
@@ -53,11 +54,17 @@ class ShopRecap extends PureComponent {
   componentDidMount = async () => {
     const { lat, lng } = this.props;
 
-    const address = await GeocodeAPI.positionToAddress({ lat, lng }).catch(
-      () => '',
-    );
-    this.setState({ address });
+    const { CancelToken } = axios;
+    this.geocodeCall = CancelToken.source();
+
+    GeocodeAPI.positionToAddress({ lat, lng }, this.geocodeCall.token)
+      .then(address => this.setState({ address }))
+      .catch(() => null);
   };
+
+  componentWillUnmount() {
+    this.geocodeCall.cancel();
+  }
 
   render = () => {
     const { opening, name, cat, description, licencePrice } = this.props;

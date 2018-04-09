@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 
@@ -17,7 +17,7 @@ import ReportABug from '../ReportABug/ReportABug';
  * App
  */
 
-class App extends React.Component {
+class App extends PureComponent {
   state = {
     error: false,
   };

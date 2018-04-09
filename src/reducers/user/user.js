@@ -36,7 +36,7 @@ const userReducer = (state = initialState, { type, payload }) => {
  * @return {Boolean}         [description]
  */
 export const hasBalance = ({ balance }) =>
-  balance && (balance.eth !== 0 || balance.dth !== 0);
+  !!balance && (balance.eth !== 0 || balance.dth !== 0);
 
 export const hasEnoughDthToAddShop = ({ dth }, licencePrice) =>
   !!dth && dth >= Number(licencePrice);

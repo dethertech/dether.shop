@@ -1,3 +1,4 @@
+import axios from 'axios';
 import config from '../../constants/config';
 
 const GOOGLE_API = 'https://maps.google.com/maps/api/geocode/json';
@@ -60,7 +61,7 @@ const GeocodeAPI = {
    * @param {Object} lat and lng
    * @returns {Promise}
    */
-  async reverseGeocode({ lat, lng }) {
+  async reverseGeocode({ lat, lng }, cancelToken) {
     if (!lat || !lng) {
       return Promise.reject(new Error('Provided coordinates are invalid'));
     }
@@ -69,7 +70,7 @@ const GeocodeAPI = {
     const url = `${GOOGLE_API}?key=${config.googleMapKey}&latlng=${encodeURI(
       latLng,
     )}`;
-    const { results } = await this.handleUrl(url);
+    const { results } = await this.handleUrl(url, cancelToken);
     if (!results || results.length <= 0) {
       return Promise.reject(new Error('Enable to reverse lat lng'));
     }
@@ -82,8 +83,9 @@ const GeocodeAPI = {
    * @param  {[type]}  position [description]
    * @return {Promise}          [description]
    */
-  async positionToAddress(position) {
-    return (await this.reverseGeocode(position))[0].formatted_address;
+  async positionToAddress(position, cancelToken) {
+    return (await this.reverseGeocode(position, cancelToken))[0]
+      .formatted_address;
   },
 
   /**
@@ -91,10 +93,10 @@ const GeocodeAPI = {
    * @param  {[type]}  url [description]
    * @return {Promise}     [description]
    */
-  async handleUrl(url) {
-    const response = await fetch(url).catch(() =>
-      Promise.reject(new Error('Error fetching data')),
-    );
+  async handleUrl(url, cancelToken) {
+    const response = await axios
+      .get(url, { cancelToken })
+      .catch(() => Promise.reject(new Error('Error fetching data')));
 
     const json = await response
       .json()
