@@ -96,9 +96,9 @@ export class Map extends Component {
     clearInterval(this.interval);
   }
 
-  updateCluster(shops) {
+  updateCluster = shops => {
     this.shopsCluster = getClusterData(shops, this.propsMap);
-  }
+  };
 
   changeHandler = propsMap => {
     const center = LatLng(propsMap.center);
@@ -124,10 +124,20 @@ export class Map extends Component {
     }
   };
 
+  zoomPlus = () => {
+    this.propsMap.zoom += 2;
+    this.forceUpdate();
+  };
+
   render() {
     const { centerPosition, fetchPosition } = this.props;
     const ShopsMarkers = this.shopsCluster.map(shop => (
-      <ShopMarker {...shop} key={shop.id} shop={shop} />
+      <ShopMarker
+        {...shop}
+        key={shop.id}
+        shop={shop}
+        onClusterClick={this.zoomPlus}
+      />
     ));
     return (
       <MapWrapper>
@@ -135,6 +145,7 @@ export class Map extends Component {
           onClick={this.mapClick}
           changeHandler={this.changeHandler}
           center={centerPosition}
+          zoom={this.propsMap.zoom}
         >
           {ShopsMarkers}
         </WrapperMap>
