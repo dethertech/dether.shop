@@ -7,7 +7,6 @@ import tokens from '../../styles/tokens';
 import Layout from '../../components/Layout';
 import { Padding } from '../../components/Spaces';
 import config from '../../constants/config';
-import Header from '../../components/Header';
 import Message from '../../components/Message';
 
 const Link = styled.a`
@@ -17,16 +16,15 @@ const Link = styled.a`
 `;
 
 const Root = styled(Layout.Body)`
-  justify-content: center;
   text-align: center;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 `;
 
 export default () => (
   <Root>
-    <Layout.Header>
-      <Header onRefresh={() => window.location.reload()} />
-    </Layout.Header>
     <Padding all="m">
       <Message theme="error" alignCenter>
         {tr('errors.global_error')}
