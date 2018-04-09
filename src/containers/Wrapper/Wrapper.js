@@ -3,6 +3,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import MenuBurger from './MenuBurger';
 
 /*
   Constants
@@ -28,9 +29,11 @@ import Map from '../Map';
 export const Home = ({ isNotificationModalOpen }) => (
   <Panels>
     {isNotificationModalOpen && <NotificationModal />}
-    <Panels.Left>
-      <LeftPanel />
-    </Panels.Left>
+    <MenuBurger>
+      <Panels.Left>
+        <LeftPanel />
+      </Panels.Left>
+    </MenuBurger>
     <Panels.Right>
       <Map />
     </Panels.Right>

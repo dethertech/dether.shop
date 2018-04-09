@@ -43,7 +43,7 @@ export const Wrapper = styled.button`
   ${({ isSmall }) =>
     isSmall &&
     css`
-      font-size: ${tokens.fontSizes.m};
+      font-size: ${tokens.fontSizes.s};
       padding: ${tokens.spaces.xs} ${tokens.spaces.m};
     `};
 

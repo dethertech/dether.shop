@@ -35,6 +35,7 @@
     "points-cluster": "^0.1.4",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-burger-menu": "^2.4.2",
     "react-dom": "^16.2.0",
     "react-places-autocomplete": "^6.0.0",
     "react-redux": "^5.0.7",

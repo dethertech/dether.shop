@@ -18,8 +18,11 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   flex-flow: row nowrap;
-  width: 100%;
+  width: 90%;
   padding: ${tokens.spaces.m};
+  @media (min-width: 768px) {
+    width: 100%;
+  }
   @media (max-width: 550px) {
     padding: ${tokens.spaces.s};
     font-size: ${tokens.fontSizes.xs};
@@ -31,7 +34,7 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`
-  flex: 0 0 70%;
+  flex: 0 0 55%;
 `;
 
 const WalletView = styled.div`
@@ -48,7 +51,9 @@ const WalletView = styled.div`
 `;
 
 const Balance = styled.div`
-  border-right: solid 1px ${tokens.colors.grey.lightest};
+  @media (min-width: 768px) {
+    border-right: solid 1px ${tokens.colors.grey.lightest};
+  }
   display: flex;
   flex-flow: row wrap;
 `;
@@ -68,8 +73,8 @@ const EthBalanceWrapper = styled.div`
   font-size: ${tokens.fontSizes.xl};
   font-weight: 900;
   flex: 0 0 50%;
-  border-right: solid 1px ${tokens.colors.grey.lightest};
   padding-right: ${tokens.spaces.s};
+  border-right: solid 1px ${tokens.colors.grey.lightest};
   @media (max-width: 550px) {
     font-size: ${tokens.fontSizes.s};
     padding-right: ${tokens.spaces.xs};
@@ -96,6 +101,10 @@ const YourBalance = styled.div`
 const Refresh = styled.button`
   flex: 1;
   padding: ${tokens.spaces.xs};
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const RefreshText = styled.div`
@@ -144,7 +153,7 @@ class Header extends PureComponent {
               <Loader style={{ margin: 'auto' }} />
             ) : (
               <Fragment>
-                <Balance>
+                <Balance onClick={this.handleRefresh}>
                   <EthBalanceWrapper>{EthBalance} ETH</EthBalanceWrapper>
                   <DthBalanceWrapper>{DthBalance} DTH</DthBalanceWrapper>
                   <YourBalance>{tr('header.your_balance')}</YourBalance>
