@@ -97,8 +97,7 @@ const GeocodeAPI = {
     const json = await axios
       .get(url, { cancelToken })
       .catch(() => Promise.reject(new Error('Error fetching data')));
-
-    if (json.status === 'OK') {
+    if (json.data.status === 'OK') {
       return json;
     }
     return Promise.reject(
