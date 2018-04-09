@@ -17,6 +17,7 @@ import validator from './validator';
 import fromState from './fromState';
 import SearchBar from './SearchBar';
 import { convertCalendar } from '../../../helpers/calendar';
+import { isAlphaText } from '../../../helpers/parse';
 
 export class Form extends PureComponent {
   static propTypes = {
@@ -42,6 +43,7 @@ export class Form extends PureComponent {
   };
 
   onChange = ({ target: { name, value: val } }) => {
+    if (!isAlphaText(val)) return;
     const validatorName = validator[name];
     const value = validatorName.tranform(val);
 
