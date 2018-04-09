@@ -18,7 +18,15 @@ const shop = {
 GeocodeAPI.positionToAddress = async () => 'Paris 2';
 GeocodeAPI.postalCode = async () => '75002';
 
+  jest.mock('axios', () => ({
+    CancelToken: {
+      source: () => ({
+        token: '',
+      }),
+    },
+  }));
 describe('Components ShopRecap', () => {
+
   it('should render ShopRecap', () => {
     const component = renderer.create(<ShopRecap {...shop} />);
 

@@ -26,6 +26,14 @@ GeocodeAPI.postalCode = async () => '75002';
 configure({ adapter: new Adapter() });
 
 const store = fakeStore({});
+  jest.mock('axios', () => ({
+    CancelToken: {
+      source: () => ({
+        token: '',
+      }),
+    },
+  }));
+
 
 describe('Container ShopRouter', () => {
   it('should be render without crash', () => {

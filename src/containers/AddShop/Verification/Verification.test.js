@@ -3,7 +3,15 @@ import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { Verification } from './Verification';
 
+  jest.mock('axios', () => ({
+    CancelToken: {
+      source: () => ({
+        token: '',
+      }),
+    },
+  }));
 describe('Containers::AddShop::Verification', () => {
+
   const pendingShop = {
     lat: '30',
     lng: '3',

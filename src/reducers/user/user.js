@@ -18,7 +18,9 @@ const userReducer = (state = initialState, { type, payload }) => {
     case 'SET_BALANCE':
       return { ...state, balance: payload };
     case 'FETCH_USER_CERTIFIED_SUCCESS': {
-      const { isCertified } = payload.data.data;
+      const isCertified = payload.data.data
+        ? payload.data.data.isCertified
+        : false;
       return { ...state, isCertified: !!isCertified };
     }
     case 'SET_PHONE_VERIFIED':

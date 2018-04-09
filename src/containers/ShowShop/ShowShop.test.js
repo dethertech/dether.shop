@@ -3,7 +3,15 @@ import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { ShowShop } from './ShowShop';
 
+  jest.mock('axios', () => ({
+    CancelToken: {
+      source: () => ({
+        token: '',
+      }),
+    },
+  }));
 describe('Containers::ShowShop', () => {
+
   const shop = {
     lat: '30',
     lng: '3',
