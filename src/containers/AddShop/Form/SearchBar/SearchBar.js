@@ -43,32 +43,38 @@ export class SearchBar extends PureComponent {
   };
 
   onSelect = async address => {
-    const place = (await geocodeByAddress(address))[0];
-    const position = await getLatLng(place);
-    const countryId = GeocodeAPI.getCountryIdFromAddressComponents(
-      place.address_components,
-    );
-    const postalCode = await SearchBar.postalCode(
-      place.address_components,
-      position,
-    );
-
-    const data = {
-      ...position,
-      countryId,
-      postalCode,
-      lat: position.lat.toFixed(5),
-      lng: position.lng.toFixed(5),
-      addressString: address,
-    };
-    let error;
-    if (data.lat && data.lng && countryId && postalCode) {
-      this.props.onChange(data);
-      this.setState({ isDirty: false });
-    } else {
-      error = tr('add.form.inputs.address.label');
+    try {
+      const place = (await geocodeByAddress(address))[0];
+      const position = await getLatLng(place);
+      const countryId = GeocodeAPI.getCountryIdFromAddressComponents(
+        place.address_components,
+      );
+      const postalCode = await SearchBar.postalCode(
+        place.address_components,
+        position,
+      );
+      const data = {
+        ...position,
+        countryId,
+        postalCode,
+        lat: position.lat.toFixed(5),
+        lng: position.lng.toFixed(5),
+        addressString: address,
+      };
+      let error;
+      if (data.lat && data.lng && countryId && postalCode) {
+        this.props.onChange(data);
+        this.setState({ isDirty: false });
+      } else {
+        error = tr('add.form.inputs.address.errors.invalid');
+      }
+      this.setState({ address, error });
+    } catch (e) {
+      this.setState({
+        address,
+        error: tr('add.form.inputs.address.errors.invalid'),
+      });
     }
-    this.setState({ address, error });
   };
 
   render() {
