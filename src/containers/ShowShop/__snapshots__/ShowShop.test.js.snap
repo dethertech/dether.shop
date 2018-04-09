@@ -19,6 +19,7 @@ ShallowWrapper {
     fetchAll={[Function]}
     isTransactionPending={false}
     openNotificationModal={[Function]}
+    reloadShops={[Function]}
     removeShopFromStore={[Function]}
     shop={
         Object {
