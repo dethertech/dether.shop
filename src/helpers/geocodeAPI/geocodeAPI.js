@@ -94,13 +94,9 @@ const GeocodeAPI = {
    * @return {Promise}     [description]
    */
   async handleUrl(url, cancelToken) {
-    const response = await axios
+    const json = await axios
       .get(url, { cancelToken })
       .catch(() => Promise.reject(new Error('Error fetching data')));
-
-    const json = await response
-      .json()
-      .catch(() => Promise.reject(new Error('Error parsing server response')));
 
     if (json.status === 'OK') {
       return json;
