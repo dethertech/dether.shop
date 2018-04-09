@@ -52,7 +52,8 @@ export class SearchBar extends PureComponent {
       const postalCode = await SearchBar.postalCode(
         place.address_components,
         position,
-      );
+      ).catch(() => '0');
+
       const data = {
         ...position,
         countryId,
