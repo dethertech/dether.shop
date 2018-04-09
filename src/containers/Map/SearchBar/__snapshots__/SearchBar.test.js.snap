@@ -44,6 +44,12 @@ exports[`Component SearchBar should be render without crash 1`] = `
   fill: #D8D8D8;
 }
 
+@media (max-width:768px) {
+  .c0 {
+    left: 70px;
+  }
+}
+
 <div
   className="c0"
 >

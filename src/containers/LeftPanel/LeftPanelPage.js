@@ -8,7 +8,6 @@ import tokens from '../../styles/tokens';
 
 // component
 import { Layout, LoaderScreen, Header } from '../../components';
-import Footer from './Footer';
 
 import ShopRouter from '../ShopRouter';
 
@@ -25,7 +24,6 @@ const LeftWrapper = styled.div`
 class LeftPanelPage extends PureComponent {
   static propTypes = {
     isWeb3Checked: PropTypes.bool.isRequired,
-    toggleTermsModal: PropTypes.func.isRequired,
     toggleBuyModal: PropTypes.func.isRequired,
     balance: PropTypes.shape({
       eth: PropTypes.number.isRequired,
@@ -49,12 +47,7 @@ class LeftPanelPage extends PureComponent {
   };
 
   render() {
-    const {
-      toggleTermsModal,
-      toggleBuyModal,
-      balance,
-      refreshBalance,
-    } = this.props;
+    const { toggleBuyModal, balance, refreshBalance } = this.props;
     const eth = balance.eth.toFixed(4);
     const dth = balance.dth.toFixed(4);
 
@@ -71,9 +64,6 @@ class LeftPanelPage extends PureComponent {
         <Layout.ScrollableBody>
           <LeftWrapper>{this.getView()}</LeftWrapper>
         </Layout.ScrollableBody>
-        <Layout.Footer>
-          <Footer toggleTermsModal={toggleTermsModal} />
-        </Layout.Footer>
       </Layout>
     );
   }

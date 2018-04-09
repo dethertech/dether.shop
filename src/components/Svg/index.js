@@ -6,3 +6,4 @@ export { default as SvgArrowUp } from './SvgArrowUp';
 export { default as WarningIcon } from './Warning';
 export { default as SuccessIcon } from './Success';
 export { default as Maintenance } from './Maintenance';
+export { default as SvgBurger } from './SvgBurger';

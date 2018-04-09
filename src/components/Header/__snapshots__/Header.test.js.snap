@@ -7,7 +7,7 @@ exports[`Components Header should render Header 1`] = `
   border-radius: 1rem;
   line-height: 1.15em;
   padding: 1.2rem 2rem;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   padding: 0.8rem 1.6rem;
   color: #4B53B6;
   background: #FFFFFF;
@@ -40,7 +40,7 @@ exports[`Components Header should render Header 1`] = `
   -webkit-flex-flow: row nowrap;
   -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
-  width: 100%;
+  width: 90%;
   padding: 1.6rem;
 }
 
@@ -49,9 +49,9 @@ exports[`Components Header should render Header 1`] = `
 }
 
 .c5 {
-  -webkit-flex: 0 0 70%;
-  -ms-flex: 0 0 70%;
-  flex: 0 0 70%;
+  -webkit-flex: 0 0 55%;
+  -ms-flex: 0 0 55%;
+  flex: 0 0 55%;
 }
 
 .c6 {
@@ -73,7 +73,6 @@ exports[`Components Header should render Header 1`] = `
 }
 
 .c7 {
-  border-right: solid 1px #F5F5F5;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -94,8 +93,8 @@ exports[`Components Header should render Header 1`] = `
   -webkit-flex: 0 0 50%;
   -ms-flex: 0 0 50%;
   flex: 0 0 50%;
-  border-right: solid 1px #F5F5F5;
   padding-right: 1.2rem;
+  border-right: solid 1px #F5F5F5;
 }
 
 .c9 {
@@ -133,6 +132,12 @@ exports[`Components Header should render Header 1`] = `
   }
 }
 
+@media (min-width:768px) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 @media (max-width:550px) {
   .c0 {
     padding: 1.2rem;
@@ -143,6 +148,12 @@ exports[`Components Header should render Header 1`] = `
 @media (max-width:550px) {
   .c6 {
     padding: 0.8rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c7 {
+    border-right: solid 1px #F5F5F5;
   }
 }
 
@@ -164,6 +175,12 @@ exports[`Components Header should render Header 1`] = `
   .c9 {
     font-size: 1.3rem;
     padding-left: 0.8rem;
+  }
+}
+
+@media (max-width:768px) {
+  .c11 {
+    display: none;
   }
 }
 
@@ -213,6 +230,7 @@ exports[`Components Header should render Header 1`] = `
     >
       <div
         className="c7"
+        onClick={[Function]}
       >
         <div
           className="c8"
