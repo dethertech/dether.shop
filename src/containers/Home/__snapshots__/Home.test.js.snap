@@ -26,22 +26,45 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "function",
     "props": Object {
       "children": Array [
-        <SvgHome />,
-        <styled.div
-          all={null}
-          bottom="m"
-          horizontal={null}
-          left={null}
-          right={null}
-          top={null}
-          vertical={null}
->
-          <styled.h1>
-                    CRYPTOCURRENCY FOR SHOPS
-          </styled.h1>
+        <styled.div>
+          <SvgHome />
+          <styled.div
+                    all={null}
+                    bottom="m"
+                    horizontal={null}
+                    left={null}
+                    right={null}
+                    top={null}
+                    vertical={null}
+          >
+                    <styled.h1>
+                              CRYPTOCURRENCY FOR SHOPS
+                    </styled.h1>
+          </styled.div>
+          <styled.div
+                    all={null}
+                    bottom={null}
+                    horizontal={null}
+                    left={null}
+                    right={null}
+                    top={null}
+                    vertical="l"
+          >
+                    <span>
+                              Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
+                    </span>
+          </styled.div>
+          <Message
+                    alignCenter={true}
+                    alignLeft={false}
+                    theme="error"
+                    withIcon={true}
+          >
+                    Your browser is not supported, Metamask is available on Google Chrome and Firefox only.
+          </Message>
 </styled.div>,
         <styled.div
           all={null}
@@ -50,20 +73,12 @@ ShallowWrapper {
           left={null}
           right={null}
           top={null}
-          vertical="l"
+          vertical="s"
 >
-          <span>
-                    Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
-          </span>
+          <Footer
+                    toggleTermsModal={[Function]}
+          />
 </styled.div>,
-        <Message
-          alignCenter={true}
-          alignLeft={false}
-          theme="error"
-          withIcon={true}
->
-          Your browser is not supported, Metamask is available on Google Chrome and Firefox only.
-</Message>,
       ],
     },
     "ref": null,
@@ -71,40 +86,133 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "all": null,
-          "bottom": "m",
-          "children": <styled.h1>
-            CRYPTOCURRENCY FOR SHOPS
-</styled.h1>,
-          "horizontal": null,
-          "left": null,
-          "right": null,
-          "top": null,
-          "vertical": null,
+          "children": Array [
+            <SvgHome />,
+            <styled.div
+              all={null}
+              bottom="m"
+              horizontal={null}
+              left={null}
+              right={null}
+              top={null}
+              vertical={null}
+>
+              <styled.h1>
+                            CRYPTOCURRENCY FOR SHOPS
+              </styled.h1>
+</styled.div>,
+            <styled.div
+              all={null}
+              bottom={null}
+              horizontal={null}
+              left={null}
+              right={null}
+              top={null}
+              vertical="l"
+>
+              <span>
+                            Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
+              </span>
+</styled.div>,
+            <Message
+              alignCenter={true}
+              alignLeft={false}
+              theme="error"
+              withIcon={true}
+>
+              Your browser is not supported, Metamask is available on Google Chrome and Firefox only.
+</Message>,
+          ],
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": "CRYPTOCURRENCY FOR SHOPS",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
           },
-          "ref": null,
-          "rendered": "CRYPTOCURRENCY FOR SHOPS",
-          "type": [Function],
-        },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "all": null,
+              "bottom": "m",
+              "children": <styled.h1>
+                CRYPTOCURRENCY FOR SHOPS
+</styled.h1>,
+              "horizontal": null,
+              "left": null,
+              "right": null,
+              "top": null,
+              "vertical": null,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "CRYPTOCURRENCY FOR SHOPS",
+              },
+              "ref": null,
+              "rendered": "CRYPTOCURRENCY FOR SHOPS",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "all": null,
+              "bottom": null,
+              "children": <span>
+                Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
+</span>,
+              "horizontal": null,
+              "left": null,
+              "right": null,
+              "top": null,
+              "vertical": "l",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.",
+              },
+              "ref": null,
+              "rendered": "Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.",
+              "type": "span",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "alignCenter": true,
+              "alignLeft": false,
+              "children": "Your browser is not supported, Metamask is available on Google Chrome and Firefox only.",
+              "theme": "error",
+              "withIcon": true,
+            },
+            "ref": null,
+            "rendered": "Your browser is not supported, Metamask is available on Google Chrome and Firefox only.",
+            "type": [Function],
+          },
+        ],
         "type": [Function],
       },
       Object {
@@ -114,67 +222,75 @@ ShallowWrapper {
         "props": Object {
           "all": null,
           "bottom": null,
-          "children": <span>
-            Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
-</span>,
+          "children": <Footer
+            toggleTermsModal={[Function]}
+/>,
           "horizontal": null,
           "left": null,
           "right": null,
           "top": null,
-          "vertical": "l",
+          "vertical": "s",
         },
         "ref": null,
         "rendered": Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "function",
           "props": Object {
-            "children": "Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.",
+            "toggleTermsModal": [Function],
           },
           "ref": null,
-          "rendered": "Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.",
-          "type": "span",
+          "rendered": null,
+          "type": [Function],
         },
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "alignCenter": true,
-          "alignLeft": false,
-          "children": "Your browser is not supported, Metamask is available on Google Chrome and Firefox only.",
-          "theme": "error",
-          "withIcon": true,
-        },
-        "ref": null,
-        "rendered": "Your browser is not supported, Metamask is available on Google Chrome and Firefox only.",
         "type": [Function],
       },
     ],
-    "type": [Function],
+    "type": Symbol(react.fragment),
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
-          <SvgHome />,
-          <styled.div
-            all={null}
-            bottom="m"
-            horizontal={null}
-            left={null}
-            right={null}
-            top={null}
-            vertical={null}
->
-            <styled.h1>
-                        CRYPTOCURRENCY FOR SHOPS
-            </styled.h1>
+          <styled.div>
+            <SvgHome />
+            <styled.div
+                        all={null}
+                        bottom="m"
+                        horizontal={null}
+                        left={null}
+                        right={null}
+                        top={null}
+                        vertical={null}
+            >
+                        <styled.h1>
+                                    CRYPTOCURRENCY FOR SHOPS
+                        </styled.h1>
+            </styled.div>
+            <styled.div
+                        all={null}
+                        bottom={null}
+                        horizontal={null}
+                        left={null}
+                        right={null}
+                        top={null}
+                        vertical="l"
+            >
+                        <span>
+                                    Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
+                        </span>
+            </styled.div>
+            <Message
+                        alignCenter={true}
+                        alignLeft={false}
+                        theme="error"
+                        withIcon={true}
+            >
+                        Your browser is not supported, Metamask is available on Google Chrome and Firefox only.
+            </Message>
 </styled.div>,
           <styled.div
             all={null}
@@ -183,20 +299,12 @@ ShallowWrapper {
             left={null}
             right={null}
             top={null}
-            vertical="l"
+            vertical="s"
 >
-            <span>
-                        Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
-            </span>
+            <Footer
+                        toggleTermsModal={[Function]}
+            />
 </styled.div>,
-          <Message
-            alignCenter={true}
-            alignLeft={false}
-            theme="error"
-            withIcon={true}
->
-            Your browser is not supported, Metamask is available on Google Chrome and Firefox only.
-</Message>,
         ],
       },
       "ref": null,
@@ -204,40 +312,133 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "all": null,
-            "bottom": "m",
-            "children": <styled.h1>
-              CRYPTOCURRENCY FOR SHOPS
-</styled.h1>,
-            "horizontal": null,
-            "left": null,
-            "right": null,
-            "top": null,
-            "vertical": null,
+            "children": Array [
+              <SvgHome />,
+              <styled.div
+                all={null}
+                bottom="m"
+                horizontal={null}
+                left={null}
+                right={null}
+                top={null}
+                vertical={null}
+>
+                <styled.h1>
+                                CRYPTOCURRENCY FOR SHOPS
+                </styled.h1>
+</styled.div>,
+              <styled.div
+                all={null}
+                bottom={null}
+                horizontal={null}
+                left={null}
+                right={null}
+                top={null}
+                vertical="l"
+>
+                <span>
+                                Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
+                </span>
+</styled.div>,
+              <Message
+                alignCenter={true}
+                alignLeft={false}
+                theme="error"
+                withIcon={true}
+>
+                Your browser is not supported, Metamask is available on Google Chrome and Firefox only.
+</Message>,
+            ],
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": "CRYPTOCURRENCY FOR SHOPS",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
             },
-            "ref": null,
-            "rendered": "CRYPTOCURRENCY FOR SHOPS",
-            "type": [Function],
-          },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "all": null,
+                "bottom": "m",
+                "children": <styled.h1>
+                  CRYPTOCURRENCY FOR SHOPS
+</styled.h1>,
+                "horizontal": null,
+                "left": null,
+                "right": null,
+                "top": null,
+                "vertical": null,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "CRYPTOCURRENCY FOR SHOPS",
+                },
+                "ref": null,
+                "rendered": "CRYPTOCURRENCY FOR SHOPS",
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "all": null,
+                "bottom": null,
+                "children": <span>
+                  Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
+</span>,
+                "horizontal": null,
+                "left": null,
+                "right": null,
+                "top": null,
+                "vertical": "l",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.",
+                },
+                "ref": null,
+                "rendered": "Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.",
+                "type": "span",
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "alignCenter": true,
+                "alignLeft": false,
+                "children": "Your browser is not supported, Metamask is available on Google Chrome and Firefox only.",
+                "theme": "error",
+                "withIcon": true,
+              },
+              "ref": null,
+              "rendered": "Your browser is not supported, Metamask is available on Google Chrome and Firefox only.",
+              "type": [Function],
+            },
+          ],
           "type": [Function],
         },
         Object {
@@ -247,46 +448,31 @@ ShallowWrapper {
           "props": Object {
             "all": null,
             "bottom": null,
-            "children": <span>
-              Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.
-</span>,
+            "children": <Footer
+              toggleTermsModal={[Function]}
+/>,
             "horizontal": null,
             "left": null,
             "right": null,
             "top": null,
-            "vertical": "l",
+            "vertical": "s",
           },
           "ref": null,
           "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "function",
             "props": Object {
-              "children": "Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.",
+              "toggleTermsModal": [Function],
             },
             "ref": null,
-            "rendered": "Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.",
-            "type": "span",
+            "rendered": null,
+            "type": [Function],
           },
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "alignCenter": true,
-            "alignLeft": false,
-            "children": "Your browser is not supported, Metamask is available on Google Chrome and Firefox only.",
-            "theme": "error",
-            "withIcon": true,
-          },
-          "ref": null,
-          "rendered": "Your browser is not supported, Metamask is available on Google Chrome and Firefox only.",
           "type": [Function],
         },
       ],
-      "type": [Function],
+      "type": Symbol(react.fragment),
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -5,4 +5,7 @@ export const hasSupportedBrowser = !!(
   (name.includes('Firefox') || name.includes('Chrome'))
 );
 
-export const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+export const isMobile = () =>
+  window &&
+  window.matchMedia &&
+  window.matchMedia('(max-width: 768px)').matches;
