@@ -54,8 +54,8 @@ class ShopRecap extends PureComponent {
   componentDidMount = async () => {
     const { lat, lng } = this.props;
 
-    const { CancelToken } = axios;
-    this.geocodeCall = CancelToken.source();
+    const CToken = axios.CancelToken;
+    this.geocodeCall = CToken.source();
 
     GeocodeAPI.positionToAddress({ lat, lng }, this.geocodeCall.token)
       .then(address => this.setState({ address }))

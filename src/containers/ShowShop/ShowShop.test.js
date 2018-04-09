@@ -27,8 +27,8 @@ describe('Containers::ShowShop', () => {
     endTransaction: () => null,
     fetchAll: () => null,
     centerPosition: { lat: 30, lng: 3 },
-    reloadShops: () => null,
   };
+
   const component = props => <ShowShop {...props} />
 
   it('should match shallow snapshop', () => {
