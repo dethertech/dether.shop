@@ -6,6 +6,7 @@ const GAS_AMOUNT = Number(process.env.REACT_APP_GAS_AMOUNT || 21000);
 const isTrue = str => str === 'true';
 
 export default {
+  appVersion: process.env.REACT_APP_APP_VERSION || '0.1.0',
   ethNetwork: Number(process.env.REACT_APP_ETH_NETWORK || 42),
   appType: 'SHOP',
   gasPrice: {
