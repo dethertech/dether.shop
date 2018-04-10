@@ -6,7 +6,9 @@ import ShopRecap from '../../ShopRecap';
 const TransactionFlowRecap = ({ shop, message }) => (
   <Fragment>
     <ShopRecap {...shop} />
-    <div>{message}</div>
+    <div>
+      <b>{message}</b>
+    </div>
   </Fragment>
 );
 
