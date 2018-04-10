@@ -23,7 +23,7 @@ ShallowWrapper {
     openNotificationModal={[Function]}
     pendingShop={
         Object {
-            "address": "40 rue Citadelle Paris",
+            "addressString": "40 rue Citadelle Paris",
             "cat": "cool",
             "countryId": "fr",
             "description": "Super Magasin",
@@ -51,6 +51,7 @@ ShallowWrapper {
       "children": Array [
         <ShopRecap
           address="40 rue Citadelle Paris"
+          addressString="40 rue Citadelle Paris"
           cat="cool"
           countryId="fr"
           description="Super Magasin"
@@ -93,6 +94,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "address": "40 rue Citadelle Paris",
+          "addressString": "40 rue Citadelle Paris",
           "cat": "cool",
           "countryId": "fr",
           "description": "Super Magasin",
@@ -186,6 +188,7 @@ ShallowWrapper {
         "children": Array [
           <ShopRecap
             address="40 rue Citadelle Paris"
+            addressString="40 rue Citadelle Paris"
             cat="cool"
             countryId="fr"
             description="Super Magasin"
@@ -228,6 +231,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "address": "40 rue Citadelle Paris",
+            "addressString": "40 rue Citadelle Paris",
             "cat": "cool",
             "countryId": "fr",
             "description": "Super Magasin",

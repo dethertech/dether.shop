@@ -118,7 +118,11 @@ export class Verification extends PureComponent {
     }
     return (
       <Fragment>
-        <ShopRecap licencePrice={licencePrice} {...pendingShop} />
+        <ShopRecap
+          licencePrice={licencePrice}
+          {...pendingShop}
+          address={pendingShop.addressString}
+        />
         <ButtonsWrapper>
           <Button width="45%" theme="primary" onClick={this.submitTransaction}>
             {tr('add_form_verification.submit_button')}
