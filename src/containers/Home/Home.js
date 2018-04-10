@@ -43,6 +43,11 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
+const Version = styled.span`
+  font-size: 14px;
+  font-weight: 400;
+`;
+
 /**
  * Home containers
  * @extends PureComponent
@@ -119,7 +124,10 @@ export class Home extends PureComponent {
           <SvgHome />
 
           <Padding bottom="m">
-            <H1>{tr('add.home.title')}</H1>
+            <H1>
+              {tr('add.home.title')}&nbsp;
+              <Version>v{config.appVersion}</Version>
+            </H1>
           </Padding>
 
           <Padding vertical="l">
