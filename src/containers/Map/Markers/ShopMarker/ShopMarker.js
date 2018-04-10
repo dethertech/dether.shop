@@ -29,8 +29,9 @@ class ShopMarker extends PureComponent {
     setShopOnCard(shop);
   };
 
-  handlerClusterClick = element => {
-    this.props.setCenterPosition(element);
+  handlerClusterClick = () => {
+    const { lat, lng } = this.props;
+    this.props.setCenterPosition({ lat, lng });
     if (this.props.onClusterClick) this.props.onClusterClick();
   };
 
@@ -41,9 +42,7 @@ class ShopMarker extends PureComponent {
         lat={lat}
         lng={lng}
         handleClick={
-          numPoints === 1
-            ? this.handleClick
-            : this.handlerClusterClick.bind(this, { lat, lng })
+          numPoints === 1 ? this.handleClick : this.handlerClusterClick
         }
       >
         {numPoints === 1 ? <ShopIcon /> : <ClusterShopIcon num={numPoints} />}

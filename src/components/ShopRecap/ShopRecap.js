@@ -41,10 +41,12 @@ class ShopRecap extends PureComponent {
     lat: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     lng: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     licencePrice: PropTypes.string,
+    address: PropTypes.string,
   };
 
   static defaultProps = {
     licencePrice: null,
+    address: null,
   };
 
   state = {
@@ -52,18 +54,23 @@ class ShopRecap extends PureComponent {
   };
 
   componentDidMount = async () => {
-    const { lat, lng } = this.props;
+    const { lat, lng, address } = this.props;
 
-    const CToken = axios.CancelToken;
-    this.geocodeCall = CToken.source();
+    if (address) this.setState({ address });
+    else {
+      const CToken = axios.CancelToken;
+      this.geocodeCall = CToken.source();
 
-    GeocodeAPI.positionToAddress({ lat, lng }, this.geocodeCall.token)
-      .then(address => this.setState({ address }))
-      .catch(() => null);
+      GeocodeAPI.positionToAddress({ lat, lng }, this.geocodeCall.token)
+        .then(geoAddress => {
+          this.setState({ address: geoAddress });
+        })
+        .catch(() => null);
+    }
   };
 
   componentWillUnmount() {
-    this.geocodeCall.cancel();
+    if (this.geocodeCall) this.geocodeCall.cancel();
   }
 
   render = () => {

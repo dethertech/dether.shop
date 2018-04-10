@@ -15,7 +15,7 @@ describe('Containers::AddShop::Verification', () => {
   const pendingShop = {
     lat: '30',
     lng: '3',
-    address: '40 rue Citadelle Paris',
+    addressString: '40 rue Citadelle Paris',
     countryId: 'fr',
     postalCode: '75010',
     name: 'Magasin',

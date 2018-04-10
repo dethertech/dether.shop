@@ -72,7 +72,7 @@ const GeocodeAPI = {
     )}`;
     const { results } = await this.handleUrl(url, cancelToken);
     if (!results || results.length <= 0) {
-      return Promise.reject(new Error('Enable to reverse lat lng'));
+      return Promise.reject(new Error('Unable to reverse lat lng'));
     }
 
     return results;
@@ -98,7 +98,7 @@ const GeocodeAPI = {
       .get(url, { cancelToken })
       .catch(() => Promise.reject(new Error('Error fetching data')));
     if (json.data.status === 'OK') {
-      return json;
+      return json.data;
     }
     return Promise.reject(
       new Error(`Server returned status code ${json.status}`),
