@@ -23,6 +23,8 @@ const Wrapper = styled.div`
 
 const Title = styled(H2)`
   color: ${tokens.colors.blue};
+  margin-top: 10px;
+  margin-bottom: 5px;
 `;
 
 const NotificationModal = ({
