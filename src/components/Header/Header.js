@@ -154,8 +154,12 @@ class Header extends PureComponent {
             ) : (
               <Fragment>
                 <Balance onClick={this.handleRefresh}>
-                  <EthBalanceWrapper>{EthBalance} ETH</EthBalanceWrapper>
-                  <DthBalanceWrapper>{DthBalance} DTH</DthBalanceWrapper>
+                  <EthBalanceWrapper>
+                    {Number(EthBalance)} ETH
+                  </EthBalanceWrapper>
+                  <DthBalanceWrapper>
+                    {Number(DthBalance)} DTH
+                  </DthBalanceWrapper>
                   <YourBalance>{tr('header.your_balance')}</YourBalance>
                 </Balance>
                 <Refresh onClick={this.handleRefresh}>
