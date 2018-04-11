@@ -1,59 +1,52 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import MenuBurger from './MenuBurger';
+
 /*
   Constants
  */
-import { config } from '../../constants';
+import withMaintenance from './withMaintenance';
 
 /*
   Components
  */
 import { Panels } from '../../components';
-// import BetaModal from './BetaModal';
+import NotificationModal from './NotificationModal';
 
 /*
   Containers
  */
 import LeftPanel from '../LeftPanel';
 import Map from '../Map';
-import MaintenancePage from './MaintenancePage';
 
 /**
  * Home container
  */
 
-// const getVisitCount = () =>
-//   Number(window.localStorage.getItem('dether.beta.visit')) || 0;
-// const setVisitCount = value =>
-//   window.localStorage.setItem('dether.beta.visit', value);
+export const Home = ({ isNotificationModalOpen }) => (
+  <Panels>
+    {isNotificationModalOpen && <NotificationModal />}
+    <MenuBurger>
+      <Panels.Left>
+        <LeftPanel />
+      </Panels.Left>
+    </MenuBurger>
+    <Panels.Right>
+      <Map />
+    </Panels.Right>
+  </Panels>
+);
 
-class Home extends PureComponent {
-  state = {
-    // showModal: getVisitCount() < 3,
-  };
+Home.propTypes = {
+  isNotificationModalOpen: PropTypes.bool.isRequired,
+};
 
-  // closeModal = () => {
-  //   this.setState({ showModal: false });
-  //   setVisitCount(getVisitCount() + 1);
-  // };
+const mapStateToProps = ({ app }) => ({
+  isNotificationModalOpen: app.isNotificationModalOpen,
+});
 
-  render() {
-    // const { showModal } = this.state;
-    const { isOnMaintenance } = config;
-
-    if (isOnMaintenance) return <MaintenancePage />;
-    return (
-      <Panels>
-        {/* {showModal && <BetaModal close={this.closeModal} />} */}
-        <Panels.Left>
-          <LeftPanel />
-        </Panels.Left>
-        <Panels.Right>
-          <Map />
-        </Panels.Right>
-      </Panels>
-    );
-  }
-}
-
-export default withRouter(Home);
+const enhancer = compose(withMaintenance, withRouter, connect(mapStateToProps));
+export default enhancer(Home);

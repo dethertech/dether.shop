@@ -4,6 +4,9 @@ export const initialState = {
   isMetamaskInstalled: false,
   isAppInitialized: false,
   isTermsModalOpenened: false,
+  isNotificationModalOpen: false,
+  notificationType: null,
+  notificationMessage: null,
   ethNetwork: null,
   areTermsAccepted: false,
   licencePrice: null,
@@ -36,6 +39,20 @@ const appReducer = (state = initialState, { type, payload }) => {
       return { ...state, areTermsAccepted: true };
     case 'SET_LICENCE_PRICE':
       return { ...state, licencePrice: payload };
+    case 'OPEN_NOTIFICATION_MODAL':
+      return {
+        ...state,
+        isNotificationModalOpen: true,
+        notificationType: payload.type,
+        notificationMessage: payload.message,
+      };
+    case 'CLOSE_NOTIFICATION_MODAL':
+      return {
+        ...state,
+        isNotificationModalOpen: false,
+        notificationType: null,
+        notificationMessage: null,
+      };
     default:
       return state;
   }

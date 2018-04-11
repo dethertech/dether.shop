@@ -3,11 +3,19 @@ import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { Verification } from './Verification';
 
+  jest.mock('axios', () => ({
+    CancelToken: {
+      source: () => ({
+        token: '',
+      }),
+    },
+  }));
 describe('Containers::AddShop::Verification', () => {
+
   const pendingShop = {
     lat: '30',
     lng: '3',
-    address: '40 rue Citadelle Paris',
+    addressString: '40 rue Citadelle Paris',
     countryId: 'fr',
     postalCode: '75010',
     name: 'Magasin',
@@ -20,6 +28,7 @@ describe('Containers::AddShop::Verification', () => {
     pendingShop,
     addShopToStore: () => null,
     addShopToContract: () => null,
+    openNotificationModal: () => null,
     addAddShopTransaction: () => null,
     isTransactionPending: false,
     transactionHash: '0x23874grfb2yb38f4h23784',

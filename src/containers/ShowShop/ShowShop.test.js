@@ -3,7 +3,15 @@ import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { ShowShop } from './ShowShop';
 
+  jest.mock('axios', () => ({
+    CancelToken: {
+      source: () => ({
+        token: '',
+      }),
+    },
+  }));
 describe('Containers::ShowShop', () => {
+
   const shop = {
     lat: '30',
     lng: '3',
@@ -19,6 +27,7 @@ describe('Containers::ShowShop', () => {
   const props = {
     shop,
     addDeleteShopTransaction: () => null,
+    openNotificationModal: () => null,
     isTransactionPending: false,
     deleteContractShop: () => null,
     removeShopFromStore: () => null,
@@ -26,6 +35,7 @@ describe('Containers::ShowShop', () => {
     endTransaction: () => null,
     fetchAll: () => null,
     centerPosition: { lat: 30, lng: 3 },
+    reloadShops: () => null,
   };
   const component = props => <ShowShop {...props} />
 

@@ -23,17 +23,19 @@
     "lint": "eslint 'src/**/*.js'",
     "esdoc": "./node_modules/.bin/esdoc",
     "publish:esdoc": "gh-pages -d esdoc",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "svgr": "svgr -d src/components/Svg/copy src/components/Svg/copy --template src/components/Svg/template.js --single-quote"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
-    "dethercontract": "^3.0.0",
+    "dethercontract": "^3.1.0",
     "google-map-react": "^0.34.0",
     "platform": "^1.3.5",
     "points-cluster": "^0.1.4",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-burger-menu": "^2.4.2",
     "react-dom": "^16.2.0",
     "react-places-autocomplete": "^6.0.0",
     "react-redux": "^5.0.7",
@@ -45,8 +47,8 @@
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.1.6",
-    "web3": "^1.0.0-beta.30",
-    "web3-eth-abi": "^1.0.0-beta.30"
+    "web3": "^1.0.0-beta.33",
+    "web3-eth-abi": "^1.0.0-beta.33"
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.3.14",
@@ -72,7 +74,8 @@
     "prettier": "^1.11.1",
     "react-storybook-addon-chapters": "^2.1.3",
     "react-test-renderer": "^16.2.0",
-    "storybook": "^1.0.0"
+    "storybook": "^1.0.0",
+    "svgr": "^1.9.1"
   },
   "husky": {
     "hooks": {

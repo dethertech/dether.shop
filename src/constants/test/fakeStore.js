@@ -8,6 +8,7 @@ export default state => ({
       isMetamaskInstalled: false,
       isAppInitialized: false,
       isTermsModalOpenened: false,
+      isNotificationModalOpen: false,
     },
     map: {
       userPosition: { lat: 48.8628, lng: 2.3292 },
@@ -49,6 +50,12 @@ export default state => ({
         dth: 0,
       },
       isCertified: true,
+      phoneVerified: false,
+    },
+    transaction: {
+      pending: false,
+      hash: null,
+      sentTime: null,
     },
   }),
 });

@@ -20,7 +20,8 @@ describe('reducer::user', () => {
         dth: 0
       },
       isCertified: false,
-      ethAddress: null
+      ethAddress: null,
+      phoneVerified: false,
     };
     deepFreeze(defaultAction);
   });
@@ -42,19 +43,6 @@ describe('reducer::user', () => {
     it('should handle SET_BALANCE', () => {
       expect(userReducer(defaultAction, action))
         .toEqual({ ...defaultAction, balance: payload });
-    });
-  });
-
-  describe('SET_USER_CERTIFIED', () => {
-    const payload = true
-    const action = {
-      type: 'SET_USER_CERTIFIED',
-      payload,
-    };
-
-    it('should handle SET_USER_CERTIFIED', () => {
-      expect(userReducer(defaultAction, action))
-        .toEqual({ ...defaultAction, isCertified: payload });
     });
   });
 

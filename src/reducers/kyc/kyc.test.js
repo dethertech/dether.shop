@@ -89,7 +89,7 @@ describe('reducer::kyc', () => {
 
     it('should handle SEND_SMS_SUCCESS', () => {
       expect(kycReducer(defaultAction, action))
-      .toEqual({ ...defaultAction, isSubmitPhonePending: payload });
+      .toEqual({ ...defaultAction, isSubmitPhonePending: payload, phoneSent: true });
     });
   });
 

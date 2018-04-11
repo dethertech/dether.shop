@@ -22,6 +22,9 @@ const Wrapper = styled.div`
   box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.2);
   background-color: ${tokens.colors.white};
   overflow: hidden;
+  @media (max-width: 768px) {
+    left: 70px;
+  }
 
   svg {
     position: absolute;

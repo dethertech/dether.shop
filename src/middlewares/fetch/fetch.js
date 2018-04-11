@@ -18,7 +18,8 @@ import { config } from '../../constants';
  * ${type}_ERROR for an error response
  */
 const fetchMiddleware = () => dispatch => async action => {
-  const { type, url, params, data } = action;
+  const { type, url, params } = action;
+  let { data } = action;
   const method = get(action, 'method', 'get');
   const headers = get(action, 'headers', {});
   if (!action || !type || !url || !type.includes(':') || !type.includes('API:'))
@@ -27,6 +28,8 @@ const fetchMiddleware = () => dispatch => async action => {
   const requestUrl = url.charAt(0) === '/' ? config.apiUrl + url : url;
 
   dispatch({ type: `${baseType}_PENDING` });
+
+  data = method !== 'get' ? { ...data, type: config.appType } : data;
 
   axios({ method, url: requestUrl, params, headers, data })
     .then(res => {
@@ -38,8 +41,8 @@ const fetchMiddleware = () => dispatch => async action => {
     })
     .catch(err => {
       dispatch({ type: `${baseType}_ERROR` });
-      if (action.onError && err.response)
-        return action.onError(err.response.data, err);
+      if (action.onError)
+        return action.onError(err.response ? err.response.data : err, err);
       return err;
     });
 };

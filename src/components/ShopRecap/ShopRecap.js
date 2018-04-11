@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import { convertCalendar, GeocodeAPI } from '../../helpers';
 import tokens from '../../styles/tokens';
@@ -40,24 +41,37 @@ class ShopRecap extends PureComponent {
     lat: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     lng: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     licencePrice: PropTypes.string,
+    address: PropTypes.string,
   };
 
   static defaultProps = {
     licencePrice: null,
+    address: null,
   };
 
   state = {
     address: '',
   };
 
-  componentWillMount = async () => {
-    const { lat, lng } = this.props;
+  componentDidMount = async () => {
+    const { lat, lng, address } = this.props;
 
-    const address = await GeocodeAPI.positionToAddress({ lat, lng }).catch(
-      () => '',
-    );
-    this.setState({ address });
+    if (address) this.setState({ address });
+    else {
+      const CToken = axios.CancelToken;
+      this.geocodeCall = CToken.source();
+
+      GeocodeAPI.positionToAddress({ lat, lng }, this.geocodeCall.token)
+        .then(geoAddress => {
+          this.setState({ address: geoAddress });
+        })
+        .catch(() => null);
+    }
   };
+
+  componentWillUnmount() {
+    if (this.geocodeCall) this.geocodeCall.cancel();
+  }
 
   render = () => {
     const { opening, name, cat, description, licencePrice } = this.props;

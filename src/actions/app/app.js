@@ -26,6 +26,21 @@ const toggleTermsModal = () => ({
 });
 
 /**
+ * openNotificationModal
+ */
+const openNotificationModal = ({ type, message }) => ({
+  type: 'OPEN_NOTIFICATION_MODAL',
+  payload: { type, message },
+});
+
+/**
+ * closeNotificationModal
+ */
+const closeNotificationModal = () => ({
+  type: 'CLOSE_NOTIFICATION_MODAL',
+});
+
+/**
  * [setEthNetwork description]
  * @param {[type]} id [description]
  */
@@ -45,10 +60,11 @@ const setLicencePrice = licencePrice => ({
   payload: licencePrice,
 });
 
-const fetchClientInfo = ({ onSuccess }) => ({
+const fetchClientInfo = ({ onSuccess, onError }) => ({
   type: 'API:FETCH_USER_INFO',
   url: `https://ipinfo.io/json?token=${process.env.REACT_APP_TOKEN_IPINFO}`,
   onSuccess,
+  onError,
 });
 
 const getLicencePrice = async (dispatch, country) => {
@@ -64,11 +80,11 @@ const getLicencePrice = async (dispatch, country) => {
  * Fetch Client Informations via ip and get the licence price for his country
  */
 const initializeClientInfo = () => async dispatch =>
-  new Promise((res, rej) => {
+  new Promise(res => {
     dispatch(
       fetchClientInfo({
         onSuccess: data => res(getLicencePrice(dispatch, data.country)),
-        onError: error => rej(error),
+        onError: () => res(getLicencePrice(dispatch, 'FR')),
       }),
     );
   });
@@ -77,6 +93,8 @@ export {
   setMetamaskInstalled,
   setAppInitialized,
   toggleTermsModal,
+  openNotificationModal,
+  closeNotificationModal,
   setEthNetwork,
   acceptTerms,
   setLicencePrice,

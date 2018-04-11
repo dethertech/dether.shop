@@ -9,7 +9,6 @@ import {
   setPhone,
   setPhoneCountry,
   setPhoneSent,
-  setPhoneVerified,
   sendVerifCode
 } from './kyc';
 
@@ -20,16 +19,14 @@ describe('Kyc actions', () => {
     const payload = {
       phoneNumber: '04303403434',
       ethAddress: '0xa31D8Ed467866ebe78243E18390209D67E224D42',
-      onSuccess: () => {},
       onError: () => {}
     }
 
     const expectedAction = {
       type: 'API:SEND_SMS',
-      url: config.kyc.urlSend,
+      url: config.kyc.sendUrl,
       method: 'post',
       data: { phoneNumber: payload.phoneNumber, ethAddress: payload.ethAddress },
-      onSuccess: payload.onSuccess,
       onError: payload.onError
     }
 
@@ -46,7 +43,7 @@ describe('Kyc actions', () => {
 
     const expectedAction = {
       type: 'API:SEND_VERIF_CODE',
-      url: config.kyc.urlVerif,
+      url: config.kyc.verifUrl,
       method: 'post',
       data: { code: payload.code, phoneNumber: payload.phoneNumber },
       onSuccess: payload.onSuccess,
@@ -84,10 +81,4 @@ describe('Kyc actions', () => {
     expect(setPhoneSent(payload)).toEqual(expectedAction);
   })
 
-  it('should create an actions to set phone verified' , () => {
-    const expectedAction = {
-      type: 'SET_PHONE_VERIFIED'
-    }
-    expect(setPhoneVerified()).toEqual(expectedAction);
-  })
 });
