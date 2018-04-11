@@ -45,7 +45,7 @@ ShallowWrapper {
                                
                               <styled.span>
                                         v
-                                        0.1.2
+                                        0.1.0
                               </styled.span>
                     </styled.h1>
           </styled.div>
@@ -109,7 +109,7 @@ ShallowWrapper {
                              
                             <styled.span>
                                           v
-                                          0.1.2
+                                          0.1.0
                             </styled.span>
               </styled.h1>
 </styled.div>,
@@ -159,7 +159,7 @@ ShallowWrapper {
                  
                 <styled.span>
                                 v
-                                0.1.2
+                                0.1.0
                 </styled.span>
 </styled.h1>,
               "horizontal": null,
@@ -179,7 +179,7 @@ ShallowWrapper {
                   " ",
                   <styled.span>
                     v
-                    0.1.2
+                    0.1.0
 </styled.span>,
                 ],
               },
@@ -194,13 +194,13 @@ ShallowWrapper {
                   "props": Object {
                     "children": Array [
                       "v",
-                      "0.1.2",
+                      "0.1.0",
                     ],
                   },
                   "ref": null,
                   "rendered": Array [
                     "v",
-                    "0.1.2",
+                    "0.1.0",
                   ],
                   "type": [Function],
                 },
@@ -313,7 +313,7 @@ ShallowWrapper {
                                      
                                     <styled.span>
                                                 v
-                                                0.1.2
+                                                0.1.0
                                     </styled.span>
                         </styled.h1>
             </styled.div>
@@ -377,7 +377,7 @@ ShallowWrapper {
                                  
                                 <styled.span>
                                                 v
-                                                0.1.2
+                                                0.1.0
                                 </styled.span>
                 </styled.h1>
 </styled.div>,
@@ -427,7 +427,7 @@ ShallowWrapper {
                    
                   <styled.span>
                                     v
-                                    0.1.2
+                                    0.1.0
                   </styled.span>
 </styled.h1>,
                 "horizontal": null,
@@ -447,7 +447,7 @@ ShallowWrapper {
                     " ",
                     <styled.span>
                       v
-                      0.1.2
+                      0.1.0
 </styled.span>,
                   ],
                 },
@@ -462,13 +462,13 @@ ShallowWrapper {
                     "props": Object {
                       "children": Array [
                         "v",
-                        "0.1.2",
+                        "0.1.0",
                       ],
                     },
                     "ref": null,
                     "rendered": Array [
                       "v",
-                      "0.1.2",
+                      "0.1.0",
                     ],
                     "type": [Function],
                   },
