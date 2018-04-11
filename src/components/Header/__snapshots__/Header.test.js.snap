@@ -171,10 +171,33 @@ exports[`Components Header should render Header 1`] = `
   }
 }
 
+@media (max-width:320px) {
+  .c8 {
+    width: 90%;
+    margin: auto;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    padding: 0 0;
+    border: none;
+  }
+}
+
 @media (max-width:550px) {
   .c9 {
     font-size: 1.3rem;
     padding-left: 0.8rem;
+  }
+}
+
+@media (max-width:320px) {
+  .c9 {
+    width: 90%;
+    margin: auto;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    padding: 0 0;
   }
 }
 
