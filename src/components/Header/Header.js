@@ -79,6 +79,13 @@ const EthBalanceWrapper = styled.div`
     font-size: ${tokens.fontSizes.s};
     padding-right: ${tokens.spaces.xs};
   }
+  @media (max-width: 320px) {
+    width: 90%;
+    margin: auto;
+    flex: none;
+    padding: 0 0;
+    border: none;
+  }
 `;
 
 const DthBalanceWrapper = styled.div`
@@ -89,6 +96,12 @@ const DthBalanceWrapper = styled.div`
   @media (max-width: 550px) {
     font-size: ${tokens.fontSizes.s};
     padding-left: ${tokens.spaces.xs};
+  }
+  @media (max-width: 320px) {
+    width: 90%;
+    margin: auto;
+    flex: none;
+    padding: 0 0;
   }
 `;
 
