@@ -21,7 +21,7 @@ describe('reducer::user', () => {
       },
       isCertified: false,
       ethAddress: null,
-      phoneVerified: false,
+      phoneVerified: null,
     };
     deepFreeze(defaultAction);
   });

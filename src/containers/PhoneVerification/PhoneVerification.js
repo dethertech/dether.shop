@@ -120,7 +120,7 @@ const mapStateToProps = ({ user, kyc }) => ({
   phone: kyc.phone,
   phoneSent: kyc.phoneSent,
   phoneCountry: kyc.phoneCountry,
-  phoneVerified: user.phoneVerified,
+  phoneVerified: !!user.phoneVerified,
 });
 
 const mapDispatchToProps = dispatch => ({
