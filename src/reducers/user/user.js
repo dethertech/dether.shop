@@ -7,7 +7,7 @@ export const initialState = {
   },
   isCertified: false,
   ethAddress: null,
-  phoneVerified: false,
+  phoneVerified: null,
 };
 
 /**
@@ -24,7 +24,9 @@ const userReducer = (state = initialState, { type, payload }) => {
       return { ...state, isCertified: !!isCertified };
     }
     case 'SET_PHONE_VERIFIED':
-      return { ...state, phoneVerified: true };
+      return { ...state, phoneVerified: new Date() };
+    case 'RESET_PHONE_VERIFIED':
+      return { ...state, phoneVerified: null };
     case 'SET_ETH_ADDRESS':
       return { ...state, ethAddress: payload };
     default:

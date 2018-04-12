@@ -32,6 +32,8 @@ const kycReducer = (state = initialState, { type, payload }) => {
       return { ...state, isSubmitCodePending: false };
     case 'SEND_VERIF_CODE_ERROR':
       return { ...state, isSubmitCodePending: false };
+    case 'RESET_KYC':
+      return { ...initialState };
     default:
       return state;
   }
