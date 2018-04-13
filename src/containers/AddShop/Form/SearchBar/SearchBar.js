@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 import { LabeledInput } from '../../../../components/Inputs';
+import { Svg } from '../../../../components';
 import tr from '../../../../translate';
 
 import { GeocodeAPI } from '../../../../helpers';
@@ -86,6 +87,9 @@ export class SearchBar extends PureComponent {
       <div style={{ position: 'relative', zIndex: '2' }}>
         <LabeledInput
           {...inputOpt}
+          renderLabelIcon={() => (
+            <Svg type="RegisterAdress" style={{ margin: '-2px 4px' }} />
+          )}
           componentName="placesAutocomplete"
           handleChange={this.onSelect}
           error={error || inputOpt.error}
