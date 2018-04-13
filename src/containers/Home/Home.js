@@ -26,7 +26,7 @@ import {
 
 // Components
 
-import { Button, Message, SvgHome, Footer } from '../../components';
+import { Button, Message, Svg, Footer } from '../../components';
 import { H1 } from '../../components/Headings';
 import { Padding } from '../../components/Spaces';
 import TermsValidation from './TermsValidation';
@@ -121,7 +121,7 @@ export class Home extends PureComponent {
     return (
       <React.Fragment>
         <Wrapper>
-          <SvgHome />
+          <Svg type="SvgHome" />
 
           <Padding bottom="m">
             <H1>

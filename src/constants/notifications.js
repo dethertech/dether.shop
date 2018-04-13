@@ -1,5 +1,6 @@
+import React from 'react';
 import tr from '../translate';
-import { WarningIcon, SuccessIcon } from '../components';
+import { Svg } from '../components';
 
 export const notificationsTypes = {
   WARNING: 'WARNING',
@@ -9,10 +10,10 @@ export const notificationsTypes = {
 export const notifications = {
   WARNING: {
     title: tr('notifications.titles.warning'),
-    icon: WarningIcon,
+    icon: () => <Svg type="WarningIcon" />,
   },
   SUCCESS: {
     title: tr('notifications.titles.success'),
-    icon: SuccessIcon,
+    icon: () => <Svg type="SuccessIcon" />,
   },
 };

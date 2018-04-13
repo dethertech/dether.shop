@@ -1,9 +1,19 @@
-export { default as SvgHome } from './SvgHome';
-export { default as SvgAvatar } from './SvgAvatar';
-export { default as SvgDether } from './SvgDether';
-export { default as SvgRefresh } from './SvgRefresh';
-export { default as SvgArrowUp } from './SvgArrowUp';
-export { default as WarningIcon } from './Warning';
-export { default as SuccessIcon } from './Success';
-export { default as Maintenance } from './Maintenance';
-export { default as SvgBurger } from './SvgBurger';
+import React from 'react';
+import { PropTypes } from 'prop-types';
+
+import * as icons from './svgr';
+
+function Svg(props) {
+  const SelectedIcon = icons[props.type];
+  /* eslint-disable no-console */
+  if (!SelectedIcon)
+    console.warn('The icon ', props.type, ' is not available.');
+  /* eslint-enable no-console */
+  return SelectedIcon ? <SelectedIcon {...props} /> : null;
+}
+
+Svg.propTypes = {
+  type: PropTypes.string.isRequired,
+};
+
+export default Svg;

@@ -36,10 +36,14 @@ const LabeledInput = ({
   name,
   handleChange,
   componentName,
+  renderLabelIcon,
   ...rest
 }) => (
   <Wrapper>
-    <Label htmlFor={name}>{label}</Label>
+    <Label htmlFor={name}>
+      {renderLabelIcon && renderLabelIcon()}
+      {label}
+    </Label>
     {!!fillInfos && (
       <Margin vertical="xxs">
         <Mention>{fillInfos}</Mention>
@@ -99,6 +103,7 @@ LabeledInput.propTypes = {
   componentName: PropTypes.string,
   error: PropTypes.string,
   defaultOption: PropTypes.any,
+  renderLabelIcon: PropTypes.func,
 };
 
 LabeledInput.defaultProps = {
@@ -109,6 +114,7 @@ LabeledInput.defaultProps = {
   error: null,
   componentName: 'input',
   defaultOption: null,
+  renderLabelIcon: null,
 };
 
 export default LabeledInput;

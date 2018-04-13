@@ -18,4 +18,3 @@ export { default as ShopRecap } from './ShopRecap';
 export { default as SearchBarWrapper } from './SearchBarWrapper';
 export { default as SmallLink } from './SmallLink';
 export { default as Footer } from './Footer/Footer';
-export * from './Svg';

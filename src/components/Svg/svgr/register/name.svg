@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>icon seller</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="7.51187959" cy="7.51187959" r="7.51187959"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="homepage-information-submit-copy-4" transform="translate(-78.000000, -201.000000)">
+            <g id="volet">
+                <g id="icon-seller" transform="translate(79.327026, 202.620972)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <circle stroke="#2A2B43" stroke-width="0.8" cx="7.51187959" cy="7.51187959" r="7.91187959"></circle>
+                    <g id="Group-5" mask="url(#mask-2)" stroke="#2A2B43" stroke-width="0.8">
+                        <g transform="translate(3.224372, 2.343287)">
+                            <circle id="Oval-4" cx="4.28163634" cy="2.32161072" r="2.14201234"></circle>
+                            <rect id="Rectangle-6" x="0.411699309" y="6.47567026" width="7.73987406" height="3.48402468" rx="1.74201234"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
