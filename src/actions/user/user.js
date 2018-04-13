@@ -24,4 +24,14 @@ const setPhoneVerified = () => ({
   type: 'SET_PHONE_VERIFIED',
 });
 
-export { setEthAddress, setBalance, checkUserCertified, setPhoneVerified };
+const resetPhoneVerified = () => ({
+  type: 'RESET_PHONE_VERIFIED',
+});
+
+export {
+  setEthAddress,
+  setBalance,
+  checkUserCertified,
+  setPhoneVerified,
+  resetPhoneVerified,
+};

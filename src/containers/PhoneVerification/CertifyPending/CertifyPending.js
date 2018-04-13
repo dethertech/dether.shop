@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { checkUserCertified as checkUserCertifiedAction } from '../../../actions';
+import {
+  checkUserCertified as checkUserCertifiedAction,
+  resetPhoneVerified as resetPhoneVerifiedAction,
+} from '../../../actions';
 import { LoaderScreen } from '../../../components';
 import tr from '../../../translate';
 
@@ -11,16 +14,26 @@ class CertifyPending extends PureComponent {
   static propTypes = {
     checkUserCertified: PropTypes.func.isRequired,
     ethAddress: PropTypes.string.isRequired,
+    phoneVerified: PropTypes.instanceOf(Date).isRequired,
+    resetPhoneVerified: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    const { checkUserCertified, ethAddress } = this.props;
+    const {
+      checkUserCertified,
+      ethAddress,
+      phoneVerified,
+      resetPhoneVerified,
+    } = this.props;
 
-    this.interval = setInterval(() => checkUserCertified(ethAddress), 4000);
+    this.interval = setInterval(async () => {
+      await checkUserCertified(ethAddress);
+      if (new Date() - phoneVerified > 60000) return resetPhoneVerified();
+    }, 4000);
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval);
+    if (this.interval) clearInterval(this.interval);
   }
 
   render() {
@@ -35,10 +48,12 @@ class CertifyPending extends PureComponent {
 
 const mapStateToProps = ({ user }) => ({
   ethAddress: user.ethAddress,
+  phoneVerified: new Date(user.phoneVerified),
 });
 
 const mapDispatchToProps = dispatch => ({
   checkUserCertified: bindActionCreators(checkUserCertifiedAction, dispatch),
+  resetPhoneVerified: bindActionCreators(resetPhoneVerifiedAction, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CertifyPending);

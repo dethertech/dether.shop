@@ -51,7 +51,9 @@ export class Map extends Component {
   constructor(props) {
     super(props);
 
-    this.shopsCluster = [];
+    this.state = {
+      shopsCluster: [],
+    };
     this.propsMap = {
       center: this.props.centerPosition,
       zoom: 16,
@@ -60,9 +62,8 @@ export class Map extends Component {
     };
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const {
-      fetchAll,
       fetchPosition,
       initializeClientInfo,
       setMapInitiated,
@@ -72,11 +73,15 @@ export class Map extends Component {
     this.updateCluster(shops);
 
     await Promise.all([fetchPosition(), initializeClientInfo()]);
-    this.interval = setInterval(() => {
-      const { centerPosition } = this.props;
-      fetchAll(centerPosition, 1000);
-    }, 30000);
+    this.interval = setInterval(this.refreshShops, 30000);
+    this.refreshShops();
     setMapInitiated();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.shops !== this.props.shops) {
+      this.updateCluster(nextProps.shops);
+    }
   }
 
   shouldComponentUpdate(nextProps /* , nextState */) {
@@ -88,16 +93,19 @@ export class Map extends Component {
     return needUpdate;
   }
 
-  componentWillUpdate(nextProps) {
-    this.updateCluster(nextProps.shops);
-  }
-
   componentWillUnmount() {
     clearInterval(this.interval);
   }
 
+  refreshShops = () => {
+    const { centerPosition, fetchAll } = this.props;
+    fetchAll(centerPosition, 1000);
+  };
+
   updateCluster = shops => {
-    this.shopsCluster = getClusterData(shops, this.propsMap);
+    this.setState({
+      shopsCluster: getClusterData(shops, this.propsMap),
+    });
   };
 
   changeHandler = propsMap => {
@@ -116,6 +124,10 @@ export class Map extends Component {
       const radius = distance(center, propsMap.bounds.se) / 1000;
       fetchAll(center, radius);
     }
+    if (this.timeout) clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.updateCluster(this.props.shops);
+    }, 200);
   };
 
   mapClick = () => {
@@ -131,7 +143,7 @@ export class Map extends Component {
 
   render() {
     const { centerPosition, fetchPosition } = this.props;
-    const ShopsMarkers = this.shopsCluster.map(shop => (
+    const ShopsMarkers = this.state.shopsCluster.map(shop => (
       <ShopMarker
         {...shop}
         key={shop.id}
