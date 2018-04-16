@@ -61,9 +61,9 @@ class PhoneForm extends PureComponent {
 
   handlePhoneChange = ({ target: { value } }) => {
     this.setState({ phoneError: null });
-    const validPhone = val => /^\d{0,15}$/.test(val);
+    const validDigit = val => /^\d{0,15}$/.test(val);
 
-    if (validPhone(value)) {
+    if (validDigit(value)) {
       return this.setState(prevState => ({ ...prevState, phone: value }));
     }
   };
@@ -71,11 +71,19 @@ class PhoneForm extends PureComponent {
   checkPhone = () => {
     const { phone } = this.state;
 
-    if (!phone || phone.length < 5) {
+    const maxChar =
+      this.state.country && this.state.country.maxChar
+        ? this.state.country.maxChar
+        : 15;
+    const minChar =
+      this.state.country && this.state.country.minChar
+        ? this.state.country.minChar
+        : 5;
+    if (!phone || phone.length < minChar || phone.length > maxChar) {
       this.setState(prevState => ({
         ...prevState,
         toggleShakePhone: prevState.toggleShakePhone + 1,
-        phoneError: tr('errors.phone.invalid'),
+        phoneError: tr('errors.phone.invalid', { minChar, maxChar }),
       }));
 
       return false;
