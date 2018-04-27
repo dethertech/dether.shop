@@ -46,9 +46,9 @@ class CertifyPending extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
+const mapStateToProps = ({ user, kyc }) => ({
   ethAddress: user.ethAddress,
-  phoneVerified: new Date(user.phoneVerified),
+  phoneVerified: new Date(kyc.phoneVerified),
 });
 
 const mapDispatchToProps = dispatch => ({

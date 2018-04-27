@@ -5,7 +5,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import {
   setEthAddress,
   setBalance,
-  setPhoneVerified,
 } from './user';
 
 configure({ adapter: new Adapter() });
@@ -32,10 +31,4 @@ describe('Kyc actions', () => {
     expect(setEthAddress(payload)).toEqual(expectedAction);
   })
 
-  it('should create an actions to set phone verified' , () => {
-    const expectedAction = {
-      type: 'SET_PHONE_VERIFIED'
-    }
-    expect(setPhoneVerified()).toEqual(expectedAction);
-  })
 });

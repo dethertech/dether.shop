@@ -3,8 +3,8 @@ const initialState = {
   isSubmitCodePending: false,
   phone: '',
   phoneSent: false,
-  phoneVerif: false,
   phoneCountry: null,
+  phoneVerified: null,
 };
 
 /**
@@ -18,8 +18,6 @@ const kycReducer = (state = initialState, { type, payload }) => {
       return { ...state, phoneCountry: payload };
     case 'SET_PHONE_SENT':
       return { ...state, phoneSent: payload };
-    case 'SET_PHONE_VERIFIED':
-      return { ...state, phoneVerif: true };
     case 'SEND_SMS_PENDING':
       return { ...state, isSubmitPhonePending: true };
     case 'SEND_SMS_SUCCESS':
@@ -34,6 +32,16 @@ const kycReducer = (state = initialState, { type, payload }) => {
       return { ...state, isSubmitCodePending: false };
     case 'RESET_KYC':
       return { ...initialState };
+    case 'FETCH_USER_CERTIFIED_SUCCESS': {
+      const { status } = payload.data.data;
+      if (status === 'error')
+        return { ...state, phoneVerified: null, phoneSent: false };
+      return state;
+    }
+    case 'SET_PHONE_VERIFIED':
+      return { ...state, phoneVerified: new Date() };
+    case 'RESET_PHONE_VERIFIED':
+      return { ...state, phoneVerified: null };
     default:
       return state;
   }
