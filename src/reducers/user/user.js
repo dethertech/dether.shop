@@ -5,7 +5,7 @@ export const initialState = {
     eth: 0,
     dth: 0,
   },
-  isCertified: false,
+  isCertified: null,
   ethAddress: null,
   phoneVerified: null,
 };
@@ -18,15 +18,9 @@ const userReducer = (state = initialState, { type, payload }) => {
     case 'SET_BALANCE':
       return { ...state, balance: payload };
     case 'FETCH_USER_CERTIFIED_SUCCESS': {
-      const isCertified = payload.data.data
-        ? payload.data.data.isCertified
-        : false;
-      return { ...state, isCertified: !!isCertified };
+      const { status } = payload.data.data;
+      return { ...state, isCertified: status };
     }
-    case 'SET_PHONE_VERIFIED':
-      return { ...state, phoneVerified: new Date() };
-    case 'RESET_PHONE_VERIFIED':
-      return { ...state, phoneVerified: null };
     case 'SET_ETH_ADDRESS':
       return { ...state, ethAddress: payload };
     default:

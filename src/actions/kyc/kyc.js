@@ -63,4 +63,20 @@ const setPhoneSent = phoneSent => ({
   payload: phoneSent,
 });
 
-export { sendSms, setPhone, setPhoneCountry, setPhoneSent, sendVerifCode };
+const setPhoneVerified = () => ({
+  type: 'SET_PHONE_VERIFIED',
+});
+
+const resetPhoneVerified = () => ({
+  type: 'RESET_PHONE_VERIFIED',
+});
+
+export {
+  sendSms,
+  setPhone,
+  setPhoneCountry,
+  setPhoneSent,
+  sendVerifCode,
+  setPhoneVerified,
+  resetPhoneVerified,
+};
