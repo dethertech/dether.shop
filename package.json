@@ -18,7 +18,8 @@
   "homepage": "https://shop.dether.io",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && echo '/* /index.html 200' > build/_redirects",
+    "header": "echo '/*\nX-Frame-Options: DENY\nX-XSS-Protection: 1; mode=block\n' > build/_headers",
+    "build": "react-scripts build && npm run header && echo '/* /index.html 200' > build/_redirects",
     "test": "react-scripts test --env=jsdom",
     "lint": "eslint 'src/**/*.js'",
     "esdoc": "./node_modules/.bin/esdoc",
