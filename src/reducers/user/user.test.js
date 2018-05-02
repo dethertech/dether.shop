@@ -99,21 +99,9 @@ describe('reducer::user', () => {
         dth: 20
       }
     }, 40)).toEqual(false)
-
-    expect(hasEnoughMoneyToAddShop({ balance: {
-        eth: 0.0001,
-        dth: 40
-      }
-    }, 40)).toEqual(true)
   })
 
   it('should check the balance to delete a shop', () => {
-    expect(hasEnougthMoneyToRemoveShop({ balance: {
-        eth: 0.000085,
-        dth: 10
-      }
-    })).toEqual(true)
-
     expect(hasEnougthMoneyToRemoveShop({ balance: {
         eth: 0.000083,
         dth: 0
