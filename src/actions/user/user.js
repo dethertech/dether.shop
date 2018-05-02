@@ -14,7 +14,7 @@ const checkUserCertified = ethAddress => dispatch =>
   new Promise((res, rej) => {
     dispatch({
       type: 'API:FETCH_USER_CERTIFIED',
-      url: config.kyc.isCertifiedUrl(ethAddress),
+      url: config.kyc.isCertifiedUrl(ethAddress.toLowerCase()),
       onSuccess: data => res(data),
       onError: error => rej(error),
     });
