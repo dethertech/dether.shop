@@ -10,9 +10,7 @@ import Button from '../Button';
 
 import { Padding } from '../Spaces';
 
-import { Loader } from '../../components';
-
-import { SvgDether, SvgRefresh } from '../Svg';
+import { Loader, Svg } from '../../components';
 
 const Wrapper = styled.header`
   display: flex;
@@ -152,7 +150,7 @@ class Header extends PureComponent {
       <Wrapper>
         <Left>
           <Padding right="m">
-            <SvgDether />
+            <Svg type="SvgDether" />
             <BtnWrapper>
               <Button isSmall onClick={toggleBuyModal}>
                 {tr('header.buy_dth')}
@@ -176,7 +174,7 @@ class Header extends PureComponent {
                   <YourBalance>{tr('header.your_balance')}</YourBalance>
                 </Balance>
                 <Refresh onClick={this.handleRefresh}>
-                  <SvgRefresh />
+                  <Svg type="SvgRefresh" />
                   <RefreshText>{tr('header.refresh')}</RefreshText>
                 </Refresh>
               </Fragment>

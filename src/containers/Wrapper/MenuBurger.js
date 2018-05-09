@@ -1,7 +1,7 @@
 import React from 'react';
 import { push as Menu } from 'react-burger-menu';
 import { PropTypes } from 'prop-types';
-import { SvgBurger } from '../../components';
+import { Svg } from '../../components';
 import onlyMobile from './onlyMobile';
 import tokens from '../../styles/tokens';
 
@@ -33,7 +33,7 @@ const MenuBurger = props => (
     styles={styles}
     width="90%"
     noOverlay
-    customBurgerIcon={<SvgBurger />}
+    customBurgerIcon={<Svg type="SvgBurger" />}
   >
     {props.children}
   </MenuMobile>

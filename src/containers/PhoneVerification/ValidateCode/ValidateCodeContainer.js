@@ -8,8 +8,10 @@ import tr from '../../../translate';
 import { phoneVerificationTime, getErrorMessage } from '../../../helpers';
 
 import ValidateCode from './ValidateCode';
-import { sendVerifCode as sendVerifCodeAction } from '../../../actions/kyc';
-import { setPhoneVerified as setPhoneVerifiedAction } from '../../../actions/user';
+import {
+  sendVerifCode as sendVerifCodeAction,
+  setPhoneVerified as setPhoneVerifiedAction,
+} from '../../../actions';
 
 class ValidationCode extends PureComponent {
   static propTypes = {

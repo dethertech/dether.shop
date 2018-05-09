@@ -19,7 +19,7 @@ describe('reducer::user', () => {
         eth: 0,
         dth: 0
       },
-      isCertified: false,
+      isCertified: null,
       ethAddress: null,
       phoneVerified: null,
     };

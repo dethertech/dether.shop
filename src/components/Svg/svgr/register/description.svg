@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="14px" viewBox="0 0 19 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>icon description</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="homepage-information-submit-copy-4" transform="translate(-77.000000, -364.000000)" stroke="#2A2B43">
+            <g id="volet">
+                <g id="icon-description" transform="translate(77.000000, 364.000000)">
+                    <path d="M3.98620605,3.57397461 L7.98620605,3.57397461" id="Line" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3.98620605,7.14978027 L15.0055668,7.14978027" id="Line" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M3.98620605,10.1497803 L15.0055668,10.1497803" id="Line" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <rect id="Rectangle" stroke-width="0.8" x="1.07126465" y="0.4" width="16.8298828" height="12.9336426" rx="2"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

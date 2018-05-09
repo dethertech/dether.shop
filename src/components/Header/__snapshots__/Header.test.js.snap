@@ -217,6 +217,7 @@ exports[`Components Header should render Header 1`] = `
       className="c2"
     >
       <svg
+        type="SvgDether"
         viewBox="0 0 103 37"
       >
         <title>
@@ -281,6 +282,7 @@ exports[`Components Header should render Header 1`] = `
           className="c12"
         >
           <svg
+            type="SvgRefresh"
             viewBox="0 0 29 26"
           >
             <title>

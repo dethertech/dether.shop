@@ -133,8 +133,8 @@ const en = {
       title: 'Report this bug',
     },
     phone: {
-      invalid:
-        'Please enter a valid phone number (it should be at list 5 digits long)',
+      invalid: ({ minChar, maxChar }) =>
+        `Please enter a valid phone number (it should be at least ${minChar} digits long and maximum ${maxChar})`,
       country_blank: 'You need to select a country in the list',
       wait_resend: 'Please wait 15 seconds before requesting a new code',
     },

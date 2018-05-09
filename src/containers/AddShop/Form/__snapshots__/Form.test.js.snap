@@ -65,6 +65,7 @@ ShallowWrapper {
                     name="name"
                     onBlur={[Function]}
                     placeholder="length min 1 – max 16"
+                    renderLabelIcon={[Function]}
                     toggleShake={0}
                     type="text"
                     value="Magasin"
@@ -80,6 +81,7 @@ ShallowWrapper {
                     name="cat"
                     onBlur={[Function]}
                     placeholder="length min 1 – max 16"
+                    renderLabelIcon={[Function]}
                     toggleShake={0}
                     type="text"
                     value="cool"
@@ -117,6 +119,7 @@ ShallowWrapper {
                     name="description"
                     onBlur={[Function]}
                     placeholder="length min 1 – max 32"
+                    renderLabelIcon={[Function]}
                     toggleShake={0}
                     type="text"
                     value="Super Magasin"
@@ -236,6 +239,7 @@ ShallowWrapper {
               name="name"
               onBlur={[Function]}
               placeholder="length min 1 – max 16"
+              renderLabelIcon={[Function]}
               toggleShake={0}
               type="text"
               value="Magasin"
@@ -251,6 +255,7 @@ ShallowWrapper {
               name="cat"
               onBlur={[Function]}
               placeholder="length min 1 – max 16"
+              renderLabelIcon={[Function]}
               toggleShake={0}
               type="text"
               value="cool"
@@ -288,6 +293,7 @@ ShallowWrapper {
               name="description"
               onBlur={[Function]}
               placeholder="length min 1 – max 32"
+              renderLabelIcon={[Function]}
               toggleShake={0}
               type="text"
               value="Super Magasin"
@@ -316,6 +322,7 @@ ShallowWrapper {
               "name": "name",
               "onBlur": [Function],
               "placeholder": "length min 1 – max 16",
+              "renderLabelIcon": [Function],
               "toggleShake": 0,
               "type": "text",
               "value": "Magasin",
@@ -339,6 +346,7 @@ ShallowWrapper {
               "name": "cat",
               "onBlur": [Function],
               "placeholder": "length min 1 – max 16",
+              "renderLabelIcon": [Function],
               "toggleShake": 0,
               "type": "text",
               "value": "cool",
@@ -390,6 +398,7 @@ ShallowWrapper {
               "name": "description",
               "onBlur": [Function],
               "placeholder": "length min 1 – max 32",
+              "renderLabelIcon": [Function],
               "toggleShake": 0,
               "type": "text",
               "value": "Super Magasin",
@@ -561,6 +570,7 @@ ShallowWrapper {
                         name="name"
                         onBlur={[Function]}
                         placeholder="length min 1 – max 16"
+                        renderLabelIcon={[Function]}
                         toggleShake={0}
                         type="text"
                         value="Magasin"
@@ -576,6 +586,7 @@ ShallowWrapper {
                         name="cat"
                         onBlur={[Function]}
                         placeholder="length min 1 – max 16"
+                        renderLabelIcon={[Function]}
                         toggleShake={0}
                         type="text"
                         value="cool"
@@ -613,6 +624,7 @@ ShallowWrapper {
                         name="description"
                         onBlur={[Function]}
                         placeholder="length min 1 – max 32"
+                        renderLabelIcon={[Function]}
                         toggleShake={0}
                         type="text"
                         value="Super Magasin"
@@ -732,6 +744,7 @@ ShallowWrapper {
                 name="name"
                 onBlur={[Function]}
                 placeholder="length min 1 – max 16"
+                renderLabelIcon={[Function]}
                 toggleShake={0}
                 type="text"
                 value="Magasin"
@@ -747,6 +760,7 @@ ShallowWrapper {
                 name="cat"
                 onBlur={[Function]}
                 placeholder="length min 1 – max 16"
+                renderLabelIcon={[Function]}
                 toggleShake={0}
                 type="text"
                 value="cool"
@@ -784,6 +798,7 @@ ShallowWrapper {
                 name="description"
                 onBlur={[Function]}
                 placeholder="length min 1 – max 32"
+                renderLabelIcon={[Function]}
                 toggleShake={0}
                 type="text"
                 value="Super Magasin"
@@ -812,6 +827,7 @@ ShallowWrapper {
                 "name": "name",
                 "onBlur": [Function],
                 "placeholder": "length min 1 – max 16",
+                "renderLabelIcon": [Function],
                 "toggleShake": 0,
                 "type": "text",
                 "value": "Magasin",
@@ -835,6 +851,7 @@ ShallowWrapper {
                 "name": "cat",
                 "onBlur": [Function],
                 "placeholder": "length min 1 – max 16",
+                "renderLabelIcon": [Function],
                 "toggleShake": 0,
                 "type": "text",
                 "value": "cool",
@@ -886,6 +903,7 @@ ShallowWrapper {
                 "name": "description",
                 "onBlur": [Function],
                 "placeholder": "length min 1 – max 32",
+                "renderLabelIcon": [Function],
                 "toggleShake": 0,
                 "type": "text",
                 "value": "Super Magasin",

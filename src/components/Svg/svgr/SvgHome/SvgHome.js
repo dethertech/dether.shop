@@ -3,7 +3,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import tokens from '../../../styles/tokens';
+import tokens from '../../../../styles/tokens';
 
 const Wrapper = styled.div`
   width: 100%;

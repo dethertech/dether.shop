@@ -14,24 +14,10 @@ const checkUserCertified = ethAddress => dispatch =>
   new Promise((res, rej) => {
     dispatch({
       type: 'API:FETCH_USER_CERTIFIED',
-      url: config.kyc.isCertifiedUrl(ethAddress),
+      url: config.kyc.isCertifiedUrl(ethAddress.toLowerCase()),
       onSuccess: data => res(data),
       onError: error => rej(error),
     });
   });
 
-const setPhoneVerified = () => ({
-  type: 'SET_PHONE_VERIFIED',
-});
-
-const resetPhoneVerified = () => ({
-  type: 'RESET_PHONE_VERIFIED',
-});
-
-export {
-  setEthAddress,
-  setBalance,
-  checkUserCertified,
-  setPhoneVerified,
-  resetPhoneVerified,
-};
+export { setEthAddress, setBalance, checkUserCertified };

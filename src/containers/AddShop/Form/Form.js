@@ -9,6 +9,7 @@ import { Padding } from '../../../components/Spaces';
 import Mention from '../../../components/Mention';
 import ProgressBar from '../../../components/ProgressBar';
 import Button from '../../../components/Button';
+import { Svg } from '../../../components';
 
 import { setDataShopPending as setDataShopPendingAction } from '../../../actions/shop';
 import tr from '../../../translate';
@@ -126,13 +127,28 @@ export class Form extends PureComponent {
         <Mention>{tr('add.form.step')}</Mention>
         <ProgressBar progressRatio={1} />
         <Padding vertical="xl">
-          <LabeledInput {...form.name} />
-          <LabeledInput {...form.cat} />
+          <LabeledInput
+            {...form.name}
+            renderLabelIcon={() => (
+              <Svg type="RegisterName" style={{ margin: '-2px 4px' }} />
+            )}
+          />
+          <LabeledInput
+            {...form.cat}
+            renderLabelIcon={() => (
+              <Svg type="RegisterCategory" style={{ margin: '-2px 4px' }} />
+            )}
+          />
           <SearchBar
             inputOpt={{ ...form.address, onBlur: this.onBlurAddress }}
             onChange={this.onChangeAddress}
           />
-          <LabeledInput {...form.description} />
+          <LabeledInput
+            {...form.description}
+            renderLabelIcon={() => (
+              <Svg type="RegisterDescription" style={{ margin: '-2px 4px' }} />
+            )}
+          />
         </Padding>
         <Padding bottom="m">
           <DaysOnpeningHour

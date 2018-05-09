@@ -12,8 +12,8 @@ describe('reducer::kyc', () => {
       isSubmitCodePending: false,
       phone: '',
       phoneSent: false,
-      phoneVerif: false,
       phoneCountry: null,
+      phonreVerified: null,
     };
     deepFreeze(defaultAction);
   });
@@ -64,8 +64,7 @@ describe('reducer::kyc', () => {
     };
 
     it('should handle SET_PHONE_VERIFIED', () => {
-      expect(kycReducer(defaultAction, action))
-      .toEqual({ ...defaultAction, phoneVerif: payload });
+      expect(kycReducer(defaultAction, action).phoneVerified instanceof Date).toEqual(true)
     });
   });
 
