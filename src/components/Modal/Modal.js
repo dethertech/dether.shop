@@ -6,7 +6,7 @@ import RoundIconBtn from '../RoundIconBtn';
 
 const ModalInner = styled.div`
   background: ${tokens.colors.white};
-  border-radius: ${tokens.radius.m};
+  border-radius: ${tokens.radius.l};
   padding: ${tokens.spaces.l};
   width: 88%;
   max-height: 88%;
