@@ -15,9 +15,9 @@ const buttonThemes = {
     border: tokens.colors.blue,
   },
   danger: {
-    text: tokens.colors.white,
-    bg: tokens.colors.gradients.pink,
-    border: 'transparent',
+    text: tokens.colors.blue,
+    bg: tokens.colors.white,
+    border: tokens.colors.blue,
   },
 };
 

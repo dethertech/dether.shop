@@ -14,7 +14,7 @@ const Wrapper = styled.div`
           color: ${tokens.colors.grey.light};
         `
       : css`
-          color: ${tokens.colors.pink};
+          color: ${tokens.colors.black};
         `};
 
   ${({ alignLeft }) =>
@@ -48,7 +48,7 @@ const Icon = styled.div`
           }
         `
       : css`
-          background-color: ${tokens.colors.pink};
+          background-color: ${tokens.colors.black};
           &:before {
             content: '!';
           }

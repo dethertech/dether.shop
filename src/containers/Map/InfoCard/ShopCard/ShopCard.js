@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  border-radius: ${tokens.radius.m};
+  border-radius: ${tokens.radius.l};
   background: ${tokens.colors.white};
   box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.2);
   overflow: hidden;

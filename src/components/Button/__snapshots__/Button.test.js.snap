@@ -4,12 +4,12 @@ exports[`Component Button should be render danger colored button 1`] = `
 .c0 {
   display: inline-block;
   font-size: 1.6rem;
-  border-radius: 1rem;
+  border-radius: 89px;
   line-height: 1.15em;
   padding: 1.2rem 2rem;
-  color: #FFFFFF;
-  background: linear-gradient(35deg,#E96F8C,#C5445E);
-  border: solid 1px transparent;
+  color: #3C80F1;
+  background: #FFFFFF;
+  border: solid 1px #3C80F1;
 }
 
 .c0:active {
@@ -30,13 +30,13 @@ exports[`Component Button should be render fullWidth button 1`] = `
 .c0 {
   display: inline-block;
   font-size: 1.6rem;
-  border-radius: 1rem;
+  border-radius: 89px;
   line-height: 1.15em;
   padding: 1.2rem 2rem;
   width: 100%;
-  color: #4B53B6;
+  color: #3C80F1;
   background: #FFFFFF;
-  border: solid 1px #4B53B6;
+  border: solid 1px #3C80F1;
 }
 
 .c0:active {
@@ -57,11 +57,11 @@ exports[`Component Button should be render primary colored button 1`] = `
 .c0 {
   display: inline-block;
   font-size: 1.6rem;
-  border-radius: 1rem;
+  border-radius: 89px;
   line-height: 1.15em;
   padding: 1.2rem 2rem;
   color: #FFFFFF;
-  background: linear-gradient(35deg,#4B53B6,#8C6FE9);
+  background: #3C80F1;
   border: solid 1px transparent;
 }
 
@@ -83,12 +83,12 @@ exports[`Component Button should be render without crash 1`] = `
 .c0 {
   display: inline-block;
   font-size: 1.6rem;
-  border-radius: 1rem;
+  border-radius: 89px;
   line-height: 1.15em;
   padding: 1.2rem 2rem;
-  color: #4B53B6;
+  color: #3C80F1;
   background: #FFFFFF;
-  border: solid 1px #4B53B6;
+  border: solid 1px #3C80F1;
 }
 
 .c0:active {

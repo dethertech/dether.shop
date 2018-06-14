@@ -15,7 +15,7 @@ const TextAreaWrapper = styled.div`
   ${({ hasError }) =>
     hasError &&
     css`
-      border-color: ${tokens.colors.pink};
+      border-color: ${tokens.colors.black};
     `}
   ${({ isFocus }) =>
     isFocus &&

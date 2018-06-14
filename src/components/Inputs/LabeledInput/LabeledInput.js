@@ -22,7 +22,7 @@ const Label = styled.label`
 `;
 
 const ErrorText = styled.div`
-  color: ${tokens.colors.pink};
+  color: ${tokens.colors.black};
   margin-top: ${tokens.spaces.xxs};
   font-size: ${tokens.fontSizes.s};
 `;

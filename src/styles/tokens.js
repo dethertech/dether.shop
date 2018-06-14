@@ -1,20 +1,21 @@
 const tokens = {
   colors: {
     grey: {
-      lightest: '#F5F5F5',
-      lighter: '#D8D8D8',
-      light: '#9B9B9B',
-      dark: '#717171',
-      darker: '#3C3C3B',
-      darkest: '#2A2B43',
+      lightest: '#F1F3F6',
+      lighter: '#CECED6',
+      light: '#121E38',
+      dark: '#121E38',
+      darker: '#121E38',
+      darkest: '#121E38',
     },
     green: '#4DD2AF',
-    blue: '#4B53B6',
+    blue: '#3C80F1',
     white: '#FFFFFF',
     pink: '#E7827F',
+    black: '#121E38',
     gradients: {
       pink: 'linear-gradient(35deg, #E96F8C, #C5445E)',
-      blue: 'linear-gradient(35deg, #4B53B6, #8C6FE9)',
+      blue: '#3C80F1',
     },
   },
   shadow: '0 3px 3px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.04)',
@@ -41,7 +42,8 @@ const tokens = {
   },
   radius: {
     s: '0.6rem',
-    m: '1rem',
+    m: '89px',
+    l: '1rem',
     circle: '50%',
   },
 };

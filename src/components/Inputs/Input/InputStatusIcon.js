@@ -23,7 +23,7 @@ const InputStatusIcon = styled.div`
     hasError &&
     css`
       &:before {
-        background: ${tokens.colors.pink};
+        background: ${tokens.colors.black};
         content: '!';
       }
     `};

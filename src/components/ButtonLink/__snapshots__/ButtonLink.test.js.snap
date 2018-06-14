@@ -5,8 +5,8 @@ exports[`Component ButtonLink should be render without crash 1`] = `
   display: inline-block;
   font-size: 1.4rem;
   padding-bottom: 0.1em;
-  color: #3C3C3B;
-  border-bottom: solid 1px #3C3C3B;
+  color: #121E38;
+  border-bottom: solid 1px #121E38;
 }
 
 <button
