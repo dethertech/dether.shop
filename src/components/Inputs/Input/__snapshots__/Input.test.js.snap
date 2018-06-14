@@ -2,7 +2,7 @@
 
 exports[`Component Input should be render without crash 1`] = `
 .c0 {
-  background: #F5F5F5;
+  background: #F1F3F6;
   border-radius: 0.6rem;
   overflow: hidden;
   border: solid 1px transparent;
@@ -72,12 +72,12 @@ exports[`Component Input should render with error style 1`] = `
 }
 
 .c2:before {
-  background: #E7827F;
+  background: #121E38;
   content: '!';
 }
 
 .c0 {
-  background: #F5F5F5;
+  background: #F1F3F6;
   border-radius: 0.6rem;
   overflow: hidden;
   border: solid 1px transparent;
@@ -155,7 +155,7 @@ exports[`Component Input should render with valid style 1`] = `
 }
 
 .c0 {
-  background: #F5F5F5;
+  background: #F1F3F6;
   border-radius: 0.6rem;
   overflow: hidden;
   border: solid 1px transparent;

@@ -5,10 +5,10 @@ exports[`Component ProgressBar should be render without crash 1`] = `
   className="sc-bwzfXH fnTFxC"
 >
   <div
-    className="sc-bxivhb edXzQM"
+    className="sc-bxivhb dMMIZk"
   >
     <div
-      className="sc-ifAKCX hpSNrP"
+      className="sc-ifAKCX hCfiHi"
     />
   </div>
 </div>

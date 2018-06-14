@@ -8,7 +8,7 @@ exports[`Component LabeledInput should render LabeledInput 1`] = `
 
 .c3 {
   font-size: 1.2rem;
-  color: #9B9B9B;
+  color: #121E38;
 }
 
 .c4 {
@@ -24,7 +24,7 @@ exports[`Component LabeledInput should render LabeledInput 1`] = `
 }
 
 .c5 {
-  background: #F5F5F5;
+  background: #F1F3F6;
   border-radius: 0.6rem;
   overflow: hidden;
   border: solid 1px transparent;
@@ -108,7 +108,7 @@ exports[`Component LabeledInput should render LabeledInput with an error 1`] = `
 
 .c3 {
   font-size: 1.2rem;
-  color: #9B9B9B;
+  color: #121E38;
 }
 
 .c4 {
@@ -151,12 +151,12 @@ exports[`Component LabeledInput should render LabeledInput with an error 1`] = `
 }
 
 .c7:before {
-  background: #E7827F;
+  background: #121E38;
   content: '!';
 }
 
 .c5 {
-  background: #F5F5F5;
+  background: #F1F3F6;
   border-radius: 0.6rem;
   overflow: hidden;
   border: solid 1px transparent;
@@ -191,7 +191,7 @@ exports[`Component LabeledInput should render LabeledInput with an error 1`] = `
 }
 
 .c8 {
-  color: #E7827F;
+  color: #121E38;
   margin-top: 0.4rem;
   font-size: 1.3rem;
 }
@@ -254,7 +254,7 @@ exports[`Component LabeledInput should render a validated LabeledInput 1`] = `
 
 .c3 {
   font-size: 1.2rem;
-  color: #9B9B9B;
+  color: #121E38;
 }
 
 .c4 {
@@ -302,7 +302,7 @@ exports[`Component LabeledInput should render a validated LabeledInput 1`] = `
 }
 
 .c5 {
-  background: #F5F5F5;
+  background: #F1F3F6;
   border-radius: 0.6rem;
   overflow: hidden;
   border: solid 1px transparent;
