@@ -88,6 +88,15 @@ const en = {
       },
       register_btn: 'Add your shop',
     },
+    email: {
+      notify_email: 'Email',
+      notify_button: 'Subscribe',
+      notify_message:
+        'Leave your email address to be first be notified when the sell feature will be launched in this country',
+      notify_done:
+        'Done. You will be notified as soon as the sell feature is launched in this country',
+      notify_repeated_email: 'This email was already registered',
+    },
   },
   header: {
     buy_dth: 'Buy DTH',
