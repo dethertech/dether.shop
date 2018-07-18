@@ -10,6 +10,8 @@ import Mention from '../../../components/Mention';
 import ProgressBar from '../../../components/ProgressBar';
 import Button from '../../../components/Button';
 import { Svg } from '../../../components';
+import Modal from '../../../components/Modal';
+import EmailNotification from './EmailNotification';
 
 import { setDataShopPending as setDataShopPendingAction } from '../../../actions/shop';
 import tr from '../../../translate';
@@ -19,6 +21,7 @@ import fromState from './fromState';
 import SearchBar from './SearchBar';
 import { convertCalendar } from '../../../helpers/calendar';
 import { isAlphaText } from '../../../helpers/parse';
+import { openZone } from '../../../constants';
 
 export class Form extends PureComponent {
   static propTypes = {
@@ -32,6 +35,7 @@ export class Form extends PureComponent {
     this.state = {
       days: '0000000',
       form: fromState(this, props),
+      invalidCountry: 0,
     };
   }
 
@@ -108,6 +112,11 @@ export class Form extends PureComponent {
 
   async isFormValide() {
     const { form } = this.state;
+
+    if (!openZone.includes(form.address.value.countryId)) {
+      this.setState({ invalidCountry: true });
+    }
+
     let isValide = true;
     await Promise.all(
       Object.keys(form).map(async k => {
@@ -117,12 +126,23 @@ export class Form extends PureComponent {
     return isValide;
   }
 
+  resetErrorMap = () => this.setState({ invalidCountry: false });
+
   render() {
-    const { form } = this.state;
+    const { form, invalidCountry } = this.state;
     const { shop } = this.props;
 
     return (
       <Fragment>
+        {invalidCountry && (
+          <Modal closeFunc={this.resetErrorMap}>
+            <EmailNotification
+              attributes={{ COUNTRY: form.address.value.countryId }}
+              title="This country is not open yet"
+              onSubmit={this.resetErrorMap}
+            />
+          </Modal>
+        )}
         <H1>{tr('add.form.title')}</H1>
         <Mention>{tr('add.form.step')}</Mention>
         <ProgressBar progressRatio={1} />
