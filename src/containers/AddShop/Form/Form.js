@@ -134,7 +134,7 @@ export class Form extends PureComponent {
 
     return (
       <Fragment>
-        {invalidCountry && (
+        {invalidCountry ? (
           <Modal closeFunc={this.resetErrorMap}>
             <EmailNotification
               attributes={{ COUNTRY: form.address.value.countryId }}
@@ -142,6 +142,8 @@ export class Form extends PureComponent {
               onSubmit={this.resetErrorMap}
             />
           </Modal>
+        ) : (
+          ''
         )}
         <H1>{tr('add.form.title')}</H1>
         <Mention>{tr('add.form.step')}</Mention>
