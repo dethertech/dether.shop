@@ -25,11 +25,4 @@ export default {
   },
   reportABug: process.env.REACT_APP_REPORT_A_BUG,
   isOnMaintenance: isTrue(process.env.REACT_APP_IS_ON_MAINTENANCE),
-  sendInBlueUrl: process.env.REACT_APP_SENDINBLUE_URL || '',
-  sendInBlueKey: process.env.REACT_APP_SENDINBLUE_KEY || '',
-  sendInBlueListIds: process.env.REACT_APP_SENDINBLUE_LIST_IDS
-    ? process.env.REACT_APP_SENDINBLUE_LIST_IDS.split(' ').map(id =>
-        parseInt(id, 10),
-      )
-    : [],
 };
