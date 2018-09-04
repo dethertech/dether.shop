@@ -36,7 +36,6 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        "",
         <styled.h1>
           REGISTER YOUR SHOP
 </styled.h1>,
@@ -188,7 +187,6 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
-      "",
       Object {
         "instance": null,
         "key": undefined,
@@ -543,7 +541,6 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          "",
           <styled.h1>
             REGISTER YOUR SHOP
 </styled.h1>,
@@ -695,7 +692,6 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
-        "",
         Object {
           "instance": null,
           "key": undefined,

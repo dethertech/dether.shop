@@ -1,6 +1,6 @@
 {
   "name": "dether.shop",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Dether.shop Front-End",
   "keywords": [
     "dether",
@@ -29,8 +29,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.5",
-    "dethercontract": "^3.5.2",
-    "google-map-react": "^0.34.0",
+    "dethercontract": "^3.6.0",
+    "google-map-react": "1.0.6",
     "platform": "^1.3.5",
     "points-cluster": "^0.1.4",
     "prop-types": "^15.6.0",

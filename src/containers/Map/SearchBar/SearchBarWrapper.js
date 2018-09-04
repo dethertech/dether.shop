@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   top: ${tokens.spaces.m};
   left: ${tokens.spaces.m};
   right: ${tokens.spaces.m};
-  border-radius: ${tokens.radius.m};
+  border-radius: ${tokens.radius.s};
   box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.2);
   background-color: ${tokens.colors.white};
   overflow: hidden;

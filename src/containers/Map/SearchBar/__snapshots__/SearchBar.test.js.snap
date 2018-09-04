@@ -6,7 +6,7 @@ exports[`Component SearchBar should be render without crash 1`] = `
   top: 1.6rem;
   left: 1.6rem;
   right: 1.6rem;
-  border-radius: 89px;
+  border-radius: 0.6rem;
   box-shadow: 0 0 0.8rem rgba(0,0,0,0.2);
   background-color: #FFFFFF;
   overflow: hidden;
