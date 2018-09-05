@@ -115,10 +115,10 @@ ShallowWrapper {
                     fillInfos={null}
                     handleChange={[Function]}
                     isValid={false}
-                    label="Description:"
+                    label="Keywords:"
                     name="description"
                     onBlur={[Function]}
-                    placeholder="length min 1 – max 32"
+                    placeholder="Example: clothes, jeans, food, ..."
                     renderLabelIcon={[Function]}
                     toggleShake={0}
                     type="text"
@@ -289,10 +289,10 @@ ShallowWrapper {
               fillInfos={null}
               handleChange={[Function]}
               isValid={false}
-              label="Description:"
+              label="Keywords:"
               name="description"
               onBlur={[Function]}
-              placeholder="length min 1 – max 32"
+              placeholder="Example: clothes, jeans, food, ..."
               renderLabelIcon={[Function]}
               toggleShake={0}
               type="text"
@@ -394,10 +394,10 @@ ShallowWrapper {
               "fillInfos": null,
               "handleChange": [Function],
               "isValid": false,
-              "label": "Description:",
+              "label": "Keywords:",
               "name": "description",
               "onBlur": [Function],
-              "placeholder": "length min 1 – max 32",
+              "placeholder": "Example: clothes, jeans, food, ...",
               "renderLabelIcon": [Function],
               "toggleShake": 0,
               "type": "text",
@@ -620,10 +620,10 @@ ShallowWrapper {
                         fillInfos={null}
                         handleChange={[Function]}
                         isValid={false}
-                        label="Description:"
+                        label="Keywords:"
                         name="description"
                         onBlur={[Function]}
-                        placeholder="length min 1 – max 32"
+                        placeholder="Example: clothes, jeans, food, ..."
                         renderLabelIcon={[Function]}
                         toggleShake={0}
                         type="text"
@@ -794,10 +794,10 @@ ShallowWrapper {
                 fillInfos={null}
                 handleChange={[Function]}
                 isValid={false}
-                label="Description:"
+                label="Keywords:"
                 name="description"
                 onBlur={[Function]}
-                placeholder="length min 1 – max 32"
+                placeholder="Example: clothes, jeans, food, ..."
                 renderLabelIcon={[Function]}
                 toggleShake={0}
                 type="text"
@@ -899,10 +899,10 @@ ShallowWrapper {
                 "fillInfos": null,
                 "handleChange": [Function],
                 "isValid": false,
-                "label": "Description:",
+                "label": "Keywords:",
                 "name": "description",
                 "onBlur": [Function],
-                "placeholder": "length min 1 – max 32",
+                "placeholder": "Example: clothes, jeans, food, ...",
                 "renderLabelIcon": [Function],
                 "toggleShake": 0,
                 "type": "text",
