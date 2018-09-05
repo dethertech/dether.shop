@@ -77,9 +77,9 @@ const en = {
           placeholder: () => 'length min 1 – max 16',
         },
         description: {
-          label: 'Description:',
+          label: 'Keywords:',
           error: 'length min 1 – max 32',
-          placeholder: 'length min 1 – max 32',
+          placeholder: 'Example: clothes, jeans, food, ...',
         },
         opening: {
           error: () => 'Invalid opening',
