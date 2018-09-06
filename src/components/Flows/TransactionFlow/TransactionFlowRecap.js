@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import ShopRecap from '../../ShopRecap';
+import Loader from '../../Loader';
 
 const TransactionFlowRecap = ({ shop, message }) => (
   <Fragment>
@@ -9,6 +10,7 @@ const TransactionFlowRecap = ({ shop, message }) => (
     <div>
       <b>{message}</b>
     </div>
+    <Loader />
   </Fragment>
 );
 
