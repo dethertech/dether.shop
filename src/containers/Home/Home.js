@@ -26,7 +26,7 @@ import {
 
 // Components
 
-import { Button, Message, Svg, Footer } from '../../components';
+import { Button, Message, Svg } from '../../components';
 import { H1 } from '../../components/Headings';
 import { Padding } from '../../components/Spaces';
 import TermsValidation from './TermsValidation';
@@ -152,9 +152,6 @@ export class Home extends PureComponent {
             </Padding>
           )}
         </Wrapper>
-        <Padding vertical="s">
-          <Footer toggleTermsModal={toggleTermsModal} />
-        </Padding>
       </React.Fragment>
     );
   };
