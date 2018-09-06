@@ -60,7 +60,7 @@ const en = {
       step: 'Step 2 of 2',
       inputs: {
         address: {
-          label: 'Address:',
+          label: 'Enter your shop address:',
           errors: {
             invalid: 'Invalid address',
             zone: 'This Zone is not openened',
