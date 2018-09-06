@@ -7,7 +7,7 @@ import { Margin } from '../../../components/Spaces';
 import { Mention } from '../../../components';
 
 import { Shake } from '../../../components/Animations';
-import { Input, TextArea, ComboBox, AutoAddress } from '../';
+import { Input, TextArea, ComboBox, AutoAddress, Select } from '../';
 
 const Wrapper = styled.div`
   margin-bottom: ${tokens.spaces.m};
@@ -37,6 +37,7 @@ const LabeledInput = ({
   handleChange,
   componentName,
   renderLabelIcon,
+  selected,
   ...rest
 }) => (
   <Wrapper>
@@ -87,6 +88,15 @@ const LabeledInput = ({
             {...rest}
           />
         ),
+        select: () => (
+          <Select
+            {...rest}
+            selected={selected}
+            onChange={event => {
+              handleChange({ target: { name, value: event.target.value } });
+            }}
+          />
+        ),
       }[componentName]()}
     </Shake>
     {error && <ErrorText>{error}</ErrorText>}
@@ -104,6 +114,7 @@ LabeledInput.propTypes = {
   error: PropTypes.string,
   defaultOption: PropTypes.any,
   renderLabelIcon: PropTypes.func,
+  selected: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
 };
 
 LabeledInput.defaultProps = {
@@ -115,6 +126,7 @@ LabeledInput.defaultProps = {
   componentName: 'input',
   defaultOption: null,
   renderLabelIcon: null,
+  selected: undefined,
 };
 
 export default LabeledInput;
