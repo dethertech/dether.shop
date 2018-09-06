@@ -66,12 +66,37 @@ ShallowWrapper {
                     onBlur={[Function]}
                     placeholder="length min 1 – max 16"
                     renderLabelIcon={[Function]}
+                    selected={undefined}
                     toggleShake={0}
                     type="text"
                     value="Magasin"
           />
           <LabeledInput
-                    componentName="input"
+                    componentName="select"
+                    data={
+                              Array [
+                                        "Groceries",
+                                        "Clothes Shop",
+                                        "Supermarket",
+                                        "Jewellery",
+                                        "Music Shop",
+                                        "Shoe Shop",
+                                        "Toy Shop",
+                                        "Tea Shop",
+                                        "Flower Shop",
+                                        "Hairdresser",
+                                        "Bookshop",
+                                        "Petshop",
+                                        "Stationer",
+                                        "Optician",
+                                        "DIY Store",
+                                        "Petrol Station",
+                                        "Newsagent",
+                                        "Department Store",
+                                        "Chemist",
+                                        "Other",
+                                      ]
+                    }
                     defaultOption={null}
                     error={null}
                     fillInfos={null}
@@ -82,6 +107,7 @@ ShallowWrapper {
                     onBlur={[Function]}
                     placeholder="length min 1 – max 16"
                     renderLabelIcon={[Function]}
+                    selected={undefined}
                     toggleShake={0}
                     type="text"
                     value="cool"
@@ -120,6 +146,7 @@ ShallowWrapper {
                     onBlur={[Function]}
                     placeholder="Example: clothes, jeans, food, ..."
                     renderLabelIcon={[Function]}
+                    selected={undefined}
                     toggleShake={0}
                     type="text"
                     value="Super Magasin"
@@ -240,12 +267,37 @@ ShallowWrapper {
               onBlur={[Function]}
               placeholder="length min 1 – max 16"
               renderLabelIcon={[Function]}
+              selected={undefined}
               toggleShake={0}
               type="text"
               value="Magasin"
 />,
             <LabeledInput
-              componentName="input"
+              componentName="select"
+              data={
+                            Array [
+                                          "Groceries",
+                                          "Clothes Shop",
+                                          "Supermarket",
+                                          "Jewellery",
+                                          "Music Shop",
+                                          "Shoe Shop",
+                                          "Toy Shop",
+                                          "Tea Shop",
+                                          "Flower Shop",
+                                          "Hairdresser",
+                                          "Bookshop",
+                                          "Petshop",
+                                          "Stationer",
+                                          "Optician",
+                                          "DIY Store",
+                                          "Petrol Station",
+                                          "Newsagent",
+                                          "Department Store",
+                                          "Chemist",
+                                          "Other",
+                                        ]
+              }
               defaultOption={null}
               error={null}
               fillInfos={null}
@@ -256,6 +308,7 @@ ShallowWrapper {
               onBlur={[Function]}
               placeholder="length min 1 – max 16"
               renderLabelIcon={[Function]}
+              selected={undefined}
               toggleShake={0}
               type="text"
               value="cool"
@@ -294,6 +347,7 @@ ShallowWrapper {
               onBlur={[Function]}
               placeholder="Example: clothes, jeans, food, ..."
               renderLabelIcon={[Function]}
+              selected={undefined}
               toggleShake={0}
               type="text"
               value="Super Magasin"
@@ -323,6 +377,7 @@ ShallowWrapper {
               "onBlur": [Function],
               "placeholder": "length min 1 – max 16",
               "renderLabelIcon": [Function],
+              "selected": undefined,
               "toggleShake": 0,
               "type": "text",
               "value": "Magasin",
@@ -336,7 +391,29 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
-              "componentName": "input",
+              "componentName": "select",
+              "data": Array [
+                "Groceries",
+                "Clothes Shop",
+                "Supermarket",
+                "Jewellery",
+                "Music Shop",
+                "Shoe Shop",
+                "Toy Shop",
+                "Tea Shop",
+                "Flower Shop",
+                "Hairdresser",
+                "Bookshop",
+                "Petshop",
+                "Stationer",
+                "Optician",
+                "DIY Store",
+                "Petrol Station",
+                "Newsagent",
+                "Department Store",
+                "Chemist",
+                "Other",
+              ],
               "defaultOption": null,
               "error": null,
               "fillInfos": null,
@@ -347,6 +424,7 @@ ShallowWrapper {
               "onBlur": [Function],
               "placeholder": "length min 1 – max 16",
               "renderLabelIcon": [Function],
+              "selected": undefined,
               "toggleShake": 0,
               "type": "text",
               "value": "cool",
@@ -399,6 +477,7 @@ ShallowWrapper {
               "onBlur": [Function],
               "placeholder": "Example: clothes, jeans, food, ...",
               "renderLabelIcon": [Function],
+              "selected": undefined,
               "toggleShake": 0,
               "type": "text",
               "value": "Super Magasin",
@@ -571,12 +650,37 @@ ShallowWrapper {
                         onBlur={[Function]}
                         placeholder="length min 1 – max 16"
                         renderLabelIcon={[Function]}
+                        selected={undefined}
                         toggleShake={0}
                         type="text"
                         value="Magasin"
             />
             <LabeledInput
-                        componentName="input"
+                        componentName="select"
+                        data={
+                                    Array [
+                                                "Groceries",
+                                                "Clothes Shop",
+                                                "Supermarket",
+                                                "Jewellery",
+                                                "Music Shop",
+                                                "Shoe Shop",
+                                                "Toy Shop",
+                                                "Tea Shop",
+                                                "Flower Shop",
+                                                "Hairdresser",
+                                                "Bookshop",
+                                                "Petshop",
+                                                "Stationer",
+                                                "Optician",
+                                                "DIY Store",
+                                                "Petrol Station",
+                                                "Newsagent",
+                                                "Department Store",
+                                                "Chemist",
+                                                "Other",
+                                              ]
+                        }
                         defaultOption={null}
                         error={null}
                         fillInfos={null}
@@ -587,6 +691,7 @@ ShallowWrapper {
                         onBlur={[Function]}
                         placeholder="length min 1 – max 16"
                         renderLabelIcon={[Function]}
+                        selected={undefined}
                         toggleShake={0}
                         type="text"
                         value="cool"
@@ -625,6 +730,7 @@ ShallowWrapper {
                         onBlur={[Function]}
                         placeholder="Example: clothes, jeans, food, ..."
                         renderLabelIcon={[Function]}
+                        selected={undefined}
                         toggleShake={0}
                         type="text"
                         value="Super Magasin"
@@ -745,12 +851,37 @@ ShallowWrapper {
                 onBlur={[Function]}
                 placeholder="length min 1 – max 16"
                 renderLabelIcon={[Function]}
+                selected={undefined}
                 toggleShake={0}
                 type="text"
                 value="Magasin"
 />,
               <LabeledInput
-                componentName="input"
+                componentName="select"
+                data={
+                                Array [
+                                                "Groceries",
+                                                "Clothes Shop",
+                                                "Supermarket",
+                                                "Jewellery",
+                                                "Music Shop",
+                                                "Shoe Shop",
+                                                "Toy Shop",
+                                                "Tea Shop",
+                                                "Flower Shop",
+                                                "Hairdresser",
+                                                "Bookshop",
+                                                "Petshop",
+                                                "Stationer",
+                                                "Optician",
+                                                "DIY Store",
+                                                "Petrol Station",
+                                                "Newsagent",
+                                                "Department Store",
+                                                "Chemist",
+                                                "Other",
+                                              ]
+                }
                 defaultOption={null}
                 error={null}
                 fillInfos={null}
@@ -761,6 +892,7 @@ ShallowWrapper {
                 onBlur={[Function]}
                 placeholder="length min 1 – max 16"
                 renderLabelIcon={[Function]}
+                selected={undefined}
                 toggleShake={0}
                 type="text"
                 value="cool"
@@ -799,6 +931,7 @@ ShallowWrapper {
                 onBlur={[Function]}
                 placeholder="Example: clothes, jeans, food, ..."
                 renderLabelIcon={[Function]}
+                selected={undefined}
                 toggleShake={0}
                 type="text"
                 value="Super Magasin"
@@ -828,6 +961,7 @@ ShallowWrapper {
                 "onBlur": [Function],
                 "placeholder": "length min 1 – max 16",
                 "renderLabelIcon": [Function],
+                "selected": undefined,
                 "toggleShake": 0,
                 "type": "text",
                 "value": "Magasin",
@@ -841,7 +975,29 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
-                "componentName": "input",
+                "componentName": "select",
+                "data": Array [
+                  "Groceries",
+                  "Clothes Shop",
+                  "Supermarket",
+                  "Jewellery",
+                  "Music Shop",
+                  "Shoe Shop",
+                  "Toy Shop",
+                  "Tea Shop",
+                  "Flower Shop",
+                  "Hairdresser",
+                  "Bookshop",
+                  "Petshop",
+                  "Stationer",
+                  "Optician",
+                  "DIY Store",
+                  "Petrol Station",
+                  "Newsagent",
+                  "Department Store",
+                  "Chemist",
+                  "Other",
+                ],
                 "defaultOption": null,
                 "error": null,
                 "fillInfos": null,
@@ -852,6 +1008,7 @@ ShallowWrapper {
                 "onBlur": [Function],
                 "placeholder": "length min 1 – max 16",
                 "renderLabelIcon": [Function],
+                "selected": undefined,
                 "toggleShake": 0,
                 "type": "text",
                 "value": "cool",
@@ -904,6 +1061,7 @@ ShallowWrapper {
                 "onBlur": [Function],
                 "placeholder": "Example: clothes, jeans, food, ...",
                 "renderLabelIcon": [Function],
+                "selected": undefined,
                 "toggleShake": 0,
                 "type": "text",
                 "value": "Super Magasin",
