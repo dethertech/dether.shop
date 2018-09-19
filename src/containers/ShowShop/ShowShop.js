@@ -54,8 +54,13 @@ export class ShowShop extends PureComponent {
     centerPosition: PropTypes.shape({}).isRequired,
     openNotificationModal: PropTypes.func.isRequired,
     reloadShops: PropTypes.func.isRequired,
-    dispatchHideShopWillAppearNotice: PropTypes.func.isRequired,
-    shallIDisplayShopNotice: PropTypes.bool.isRequired,
+    dispatchHideShopWillAppearNotice: PropTypes.func,
+    shallIDisplayShopNotice: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    dispatchHideShopWillAppearNotice: () => null,
+    shallIDisplayShopNotice: false,
   };
 
   state = {

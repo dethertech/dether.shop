@@ -36,6 +36,8 @@ describe('Containers::ShowShop', () => {
     fetchAll: () => null,
     centerPosition: { lat: 30, lng: 3 },
     reloadShops: () => null,
+    dispatchHideShopWillAppearNotice: () => null,
+    shallIDisplayShopNotice: false,
   };
   const component = props => <ShowShop {...props} />
 
