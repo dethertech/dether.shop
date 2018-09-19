@@ -17,6 +17,7 @@ describe('reducer::shop', () => {
         postalCode: null,
         name: '',
         description: '',
+        displayShopWillAppear: false,
         cat: '',
         opening: '0000000'
       }
@@ -37,6 +38,7 @@ describe('reducer::shop', () => {
       postalCode: null,
       name: '',
       description: '',
+      displayShopWillAppear: false,
       cat: '',
       opening: '0000000'
     }
@@ -60,6 +62,7 @@ describe('reducer::shop', () => {
       postalCode: null,
       name: '',
       description: '',
+      displayShopWillAppear: false,
       cat: '',
       opening: '0000000'
     }
