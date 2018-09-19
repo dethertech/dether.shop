@@ -6,7 +6,8 @@ import { bindActionCreators } from 'redux';
 /*
   Components
  */
-import { ShopRecap, Button, TransactionFlow } from '../../components';
+import { ShopRecap, Button, TransactionFlow, Loader } from '../../components';
+import { Padding } from '../../components/Spaces';
 
 /*
   Translate module
@@ -21,6 +22,7 @@ import {
   resetTransaction as resetTransactionAction,
   openNotificationModal as openNotificationModalAction,
   reloadShops as reloadShopsAction,
+  hideShopWillAppearNotice as hideShopWillAppearNoticeAction,
 } from '../../actions';
 
 /*
@@ -52,10 +54,18 @@ export class ShowShop extends PureComponent {
     centerPosition: PropTypes.shape({}).isRequired,
     openNotificationModal: PropTypes.func.isRequired,
     reloadShops: PropTypes.func.isRequired,
+    dispatchHideShopWillAppearNotice: PropTypes.func.isRequired,
+    shallIDisplayShopNotice: PropTypes.bool.isRequired,
   };
 
   state = {
     transactionSubmitted: false,
+  };
+
+  componentDidMount = () => {
+    setTimeout(() => {
+      this.props.dispatchHideShopWillAppearNotice();
+    }, 60000);
   };
 
   checkTransaction = async () => {
@@ -95,7 +105,7 @@ export class ShowShop extends PureComponent {
   submitTransaction = () => this.setState({ transactionSubmitted: true });
 
   render = () => {
-    const { shop, isTransactionPending } = this.props;
+    const { shop, isTransactionPending, shallIDisplayShopNotice } = this.props;
     const { transactionSubmitted } = this.state;
 
     if (isTransactionPending || transactionSubmitted) {
@@ -119,6 +129,16 @@ export class ShowShop extends PureComponent {
         <Button onClick={this.submitTransaction}>
           {tr('show_shop.delete_button')}
         </Button>
+        {shallIDisplayShopNotice && (
+          <Padding all="m">
+            <div>
+              <b>{tr('show_shop.shop_appear_shortly')}</b>
+            </div>
+            <div>
+              <Loader />
+            </div>
+          </Padding>
+        )}
       </Fragment>
     );
   };
@@ -128,6 +148,7 @@ const mapStateToProps = ({ shop, map, transaction }) => ({
   shop: shop.shop,
   isTransactionPending: !!transaction.pending,
   centerPosition: map.centerPosition,
+  shallIDisplayShopNotice: shop.displayShopWillAppear,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -137,6 +158,10 @@ const mapDispatchToProps = dispatch => ({
   reloadShops: bindActionCreators(reloadShopsAction, dispatch),
   openNotificationModal: bindActionCreators(
     openNotificationModalAction,
+    dispatch,
+  ),
+  dispatchHideShopWillAppearNotice: bindActionCreators(
+    hideShopWillAppearNoticeAction,
     dispatch,
   ),
 });

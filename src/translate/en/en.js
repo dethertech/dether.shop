@@ -181,6 +181,7 @@ const en = {
     submit_button: 'Submit',
     loader_title: 'Please wait',
     loader_delete_message: 'We are deleting your shop from the Dether map...',
+    shop_appear_shortly: 'Your shop will appear shortly on the map',
   },
   add_form_verification: {
     transaction_pending:
