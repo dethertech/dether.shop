@@ -71,6 +71,7 @@ ShallowWrapper {
 >
           Delete Shop
 </Button>,
+        undefined,
       ],
     },
     "ref": null,
@@ -112,6 +113,7 @@ ShallowWrapper {
         "rendered": "Delete Shop",
         "type": [Function],
       },
+      undefined,
     ],
     "type": Symbol(react.fragment),
   },
@@ -144,6 +146,7 @@ ShallowWrapper {
 >
             Delete Shop
 </Button>,
+          undefined,
         ],
       },
       "ref": null,
@@ -185,6 +188,7 @@ ShallowWrapper {
           "rendered": "Delete Shop",
           "type": [Function],
         },
+        undefined,
       ],
       "type": Symbol(react.fragment),
     },
