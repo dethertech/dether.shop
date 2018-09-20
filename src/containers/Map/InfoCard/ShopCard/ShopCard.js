@@ -6,7 +6,7 @@ import tr from '../../../../translate';
 import tokens from '../../../../styles/tokens';
 import { H1 } from '../../../../components/Headings';
 
-import { Svg } from '../../../../components';
+import SvgAvatar from '../../../../components/Svg/svgr/SvgAvatar';
 
 const BottomWrapper = styled.div`
   padding: ${tokens.spaces.s};
@@ -80,7 +80,7 @@ const ShopCard = ({ name, cat, address, description, opening }) => (
   <Wrapper>
     <Card>
       <TopWrapper>
-        <Svg type="SvgAvatar" />
+        <SvgAvatar />
         <UserProfile>
           <H1 light>{name}</H1>
           {cat}

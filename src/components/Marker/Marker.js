@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 const MapMarker = styled.div`
   cursor: pointer;
+  width: 40px;
+  height: 40px;
 `;
 
 class Marker extends PureComponent {
