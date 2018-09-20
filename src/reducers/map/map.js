@@ -1,4 +1,4 @@
-import { uniqueArray } from '../../helpers';
+import { uniqueArray } from '../../helpers/array';
 
 const initialState = {
   userPosition: { lat: 50.087701, lng: 14.421133 },

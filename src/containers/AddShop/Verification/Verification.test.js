@@ -3,13 +3,13 @@ import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { Verification } from './Verification';
 
-  jest.mock('axios', () => ({
-    CancelToken: {
-      source: () => ({
-        token: '',
-      }),
-    },
-  }));
+jest.mock('axios', () => ({
+  CancelToken: {
+    source: () => ({
+      token: '',
+    }),
+  },
+}));
 describe('Containers::AddShop::Verification', () => {
 
   const pendingShop = {
@@ -36,6 +36,7 @@ describe('Containers::AddShop::Verification', () => {
     goBack: () => null,
     fetchAll: () => null,
     centerPosition: { lat: 30, lng: 3 },
+    dispatchDisplayShopWillAppearNoticeAction: () => null,
   }
 
   const component = props => <Verification {...props} />
