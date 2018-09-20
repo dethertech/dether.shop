@@ -25,4 +25,5 @@ export default {
   },
   reportABug: process.env.REACT_APP_REPORT_A_BUG,
   isOnMaintenance: isTrue(process.env.REACT_APP_IS_ON_MAINTENANCE),
+  geoServer: process.env.REACT_APP_GEO_SERVER,
 };

@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import tokens from '../../styles/tokens';
 
+import Shop from './Shop';
+
 const Wrapper = styled.div`
   width: 2.6rem;
   height: 2.6rem;
@@ -52,15 +54,15 @@ const Wrapper = styled.div`
   }
 `;
 
-const isLarge = n => n.toString().length === 2;
+const isLarge = n => n.toString().length === 1;
 
-const isXLarge = n => n.toString().length === 3;
+const isXLarge = n => n.toString().length === 2;
 
-const isXXLarge = n => n.toString().length > 3;
+const isXXLarge = n => n.toString().length > 2;
 
 export const ClusterShopIcon = ({ num }) => (
   <Wrapper
-    bg="#EDD36B"
+    bg="#59E1CC"
     l={isLarge(num)}
     xl={isXLarge(num)}
     xxl={isXXLarge(num)}
@@ -73,20 +75,4 @@ ClusterShopIcon.propTypes = {
   num: PropTypes.number.isRequired,
 };
 
-/* eslint-disable max-len */
-export const ShopIcon = () => (
-  <Wrapper bg="#EDD36B">
-    <svg viewBox="0 0 22 22">
-      <circle
-        fill="none"
-        strokeWidth="0.3rem"
-        stroke="#fff"
-        cx="11"
-        cy="7"
-        r="5"
-      />
-      <rect width="20" height="15" x="1" y="7" rx="2" />
-    </svg>
-  </Wrapper>
-);
-/* eslint-enable max-len */
+export const ShopIcon = () => <Shop />;
