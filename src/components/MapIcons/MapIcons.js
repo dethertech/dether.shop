@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   border: solid 0.3rem ${tokens.colors.white};
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
   background: ${({ bg }) => bg};
+  transform: translateX(-50%) translateY(-50%);
 
   ${({ l }) =>
     l &&

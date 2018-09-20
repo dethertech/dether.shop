@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import WrapperMap from './GoogleMapWrapper/';
+import WrapperMap from './GoogleMapWrapper';
 import ShopMarker from './Markers/ShopMarker';
 import InfoCard from './InfoCard/';
 import SearchBar from './SearchBar/';
