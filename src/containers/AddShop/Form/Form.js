@@ -19,6 +19,7 @@ import fromState from './fromState';
 import SearchBar from './SearchBar';
 import { convertCalendar } from '../../../helpers/calendar';
 import { isAlphaText } from '../../../helpers/parse';
+import shopCategories from '../../../constants/shopCategories';
 
 export class Form extends PureComponent {
   static propTypes = {
@@ -108,6 +109,7 @@ export class Form extends PureComponent {
 
   async isFormValide() {
     const { form } = this.state;
+
     let isValide = true;
     await Promise.all(
       Object.keys(form).map(async k => {
@@ -135,6 +137,8 @@ export class Form extends PureComponent {
           />
           <LabeledInput
             {...form.cat}
+            componentName="select"
+            data={shopCategories}
             renderLabelIcon={() => (
               <Svg type="RegisterCategory" style={{ margin: '-2px 4px' }} />
             )}

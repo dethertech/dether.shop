@@ -1,5 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const MapMarker = styled.div`
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+`;
 
 class Marker extends PureComponent {
   static propTypes = {
@@ -15,7 +22,7 @@ class Marker extends PureComponent {
   render() {
     const { handleClick, children } = this.props;
 
-    return <div onClick={handleClick}>{children}</div>;
+    return <MapMarker onClick={handleClick}>{children}</MapMarker>;
   }
 }
 

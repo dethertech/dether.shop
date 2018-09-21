@@ -15,12 +15,14 @@ ShallowWrapper {
           }
     }
     deleteContractShop={[Function]}
+    dispatchHideShopWillAppearNotice={[Function]}
     endTransaction={[Function]}
     fetchAll={[Function]}
     isTransactionPending={false}
     openNotificationModal={[Function]}
     reloadShops={[Function]}
     removeShopFromStore={[Function]}
+    shallIDisplayShopNotice={false}
     shop={
         Object {
             "address": "40 rue Citadelle Paris",
@@ -71,6 +73,7 @@ ShallowWrapper {
 >
           Delete Shop
 </Button>,
+        false,
       ],
     },
     "ref": null,
@@ -112,6 +115,7 @@ ShallowWrapper {
         "rendered": "Delete Shop",
         "type": [Function],
       },
+      false,
     ],
     "type": Symbol(react.fragment),
   },
@@ -144,6 +148,7 @@ ShallowWrapper {
 >
             Delete Shop
 </Button>,
+          false,
         ],
       },
       "ref": null,
@@ -185,6 +190,7 @@ ShallowWrapper {
           "rendered": "Delete Shop",
           "type": [Function],
         },
+        false,
       ],
       "type": Symbol(react.fragment),
     },

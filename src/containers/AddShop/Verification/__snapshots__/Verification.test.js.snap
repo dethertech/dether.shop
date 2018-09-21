@@ -16,6 +16,7 @@ ShallowWrapper {
             "lng": 3,
           }
     }
+    dispatchDisplayShopWillAppearNoticeAction={[Function]}
     endTransaction={[Function]}
     fetchAll={[Function]}
     goBack={[Function]}

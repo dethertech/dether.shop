@@ -3,7 +3,7 @@
 exports[`Components ShopRecap should render ShopRecap 1`] = `
 .c2 {
   font-size: 1.2rem;
-  color: #9B9B9B;
+  color: #121E38;
 }
 
 .c1 {

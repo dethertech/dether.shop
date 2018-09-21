@@ -10,6 +10,7 @@ const initialState = {
     description: '',
     cat: '',
     opening: '0000000',
+    displayShopWillAppear: false,
   },
 };
 
@@ -32,6 +33,8 @@ const shopReducer = (state = initialState, { type, payload }) => {
         shop: null,
         pendingShop: { ...initialState.pendingShop },
       };
+    case 'DISPLAY_SHOP_WILL_APPEAR':
+      return { ...state, displayShopWillAppear: payload };
     default:
       return state;
   }

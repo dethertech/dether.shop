@@ -9,14 +9,14 @@ exports[`Component ComboBox should be render without crash 1`] = `
 }
 
 .c4 {
-  stroke: #2A2B43;
+  stroke: #121E38;
   stroke-width: 0.2rem;
   fill: none;
 }
 
 .c0 {
   position: relative;
-  background: #F5F5F5;
+  background: #F1F3F6;
   border-radius: 0.6rem;
   overflow: visible;
   border: solid 1px transparent;
@@ -48,7 +48,7 @@ exports[`Component ComboBox should be render without crash 1`] = `
   -webkit-overflow-scrolling: touch;
   overflow: auto;
   top: 100%;
-  border: solid 1px #F5F5F5;
+  border: solid 1px #F1F3F6;
   left: -0.1rem;
   right: -0.1rem;
   display: none;

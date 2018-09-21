@@ -51,9 +51,9 @@ storiesOf('01 - Designs tokens', module)
       </div>
       <div style={{ display: 'flex', width: '100%' }}>
         <div style={{ flex: '0 0 10%' }}>
-          <Swatch color={tokens.colors.pink} />
+          <Swatch color={tokens.colors.black} />
           <SwatchName>
-            pink :<br /> {tokens.colors.pink}
+            pink :<br /> {tokens.colors.black}
           </SwatchName>
         </div>
       </div>

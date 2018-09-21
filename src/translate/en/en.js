@@ -60,7 +60,7 @@ const en = {
       step: 'Step 2 of 2',
       inputs: {
         address: {
-          label: 'Address:',
+          label: 'Enter your shop address:',
           errors: {
             invalid: 'Invalid address',
             zone: 'This Zone is not openened',
@@ -77,9 +77,9 @@ const en = {
           placeholder: () => 'length min 1 – max 16',
         },
         description: {
-          label: 'Description:',
+          label: 'Keywords:',
           error: 'length min 1 – max 32',
-          placeholder: 'length min 1 – max 32',
+          placeholder: 'Example: clothes, jeans, food, ...',
         },
         opening: {
           error: () => 'Invalid opening',
@@ -87,6 +87,15 @@ const en = {
         },
       },
       register_btn: 'Add your shop',
+    },
+    email: {
+      notify_email: 'Email',
+      notify_button: 'Subscribe',
+      notify_message:
+        'Leave your email address to be first be notified when the sell feature will be launched in this country',
+      notify_done:
+        'Done. You will be notified as soon as the sell feature is launched in this country',
+      notify_repeated_email: 'This email was already registered',
     },
   },
   header: {
@@ -117,6 +126,28 @@ const en = {
     closed_at: 'Closing time:',
     closed: 'closed',
     licence_price: ({ price }) => `**Licence price**: ${price} DTH`,
+  },
+  categories: {
+    0: 'Groceries',
+    1: 'Clothes Shop',
+    2: 'Supermarket',
+    3: 'Jewellery',
+    4: 'Music Shop',
+    5: 'Shoe Shop',
+    6: 'Toy Shop',
+    7: 'Tea Shop',
+    8: 'Flower Shop',
+    9: 'Hairdresser',
+    10: 'Bookshop',
+    11: 'Petshop',
+    12: 'Stationer',
+    13: 'Optician',
+    14: 'DIY Store',
+    15: 'Petrol Station',
+    16: 'Newsagent',
+    17: 'Department Store',
+    18: 'Chemist',
+    19: 'Other',
   },
   days: {
     1: 'Monday',
@@ -150,6 +181,7 @@ const en = {
     submit_button: 'Submit',
     loader_title: 'Please wait',
     loader_delete_message: 'We are deleting your shop from the Dether map...',
+    shop_appear_shortly: 'Your shop will appear shortly on the map',
   },
   add_form_verification: {
     transaction_pending:
