@@ -84,7 +84,7 @@ const initializeClientInfo = () => async dispatch =>
     dispatch(
       fetchClientInfo({
         onSuccess: data => res(getLicencePrice(dispatch, data.country)),
-        onError: () => res(getLicencePrice(dispatch, 'FR')),
+        onError: () => res(getLicencePrice(dispatch, 'EE')),
       }),
     );
   });

@@ -99,6 +99,7 @@ export class Home extends PureComponent {
     if (!hasGoodNetwork) return tr('add.home.wrong_network');
     if (!hasEnoughEth && !hasEnoughDth)
       return tr('add.home.not_enough_money', { minDth, minEth });
+
     if (!hasEnoughEth) return tr('add.home.not_enough_eth', { minEth });
     if (!hasEnoughDth) return tr('add.home.not_enough_dth', { minDth });
   };
