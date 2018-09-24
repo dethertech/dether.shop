@@ -43,9 +43,15 @@ const en = {
           4,
         )} ETH and ${minDth} DTH to add a shop`,
       not_enough_eth: ({ minEth }) =>
-        `You must have at least ${minEth.toFixed(4)} ETH to add a shop`,
+        `You must have at least ${
+          minEth && minEth !== 0 ? minEth.toFixed(4) : '0.001'
+        } ETH to add a shop`,
       not_enough_dth: ({ minDth }) =>
-        `You must have at least ${minDth} DTH to add a shop`,
+        `You must have at least ${
+          minDth && minDth !== '0'
+            ? minDth
+            : process.env.REACT_APP_LICENCE_PRICE_DEFAULT
+        } DTH to add a shop`,
       terms_check: 'By checking this box, you agree to our',
       terms_link: 'Terms and Conditions',
       bt_add: 'Add your shop on the map',
@@ -112,6 +118,7 @@ const en = {
     terms_and_conditions: 'Terms and conditions',
     report_bug: 'Report a bug',
     report_shop: 'Report a shop',
+    feedback_shop: 'Feedback',
     tutorial: 'Tutorial',
   },
   shop_recap: {
