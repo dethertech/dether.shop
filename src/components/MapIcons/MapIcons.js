@@ -5,6 +5,12 @@ import tokens from '../../styles/tokens';
 
 import Shop from './Shop';
 
+const FullSVGWrapper = styled.div`
+  width: 40px;
+  height: 40px;
+  transform: translateX(-50%) translateY(-50%);
+`;
+
 const Wrapper = styled.div`
   width: 2.6rem;
   height: 2.6rem;
@@ -76,4 +82,8 @@ ClusterShopIcon.propTypes = {
   num: PropTypes.number.isRequired,
 };
 
-export const ShopIcon = () => <Shop />;
+export const ShopIcon = () => (
+  <FullSVGWrapper>
+    <Shop />
+  </FullSVGWrapper>
+);
