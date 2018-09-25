@@ -9,7 +9,6 @@ import { reset } from '../../actions/root';
 import config from '../../constants/config';
 import LeftPanelPage from './LeftPanelPage';
 import TermsModal from './TermsModal';
-import BuyModal from './BuyModal';
 
 import { getShop, getBalance, isWeb3 } from '../../helpers';
 
@@ -53,7 +52,6 @@ export class LeftPanel extends PureComponent {
   };
 
   state = {
-    isBuyModalOpened: false,
     isWeb3Checked: false,
   };
 
@@ -124,8 +122,9 @@ export class LeftPanel extends PureComponent {
     if (hasGoodNetwork) setBalance(await getBalance());
   };
 
-  toggleBuyModal = () =>
-    this.setState({ isBuyModalOpened: !this.state.isBuyModalOpened });
+  toggleBuyModal = () => {
+    window.buy();
+  };
 
   render() {
     const {
@@ -134,7 +133,7 @@ export class LeftPanel extends PureComponent {
       isTermsModalOpenened,
       isLicencePriceSet,
     } = this.props;
-    const { isBuyModalOpened, isWeb3Checked } = this.state;
+    const { isWeb3Checked } = this.state;
 
     return (
       <Fragment>
@@ -148,7 +147,6 @@ export class LeftPanel extends PureComponent {
           refreshBalance={this.refreshBalance}
         />
         {isTermsModalOpenened && <TermsModal closeFunc={toggleTermsModal} />}
-        {isBuyModalOpened && <BuyModal closeFunc={this.toggleBuyModal} />}
       </Fragment>
     );
   }
