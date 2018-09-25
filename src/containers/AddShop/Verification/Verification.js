@@ -125,7 +125,7 @@ export class Verification extends PureComponent {
         <ShopRecap
           licencePrice={licencePrice}
           {...pendingShop}
-          address={pendingShop.addressString}
+          address={pendingShop.address}
         />
         <ButtonsWrapper>
           <Button width="45%" theme="primary" onClick={this.submitTransaction}>

@@ -36,6 +36,20 @@ export class Form extends PureComponent {
     };
   }
 
+  // componentWillReceiveProps(newProps) {
+  //   console.log('receiving props');
+  //   const { shop } = newProps;
+  //   const { lat, lng, address, postalCode, countryId } = shop;
+
+  //   this.setState({
+  //     ...this.state,
+  //     address: {
+  //       ...this.state.address,
+  //       value: { lat, lng, address, postalCode, countryId },
+  //     },
+  //   });
+  // }
+
   onBlur = ({ target: { name, value: val } }) => {
     this.checkValide(name, val);
   };
@@ -61,6 +75,7 @@ export class Form extends PureComponent {
         address: { ...pState.form.address, value: addressObj },
       },
     }));
+    console.log('pState.form.address', this.state.form.address);
   };
 
   onChangeDays = days => {
@@ -146,6 +161,7 @@ export class Form extends PureComponent {
           <SearchBar
             inputOpt={{ ...form.address, onBlur: this.onBlurAddress }}
             onChange={this.onChangeAddress}
+            value={shop.address}
           />
           <LabeledInput
             {...form.description}
@@ -171,9 +187,12 @@ export class Form extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ shop }) => ({
-  shop: shop.pendingShop,
-});
+const mapStateToProps = ({ shop }) => {
+  console.log('shop update', shop.pendingShop);
+  return {
+    shop: shop.pendingShop,
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   setDataShopPending: bindActionCreators(setDataShopPendingAction, dispatch),

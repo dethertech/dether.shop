@@ -13,6 +13,7 @@ export class SearchBar extends PureComponent {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
     inputOpt: PropTypes.shape({}).isRequired,
+    // value: PropTypes.string,
   };
 
   static async postalCode(addressComponents, position) {

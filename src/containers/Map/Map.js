@@ -1,8 +1,10 @@
+/* eslint-disable max-lines */
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 import WrapperMap from './GoogleMapWrapper';
 import ShopMarker from './Markers/ShopMarker';
@@ -16,8 +18,11 @@ import {
   fetchAll as fetchAllAction,
   fetchPosition as fetchPositionAction,
 } from '../../actions/map';
+import { setAddressShopPending as setAddressShopPendingAction } from '../../actions/shop';
 import { initializeClientInfo as initializeClientInfoAction } from '../../actions/app';
-import { distance, getClusterData, LatLng } from '../../helpers';
+import { hasEnoughMoneyToAddShop } from '../../reducers/user';
+import { hasGoodNetwork } from '../../reducers/app';
+import { distance, getClusterData, LatLng, GeocodeAPI } from '../../helpers';
 import tokens from '../../styles/tokens';
 
 const MapWrapper = styled.div`
@@ -25,6 +30,34 @@ const MapWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
+`;
+
+const CenterMarker = styled.div`
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-top: -2rem;
+  margin-left: -2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: solid 1px ${tokens.colors.white};
+  box-shadow: ${tokens.shadow};
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: ${tokens.colors.blue};
+  }
 `;
 
 const CenterIcon = styled.div`
@@ -46,6 +79,8 @@ export class Map extends Component {
     centerPosition: PropTypes.shape({}).isRequired,
     mapInitiated: PropTypes.bool.isRequired,
     shops: PropTypes.array.isRequired,
+    setAddressShopPending: PropTypes.func.isRequired,
+    displayPointer: PropTypes.bool.isRequired,
   };
 
   constructor(props) {
@@ -108,15 +143,40 @@ export class Map extends Component {
     });
   };
 
-  changeHandler = propsMap => {
+  changeHandler = async propsMap => {
     const center = LatLng(propsMap.center);
     const {
       mapInitiated,
       setCenterPosition,
       fetchAll,
       centerPosition,
+      setAddressShopPending,
+      displayPointer,
     } = this.props;
     this.propsMap = { ...propsMap, center };
+
+    // Set address if editing the form
+    if (displayPointer) {
+      const address = await GeocodeAPI.positionToAddress(center);
+      const place = (await geocodeByAddress(address))[0];
+      const position = await getLatLng(place);
+      const countryId = GeocodeAPI.getCountryIdFromAddressComponents(
+        place.address_components,
+      );
+      const postalCode = await GeocodeAPI.postalCodeFromComponentsOrCall(
+        place.address_components,
+        position,
+      ).catch(() => '0');
+      const data = {
+        lat: center.lat,
+        lng: center.lng,
+        address,
+        countryId,
+        postalCode,
+      };
+      console.log('data', data);
+      setAddressShopPending(data);
+    }
 
     // Fetch shops if position changed more than 100m
     if (mapInitiated && distance(centerPosition, center) > 100) {
@@ -142,7 +202,7 @@ export class Map extends Component {
   };
 
   render() {
-    const { centerPosition, fetchPosition } = this.props;
+    const { centerPosition, fetchPosition, displayPointer } = this.props;
     const ShopsMarkers = this.state.shopsCluster.map(shop => (
       <ShopMarker
         {...shop}
@@ -167,17 +227,30 @@ export class Map extends Component {
             this.refSearch = e;
           }}
         />
-        <CenterIcon onClick={fetchPosition}>
-          <IconLocalisation />
-        </CenterIcon>
+        <CenterMarker />
+        {displayPointer && (
+          <CenterIcon onClick={fetchPosition}>
+            <IconLocalisation />
+          </CenterIcon>
+        )}
       </MapWrapper>
     );
   }
 }
 
-const mapStateToProps = ({ map }) => ({
-  ...map,
-});
+const mapStateToProps = ({ map, user, app, shop }) => {
+  const isUserVerified = user.isCertified === 'success';
+  const isUserReady =
+    app.isMetamaskInstalled &&
+    hasEnoughMoneyToAddShop(user, app.licencePrice) &&
+    hasGoodNetwork(app) &&
+    app.areTermsAccepted;
+  const hasShop = !!shop.shop;
+  return {
+    ...map,
+    displayPointer: isUserVerified && isUserReady && !hasShop,
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   setCenterPosition: bindActionCreators(setCenterPositionAction, dispatch),
@@ -186,6 +259,10 @@ const mapDispatchToProps = dispatch => ({
   fetchPosition: bindActionCreators(fetchPositionAction, dispatch),
   initializeClientInfo: bindActionCreators(
     initializeClientInfoAction,
+    dispatch,
+  ),
+  setAddressShopPending: bindActionCreators(
+    setAddressShopPendingAction,
     dispatch,
   ),
 });

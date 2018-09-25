@@ -25,6 +25,17 @@ const GeocodeAPI = {
   },
 
   /**
+   * [postalCodeFromComponentsOrCall description]
+   * @param  {[type]} addressComponents [description]
+   * @param  {[type]} position [description]
+   * @return {[type]}                   [description]
+   */
+  postalCodeFromComponentsOrCall: async (addressComponents, position) =>
+    GeocodeAPI.getPostalCodeFromAddressComponents(addressComponents) ||
+    (await GeocodeAPI.postalCode(position)) ||
+    '0',
+
+  /**
    * [getCountryIdFromAddressComponents description]
    * @param  {[type]} addressComponents [description]
    * @return {[type]}                   [description]
