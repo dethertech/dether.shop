@@ -20,8 +20,6 @@ import {
 } from '../../actions/map';
 import { setAddressShopPending as setAddressShopPendingAction } from '../../actions/shop';
 import { initializeClientInfo as initializeClientInfoAction } from '../../actions/app';
-// import { hasEnoughMoneyToAddShop } from '../../reducers/user';
-// import { hasGoodNetwork } from '../../reducers/app';
 import { distance, getClusterData, LatLng, GeocodeAPI } from '../../helpers';
 import tokens from '../../styles/tokens';
 
@@ -121,7 +119,6 @@ export class Map extends Component {
 
     this.updateCluster(shops);
 
-    // await Promise.all([fetchPosition(), initializeClientInfo()]);
     await initializeClientInfo();
     this.interval = setInterval(this.refreshShops, 30000);
     this.refreshShops();
@@ -264,13 +261,7 @@ export class Map extends Component {
   }
 }
 
-const mapStateToProps = ({ map, /* user, app, */ shop }) => {
-  // const isUserVerified = user.isCertified === 'success';
-  // const isUserReady =
-  //   app.isMetamaskInstalled &&
-  //   hasEnoughMoneyToAddShop(user, app.licencePrice) &&
-  //   hasGoodNetwork(app) &&
-  //   app.areTermsAccepted;
+const mapStateToProps = ({ map, shop }) => {
   const hasShop = !!shop.shop;
   const shopLocation = {
     lat: Number((shop.shop || shop.pendingShop || {}).lat || 0),
@@ -279,7 +270,7 @@ const mapStateToProps = ({ map, /* user, app, */ shop }) => {
 
   return {
     ...map,
-    displayPointer: !hasShop, // isUserVerified && isUserReady && !hasShop,
+    displayPointer: !hasShop,
     shopLocation,
     hasShopLocation: !!(shopLocation.lat && shopLocation.lng),
   };

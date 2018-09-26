@@ -76,8 +76,7 @@ export class Form extends PureComponent {
     this.setState(pState => ({
       form: {
         ...pState.form,
-        address: { ...pState.form.address, value: addressObj },
-        error: null,
+        address: { ...pState.form.address, value: addressObj, error: null },
       },
     }));
     if (addressObj) {
