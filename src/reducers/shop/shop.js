@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
   shop: null,
   pendingShop: {
     lat: null,
@@ -21,6 +21,18 @@ const shopReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'SET_DATA_SHOP_PENDING':
       return { ...state, pendingShop: { ...state.pendingShop, ...payload } };
+    case 'SET_ADDRESS_SHOP_PENDING':
+      return {
+        ...state,
+        pendingShop: {
+          ...state.pendingShop,
+          lat: payload.lat,
+          lng: payload.lng,
+          address: payload.address,
+          countryId: payload.countryId,
+          postalCode: payload.postalCode,
+        },
+      };
     case 'ADD_SHOP':
       return {
         ...state,

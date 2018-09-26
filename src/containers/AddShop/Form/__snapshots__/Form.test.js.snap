@@ -64,7 +64,7 @@ ShallowWrapper {
                     label="Name:"
                     name="name"
                     onBlur={[Function]}
-                    placeholder="length min 1 – max 16"
+                    placeholder="Name"
                     renderLabelIcon={[Function]}
                     selected={undefined}
                     toggleShake={0}
@@ -105,7 +105,7 @@ ShallowWrapper {
                     label="Category:"
                     name="cat"
                     onBlur={[Function]}
-                    placeholder="length min 1 – max 16"
+                    placeholder="Select a category"
                     renderLabelIcon={[Function]}
                     selected={undefined}
                     toggleShake={0}
@@ -124,7 +124,7 @@ ShallowWrapper {
                                         "onBlur": [Function],
                                         "toggleShake": 0,
                                         "value": Object {
-                                          "addressString": undefined,
+                                          "address": "40 rue Citadelle Paris",
                                           "countryId": "fr",
                                           "lat": null,
                                           "lng": null,
@@ -133,6 +133,7 @@ ShallowWrapper {
                                       }
                     }
                     onChange={[Function]}
+                    value="40 rue Citadelle Paris"
           />
           <LabeledInput
                     componentName="input"
@@ -265,7 +266,7 @@ ShallowWrapper {
               label="Name:"
               name="name"
               onBlur={[Function]}
-              placeholder="length min 1 – max 16"
+              placeholder="Name"
               renderLabelIcon={[Function]}
               selected={undefined}
               toggleShake={0}
@@ -306,7 +307,7 @@ ShallowWrapper {
               label="Category:"
               name="cat"
               onBlur={[Function]}
-              placeholder="length min 1 – max 16"
+              placeholder="Select a category"
               renderLabelIcon={[Function]}
               selected={undefined}
               toggleShake={0}
@@ -325,7 +326,7 @@ ShallowWrapper {
                                           "onBlur": [Function],
                                           "toggleShake": 0,
                                           "value": Object {
-                                            "addressString": undefined,
+                                            "address": "40 rue Citadelle Paris",
                                             "countryId": "fr",
                                             "lat": null,
                                             "lng": null,
@@ -334,6 +335,7 @@ ShallowWrapper {
                                         }
               }
               onChange={[Function]}
+              value="40 rue Citadelle Paris"
 />,
             <LabeledInput
               componentName="input"
@@ -375,7 +377,7 @@ ShallowWrapper {
               "label": "Name:",
               "name": "name",
               "onBlur": [Function],
-              "placeholder": "length min 1 – max 16",
+              "placeholder": "Name",
               "renderLabelIcon": [Function],
               "selected": undefined,
               "toggleShake": 0,
@@ -422,7 +424,7 @@ ShallowWrapper {
               "label": "Category:",
               "name": "cat",
               "onBlur": [Function],
-              "placeholder": "length min 1 – max 16",
+              "placeholder": "Select a category",
               "renderLabelIcon": [Function],
               "selected": undefined,
               "toggleShake": 0,
@@ -448,7 +450,7 @@ ShallowWrapper {
                 "onBlur": [Function],
                 "toggleShake": 0,
                 "value": Object {
-                  "addressString": undefined,
+                  "address": "40 rue Citadelle Paris",
                   "countryId": "fr",
                   "lat": null,
                   "lng": null,
@@ -456,6 +458,7 @@ ShallowWrapper {
                 },
               },
               "onChange": [Function],
+              "value": "40 rue Citadelle Paris",
             },
             "ref": null,
             "rendered": null,
@@ -648,7 +651,7 @@ ShallowWrapper {
                         label="Name:"
                         name="name"
                         onBlur={[Function]}
-                        placeholder="length min 1 – max 16"
+                        placeholder="Name"
                         renderLabelIcon={[Function]}
                         selected={undefined}
                         toggleShake={0}
@@ -689,7 +692,7 @@ ShallowWrapper {
                         label="Category:"
                         name="cat"
                         onBlur={[Function]}
-                        placeholder="length min 1 – max 16"
+                        placeholder="Select a category"
                         renderLabelIcon={[Function]}
                         selected={undefined}
                         toggleShake={0}
@@ -708,7 +711,7 @@ ShallowWrapper {
                                                 "onBlur": [Function],
                                                 "toggleShake": 0,
                                                 "value": Object {
-                                                  "addressString": undefined,
+                                                  "address": "40 rue Citadelle Paris",
                                                   "countryId": "fr",
                                                   "lat": null,
                                                   "lng": null,
@@ -717,6 +720,7 @@ ShallowWrapper {
                                               }
                         }
                         onChange={[Function]}
+                        value="40 rue Citadelle Paris"
             />
             <LabeledInput
                         componentName="input"
@@ -849,7 +853,7 @@ ShallowWrapper {
                 label="Name:"
                 name="name"
                 onBlur={[Function]}
-                placeholder="length min 1 – max 16"
+                placeholder="Name"
                 renderLabelIcon={[Function]}
                 selected={undefined}
                 toggleShake={0}
@@ -890,7 +894,7 @@ ShallowWrapper {
                 label="Category:"
                 name="cat"
                 onBlur={[Function]}
-                placeholder="length min 1 – max 16"
+                placeholder="Select a category"
                 renderLabelIcon={[Function]}
                 selected={undefined}
                 toggleShake={0}
@@ -909,7 +913,7 @@ ShallowWrapper {
                                                 "onBlur": [Function],
                                                 "toggleShake": 0,
                                                 "value": Object {
-                                                  "addressString": undefined,
+                                                  "address": "40 rue Citadelle Paris",
                                                   "countryId": "fr",
                                                   "lat": null,
                                                   "lng": null,
@@ -918,6 +922,7 @@ ShallowWrapper {
                                               }
                 }
                 onChange={[Function]}
+                value="40 rue Citadelle Paris"
 />,
               <LabeledInput
                 componentName="input"
@@ -959,7 +964,7 @@ ShallowWrapper {
                 "label": "Name:",
                 "name": "name",
                 "onBlur": [Function],
-                "placeholder": "length min 1 – max 16",
+                "placeholder": "Name",
                 "renderLabelIcon": [Function],
                 "selected": undefined,
                 "toggleShake": 0,
@@ -1006,7 +1011,7 @@ ShallowWrapper {
                 "label": "Category:",
                 "name": "cat",
                 "onBlur": [Function],
-                "placeholder": "length min 1 – max 16",
+                "placeholder": "Select a category",
                 "renderLabelIcon": [Function],
                 "selected": undefined,
                 "toggleShake": 0,
@@ -1032,7 +1037,7 @@ ShallowWrapper {
                   "onBlur": [Function],
                   "toggleShake": 0,
                   "value": Object {
-                    "addressString": undefined,
+                    "address": "40 rue Citadelle Paris",
                     "countryId": "fr",
                     "lat": null,
                     "lng": null,
@@ -1040,6 +1045,7 @@ ShallowWrapper {
                   },
                 },
                 "onChange": [Function],
+                "value": "40 rue Citadelle Paris",
               },
               "ref": null,
               "rendered": null,

@@ -7,6 +7,23 @@ const setDataShopPending = data => ({
   payload: data,
 });
 
+const setAddressShopPending = ({
+  lat,
+  lng,
+  address,
+  countryId,
+  postalCode,
+}) => ({
+  type: 'SET_ADDRESS_SHOP_PENDING',
+  payload: {
+    address,
+    lat,
+    lng,
+    countryId,
+    postalCode,
+  },
+});
+
 /**
  * [addShop description]
  * @param {[type]} shop [description]
@@ -44,6 +61,7 @@ export {
   addShop,
   removeShop,
   setDataShopPending,
+  setAddressShopPending,
   displayShopWillAppearNotice,
   hideShopWillAppearNotice,
 };

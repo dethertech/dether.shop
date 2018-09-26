@@ -68,6 +68,12 @@ exports[`Component Select should be render without crash 1`] = `
     selected={null}
   >
     <option
+      disabled={true}
+      value=""
+    >
+      
+    </option>
+    <option
       value="qwer"
     >
       qwer
