@@ -68,17 +68,17 @@ const en = {
         },
         cat: {
           label: 'Category:',
-          error: () => 'length min 1 – max 16',
-          placeholder: () => 'length min 1 – max 16',
+          error: () => 'Must select one category from the list',
+          placeholder: () => 'Select a category',
         },
         name: {
           label: 'Name:',
-          error: () => 'length min 1 – max 16',
-          placeholder: () => 'length min 1 – max 16',
+          error: () => 'Name must have between one and 16 characters',
+          placeholder: () => 'Name',
         },
         description: {
           label: 'Keywords:',
-          error: 'length min 1 – max 32',
+          error: 'Keyword must have between one and 32 characters',
           placeholder: 'Example: clothes, jeans, food, ...',
         },
         opening: {
