@@ -13,16 +13,22 @@ export class SearchBar extends PureComponent {
   static propTypes = {
     onChange: PropTypes.func.isRequired,
     inputOpt: PropTypes.shape({}).isRequired,
-    // value: PropTypes.string,
+    value: PropTypes.string,
   };
 
-  static async postalCode(addressComponents, position) {
-    return (
-      GeocodeAPI.getPostalCodeFromAddressComponents(addressComponents) ||
-      (await GeocodeAPI.postalCode(position)) ||
-      '0'
-    );
-  }
+  static defaultProps = {
+    value: '',
+  };
+
+  static postalCode = async (addressComponents, position) =>
+    GeocodeAPI.getPostalCodeFromAddressComponents(addressComponents) ||
+    (await GeocodeAPI.postalCode(position)) ||
+    '0';
+
+  static getDerivedStateFromProps = (nextProps, prevState) => ({
+    address: nextProps.value || prevState.address,
+    isModified: false,
+  });
 
   constructor(props) {
     super(props);
@@ -33,6 +39,7 @@ export class SearchBar extends PureComponent {
     this.state = {
       isDirty: true,
       address: address || '',
+      isModified: false,
     };
   }
 
@@ -41,7 +48,7 @@ export class SearchBar extends PureComponent {
     if (!isDirty) {
       this.props.onChange(null);
     }
-    this.setState({ address, isDirty: true });
+    this.setState({ address, isDirty: true, isModified: true, error: null });
   };
 
   onSelect = async address => {
@@ -62,7 +69,7 @@ export class SearchBar extends PureComponent {
         postalCode,
         lat: position.lat.toFixed(5),
         lng: position.lng.toFixed(5),
-        addressString: address,
+        address,
       };
       let error;
       if (data.lat && data.lng && countryId && postalCode) {
@@ -81,9 +88,12 @@ export class SearchBar extends PureComponent {
   };
 
   render() {
-    const { inputOpt } = this.props;
-    const { error, address } = this.state;
-    const inputProps = { value: address, onChange: this.onChange };
+    const { inputOpt, value } = this.props;
+    const { error, address, isModified } = this.state;
+    const inputProps = {
+      value: isModified ? address : value || '',
+      onChange: this.onChange,
+    };
     return (
       <div style={{ position: 'relative', zIndex: '2' }}>
         <LabeledInput

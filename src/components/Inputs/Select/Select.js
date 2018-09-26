@@ -54,7 +54,7 @@ const renderMap = data =>
     </option>
   ));
 
-const Select = ({ data, onChange, ...rest }) => (
+const Select = ({ data, onChange, placeholder, ...rest }) => (
   <SelectWrapper>
     <InputSelectIcon>
       <Icon
@@ -65,6 +65,9 @@ const Select = ({ data, onChange, ...rest }) => (
       />
     </InputSelectIcon>
     <InputSelect {...rest} onChange={onChange}>
+      <option value="" disabled>
+        {placeholder}
+      </option>
       {Array.isArray(data) ? renderArray(data) : renderMap(data)}
     </InputSelect>
   </SelectWrapper>
@@ -78,6 +81,7 @@ Select.propTypes = {
   onChange: PropTypes.func,
   selected: PropTypes.string,
   fakeDisable: PropTypes.bool,
+  placeholder: PropTypes.string,
 };
 
 Select.defaultProps = {
@@ -85,6 +89,7 @@ Select.defaultProps = {
   onChange: () => {},
   selected: null,
   fakeDisable: false,
+  placeholder: '',
 };
 
 export default Select;

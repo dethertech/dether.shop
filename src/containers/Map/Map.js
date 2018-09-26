@@ -20,8 +20,8 @@ import {
 } from '../../actions/map';
 import { setAddressShopPending as setAddressShopPendingAction } from '../../actions/shop';
 import { initializeClientInfo as initializeClientInfoAction } from '../../actions/app';
-import { hasEnoughMoneyToAddShop } from '../../reducers/user';
-import { hasGoodNetwork } from '../../reducers/app';
+// import { hasEnoughMoneyToAddShop } from '../../reducers/user';
+// import { hasGoodNetwork } from '../../reducers/app';
 import { distance, getClusterData, LatLng, GeocodeAPI } from '../../helpers';
 import tokens from '../../styles/tokens';
 
@@ -81,6 +81,11 @@ export class Map extends Component {
     shops: PropTypes.array.isRequired,
     setAddressShopPending: PropTypes.func.isRequired,
     displayPointer: PropTypes.bool.isRequired,
+    shopLocation: PropTypes.shape({
+      lat: PropTypes.number,
+      lng: PropTypes.number,
+    }).isRequired,
+    hasShopLocation: PropTypes.bool.isRequired,
   };
 
   constructor(props) {
@@ -101,22 +106,26 @@ export class Map extends Component {
     const {
       fetchPosition,
       initializeClientInfo,
+      setCenterPosition,
       setMapInitiated,
       shops,
+      shopLocation,
+      hasShopLocation,
     } = this.props;
+
+    if (hasShopLocation) {
+      setCenterPosition(shopLocation);
+    } else {
+      await fetchPosition();
+    }
 
     this.updateCluster(shops);
 
-    await Promise.all([fetchPosition(), initializeClientInfo()]);
+    // await Promise.all([fetchPosition(), initializeClientInfo()]);
+    await initializeClientInfo();
     this.interval = setInterval(this.refreshShops, 30000);
     this.refreshShops();
     setMapInitiated();
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.shops !== this.props.shops) {
-      this.updateCluster(nextProps.shops);
-    }
   }
 
   shouldComponentUpdate(nextProps /* , nextState */) {
@@ -126,6 +135,15 @@ export class Map extends Component {
       needUpdate = needUpdate || nextProps[e] !== this.props[e];
     });
     return needUpdate;
+  }
+
+  componentDidUpdate(nextProps) {
+    if (!nextProps.hasShopLocation) {
+      nextProps.fetchPosition();
+    }
+    if (nextProps.shops !== this.props.shops) {
+      this.updateCluster(nextProps.shops);
+    }
   }
 
   componentWillUnmount() {
@@ -143,20 +161,11 @@ export class Map extends Component {
     });
   };
 
-  changeHandler = async propsMap => {
-    const center = LatLng(propsMap.center);
-    const {
-      mapInitiated,
-      setCenterPosition,
-      fetchAll,
-      centerPosition,
-      setAddressShopPending,
-      displayPointer,
-    } = this.props;
-    this.propsMap = { ...propsMap, center };
-
-    // Set address if editing the form
-    if (displayPointer) {
+  updateSelectedAddress = async propsMap => {
+    try {
+      const center = LatLng(propsMap.center);
+      const { setAddressShopPending } = this.props;
+      this.propsMap = { ...propsMap, center };
       const address = await GeocodeAPI.positionToAddress(center);
       const place = (await geocodeByAddress(address))[0];
       const position = await getLatLng(place);
@@ -168,14 +177,33 @@ export class Map extends Component {
         position,
       ).catch(() => '0');
       const data = {
-        lat: center.lat,
-        lng: center.lng,
+        lat: center.lat.toFixed(5),
+        lng: center.lng.toFixed(5),
         address,
         countryId,
         postalCode,
       };
-      console.log('data', data);
+
       setAddressShopPending(data);
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+
+  changeHandler = async propsMap => {
+    const center = LatLng(propsMap.center);
+    const {
+      mapInitiated,
+      setCenterPosition,
+      fetchAll,
+      centerPosition,
+      displayPointer,
+    } = this.props;
+    this.propsMap = { ...propsMap, center };
+
+    // Set address if editing the form
+    if (displayPointer) {
+      this.updateSelectedAddress(propsMap);
     }
 
     // Fetch shops if position changed more than 100m
@@ -227,28 +255,33 @@ export class Map extends Component {
             this.refSearch = e;
           }}
         />
-        <CenterMarker />
-        {displayPointer && (
-          <CenterIcon onClick={fetchPosition}>
-            <IconLocalisation />
-          </CenterIcon>
-        )}
+        {displayPointer && <CenterMarker />}
+        <CenterIcon onClick={fetchPosition}>
+          <IconLocalisation />
+        </CenterIcon>
       </MapWrapper>
     );
   }
 }
 
-const mapStateToProps = ({ map, user, app, shop }) => {
-  const isUserVerified = user.isCertified === 'success';
-  const isUserReady =
-    app.isMetamaskInstalled &&
-    hasEnoughMoneyToAddShop(user, app.licencePrice) &&
-    hasGoodNetwork(app) &&
-    app.areTermsAccepted;
+const mapStateToProps = ({ map, /* user, app, */ shop }) => {
+  // const isUserVerified = user.isCertified === 'success';
+  // const isUserReady =
+  //   app.isMetamaskInstalled &&
+  //   hasEnoughMoneyToAddShop(user, app.licencePrice) &&
+  //   hasGoodNetwork(app) &&
+  //   app.areTermsAccepted;
   const hasShop = !!shop.shop;
+  const shopLocation = {
+    lat: Number((shop.shop || shop.pendingShop || {}).lat || 0),
+    lng: Number((shop.shop || shop.pendingShop || {}).lng || 0),
+  };
+
   return {
     ...map,
-    displayPointer: isUserVerified && isUserReady && !hasShop,
+    displayPointer: !hasShop, // isUserVerified && isUserReady && !hasShop,
+    shopLocation,
+    hasShopLocation: !!(shopLocation.lat && shopLocation.lng),
   };
 };
 

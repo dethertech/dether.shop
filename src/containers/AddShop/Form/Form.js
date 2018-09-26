@@ -11,6 +11,7 @@ import ProgressBar from '../../../components/ProgressBar';
 import Button from '../../../components/Button';
 import { Svg } from '../../../components';
 
+import { setCenterPosition as setCenterPositionAction } from '../../../actions/map';
 import { setDataShopPending as setDataShopPendingAction } from '../../../actions/shop';
 import tr from '../../../translate';
 import DaysOnpeningHour from './DaysOnpeningHour';
@@ -26,6 +27,23 @@ export class Form extends PureComponent {
     shop: PropTypes.shape({}).isRequired,
     setDataShopPending: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
+    setCenterPosition: PropTypes.func.isRequired,
+  };
+
+  static getDerivedStateFromProps = (nextProps, prevState) => {
+    const { shop } = nextProps;
+    const { lat, lng, address, postalCode, countryId } = shop;
+
+    return {
+      ...prevState,
+      form: {
+        ...prevState.form,
+        address: {
+          ...prevState.form.address,
+          value: { lat, lng, address, postalCode, countryId },
+        },
+      },
+    };
   };
 
   constructor(props) {
@@ -35,20 +53,6 @@ export class Form extends PureComponent {
       form: fromState(this, props),
     };
   }
-
-  // componentWillReceiveProps(newProps) {
-  //   console.log('receiving props');
-  //   const { shop } = newProps;
-  //   const { lat, lng, address, postalCode, countryId } = shop;
-
-  //   this.setState({
-  //     ...this.state,
-  //     address: {
-  //       ...this.state.address,
-  //       value: { lat, lng, address, postalCode, countryId },
-  //     },
-  //   });
-  // }
 
   onBlur = ({ target: { name, value: val } }) => {
     this.checkValide(name, val);
@@ -73,9 +77,15 @@ export class Form extends PureComponent {
       form: {
         ...pState.form,
         address: { ...pState.form.address, value: addressObj },
+        error: null,
       },
     }));
-    console.log('pState.form.address', this.state.form.address);
+    if (addressObj) {
+      this.props.setCenterPosition({
+        lat: Number(addressObj.lat),
+        lng: Number(addressObj.lng),
+      });
+    }
   };
 
   onChangeDays = days => {
@@ -126,6 +136,7 @@ export class Form extends PureComponent {
     const { form } = this.state;
 
     let isValide = true;
+    console.log('form', form);
     await Promise.all(
       Object.keys(form).map(async k => {
         isValide = (await this.checkValide(k, form[k].value)) && isValide;
@@ -161,7 +172,7 @@ export class Form extends PureComponent {
           <SearchBar
             inputOpt={{ ...form.address, onBlur: this.onBlurAddress }}
             onChange={this.onChangeAddress}
-            value={shop.address}
+            value={form.address.value && form.address.value.address}
           />
           <LabeledInput
             {...form.description}
@@ -187,15 +198,13 @@ export class Form extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ shop }) => {
-  console.log('shop update', shop.pendingShop);
-  return {
-    shop: shop.pendingShop,
-  };
-};
+const mapStateToProps = ({ shop }) => ({
+  shop: shop.pendingShop,
+});
 
 const mapDispatchToProps = dispatch => ({
   setDataShopPending: bindActionCreators(setDataShopPendingAction, dispatch),
+  setCenterPosition: bindActionCreators(setCenterPositionAction, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);
