@@ -19,7 +19,7 @@ const LeftWrapper = styled.div`
   width: 100%;
   max-width: 42rem;
   margin: auto;
-  padding: ${tokens.spaces.m};
+  padding: 0;
   @media (max-width: 420px) {
     padding: ${tokens.spaces.xs} ${tokens.spaces.m};
   }

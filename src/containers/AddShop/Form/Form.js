@@ -135,7 +135,6 @@ export class Form extends PureComponent {
     const { form } = this.state;
 
     let isValide = true;
-    console.log('form', form);
     await Promise.all(
       Object.keys(form).map(async k => {
         isValide = (await this.checkValide(k, form[k].value)) && isValide;
