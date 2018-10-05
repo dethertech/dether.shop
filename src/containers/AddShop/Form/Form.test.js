@@ -20,6 +20,7 @@ describe('Containers::AddShop::Form', () => {
   const props = {
     shop,
     setDataShopPending: () => null,
+    setCenterPosition: () => null,
     onSubmit: () => null
   }
   const component = props => <Form {...props} />
