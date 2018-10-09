@@ -48,6 +48,14 @@ const Version = styled.span`
   font-weight: 400;
 `;
 
+const HomeImage = styled(Svg)`
+  width: 80%;
+`;
+
+const Uppercase = styled.div`
+  text-transform: uppercase;
+`;
+
 /**
  * Home containers
  * @extends PureComponent
@@ -122,14 +130,12 @@ export class Home extends PureComponent {
     return (
       <React.Fragment>
         <Wrapper>
-          <Svg type="SvgHome" />
+          <HomeImage type="SvgHome" />
 
-          <Padding bottom="m">
-            <H1>
-              {tr('add.home.title')}&nbsp;
-              <Version>v{config.appVersion}</Version>
-            </H1>
-          </Padding>
+          <H1>
+            <Uppercase>{tr('add.home.title')}&nbsp;</Uppercase>
+            <Version>v{config.appVersion}</Version>
+          </H1>
 
           <Padding vertical="l">
             <span>{tr('add.home.desc')}</span>
@@ -140,7 +146,7 @@ export class Home extends PureComponent {
               {error}
             </Message>
           ) : (
-            <Padding vertical="l">
+            <Padding all="l">
               <TermsValidation
                 shake={shake}
                 checked={checked}
