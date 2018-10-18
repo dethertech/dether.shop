@@ -16,22 +16,30 @@ const Footer = ({ toggleTermsModal }) => (
   <Padding all="m">
     <FooterText>
       <div>
-        <b>Dether</b> {tr('footer.all_right_reserved')} -{' '}
-        <SmallLink link="https://medium.com/@DETHER/tutorial-dether-for-shops-c6db11c0ded1">
-          {tr('footer.tutorial')}
-        </SmallLink>
-        &nbsp;-&nbsp;
-        <ButtonLink isSmall onClick={toggleTermsModal}>
-          {tr('footer.terms_and_conditions')}
-        </ButtonLink>
-        &nbsp;-&nbsp;
-        <SmallLink link={config.reportABug}>
-          {tr('footer.report_bug')}
-        </SmallLink>
-        &nbsp;-&nbsp;
-        <SmallLink link="https://dethersupport.typeform.com/to/cNpMUB">
-          {tr('footer.report_shop')}
-        </SmallLink>
+        <div>
+          <b>Dether</b> {tr('footer.all_right_reserved')}
+        </div>
+        <div>
+          <SmallLink link="https://medium.com/@DETHER/tutorial-dether-for-shops-c6db11c0ded1">
+            {tr('footer.tutorial')}
+          </SmallLink>
+          &nbsp;-&nbsp;
+          <ButtonLink isSmall onClick={toggleTermsModal}>
+            {tr('footer.terms_and_conditions')}
+          </ButtonLink>
+          &nbsp;-&nbsp;
+          <SmallLink link={config.reportABug}>
+            {tr('footer.report_bug')}
+          </SmallLink>
+          &nbsp;-&nbsp;
+          <SmallLink link="https://dethersupport.typeform.com/to/cNpMUB">
+            {tr('footer.report_shop')}
+          </SmallLink>
+          &nbsp;-&nbsp;
+          <SmallLink link="https://dethersupport.typeform.com/to/JWisif">
+            {tr('footer.feedback_shop')}
+          </SmallLink>
+        </div>
       </div>
     </FooterText>
   </Padding>

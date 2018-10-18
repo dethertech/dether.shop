@@ -111,22 +111,27 @@ export async function addressNameByPosition(position) {
  * @return {Object} position
  */
 export function LatLng(position) {
+  let outPos = position;
   if (
     window &&
     window.google &&
     window.google.maps &&
     window.google.maps.LatLng
   ) {
-    const newP = new window.google.maps.LatLng(
-      position.lat,
-      position.lng,
-      false,
-    );
-    return {
+    let { lat } = position;
+    if (position.lat > 80) {
+      lat = 77.999999;
+    } else if (position.lat < -80) {
+      lat = -77.999999;
+    }
+
+    const newP = new window.google.maps.LatLng(lat, position.lng, false);
+    outPos = {
       ...position,
       lat: newP.lat(),
       lng: newP.lng(),
     };
   }
-  return position;
+
+  return outPos;
 }

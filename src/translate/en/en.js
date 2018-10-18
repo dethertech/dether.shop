@@ -35,17 +35,23 @@ const en = {
   },
   add: {
     home: {
-      title: 'CRYPTOCURRENCY FOR SHOPS',
+      title: 'Shops accepting cryptocurrency',
       desc:
-        'Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.',
+        'Add your business on the Dether map.||Attract cryptocurrency holders to your shop.',
       not_enough_money: ({ minEth, minDth }) =>
         `You must have at least ${minEth.toFixed(
           4,
         )} ETH and ${minDth} DTH to add a shop`,
       not_enough_eth: ({ minEth }) =>
-        `You must have at least ${minEth.toFixed(4)} ETH to add a shop`,
+        `You must have at least ${
+          minEth && minEth !== 0 ? minEth.toFixed(4) : '0.001'
+        } ETH to add a shop`,
       not_enough_dth: ({ minDth }) =>
-        `You must have at least ${minDth} DTH to add a shop`,
+        `You must have at least ${
+          minDth && minDth !== '0'
+            ? minDth
+            : process.env.REACT_APP_LICENCE_PRICE_DEFAULT
+        } DTH to add a shop`,
       terms_check: 'By checking this box, you agree to our',
       terms_link: 'Terms and Conditions',
       bt_add: 'Add your shop on the map',
@@ -60,26 +66,26 @@ const en = {
       step: 'Step 2 of 2',
       inputs: {
         address: {
-          label: 'Address:',
+          label: 'Enter your shop address:',
           errors: {
             invalid: 'Invalid address',
-            zone: 'This Zone is not openened',
+            zone: 'This Zone is not opened',
           },
         },
         cat: {
           label: 'Category:',
-          error: () => 'length min 1 – max 16',
-          placeholder: () => 'length min 1 – max 16',
+          error: () => 'Must select one category from the list',
+          placeholder: () => 'Select a category',
         },
         name: {
           label: 'Name:',
-          error: () => 'length min 1 – max 16',
-          placeholder: () => 'length min 1 – max 16',
+          error: () => 'Name must have between one and 16 characters',
+          placeholder: () => 'Name',
         },
         description: {
-          label: 'Description:',
-          error: 'length min 1 – max 32',
-          placeholder: 'length min 1 – max 32',
+          label: 'Keywords:',
+          error: 'Keyword must have between one and 32 characters',
+          placeholder: 'Example: clothes, jeans, food, ...',
         },
         opening: {
           error: () => 'Invalid opening',
@@ -87,6 +93,15 @@ const en = {
         },
       },
       register_btn: 'Add your shop',
+    },
+    email: {
+      notify_email: 'Email',
+      notify_button: 'Subscribe',
+      notify_message:
+        'Leave your email address to be first be notified when the sell feature will be launched in this country',
+      notify_done:
+        'Done. You will be notified as soon as the sell feature is launched in this country',
+      notify_repeated_email: 'This email was already registered',
     },
   },
   header: {
@@ -103,6 +118,7 @@ const en = {
     terms_and_conditions: 'Terms and conditions',
     report_bug: 'Report a bug',
     report_shop: 'Report a shop',
+    feedback_shop: 'Feedback',
     tutorial: 'Tutorial',
   },
   shop_recap: {
@@ -117,6 +133,29 @@ const en = {
     closed_at: 'Closing time:',
     closed: 'closed',
     licence_price: ({ price }) => `**Licence price**: ${price} DTH`,
+  },
+  categories: {
+    0: 'Groceries',
+    1: 'Clothes Shop',
+    2: 'Supermarket',
+    3: 'Jewellery',
+    4: 'Music Shop',
+    5: 'Shoe Shop',
+    6: 'Toy Shop',
+    7: 'Tea Shop',
+    8: 'Flower Shop',
+    9: 'Hairdresser',
+    10: 'Bookshop',
+    11: 'Petshop',
+    12: 'Stationer',
+    13: 'Optician',
+    14: 'DIY Store',
+    15: 'Petrol Station',
+    16: 'Newsagent',
+    17: 'Department Store',
+    18: 'Chemist',
+    19: 'Other',
+    20: 'Restaurant',
   },
   days: {
     1: 'Monday',
@@ -150,6 +189,7 @@ const en = {
     submit_button: 'Submit',
     loader_title: 'Please wait',
     loader_delete_message: 'We are deleting your shop from the Dether map...',
+    shop_appear_shortly: 'Your shop will appear shortly on the map',
   },
   add_form_verification: {
     transaction_pending:

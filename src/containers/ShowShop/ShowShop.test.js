@@ -3,13 +3,13 @@ import { mount, shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { ShowShop } from './ShowShop';
 
-  jest.mock('axios', () => ({
-    CancelToken: {
-      source: () => ({
-        token: '',
-      }),
-    },
-  }));
+jest.mock('axios', () => ({
+  CancelToken: {
+    source: () => ({
+      token: '',
+    }),
+  },
+}));
 describe('Containers::ShowShop', () => {
 
   const shop = {
@@ -36,6 +36,8 @@ describe('Containers::ShowShop', () => {
     fetchAll: () => null,
     centerPosition: { lat: 30, lng: 3 },
     reloadShops: () => null,
+    dispatchHideShopWillAppearNotice: () => null,
+    shallIDisplayShopNotice: false,
   };
   const component = props => <ShowShop {...props} />
 

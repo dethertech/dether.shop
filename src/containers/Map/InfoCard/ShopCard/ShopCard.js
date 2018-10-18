@@ -6,7 +6,7 @@ import tr from '../../../../translate';
 import tokens from '../../../../styles/tokens';
 import { H1 } from '../../../../components/Headings';
 
-import { Svg } from '../../../../components';
+import SvgAvatar from '../../../../components/Svg/svgr/SvgAvatar';
 
 const BottomWrapper = styled.div`
   padding: ${tokens.spaces.s};
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  border-radius: ${tokens.radius.m};
+  border-radius: ${tokens.radius.l};
   background: ${tokens.colors.white};
   box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -80,7 +80,7 @@ const ShopCard = ({ name, cat, address, description, opening }) => (
   <Wrapper>
     <Card>
       <TopWrapper>
-        <Svg type="SvgAvatar" />
+        <SvgAvatar />
         <UserProfile>
           <H1 light>{name}</H1>
           {cat}

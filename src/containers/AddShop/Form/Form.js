@@ -11,6 +11,7 @@ import ProgressBar from '../../../components/ProgressBar';
 import Button from '../../../components/Button';
 import { Svg } from '../../../components';
 
+import { setCenterPosition as setCenterPositionAction } from '../../../actions/map';
 import { setDataShopPending as setDataShopPendingAction } from '../../../actions/shop';
 import tr from '../../../translate';
 import DaysOnpeningHour from './DaysOnpeningHour';
@@ -19,12 +20,30 @@ import fromState from './fromState';
 import SearchBar from './SearchBar';
 import { convertCalendar } from '../../../helpers/calendar';
 import { isAlphaText } from '../../../helpers/parse';
+import shopCategories from '../../../constants/shopCategories';
 
 export class Form extends PureComponent {
   static propTypes = {
     shop: PropTypes.shape({}).isRequired,
     setDataShopPending: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
+    setCenterPosition: PropTypes.func.isRequired,
+  };
+
+  static getDerivedStateFromProps = (nextProps, prevState) => {
+    const { shop } = nextProps;
+    const { lat, lng, address, postalCode, countryId } = shop;
+
+    return {
+      ...prevState,
+      form: {
+        ...prevState.form,
+        address: {
+          ...prevState.form.address,
+          value: { lat, lng, address, postalCode, countryId },
+        },
+      },
+    };
   };
 
   constructor(props) {
@@ -57,9 +76,15 @@ export class Form extends PureComponent {
     this.setState(pState => ({
       form: {
         ...pState.form,
-        address: { ...pState.form.address, value: addressObj },
+        address: { ...pState.form.address, value: addressObj, error: null },
       },
     }));
+    if (addressObj) {
+      this.props.setCenterPosition({
+        lat: Number(addressObj.lat),
+        lng: Number(addressObj.lng),
+      });
+    }
   };
 
   onChangeDays = days => {
@@ -108,6 +133,7 @@ export class Form extends PureComponent {
 
   async isFormValide() {
     const { form } = this.state;
+
     let isValide = true;
     await Promise.all(
       Object.keys(form).map(async k => {
@@ -135,6 +161,8 @@ export class Form extends PureComponent {
           />
           <LabeledInput
             {...form.cat}
+            componentName="select"
+            data={shopCategories}
             renderLabelIcon={() => (
               <Svg type="RegisterCategory" style={{ margin: '-2px 4px' }} />
             )}
@@ -142,6 +170,7 @@ export class Form extends PureComponent {
           <SearchBar
             inputOpt={{ ...form.address, onBlur: this.onBlurAddress }}
             onChange={this.onChangeAddress}
+            value={form.address.value && form.address.value.address}
           />
           <LabeledInput
             {...form.description}
@@ -173,6 +202,7 @@ const mapStateToProps = ({ shop }) => ({
 
 const mapDispatchToProps = dispatch => ({
   setDataShopPending: bindActionCreators(setDataShopPendingAction, dispatch),
+  setCenterPosition: bindActionCreators(setCenterPositionAction, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

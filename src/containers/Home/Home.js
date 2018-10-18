@@ -26,7 +26,7 @@ import {
 
 // Components
 
-import { Button, Message, Svg, Footer } from '../../components';
+import { Button, Message, Svg } from '../../components';
 import { H1 } from '../../components/Headings';
 import { Padding } from '../../components/Spaces';
 import TermsValidation from './TermsValidation';
@@ -46,6 +46,14 @@ const Wrapper = styled.div`
 const Version = styled.span`
   font-size: 14px;
   font-weight: 400;
+`;
+
+const HomeImage = styled(Svg)`
+  width: 80%;
+`;
+
+const Uppercase = styled.div`
+  text-transform: uppercase;
 `;
 
 /**
@@ -99,6 +107,7 @@ export class Home extends PureComponent {
     if (!hasGoodNetwork) return tr('add.home.wrong_network');
     if (!hasEnoughEth && !hasEnoughDth)
       return tr('add.home.not_enough_money', { minDth, minEth });
+
     if (!hasEnoughEth) return tr('add.home.not_enough_eth', { minEth });
     if (!hasEnoughDth) return tr('add.home.not_enough_dth', { minDth });
   };
@@ -121,14 +130,12 @@ export class Home extends PureComponent {
     return (
       <React.Fragment>
         <Wrapper>
-          <Svg type="SvgHome" />
+          <HomeImage type="SvgHome" />
 
-          <Padding bottom="m">
-            <H1>
-              {tr('add.home.title')}&nbsp;
-              <Version>v{config.appVersion}</Version>
-            </H1>
-          </Padding>
+          <H1>
+            <Uppercase>{tr('add.home.title')}&nbsp;</Uppercase>
+            <Version>v{config.appVersion}</Version>
+          </H1>
 
           <Padding vertical="l">
             <span>{tr('add.home.desc')}</span>
@@ -139,7 +146,7 @@ export class Home extends PureComponent {
               {error}
             </Message>
           ) : (
-            <Padding vertical="l">
+            <Padding all="l">
               <TermsValidation
                 shake={shake}
                 checked={checked}
@@ -152,9 +159,6 @@ export class Home extends PureComponent {
             </Padding>
           )}
         </Wrapper>
-        <Padding vertical="s">
-          <Footer toggleTermsModal={toggleTermsModal} />
-        </Padding>
       </React.Fragment>
     );
   };

@@ -63,12 +63,12 @@ class TransactionFlow extends PureComponent {
       .catch(() => this.transactionError());
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { transaction } = nextProps;
+  componentDidUpdate = () => {
+    const { transaction } = this.props;
     if (transaction.pending && transaction.sentTime && !this.timeout) {
-      this.checkTransaction(nextProps.transaction);
+      this.checkTransaction(this.props.transaction);
     }
-  }
+  };
 
   componentWillUnmount() {
     if (this.timeout) clearTimeout(this.timeout);

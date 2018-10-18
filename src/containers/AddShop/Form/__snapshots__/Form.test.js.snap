@@ -8,6 +8,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Form
     onSubmit={[Function]}
+    setCenterPosition={[Function]}
     setDataShopPending={[Function]}
     shop={
         Object {
@@ -64,14 +65,40 @@ ShallowWrapper {
                     label="Name:"
                     name="name"
                     onBlur={[Function]}
-                    placeholder="length min 1 – max 16"
+                    placeholder="Name"
                     renderLabelIcon={[Function]}
+                    selected={undefined}
                     toggleShake={0}
                     type="text"
                     value="Magasin"
           />
           <LabeledInput
-                    componentName="input"
+                    componentName="select"
+                    data={
+                              Array [
+                                        "Bookshop",
+                                        "Chemist",
+                                        "Clothes Shop",
+                                        "DIY Store",
+                                        "Department Store",
+                                        "Flower Shop",
+                                        "Groceries",
+                                        "Hairdresser",
+                                        "Jewellery",
+                                        "Music Shop",
+                                        "Newsagent",
+                                        "Optician",
+                                        "Other",
+                                        "Petrol Station",
+                                        "Petshop",
+                                        "Restaurant",
+                                        "Shoe Shop",
+                                        "Stationer",
+                                        "Supermarket",
+                                        "Tea Shop",
+                                        "Toy Shop",
+                                      ]
+                    }
                     defaultOption={null}
                     error={null}
                     fillInfos={null}
@@ -80,8 +107,9 @@ ShallowWrapper {
                     label="Category:"
                     name="cat"
                     onBlur={[Function]}
-                    placeholder="length min 1 – max 16"
+                    placeholder="Select a category"
                     renderLabelIcon={[Function]}
+                    selected={undefined}
                     toggleShake={0}
                     type="text"
                     value="cool"
@@ -93,12 +121,12 @@ ShallowWrapper {
                                         "fillInfos": null,
                                         "handleChange": [Function],
                                         "isValid": false,
-                                        "label": "Address:",
+                                        "label": "Enter your shop address:",
                                         "name": "address",
                                         "onBlur": [Function],
                                         "toggleShake": 0,
                                         "value": Object {
-                                          "addressString": undefined,
+                                          "address": "40 rue Citadelle Paris",
                                           "countryId": "fr",
                                           "lat": null,
                                           "lng": null,
@@ -107,6 +135,7 @@ ShallowWrapper {
                                       }
                     }
                     onChange={[Function]}
+                    value="40 rue Citadelle Paris"
           />
           <LabeledInput
                     componentName="input"
@@ -115,11 +144,12 @@ ShallowWrapper {
                     fillInfos={null}
                     handleChange={[Function]}
                     isValid={false}
-                    label="Description:"
+                    label="Keywords:"
                     name="description"
                     onBlur={[Function]}
-                    placeholder="length min 1 – max 32"
+                    placeholder="Example: clothes, jeans, food, ..."
                     renderLabelIcon={[Function]}
+                    selected={undefined}
                     toggleShake={0}
                     type="text"
                     value="Super Magasin"
@@ -238,14 +268,40 @@ ShallowWrapper {
               label="Name:"
               name="name"
               onBlur={[Function]}
-              placeholder="length min 1 – max 16"
+              placeholder="Name"
               renderLabelIcon={[Function]}
+              selected={undefined}
               toggleShake={0}
               type="text"
               value="Magasin"
 />,
             <LabeledInput
-              componentName="input"
+              componentName="select"
+              data={
+                            Array [
+                                          "Bookshop",
+                                          "Chemist",
+                                          "Clothes Shop",
+                                          "DIY Store",
+                                          "Department Store",
+                                          "Flower Shop",
+                                          "Groceries",
+                                          "Hairdresser",
+                                          "Jewellery",
+                                          "Music Shop",
+                                          "Newsagent",
+                                          "Optician",
+                                          "Other",
+                                          "Petrol Station",
+                                          "Petshop",
+                                          "Restaurant",
+                                          "Shoe Shop",
+                                          "Stationer",
+                                          "Supermarket",
+                                          "Tea Shop",
+                                          "Toy Shop",
+                                        ]
+              }
               defaultOption={null}
               error={null}
               fillInfos={null}
@@ -254,8 +310,9 @@ ShallowWrapper {
               label="Category:"
               name="cat"
               onBlur={[Function]}
-              placeholder="length min 1 – max 16"
+              placeholder="Select a category"
               renderLabelIcon={[Function]}
+              selected={undefined}
               toggleShake={0}
               type="text"
               value="cool"
@@ -267,12 +324,12 @@ ShallowWrapper {
                                           "fillInfos": null,
                                           "handleChange": [Function],
                                           "isValid": false,
-                                          "label": "Address:",
+                                          "label": "Enter your shop address:",
                                           "name": "address",
                                           "onBlur": [Function],
                                           "toggleShake": 0,
                                           "value": Object {
-                                            "addressString": undefined,
+                                            "address": "40 rue Citadelle Paris",
                                             "countryId": "fr",
                                             "lat": null,
                                             "lng": null,
@@ -281,6 +338,7 @@ ShallowWrapper {
                                         }
               }
               onChange={[Function]}
+              value="40 rue Citadelle Paris"
 />,
             <LabeledInput
               componentName="input"
@@ -289,11 +347,12 @@ ShallowWrapper {
               fillInfos={null}
               handleChange={[Function]}
               isValid={false}
-              label="Description:"
+              label="Keywords:"
               name="description"
               onBlur={[Function]}
-              placeholder="length min 1 – max 32"
+              placeholder="Example: clothes, jeans, food, ..."
               renderLabelIcon={[Function]}
+              selected={undefined}
               toggleShake={0}
               type="text"
               value="Super Magasin"
@@ -321,8 +380,9 @@ ShallowWrapper {
               "label": "Name:",
               "name": "name",
               "onBlur": [Function],
-              "placeholder": "length min 1 – max 16",
+              "placeholder": "Name",
               "renderLabelIcon": [Function],
+              "selected": undefined,
               "toggleShake": 0,
               "type": "text",
               "value": "Magasin",
@@ -336,7 +396,30 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
-              "componentName": "input",
+              "componentName": "select",
+              "data": Array [
+                "Bookshop",
+                "Chemist",
+                "Clothes Shop",
+                "DIY Store",
+                "Department Store",
+                "Flower Shop",
+                "Groceries",
+                "Hairdresser",
+                "Jewellery",
+                "Music Shop",
+                "Newsagent",
+                "Optician",
+                "Other",
+                "Petrol Station",
+                "Petshop",
+                "Restaurant",
+                "Shoe Shop",
+                "Stationer",
+                "Supermarket",
+                "Tea Shop",
+                "Toy Shop",
+              ],
               "defaultOption": null,
               "error": null,
               "fillInfos": null,
@@ -345,8 +428,9 @@ ShallowWrapper {
               "label": "Category:",
               "name": "cat",
               "onBlur": [Function],
-              "placeholder": "length min 1 – max 16",
+              "placeholder": "Select a category",
               "renderLabelIcon": [Function],
+              "selected": undefined,
               "toggleShake": 0,
               "type": "text",
               "value": "cool",
@@ -365,12 +449,12 @@ ShallowWrapper {
                 "fillInfos": null,
                 "handleChange": [Function],
                 "isValid": false,
-                "label": "Address:",
+                "label": "Enter your shop address:",
                 "name": "address",
                 "onBlur": [Function],
                 "toggleShake": 0,
                 "value": Object {
-                  "addressString": undefined,
+                  "address": "40 rue Citadelle Paris",
                   "countryId": "fr",
                   "lat": null,
                   "lng": null,
@@ -378,6 +462,7 @@ ShallowWrapper {
                 },
               },
               "onChange": [Function],
+              "value": "40 rue Citadelle Paris",
             },
             "ref": null,
             "rendered": null,
@@ -394,11 +479,12 @@ ShallowWrapper {
               "fillInfos": null,
               "handleChange": [Function],
               "isValid": false,
-              "label": "Description:",
+              "label": "Keywords:",
               "name": "description",
               "onBlur": [Function],
-              "placeholder": "length min 1 – max 32",
+              "placeholder": "Example: clothes, jeans, food, ...",
               "renderLabelIcon": [Function],
+              "selected": undefined,
               "toggleShake": 0,
               "type": "text",
               "value": "Super Magasin",
@@ -569,14 +655,40 @@ ShallowWrapper {
                         label="Name:"
                         name="name"
                         onBlur={[Function]}
-                        placeholder="length min 1 – max 16"
+                        placeholder="Name"
                         renderLabelIcon={[Function]}
+                        selected={undefined}
                         toggleShake={0}
                         type="text"
                         value="Magasin"
             />
             <LabeledInput
-                        componentName="input"
+                        componentName="select"
+                        data={
+                                    Array [
+                                                "Bookshop",
+                                                "Chemist",
+                                                "Clothes Shop",
+                                                "DIY Store",
+                                                "Department Store",
+                                                "Flower Shop",
+                                                "Groceries",
+                                                "Hairdresser",
+                                                "Jewellery",
+                                                "Music Shop",
+                                                "Newsagent",
+                                                "Optician",
+                                                "Other",
+                                                "Petrol Station",
+                                                "Petshop",
+                                                "Restaurant",
+                                                "Shoe Shop",
+                                                "Stationer",
+                                                "Supermarket",
+                                                "Tea Shop",
+                                                "Toy Shop",
+                                              ]
+                        }
                         defaultOption={null}
                         error={null}
                         fillInfos={null}
@@ -585,8 +697,9 @@ ShallowWrapper {
                         label="Category:"
                         name="cat"
                         onBlur={[Function]}
-                        placeholder="length min 1 – max 16"
+                        placeholder="Select a category"
                         renderLabelIcon={[Function]}
+                        selected={undefined}
                         toggleShake={0}
                         type="text"
                         value="cool"
@@ -598,12 +711,12 @@ ShallowWrapper {
                                                 "fillInfos": null,
                                                 "handleChange": [Function],
                                                 "isValid": false,
-                                                "label": "Address:",
+                                                "label": "Enter your shop address:",
                                                 "name": "address",
                                                 "onBlur": [Function],
                                                 "toggleShake": 0,
                                                 "value": Object {
-                                                  "addressString": undefined,
+                                                  "address": "40 rue Citadelle Paris",
                                                   "countryId": "fr",
                                                   "lat": null,
                                                   "lng": null,
@@ -612,6 +725,7 @@ ShallowWrapper {
                                               }
                         }
                         onChange={[Function]}
+                        value="40 rue Citadelle Paris"
             />
             <LabeledInput
                         componentName="input"
@@ -620,11 +734,12 @@ ShallowWrapper {
                         fillInfos={null}
                         handleChange={[Function]}
                         isValid={false}
-                        label="Description:"
+                        label="Keywords:"
                         name="description"
                         onBlur={[Function]}
-                        placeholder="length min 1 – max 32"
+                        placeholder="Example: clothes, jeans, food, ..."
                         renderLabelIcon={[Function]}
+                        selected={undefined}
                         toggleShake={0}
                         type="text"
                         value="Super Magasin"
@@ -743,14 +858,40 @@ ShallowWrapper {
                 label="Name:"
                 name="name"
                 onBlur={[Function]}
-                placeholder="length min 1 – max 16"
+                placeholder="Name"
                 renderLabelIcon={[Function]}
+                selected={undefined}
                 toggleShake={0}
                 type="text"
                 value="Magasin"
 />,
               <LabeledInput
-                componentName="input"
+                componentName="select"
+                data={
+                                Array [
+                                                "Bookshop",
+                                                "Chemist",
+                                                "Clothes Shop",
+                                                "DIY Store",
+                                                "Department Store",
+                                                "Flower Shop",
+                                                "Groceries",
+                                                "Hairdresser",
+                                                "Jewellery",
+                                                "Music Shop",
+                                                "Newsagent",
+                                                "Optician",
+                                                "Other",
+                                                "Petrol Station",
+                                                "Petshop",
+                                                "Restaurant",
+                                                "Shoe Shop",
+                                                "Stationer",
+                                                "Supermarket",
+                                                "Tea Shop",
+                                                "Toy Shop",
+                                              ]
+                }
                 defaultOption={null}
                 error={null}
                 fillInfos={null}
@@ -759,8 +900,9 @@ ShallowWrapper {
                 label="Category:"
                 name="cat"
                 onBlur={[Function]}
-                placeholder="length min 1 – max 16"
+                placeholder="Select a category"
                 renderLabelIcon={[Function]}
+                selected={undefined}
                 toggleShake={0}
                 type="text"
                 value="cool"
@@ -772,12 +914,12 @@ ShallowWrapper {
                                                 "fillInfos": null,
                                                 "handleChange": [Function],
                                                 "isValid": false,
-                                                "label": "Address:",
+                                                "label": "Enter your shop address:",
                                                 "name": "address",
                                                 "onBlur": [Function],
                                                 "toggleShake": 0,
                                                 "value": Object {
-                                                  "addressString": undefined,
+                                                  "address": "40 rue Citadelle Paris",
                                                   "countryId": "fr",
                                                   "lat": null,
                                                   "lng": null,
@@ -786,6 +928,7 @@ ShallowWrapper {
                                               }
                 }
                 onChange={[Function]}
+                value="40 rue Citadelle Paris"
 />,
               <LabeledInput
                 componentName="input"
@@ -794,11 +937,12 @@ ShallowWrapper {
                 fillInfos={null}
                 handleChange={[Function]}
                 isValid={false}
-                label="Description:"
+                label="Keywords:"
                 name="description"
                 onBlur={[Function]}
-                placeholder="length min 1 – max 32"
+                placeholder="Example: clothes, jeans, food, ..."
                 renderLabelIcon={[Function]}
+                selected={undefined}
                 toggleShake={0}
                 type="text"
                 value="Super Magasin"
@@ -826,8 +970,9 @@ ShallowWrapper {
                 "label": "Name:",
                 "name": "name",
                 "onBlur": [Function],
-                "placeholder": "length min 1 – max 16",
+                "placeholder": "Name",
                 "renderLabelIcon": [Function],
+                "selected": undefined,
                 "toggleShake": 0,
                 "type": "text",
                 "value": "Magasin",
@@ -841,7 +986,30 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
-                "componentName": "input",
+                "componentName": "select",
+                "data": Array [
+                  "Bookshop",
+                  "Chemist",
+                  "Clothes Shop",
+                  "DIY Store",
+                  "Department Store",
+                  "Flower Shop",
+                  "Groceries",
+                  "Hairdresser",
+                  "Jewellery",
+                  "Music Shop",
+                  "Newsagent",
+                  "Optician",
+                  "Other",
+                  "Petrol Station",
+                  "Petshop",
+                  "Restaurant",
+                  "Shoe Shop",
+                  "Stationer",
+                  "Supermarket",
+                  "Tea Shop",
+                  "Toy Shop",
+                ],
                 "defaultOption": null,
                 "error": null,
                 "fillInfos": null,
@@ -850,8 +1018,9 @@ ShallowWrapper {
                 "label": "Category:",
                 "name": "cat",
                 "onBlur": [Function],
-                "placeholder": "length min 1 – max 16",
+                "placeholder": "Select a category",
                 "renderLabelIcon": [Function],
+                "selected": undefined,
                 "toggleShake": 0,
                 "type": "text",
                 "value": "cool",
@@ -870,12 +1039,12 @@ ShallowWrapper {
                   "fillInfos": null,
                   "handleChange": [Function],
                   "isValid": false,
-                  "label": "Address:",
+                  "label": "Enter your shop address:",
                   "name": "address",
                   "onBlur": [Function],
                   "toggleShake": 0,
                   "value": Object {
-                    "addressString": undefined,
+                    "address": "40 rue Citadelle Paris",
                     "countryId": "fr",
                     "lat": null,
                     "lng": null,
@@ -883,6 +1052,7 @@ ShallowWrapper {
                   },
                 },
                 "onChange": [Function],
+                "value": "40 rue Citadelle Paris",
               },
               "ref": null,
               "rendered": null,
@@ -899,11 +1069,12 @@ ShallowWrapper {
                 "fillInfos": null,
                 "handleChange": [Function],
                 "isValid": false,
-                "label": "Description:",
+                "label": "Keywords:",
                 "name": "description",
                 "onBlur": [Function],
-                "placeholder": "length min 1 – max 32",
+                "placeholder": "Example: clothes, jeans, food, ...",
                 "renderLabelIcon": [Function],
+                "selected": undefined,
                 "toggleShake": 0,
                 "type": "text",
                 "value": "Super Magasin",

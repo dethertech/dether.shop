@@ -9,7 +9,7 @@ exports[`Component RoundIconBtn should render close RoundIconBtn 1`] = `
 }
 
 .c2 {
-  stroke: #9B9B9B;
+  stroke: #121E38;
   stroke-width: 0.2rem;
   fill: none;
 }
@@ -31,7 +31,7 @@ exports[`Component RoundIconBtn should render close RoundIconBtn 1`] = `
   justify-content: center;
   overflow: hidden;
   border-radius: 50%;
-  border: solid 0.1rem #9B9B9B;
+  border: solid 0.1rem #121E38;
 }
 
 <button
@@ -72,13 +72,13 @@ exports[`Component RoundIconBtn should render prev RoundIconBtn 1`] = `
 }
 
 .c2 {
-  stroke: #9B9B9B;
+  stroke: #121E38;
   stroke-width: 0.2rem;
   fill: none;
 }
 
 .c3 {
-  stroke: #9B9B9B;
+  stroke: #121E38;
   stroke-width: 0.2rem;
   fill: none;
 }
@@ -100,7 +100,7 @@ exports[`Component RoundIconBtn should render prev RoundIconBtn 1`] = `
   justify-content: center;
   overflow: hidden;
   border-radius: 50%;
-  border: solid 0.1rem #9B9B9B;
+  border: solid 0.1rem #121E38;
 }
 
 <button

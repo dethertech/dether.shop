@@ -40,7 +40,21 @@ const InputSelectIcon = styled.div`
   margin-top: -0.6rem;
 `;
 
-const Select = ({ data, onChange, ...rest }) => (
+const renderArray = data =>
+  data.map(opt => (
+    <option key={opt} value={opt}>
+      {opt}
+    </option>
+  ));
+
+const renderMap = data =>
+  Object.keys(data).map(k => (
+    <option key={k} value={k}>
+      {data[k]}
+    </option>
+  ));
+
+const Select = ({ data, onChange, placeholder, ...rest }) => (
   <SelectWrapper>
     <InputSelectIcon>
       <Icon
@@ -51,21 +65,23 @@ const Select = ({ data, onChange, ...rest }) => (
       />
     </InputSelectIcon>
     <InputSelect {...rest} onChange={onChange}>
-      {data.length &&
-        data.map(opt => (
-          <option key={opt} value={opt}>
-            {opt}
-          </option>
-        ))}
+      <option value="" disabled>
+        {placeholder}
+      </option>
+      {Array.isArray(data) ? renderArray(data) : renderMap(data)}
     </InputSelect>
   </SelectWrapper>
 );
 
 Select.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.string.isRequired),
+  data: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string.isRequired),
+    PropTypes.shape({}),
+  ]),
   onChange: PropTypes.func,
   selected: PropTypes.string,
   fakeDisable: PropTypes.bool,
+  placeholder: PropTypes.string,
 };
 
 Select.defaultProps = {
@@ -73,6 +89,7 @@ Select.defaultProps = {
   onChange: () => {},
   selected: null,
   fakeDisable: false,
+  placeholder: '',
 };
 
 export default Select;

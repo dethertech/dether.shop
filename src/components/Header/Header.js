@@ -36,7 +36,7 @@ const Right = styled.div`
 `;
 
 const WalletView = styled.div`
-  border-radius: ${tokens.radius.m};
+  border-radius: ${tokens.radius.l};
   box-shadow: ${tokens.shadow};
   padding: ${tokens.spaces.s};
   display: flex;

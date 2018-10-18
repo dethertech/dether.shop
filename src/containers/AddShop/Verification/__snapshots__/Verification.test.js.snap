@@ -16,6 +16,7 @@ ShallowWrapper {
             "lng": 3,
           }
     }
+    dispatchDisplayShopWillAppearNoticeAction={[Function]}
     endTransaction={[Function]}
     fetchAll={[Function]}
     goBack={[Function]}
@@ -50,7 +51,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <ShopRecap
-          address="40 rue Citadelle Paris"
+          address={null}
           addressString="40 rue Citadelle Paris"
           cat="cool"
           countryId="fr"
@@ -93,7 +94,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "address": "40 rue Citadelle Paris",
+          "address": null,
           "addressString": "40 rue Citadelle Paris",
           "cat": "cool",
           "countryId": "fr",
@@ -187,7 +188,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <ShopRecap
-            address="40 rue Citadelle Paris"
+            address={null}
             addressString="40 rue Citadelle Paris"
             cat="cool"
             countryId="fr"
@@ -230,7 +231,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "address": "40 rue Citadelle Paris",
+            "address": null,
             "addressString": "40 rue Citadelle Paris",
             "cat": "cool",
             "countryId": "fr",

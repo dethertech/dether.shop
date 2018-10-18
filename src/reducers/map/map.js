@@ -1,8 +1,8 @@
-import { uniqueArray } from '../../helpers';
+import { uniqueArray } from '../../helpers/array';
 
 const initialState = {
-  userPosition: { lat: 48.8628, lng: 2.3292 },
-  centerPosition: { lat: 48.8628, lng: 2.3292 },
+  userPosition: { lat: 50.087701, lng: 14.421133 },
+  centerPosition: { lat: 50.087701, lng: 14.421133 },
   contentOnCard: {},
   mapInitiated: false,
   cardOpened: false,

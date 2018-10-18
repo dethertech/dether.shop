@@ -6,7 +6,7 @@ exports[`Component SearchBar should be render without crash 1`] = `
   top: 1.6rem;
   left: 1.6rem;
   right: 1.6rem;
-  border-radius: 1rem;
+  border-radius: 0.6rem;
   box-shadow: 0 0 0.8rem rgba(0,0,0,0.2);
   background-color: #FFFFFF;
   overflow: hidden;
@@ -31,7 +31,7 @@ exports[`Component SearchBar should be render without crash 1`] = `
   max-width: 100% !important;
   overflow: auto;
   border: none !important;
-  border-top: solid 1px #F5F5F5 !important;
+  border-top: solid 1px #F1F3F6 !important;
 }
 
 .c1 {
@@ -41,7 +41,7 @@ exports[`Component SearchBar should be render without crash 1`] = `
   stroke: none;
   width: 3rem;
   height: 3rem;
-  fill: #D8D8D8;
+  fill: #CECED6;
 }
 
 @media (max-width:768px) {

@@ -9,13 +9,13 @@ exports[`Component Select should be render without crash 1`] = `
 }
 
 .c3 {
-  stroke: #2A2B43;
+  stroke: #121E38;
   stroke-width: 0.2rem;
   fill: none;
 }
 
 .c0 {
-  background: #F5F5F5;
+  background: #F1F3F6;
   border-radius: 0.6rem;
   border: solid 1px transparent;
   -webkit-transition: all 0.3s ease;
@@ -67,6 +67,12 @@ exports[`Component Select should be render without crash 1`] = `
     onChange={[Function]}
     selected={null}
   >
+    <option
+      disabled={true}
+      value=""
+    >
+      
+    </option>
     <option
       value="qwer"
     >

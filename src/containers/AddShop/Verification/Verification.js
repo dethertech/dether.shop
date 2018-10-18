@@ -13,6 +13,7 @@ import {
   resetTransaction as resetTransactionAction,
   fetchAll as fetchAllAction,
   openNotificationModal as openNotificationModalAction,
+  displayShopWillAppearNotice as displayShopWillAppearNoticeAction,
 } from '../../../actions';
 import {
   addShop as addShopHelper,
@@ -49,6 +50,7 @@ export class Verification extends PureComponent {
     fetchAll: PropTypes.func.isRequired,
     centerPosition: PropTypes.shape({}).isRequired,
     openNotificationModal: PropTypes.func.isRequired,
+    dispatchDisplayShopWillAppearNoticeAction: PropTypes.func.isRequired,
   };
 
   state = {
@@ -69,6 +71,7 @@ export class Verification extends PureComponent {
       fetchAll,
       centerPosition,
       openNotificationModal,
+      dispatchDisplayShopWillAppearNoticeAction,
     } = this.props;
 
     const shop = await getShop();
@@ -81,6 +84,7 @@ export class Verification extends PureComponent {
         type: notificationsTypes.SUCCESS,
         message: tr('notifications.shop_added'),
       });
+      dispatchDisplayShopWillAppearNoticeAction();
       return true;
     }
   };
@@ -121,7 +125,7 @@ export class Verification extends PureComponent {
         <ShopRecap
           licencePrice={licencePrice}
           {...pendingShop}
-          address={pendingShop.addressString}
+          address={pendingShop.address}
         />
         <ButtonsWrapper>
           <Button width="45%" theme="primary" onClick={this.submitTransaction}>
@@ -149,6 +153,10 @@ const mapDispatchToProps = dispatch => ({
   resetTransaction: bindActionCreators(resetTransactionAction, dispatch),
   openNotificationModal: bindActionCreators(
     openNotificationModalAction,
+    dispatch,
+  ),
+  dispatchDisplayShopWillAppearNoticeAction: bindActionCreators(
+    displayShopWillAppearNoticeAction,
     dispatch,
   ),
 });
