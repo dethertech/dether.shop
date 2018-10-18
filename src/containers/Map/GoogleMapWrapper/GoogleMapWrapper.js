@@ -31,7 +31,8 @@ class GoogleMapWrapper extends PureComponent {
     disableDefaultUI: true,
     zoomControl: true,
     gestureHandling: 'greedy',
-    minZoom: 5,
+    minZoom: 3,
+    backgroundColor: 'rgb(164, 221, 243)',
   };
 
   render = () => {
@@ -48,6 +49,7 @@ class GoogleMapWrapper extends PureComponent {
         onGoogleApiLoaded={({ map, maps }) => {
           const forbiddenCountriesLayer = new maps.ImageMapType({
             getTileUrl: (coord, zoomCountry) => {
+              if (zoomCountry < 5) return null;
               // eslint-disable-next-line
               const s = Math.pow(2, zoomCountry);
               const twidth = 256;
@@ -82,7 +84,7 @@ class GoogleMapWrapper extends PureComponent {
               url += '&styles=';
               url += '&format=image/png';
               url += '&TRANSPARENT=TRUE';
-              url += '&srs=EPSG:3857';
+              url += '&srs=EPSG:4326';
               url += `&bbox=${bbox}`;
               url += '&width=256';
               url += '&height=256';
