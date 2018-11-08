@@ -120,6 +120,7 @@ ShallowWrapper {
                                         "error": null,
                                         "fillInfos": null,
                                         "handleChange": [Function],
+                                        "hasError": false,
                                         "isValid": false,
                                         "label": "Enter your shop address:",
                                         "name": "address",
@@ -193,26 +194,74 @@ ShallowWrapper {
                     onChange={[Function]}
           />
 </styled.div>,
-        <styled.div
-          all={null}
-          bottom={null}
-          horizontal={null}
-          left={null}
-          right={null}
-          top={null}
-          vertical="m"
->
-          <Button
-                    disabled={false}
-                    fullWidth={true}
-                    isSmall={false}
-                    onClick={[Function]}
-                    theme="primary"
-                    width={null}
-          >
-                    Add your shop
-          </Button>
-</styled.div>,
+        <Connect(FormSubmitDom)
+          form={
+                    Object {
+                              "address": Object {
+                                "error": null,
+                                "fillInfos": null,
+                                "handleChange": [Function],
+                                "hasError": false,
+                                "isValid": false,
+                                "label": "Enter your shop address:",
+                                "name": "address",
+                                "onBlur": [Function],
+                                "toggleShake": 0,
+                                "value": Object {
+                                  "address": "40 rue Citadelle Paris",
+                                  "countryId": "fr",
+                                  "lat": null,
+                                  "lng": null,
+                                  "postalCode": "75010",
+                                },
+                              },
+                              "cat": Object {
+                                "componentName": "input",
+                                "error": null,
+                                "fillInfos": null,
+                                "handleChange": [Function],
+                                "isValid": false,
+                                "label": "Category:",
+                                "name": "cat",
+                                "onBlur": [Function],
+                                "placeholder": "Select a category",
+                                "toggleShake": 0,
+                                "type": "text",
+                                "value": "cool",
+                              },
+                              "description": Object {
+                                "componentName": "input",
+                                "error": null,
+                                "fillInfos": null,
+                                "handleChange": [Function],
+                                "isValid": false,
+                                "label": "Keywords:",
+                                "name": "description",
+                                "onBlur": [Function],
+                                "placeholder": "Example: clothes, jeans, food, ...",
+                                "toggleShake": 0,
+                                "type": "text",
+                                "value": "Super Magasin",
+                              },
+                              "name": Object {
+                                "componentName": "input",
+                                "error": null,
+                                "fillInfos": null,
+                                "handleChange": [Function],
+                                "isValid": false,
+                                "label": "Name:",
+                                "name": "name",
+                                "onBlur": [Function],
+                                "placeholder": "Name",
+                                "toggleShake": 0,
+                                "type": "text",
+                                "value": "Magasin",
+                              },
+                            }
+          }
+          onSave={[Function]}
+          resetAddressHasError={[Function]}
+/>,
       ],
     },
     "ref": null,
@@ -323,6 +372,7 @@ ShallowWrapper {
                                           "error": null,
                                           "fillInfos": null,
                                           "handleChange": [Function],
+                                          "hasError": false,
                                           "isValid": false,
                                           "label": "Enter your shop address:",
                                           "name": "address",
@@ -448,6 +498,7 @@ ShallowWrapper {
                 "error": null,
                 "fillInfos": null,
                 "handleChange": [Function],
+                "hasError": false,
                 "isValid": false,
                 "label": "Enter your shop address:",
                 "name": "address",
@@ -579,42 +630,73 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "all": null,
-          "bottom": null,
-          "children": <Button
-            disabled={false}
-            fullWidth={true}
-            isSmall={false}
-            onClick={[Function]}
-            theme="primary"
-            width={null}
->
-            Add your shop
-</Button>,
-          "horizontal": null,
-          "left": null,
-          "right": null,
-          "top": null,
-          "vertical": "m",
+          "form": Object {
+            "address": Object {
+              "error": null,
+              "fillInfos": null,
+              "handleChange": [Function],
+              "hasError": false,
+              "isValid": false,
+              "label": "Enter your shop address:",
+              "name": "address",
+              "onBlur": [Function],
+              "toggleShake": 0,
+              "value": Object {
+                "address": "40 rue Citadelle Paris",
+                "countryId": "fr",
+                "lat": null,
+                "lng": null,
+                "postalCode": "75010",
+              },
+            },
+            "cat": Object {
+              "componentName": "input",
+              "error": null,
+              "fillInfos": null,
+              "handleChange": [Function],
+              "isValid": false,
+              "label": "Category:",
+              "name": "cat",
+              "onBlur": [Function],
+              "placeholder": "Select a category",
+              "toggleShake": 0,
+              "type": "text",
+              "value": "cool",
+            },
+            "description": Object {
+              "componentName": "input",
+              "error": null,
+              "fillInfos": null,
+              "handleChange": [Function],
+              "isValid": false,
+              "label": "Keywords:",
+              "name": "description",
+              "onBlur": [Function],
+              "placeholder": "Example: clothes, jeans, food, ...",
+              "toggleShake": 0,
+              "type": "text",
+              "value": "Super Magasin",
+            },
+            "name": Object {
+              "componentName": "input",
+              "error": null,
+              "fillInfos": null,
+              "handleChange": [Function],
+              "isValid": false,
+              "label": "Name:",
+              "name": "name",
+              "onBlur": [Function],
+              "placeholder": "Name",
+              "toggleShake": 0,
+              "type": "text",
+              "value": "Magasin",
+            },
+          },
+          "onSave": [Function],
+          "resetAddressHasError": [Function],
         },
         "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": "Add your shop",
-            "disabled": false,
-            "fullWidth": true,
-            "isSmall": false,
-            "onClick": [Function],
-            "theme": "primary",
-            "width": null,
-          },
-          "ref": null,
-          "rendered": "Add your shop",
-          "type": [Function],
-        },
+        "rendered": null,
         "type": [Function],
       },
     ],
@@ -710,6 +792,7 @@ ShallowWrapper {
                                                 "error": null,
                                                 "fillInfos": null,
                                                 "handleChange": [Function],
+                                                "hasError": false,
                                                 "isValid": false,
                                                 "label": "Enter your shop address:",
                                                 "name": "address",
@@ -783,26 +866,74 @@ ShallowWrapper {
                         onChange={[Function]}
             />
 </styled.div>,
-          <styled.div
-            all={null}
-            bottom={null}
-            horizontal={null}
-            left={null}
-            right={null}
-            top={null}
-            vertical="m"
->
-            <Button
-                        disabled={false}
-                        fullWidth={true}
-                        isSmall={false}
-                        onClick={[Function]}
-                        theme="primary"
-                        width={null}
-            >
-                        Add your shop
-            </Button>
-</styled.div>,
+          <Connect(FormSubmitDom)
+            form={
+                        Object {
+                                    "address": Object {
+                                      "error": null,
+                                      "fillInfos": null,
+                                      "handleChange": [Function],
+                                      "hasError": false,
+                                      "isValid": false,
+                                      "label": "Enter your shop address:",
+                                      "name": "address",
+                                      "onBlur": [Function],
+                                      "toggleShake": 0,
+                                      "value": Object {
+                                        "address": "40 rue Citadelle Paris",
+                                        "countryId": "fr",
+                                        "lat": null,
+                                        "lng": null,
+                                        "postalCode": "75010",
+                                      },
+                                    },
+                                    "cat": Object {
+                                      "componentName": "input",
+                                      "error": null,
+                                      "fillInfos": null,
+                                      "handleChange": [Function],
+                                      "isValid": false,
+                                      "label": "Category:",
+                                      "name": "cat",
+                                      "onBlur": [Function],
+                                      "placeholder": "Select a category",
+                                      "toggleShake": 0,
+                                      "type": "text",
+                                      "value": "cool",
+                                    },
+                                    "description": Object {
+                                      "componentName": "input",
+                                      "error": null,
+                                      "fillInfos": null,
+                                      "handleChange": [Function],
+                                      "isValid": false,
+                                      "label": "Keywords:",
+                                      "name": "description",
+                                      "onBlur": [Function],
+                                      "placeholder": "Example: clothes, jeans, food, ...",
+                                      "toggleShake": 0,
+                                      "type": "text",
+                                      "value": "Super Magasin",
+                                    },
+                                    "name": Object {
+                                      "componentName": "input",
+                                      "error": null,
+                                      "fillInfos": null,
+                                      "handleChange": [Function],
+                                      "isValid": false,
+                                      "label": "Name:",
+                                      "name": "name",
+                                      "onBlur": [Function],
+                                      "placeholder": "Name",
+                                      "toggleShake": 0,
+                                      "type": "text",
+                                      "value": "Magasin",
+                                    },
+                                  }
+            }
+            onSave={[Function]}
+            resetAddressHasError={[Function]}
+/>,
         ],
       },
       "ref": null,
@@ -913,6 +1044,7 @@ ShallowWrapper {
                                                 "error": null,
                                                 "fillInfos": null,
                                                 "handleChange": [Function],
+                                                "hasError": false,
                                                 "isValid": false,
                                                 "label": "Enter your shop address:",
                                                 "name": "address",
@@ -1038,6 +1170,7 @@ ShallowWrapper {
                   "error": null,
                   "fillInfos": null,
                   "handleChange": [Function],
+                  "hasError": false,
                   "isValid": false,
                   "label": "Enter your shop address:",
                   "name": "address",
@@ -1169,42 +1302,73 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "all": null,
-            "bottom": null,
-            "children": <Button
-              disabled={false}
-              fullWidth={true}
-              isSmall={false}
-              onClick={[Function]}
-              theme="primary"
-              width={null}
->
-              Add your shop
-</Button>,
-            "horizontal": null,
-            "left": null,
-            "right": null,
-            "top": null,
-            "vertical": "m",
+            "form": Object {
+              "address": Object {
+                "error": null,
+                "fillInfos": null,
+                "handleChange": [Function],
+                "hasError": false,
+                "isValid": false,
+                "label": "Enter your shop address:",
+                "name": "address",
+                "onBlur": [Function],
+                "toggleShake": 0,
+                "value": Object {
+                  "address": "40 rue Citadelle Paris",
+                  "countryId": "fr",
+                  "lat": null,
+                  "lng": null,
+                  "postalCode": "75010",
+                },
+              },
+              "cat": Object {
+                "componentName": "input",
+                "error": null,
+                "fillInfos": null,
+                "handleChange": [Function],
+                "isValid": false,
+                "label": "Category:",
+                "name": "cat",
+                "onBlur": [Function],
+                "placeholder": "Select a category",
+                "toggleShake": 0,
+                "type": "text",
+                "value": "cool",
+              },
+              "description": Object {
+                "componentName": "input",
+                "error": null,
+                "fillInfos": null,
+                "handleChange": [Function],
+                "isValid": false,
+                "label": "Keywords:",
+                "name": "description",
+                "onBlur": [Function],
+                "placeholder": "Example: clothes, jeans, food, ...",
+                "toggleShake": 0,
+                "type": "text",
+                "value": "Super Magasin",
+              },
+              "name": Object {
+                "componentName": "input",
+                "error": null,
+                "fillInfos": null,
+                "handleChange": [Function],
+                "isValid": false,
+                "label": "Name:",
+                "name": "name",
+                "onBlur": [Function],
+                "placeholder": "Name",
+                "toggleShake": 0,
+                "type": "text",
+                "value": "Magasin",
+              },
+            },
+            "onSave": [Function],
+            "resetAddressHasError": [Function],
           },
           "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": "Add your shop",
-              "disabled": false,
-              "fullWidth": true,
-              "isSmall": false,
-              "onClick": [Function],
-              "theme": "primary",
-              "width": null,
-            },
-            "ref": null,
-            "rendered": "Add your shop",
-            "type": [Function],
-          },
+          "rendered": null,
           "type": [Function],
         },
       ],
