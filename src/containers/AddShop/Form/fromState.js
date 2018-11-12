@@ -11,6 +11,7 @@ export default ({ onChange, onBlur }, props) => {
       value: { lat, lng, address, postalCode, countryId },
       fillInfos: validator.name.fillInfos(),
       error: null,
+      hasError: false,
       isValid: false,
       toggleShake: 0,
       onBlur,

@@ -69,7 +69,7 @@ const en = {
           label: 'Enter your shop address:',
           errors: {
             invalid: 'Invalid address',
-            zone: 'This Zone is not opened',
+            zone: 'This country is not open yet',
           },
         },
         cat: {
