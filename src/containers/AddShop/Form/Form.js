@@ -1,3 +1,4 @@
+/* eslint max-lines: ["error", {"skipBlankLines": true}] */
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -8,7 +9,6 @@ import { LabeledInput } from '../../../components/Inputs';
 import { Padding } from '../../../components/Spaces';
 import Mention from '../../../components/Mention';
 import ProgressBar from '../../../components/ProgressBar';
-import Button from '../../../components/Button';
 import { Svg } from '../../../components';
 
 import { setCenterPosition as setCenterPositionAction } from '../../../actions/map';
@@ -21,6 +21,7 @@ import SearchBar from './SearchBar';
 import { convertCalendar } from '../../../helpers/calendar';
 import { isAlphaText } from '../../../helpers/parse';
 import shopCategories from '../../../constants/shopCategories';
+import FormSubmitDom from './FormSubmitDom';
 
 export class Form extends PureComponent {
   static propTypes = {
@@ -92,8 +93,10 @@ export class Form extends PureComponent {
   };
 
   onSave = async () => {
-    if (await this.isFormValide()) {
-      const { days, form } = this.state;
+    const { days, form } = this.state;
+    if (form.address.error) {
+      this.setAddressHasError();
+    } else if (await this.isFormValide()) {
       const { setDataShopPending, onSubmit } = this.props;
       const data = {
         ...form.address.value,
@@ -105,6 +108,30 @@ export class Form extends PureComponent {
       setDataShopPending(data);
       onSubmit();
     }
+  };
+
+  setAddressHasError = () => {
+    this.setState({
+      form: {
+        ...this.state.form,
+        address: {
+          ...this.state.form.address,
+          hasError: true,
+        },
+      },
+    });
+  };
+
+  resetAddressHasError = () => {
+    this.setState({
+      form: {
+        ...this.state.form,
+        address: {
+          ...this.state.form.address,
+          hasError: false,
+        },
+      },
+    });
   };
 
   async checkValide(name, val) {
@@ -185,12 +212,11 @@ export class Form extends PureComponent {
             onChange={this.onChangeDays}
           />
         </Padding>
-
-        <Padding vertical="m">
-          <Button fullWidth theme="primary" onClick={this.onSave}>
-            {tr('add.form.register_btn')}
-          </Button>
-        </Padding>
+        <FormSubmitDom
+          form={this.state.form}
+          resetAddressHasError={this.resetAddressHasError}
+          onSave={this.onSave}
+        />
       </Fragment>
     );
   }
