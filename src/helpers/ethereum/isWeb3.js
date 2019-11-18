@@ -5,7 +5,12 @@ import { web3js } from './utils';
  * @returns {Eth address}
  */
 const isWeb3 = async () => {
-  if (typeof window.web3 !== 'undefined') {
+  const isModernWeb3 = typeof window.ethereum !== 'undefined';
+  const isLegacyWeb3 = typeof window.web3 !== 'undefined';
+  if (isModernWeb3 || isLegacyWeb3) {
+    if (isModernWeb3) {
+      await window.ethereum.enable();
+    }
     const address = (await web3js.eth.getAccounts())[0];
     return address;
   }

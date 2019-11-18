@@ -35,9 +35,9 @@ const en = {
   },
   add: {
     home: {
-      title: 'CRYPTOCURRENCY FOR SHOPS',
+      title: 'Shops accepting cryptocurrency',
       desc:
-        'Add your retail business on the Dether map. Expand your visibility in the Dether ecosystem of crypto buyers and sellers.',
+        'Add your business on the Dether map.||Attract cryptocurrency holders to your shop.',
       not_enough_money: ({ minEth, minDth }) =>
         `You must have at least ${minEth.toFixed(
           4,
@@ -69,7 +69,7 @@ const en = {
           label: 'Enter your shop address:',
           errors: {
             invalid: 'Invalid address',
-            zone: 'This Zone is not opened',
+            zone: 'This country is not open yet',
           },
         },
         cat: {
@@ -155,6 +155,7 @@ const en = {
     17: 'Department Store',
     18: 'Chemist',
     19: 'Other',
+    20: 'Restaurant',
   },
   days: {
     1: 'Monday',

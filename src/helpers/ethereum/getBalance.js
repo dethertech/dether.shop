@@ -17,7 +17,10 @@ export const getBalance = async () => {
         getDthContract(),
       ]);
       web3js.eth.getBalance(address).then(async (result, error) => {
-        if (!error) {
+        // periodic 'null' result - just resolve null and don't set balance
+        if (!result) {
+          res(result);
+        } else if (!error) {
           balances.eth = parseFloat(web3js.utils.fromWei(result, 'ether'));
           balances.dth = parseFloat(
             web3js.utils.fromWei(

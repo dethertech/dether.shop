@@ -125,7 +125,8 @@ export class LeftPanel extends PureComponent {
     const { setBalance, isMetamaskInstalled, hasGoodNetwork } = this.props;
 
     if (!isMetamaskInstalled) return this.initCheck();
-    if (hasGoodNetwork) setBalance(await getBalance());
+    const balance = await getBalance();
+    if (hasGoodNetwork && balance) setBalance(balance);
   };
 
   toggleBuyModal = () => {
