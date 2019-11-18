@@ -9,6 +9,7 @@ import tr from '../../translate';
 import { weekDays } from '../../constants/time';
 import Mention from '../Mention';
 import { H3 } from '../Headings';
+import WarningModal from '../../components/WarningModal';
 
 const Wrapper = styled.div`
   max-width: 48rem;
@@ -51,19 +52,20 @@ class ShopRecap extends PureComponent {
 
   state = {
     address: '',
+    showWarning: false,
   };
 
   componentDidMount = async () => {
     const { lat, lng, address } = this.props;
 
-    if (address) this.setState({ address });
+    if (address) this.setState({ address, showWarning: true });
     else {
       const CToken = axios.CancelToken;
       this.geocodeCall = CToken.source();
 
       GeocodeAPI.positionToAddress({ lat, lng }, this.geocodeCall.token)
         .then(geoAddress => {
-          this.setState({ address: geoAddress });
+          this.setState({ address: geoAddress, showWarning: true });
         })
         .catch(() => null);
     }
@@ -75,9 +77,14 @@ class ShopRecap extends PureComponent {
 
   render = () => {
     const { opening, name, cat, description, licencePrice } = this.props;
-    const { address } = this.state;
+    const { address, showWarning } = this.state;
     return (
       <Wrapper>
+        {showWarning && (
+          <WarningModal
+            closeFunc={() => this.setState({ showWarning: false })}
+          />
+        )}
         <H3>{tr('shop_recap.informations')}</H3>
         <br />
         <Mention>{tr('shop_recap.name')}</Mention>

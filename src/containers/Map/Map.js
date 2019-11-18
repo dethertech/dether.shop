@@ -11,6 +11,7 @@ import ShopMarker from './Markers/ShopMarker';
 import InfoCard from './InfoCard/';
 import SearchBar from './SearchBar/';
 import IconLocalisation from '../../components/Icon/svg/Localisation';
+import WarningModal from '../../components/WarningModal/WarningModal';
 
 import {
   setCenterPosition as setCenterPositionAction,
@@ -228,6 +229,7 @@ export class Map extends Component {
 
   render() {
     const { centerPosition, fetchPosition, displayPointer } = this.props;
+
     const ShopsMarkers = this.state.shopsCluster.map(shop => (
       <ShopMarker
         {...shop}

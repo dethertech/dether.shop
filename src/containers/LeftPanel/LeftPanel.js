@@ -67,6 +67,7 @@ export class LeftPanel extends PureComponent {
   }
 
   componentDidMount() {
+    console.log('TEEESSSSSS', process.env.REACT_APP_TOKEN_IPINFO);
     this.setState({ showWarning: true });
   }
 
