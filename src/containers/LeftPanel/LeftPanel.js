@@ -9,6 +9,7 @@ import { reset } from '../../actions/root';
 import config from '../../constants/config';
 import LeftPanelPage from './LeftPanelPage';
 import TermsModal from './TermsModal';
+import WarningModal from '../../components/WarningModal';
 
 import { getShop, getBalance, isWeb3 } from '../../helpers';
 
@@ -53,6 +54,7 @@ export class LeftPanel extends PureComponent {
 
   state = {
     isWeb3Checked: false,
+    showWarning: false,
   };
 
   componentWillMount() {
@@ -62,6 +64,11 @@ export class LeftPanel extends PureComponent {
   componentWillUnmount() {
     clearInterval(this.interval);
     clearInterval(this.interval2);
+  }
+
+  componentDidMount() {
+    console.log('TEEESSSSSS', process.env.REACT_APP_TOKEN_IPINFO);
+    this.setState({ showWarning: true });
   }
 
   initCheck = async () => {
@@ -134,7 +141,7 @@ export class LeftPanel extends PureComponent {
       isTermsModalOpenened,
       isLicencePriceSet,
     } = this.props;
-    const { isWeb3Checked } = this.state;
+    const { isWeb3Checked, showWarning } = this.state;
 
     return (
       <Fragment>
@@ -148,6 +155,11 @@ export class LeftPanel extends PureComponent {
           refreshBalance={this.refreshBalance}
         />
         {isTermsModalOpenened && <TermsModal closeFunc={toggleTermsModal} />}
+        {showWarning && (
+          <WarningModal
+            closeFunc={() => this.setState({ showWarning: false })}
+          />
+        )}
       </Fragment>
     );
   }

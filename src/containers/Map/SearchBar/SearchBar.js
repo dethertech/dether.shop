@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -11,6 +11,7 @@ import {
   fetchAll as fetchAllAction,
 } from '../../../actions/map';
 import SearchBarWrapper from './SearchBarWrapper';
+import WarningModal from '../../../components/WarningModal/WarningModal';
 
 export class SearchBar extends PureComponent {
   static propTypes = {
@@ -20,6 +21,7 @@ export class SearchBar extends PureComponent {
 
   state = {
     address: '',
+    showWarning: false,
   };
 
   onChange = address => this.setState({ address });
@@ -41,6 +43,7 @@ export class SearchBar extends PureComponent {
     if (inputs && inputs.length) {
       inputs[0].blur();
     }
+    this.setState({ showWarning: true });
   };
 
   render() {
@@ -49,15 +52,23 @@ export class SearchBar extends PureComponent {
       onChange: this.onChange,
       autoFocus: false,
     };
+    const { showWarning } = this.state;
     return (
-      <SearchBarWrapper>
-        <PlacesAutocomplete
-          id="PlacesAutocomplete"
-          onSelect={this.getAddress}
-          inputProps={inputProps}
-          onEnterKeyDown={this.forceBlur}
-        />
-      </SearchBarWrapper>
+      <Fragment>
+        {showWarning && (
+          <WarningModal
+            closeFunc={() => this.setState({ showWarning: false })}
+          />
+        )}
+        <SearchBarWrapper>
+          <PlacesAutocomplete
+            id="PlacesAutocomplete"
+            onSelect={this.getAddress}
+            inputProps={inputProps}
+            onEnterKeyDown={this.forceBlur}
+          />
+        </SearchBarWrapper>
+      </Fragment>
     );
   }
 }
