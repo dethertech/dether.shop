@@ -28,7 +28,7 @@
     "svgr": "svgr -d src/components/Svg/copy src/components/Svg/copy --template src/components/Svg/template.js --single-quote"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "classnames": "^2.2.5",
     "dethercontract": "^3.6.0",
     "google-map-react": "1.0.6",
